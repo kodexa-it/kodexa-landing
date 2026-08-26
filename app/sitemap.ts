@@ -1,22 +1,32 @@
 import { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://kodexa.ar"
+
   return [
     {
-      url: "https://kodexa.ar",
+      url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://kodexa.ar/#services",
+      url: `${baseUrl}/servicios`,
       lastModified: new Date(),
-      priority: 0.8,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     {
-      url: "https://kodexa.ar/#work",
+      url: `${baseUrl}/equipo-it`,
       lastModified: new Date(),
-      priority: 0.8,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/gracias`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ]
 }
