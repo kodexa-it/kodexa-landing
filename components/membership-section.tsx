@@ -83,10 +83,10 @@ export function MembershipSection() {
       {/* HEADER */}
       <div ref={headerRef} className="max-w-4xl">
         <span className="font-mono text-xs text-accent uppercase tracking-widest">
-          04 / IT TEAM
+          06 / IT TEAM
         </span>
 
-        <h2 className="mt-6 font-[var(--font-bebas)] text-5xl md:text-7xl leading-[0.95] tracking-tight">
+        <h2 className="mt-6 font-[family-name:var(--font-bebas)] text-5xl md:text-7xl leading-[0.95] tracking-tight">
           TU PRODUCTO <span className="text-accent">NO CRECE SOLO.</span> SE
           ESTANCA.
         </h2>
@@ -94,6 +94,15 @@ export function MembershipSection() {
         <p className="mt-6 text-muted-foreground max-w-2xl">
           Si nadie lo mejora constantemente, pierde rendimiento, oportunidades y
           termina quedando atrás.
+        </p>
+
+        <p className="mt-3 text-sm text-muted-foreground/70 max-w-2xl font-mono">
+          Este plan es para productos que ya están en marcha. Si estás por
+          construir tu web, sistema o plataforma desde cero, mirá nuestros{" "}
+          <a href="#servicios" className="text-accent underline underline-offset-2">
+            servicios de desarrollo
+          </a>
+          .
         </p>
       </div>
 
@@ -144,7 +153,7 @@ export function MembershipSection() {
 
               <p className="text-xs text-muted-foreground">Planes desde</p>
 
-              <h3 className="mt-3 font-[var(--font-bebas)] text-6xl md:text-7xl leading-none">
+              <h3 className="mt-3 font-[family-name:var(--font-bebas)] text-6xl md:text-7xl leading-none">
                 USD <span className="text-accent">300</span>
               </h3>
 
@@ -161,7 +170,7 @@ export function MembershipSection() {
 
             {/* CTA INTEGRADO */}
             <div className="mt-8 pt-6 border-t border-border/30">
-              <p className="text-xs text-muted-foreground mb-6">
+              <p className="text-sm text-muted-foreground mb-6">
                 No pagás tareas. Pagás porque tu producto avance.
               </p>
 

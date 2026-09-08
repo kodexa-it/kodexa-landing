@@ -1,3 +1,17 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gracias por tu mensaje",
+  description: "Recibimos tu proyecto. Te respondemos dentro de las próximas 24 horas.",
+  alternates: {
+    canonical: "/gracias",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
 export default function GraciasPage() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 text-center bg-background overflow-hidden">
@@ -12,7 +26,7 @@ export default function GraciasPage() {
           07 / Submission Confirmed
         </span>
 
-        <h1 className="font-[var(--font-bebas)] text-7xl md:text-9xl tracking-tight leading-none">
+        <h1 className="font-[family-name:var(--font-bebas)] text-7xl md:text-9xl tracking-tight leading-none">
           PROJECT
           <br />
           <span className="text-accent">RECEIVED</span>

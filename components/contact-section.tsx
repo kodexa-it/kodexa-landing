@@ -13,17 +13,18 @@ const forminit = new Forminit({
 gsap.registerPlugin(ScrollTrigger);
 
 const projectTypes = [
-  "Landing Page",
-  "Sitio Institucional",
-  "Sistema Web",
-  "Soporte Mensual",
+  "Sitio web o Landing Page",
+  "Software o Sistema a Medida",
+  "Plataforma o Aplicación Web",
+  "MVP o Producto SaaS",
+  "Soporte y Equipo IT",
 ];
 
-const projectStages = [
-  "Tengo una idea inicial",
-  "Ya tengo diseño",
-  "Ya tengo una web y quiero mejorarla",
-  "Necesito soporte continuo",
+const budgetRanges = [
+  "Menos de USD 500",
+  "USD 500 – 1.500",
+  "USD 1.500 – 5.000",
+  "Más de USD 5.000 / A definir",
 ];
 
 export function ContactSection() {
@@ -36,7 +37,7 @@ export function ContactSection() {
     "fi-sender-fullName": "",
     "fi-sender-email": "",
     "fi-select-projectType": "",
-    "fi-select-projectStage": "",
+    "fi-select-budget": "",
     "fi-text-message": "",
   });
 
@@ -144,17 +145,18 @@ export function ContactSection() {
         className="flex flex-col items-center text-center mb-20"
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6">
-          06 / Contacto
+          08 / Contacto
         </span>
 
-        <h2 className="font-[var(--font-bebas)] text-5xl md:text-7xl lg:text-8xl tracking-tight">
+        <h2 className="font-[family-name:var(--font-bebas)] text-5xl md:text-7xl lg:text-8xl tracking-tight">
           CONSTRUYAMOS <span className="text-accent">ALGO</span>
           <br />
           SÓLIDO.
         </h2>
 
         <p className="mt-8 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          Contame qué estás buscando y vemos cómo hacerlo realidad.
+          Contanos tu idea, qué necesitás construir y con qué presupuesto
+          contás. Te respondemos con una propuesta clara.
         </p>
       </div>
 
@@ -222,28 +224,27 @@ export function ContactSection() {
             </select>
           </div>
 
-          {/* ETAPA */}
+          {/* PRESUPUESTO */}
           <div className="space-y-2">
             <label className="label">
-              ¿En qué etapa está tu proyecto?
+              Presupuesto aproximado (opcional)
             </label>
             <select
-              name="fi-select-projectStage"
-              required
-              value={formData["fi-select-projectStage"]}
+              name="fi-select-budget"
+              value={formData["fi-select-budget"]}
               onChange={handleChange}
               className={cn(
                 "input cursor-pointer",
-                !formData["fi-select-projectStage"] &&
+                !formData["fi-select-budget"] &&
                   "text-muted-foreground/40"
               )}
             >
               <option value="" disabled>
                 Seleccionar
               </option>
-              {projectStages.map((stage) => (
-                <option key={stage} value={stage} className="bg-card">
-                  {stage}
+              {budgetRanges.map((range) => (
+                <option key={range} value={range} className="bg-card">
+                  {range}
                 </option>
               ))}
             </select>
@@ -258,7 +259,7 @@ export function ContactSection() {
               rows={5}
               value={formData["fi-text-message"]}
               onChange={handleChange}
-              placeholder="Contame sobre tu proyecto..."
+              placeholder="Contame qué necesitás construir y tu idea..."
               className="input min-h-[140px] resize-none"
             />
           </div>

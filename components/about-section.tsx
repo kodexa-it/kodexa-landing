@@ -86,10 +86,10 @@ export function AboutSection() {
       {/* HEADER */}
       <div ref={headerRef} className="mb-24 md:mb-28">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          05 / Sobre el estudio
+          07 / Sobre el estudio
         </span>
 
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl lg:text-8xl tracking-tight">
+        <h2 className="mt-4 font-[family-name:var(--font-bebas)] text-5xl md:text-7xl lg:text-8xl tracking-tight">
           LA VISIÓN DETRÁS DE KODEXA
         </h2>
 
@@ -106,9 +106,11 @@ export function AboutSection() {
             data-fade
             className="max-w-[650px] font-mono text-sm text-foreground/80 leading-relaxed"
           >
-            Kodexa nace para resolver un problema claro: negocios que necesitan
-            crecer, pero están limitados por soluciones digitales mal
-            construidas o que no escalan.
+            Desarrollar software no es simplemente escribir código. Primero
+            hay que entender el problema, el negocio y al usuario. Kodexa nace
+            para resolver algo claro: negocios que necesitan crecer, pero
+            están limitados por soluciones digitales mal construidas o que no
+            escalan.
           </p>
 
           <div data-fade className="max-w-[650px] space-y-6">
@@ -129,15 +131,15 @@ export function AboutSection() {
 
           {/* FRASES */}
           <div data-fade className="max-w-[650px] py-4 space-y-5">
-            <p className="font-[var(--font-bebas)] text-xl md:text-2xl text-foreground/40 tracking-[0.15em]">
+            <p className="font-[family-name:var(--font-bebas)] text-xl md:text-2xl text-foreground/40 tracking-[0.15em]">
               ESTRUCTURA ANTES QUE IMPROVISACIÓN
             </p>
 
-            <p className="font-[var(--font-bebas)] text-xl md:text-2xl text-foreground/40 tracking-[0.15em]">
+            <p className="font-[family-name:var(--font-bebas)] text-xl md:text-2xl text-foreground/40 tracking-[0.15em]">
               RENDIMIENTO POR SOBRE TODO
             </p>
 
-            <p className="font-[var(--font-bebas)] text-xl md:text-2xl text-foreground/40 tracking-[0.15em]">
+            <p className="font-[family-name:var(--font-bebas)] text-xl md:text-2xl text-foreground/40 tracking-[0.15em]">
               PENSADO PARA ESCALAR
             </p>
           </div>
@@ -202,7 +204,7 @@ function FounderCard({ name, role, bio1, bio2, linkedin, portfolio }: any) {
       </div>
 
       <div className="mb-8 relative z-10">
-        <h3 className="font-[var(--font-bebas)] text-3xl md:text-4xl tracking-tight">
+        <h3 className="font-[family-name:var(--font-bebas)] text-3xl md:text-4xl tracking-tight">
           {name}
         </h3>
 
@@ -213,11 +215,11 @@ function FounderCard({ name, role, bio1, bio2, linkedin, portfolio }: any) {
 
       <div className="w-10 h-px bg-accent/40 mb-8 group-hover:w-24 transition-all duration-500" />
 
-      <p className="font-mono text-xs text-foreground/70 leading-relaxed relative z-10">
+      <p className="font-mono text-sm text-foreground/70 leading-relaxed relative z-10">
         {bio1}
       </p>
 
-      <p className="mt-3 font-mono text-xs text-foreground/70 leading-relaxed relative z-10">
+      <p className="mt-3 font-mono text-sm text-foreground/70 leading-relaxed relative z-10">
         {bio2}
       </p>
 

@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono, Bebas_Neue } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SmoothScroll } from "@/components/smooth-scroll";
@@ -30,28 +30,30 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kodexa.ar"),
 
   title: {
-    default: "Kodexa | Desarrollo Web",
+    default: "Kodexa | Desarrollo Web y Software a Medida",
     template: "%s | Kodexa",
   },
 
   description:
-    "Kodexa es un estudio de desarrollo web especializado en sitios rápidos, modernos y bien estructurados. Creamos landings, webs corporativas y sistemas web escalables.",
+    "Kodexa es un estudio de producto digital: desarrollamos sitios web, software a medida, sistemas y plataformas digitales, MVPs y productos SaaS pensados para crecer junto a tu negocio.",
 
   keywords: [
     "desarrollo web",
-    "agencia desarrollo web",
-    "desarrollador web freelance",
-    "landing pages profesionales",
-    "desarrollo frontend",
-    "next.js development",
-    "astro development",
-    "desarrollo web argentina",
+    "desarrollo de software",
+    "desarrollo de software a medida",
+    "software a medida",
+    "productos digitales",
+    "desarrollo web Argentina",
   ],
 
   authors: [{ name: "Lautaro Aquino", url: "https://kodexa.ar" }],
 
   creator: "Kodexa",
   publisher: "Kodexa",
+
+  alternates: {
+    canonical: "/",
+  },
 
   robots: {
     index: true,
@@ -72,9 +74,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Kodexa — Desarrollo Web Moderno",
+    title: "Kodexa — Desarrollo Web y Software a Medida",
     description:
-      "Desarrollo de sitios web modernos, rápidos y escalables para empresas que buscan una presencia digital sólida.",
+      "Diseñamos y desarrollamos productos digitales — sitios web, sistemas a medida, plataformas y MVPs — pensados para crecer junto a tu negocio.",
     url: "https://kodexa.ar",
     siteName: "Kodexa",
     images: [
@@ -82,7 +84,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kodexa Web Development",
+        alt: "Kodexa — Estudio de desarrollo web y software a medida",
       },
     ],
     locale: "es_AR",
@@ -91,12 +93,14 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Kodexa — Desarrollo Web Moderno",
+    title: "Kodexa — Desarrollo Web y Software a Medida",
     description:
-      "Sitios web modernos, rápidos y bien estructurados para empresas que quieren crecer online.",
+      "Sitios web, sistemas a medida y plataformas digitales pensados para crecer junto a tu negocio.",
     images: ["/og-image2.png"],
   },
+};
 
+export const viewport: Viewport = {
   themeColor: "#ff6a00",
 };
 

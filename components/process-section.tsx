@@ -15,31 +15,31 @@ export function ProcessSection() {
   const steps = [
     {
       number: "01",
-      title: "Estrategia",
+      title: "Entendemos",
       description:
-        "Entendemos tu negocio y definimos una base sólida antes de diseñar o desarrollar.",
+        "Definimos el problema, los objetivos y el alcance antes de diseñar o desarrollar nada.",
       bullets: [
         "Objetivos claros",
-        "Análisis de competencia",
-        "Definición de estructura",
+        "Análisis del negocio y la competencia",
+        "Definición de alcance y estructura",
       ],
     },
     {
       number: "02",
-      title: "Diseño",
+      title: "Diseñamos",
       description:
-        "Diseñamos interfaces enfocadas en conversión, claridad y experiencia.",
+        "Convertimos la idea en una experiencia y una solución concreta, enfocada en el usuario.",
       bullets: [
         "UX/UI centrado en usuario",
-        "Diseño moderno",
-        "Optimización de conversión",
+        "Diseño moderno y consistente",
+        "Estructura orientada a conversión",
       ],
     },
     {
       number: "03",
-      title: "Desarrollo",
+      title: "Construimos",
       description:
-        "Construimos soluciones rápidas, escalables y preparadas para crecer.",
+        "Desarrollamos el producto con una arquitectura preparada para crecer, no para rehacerse.",
       bullets: [
         "Código optimizado",
         "APIs e integraciones",
@@ -48,10 +48,10 @@ export function ProcessSection() {
     },
     {
       number: "04",
-      title: "Optimización",
+      title: "Lanzamos",
       description:
-        "Mejoramos continuamente para maximizar rendimiento y resultados.",
-      bullets: ["Performance", "SEO", "Mejora continua"],
+        "Probamos, optimizamos y preparamos el producto para usuarios y tráfico reales.",
+      bullets: ["Performance", "SEO técnico", "Mejora continua"],
     },
   ];
 
@@ -116,15 +116,16 @@ export function ProcessSection() {
   return (
     <section
       ref={sectionRef}
+      id="proceso"
       className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12"
     >
       {/* HEADER */}
       <div className="mb-20 max-w-3xl">
         <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-accent">
-          03 / Proceso
+          04 / Proceso
         </span>
 
-        <h2 className="mt-4 text-5xl md:text-7xl font-[var(--font-bebas)]">
+        <h2 className="mt-4 text-5xl md:text-7xl font-[family-name:var(--font-bebas)]">
           CÓMO TRABAJAMOS
         </h2>
 
@@ -188,7 +189,7 @@ export function ProcessSection() {
                 {step.description}
               </p>
 
-              <div className="mt-4 text-xs text-muted-foreground font-mono space-y-1">
+              <div className="mt-4 text-sm text-muted-foreground font-mono space-y-1">
                 {step.bullets.map((b, i) => (
                   <p key={i}>• {b}</p>
                 ))}
@@ -200,7 +201,7 @@ export function ProcessSection() {
 
       {/* ================= CTA ================= */}
       <div className="mt-24 border border-border/40 p-10 md:p-16 text-center w-full">
-        <h3 className="text-3xl md:text-5xl font-[var(--font-bebas)] max-w-3xl mx-auto">
+        <h3 className="text-3xl md:text-5xl font-[family-name:var(--font-bebas)] max-w-3xl mx-auto">
           Contanos tu idea y la convertimos en un producto real.
         </h3>
 

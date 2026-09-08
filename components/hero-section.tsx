@@ -59,29 +59,42 @@ export function HeroSection() {
           </div>
         </SplitFlapAudioProvider>
 
-        {/* 🔥 HEADLINE NUEVO */}
-        <h2 className="font-[var(--font-bebas)] text-muted-foreground/70 text-[clamp(1.4rem,3.2vw,2.4rem)] mt-6 tracking-wide leading-tight">
+        {/* TAGLINE DE MARCA */}
+        <p className="font-[family-name:var(--font-bebas)] text-muted-foreground/70 text-[clamp(1.4rem,3.2vw,2.4rem)] mt-6 tracking-wide leading-tight">
           DISEÑADO PARA CRECER. <span className="text-accent">PREPARADO PARA ESCALAR.</span>
-        </h2>
-
-        {/* 💡 SUBTEXTO MEJORADO */}
-        <p className="mt-10 max-w-xl font-mono text-sm text-muted-foreground leading-relaxed">
-          Diseñamos y desarrollamos productos digitales pensados para escalar,
-          optimizar resultados y acompañar el crecimiento de tu negocio.
         </p>
 
-        {/* 🚀 CTAs MEJORADOS */}
+        {/* H1 — PROPUESTA DE VALOR */}
+        <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-bebas)] text-[clamp(1.6rem,3vw,2.6rem)] leading-snug tracking-tight text-foreground">
+          Desarrollamos <span className="text-accent">productos digitales</span> que hacen crecer tu negocio
+        </h1>
+
+        {/* SUBTEXTO */}
+        <p className="mt-8 max-w-xl font-mono text-sm text-muted-foreground leading-relaxed">
+          Desde sitios web y sistemas a medida hasta plataformas digitales, MVPs
+          y productos SaaS: diseñamos y desarrollamos soluciones pensadas para
+          escalar junto a tu negocio.
+        </p>
+
+        {/* 🚀 CTAs */}
         <div className="mt-14 flex items-center gap-6 flex-wrap">
           <a
-            href="#services"
+            href="#contact"
             className="group inline-flex items-center gap-2 border border-accent px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-accent hover:bg-accent hover:text-black transition-all duration-200"
           >
-            <ScrambleTextOnHover text="Ver servicios" as="span" duration={0.6} />
+            <ScrambleTextOnHover text="Iniciar proyecto" as="span" duration={0.6} />
             <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
 
           <a
-            href="#work"
+            href="#servicios"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
+          >
+            Ver servicios
+          </a>
+
+          <a
+            href="#proyectos"
             className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             Ver proyectos

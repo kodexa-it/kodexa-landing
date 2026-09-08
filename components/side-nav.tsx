@@ -5,11 +5,13 @@ import { cn } from "@/lib/utils"
 
 const navItems = [
   { id: "hero", label: "Index" },
-  { id: "services", label: "Services" },
-  { id: "work", label: "Portfolio" },
-  { id: "principles", label: "Process" },
-  { id: "membership", label: "IT Team" },
-  { id: "founder", label: "Studio" },
+  { id: "servicios", label: "Services" },
+  { id: "para-quien", label: "Audience" },
+  { id: "proyectos", label: "Portfolio" },
+  { id: "proceso", label: "Process" },
+  { id: "por-que-kodexa", label: "Why Us" },
+  { id: "equipo-it", label: "IT Team" },
+  { id: "founders", label: "Studio" },
   { id: "contact", label: "Contact" },
 ]
 

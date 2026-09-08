@@ -81,7 +81,7 @@ export function TechSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-16">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">04 / Stack</span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">TECHNOLOGY</h2>
+        <h2 className="mt-4 font-[family-name:var(--font-bebas)] text-5xl md:text-7xl tracking-tight">TECHNOLOGY</h2>
         <p className="mt-6 max-w-lg font-mono text-sm text-muted-foreground leading-relaxed">
           Trabajamos con tecnologías modernas que garantizan rendimiento y escalabilidad.
         </p>
@@ -98,7 +98,7 @@ export function TechSection() {
               {category.items.map((item, i) => (
                 <li key={i} className="group flex items-center gap-3">
                   <span className="w-1.5 h-1.5 bg-muted-foreground/40 group-hover:bg-accent transition-colors duration-300" />
-                  <span className="font-[var(--font-bebas)] text-2xl md:text-3xl tracking-tight text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+                  <span className="font-[family-name:var(--font-bebas)] text-2xl md:text-3xl tracking-tight text-foreground/80 group-hover:text-foreground transition-colors duration-300">
                     {item}
                   </span>
                 </li>

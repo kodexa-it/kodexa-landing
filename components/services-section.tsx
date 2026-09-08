@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ScrambleTextOnHover } from "@/components/scramble-text";
 import { BitmapChevron } from "@/components/bitmap-chevron";
@@ -11,46 +12,64 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: "LANDING PAGES",
+    title: "DESARROLLO WEB",
     description:
-      "Páginas estratégicas enfocadas en conversión, pensadas para captar leads y comunicar tu propuesta de forma clara y efectiva.",
+      "Sitios y landing pages diseñados para convertir visitas en clientes, con una base sólida para tu marca en internet.",
     features: [
-      "Estructura orientada a resultados",
-      "Optimización de velocidad y performance",
-      "Integración con formularios y herramientas externas",
+      "Estructura orientada a conversión",
+      "Diseño moderno y adaptable a todos los dispositivos",
+      "SEO técnico y buenas prácticas incluidas",
       "Deploy y puesta en producción incluidos",
     ],
     price: "Desde USD 250",
     whatsappMessage:
-      "Hola Lautaro! Vi tu web y me interesa desarrollar una Landing Page. ¿Podemos hablar?",
+      "Hola Lautaro! Vi tu web y me interesa desarrollar un sitio web. ¿Podemos hablar?",
+    href: "/servicios/desarrollo-web",
   },
   {
-    title: "SITIOS INSTITUCIONALES",
+    title: "SOFTWARE Y SISTEMAS A MEDIDA",
     description:
-      "Web profesional para empresas que necesitan una presencia sólida, clara y bien estructurada.",
+      "Sistemas adaptados a los procesos reales de tu empresa para centralizar información, automatizar tareas y ganar eficiencia.",
     features: [
-      "Arquitectura de contenido bien definida",
-      "Diseño moderno y adaptable",
-      "Formularios e integraciones",
-      "SEO técnico y buenas prácticas incluidas",
-    ],
-    price: "Desde USD 500",
-    whatsappMessage:
-      "Hola Lautaro! Me interesa desarrollar un Sitio Institucional para mi empresa. ¿Podemos hablar?",
-  },
-  {
-    title: "SITIOS DINÁMICOS",
-    description:
-      "Plataformas administrables pensadas para crecer y evolucionar junto al negocio.",
-    features: [
-      "Panel de gestión personalizado",
-      "Contenido editable (blog, servicios, productos)",
-      "Arquitectura escalable",
-      "Preparado para futuras integraciones",
+      "Panel de gestión personalizado (ABM)",
+      "Automatización de procesos internos",
+      "Integración con APIs y herramientas externas",
+      "Arquitectura pensada para escalar",
     ],
     price: "Desde USD 900",
     whatsappMessage:
-      "Hola Lautaro! Estoy interesado en desarrollar un sitio dinámico con panel de gestión. ¿Podemos hablar?",
+      "Hola Lautaro! Me interesa desarrollar un sistema a medida para mi empresa. ¿Podemos hablar?",
+    href: "/servicios/software-a-medida",
+  },
+  {
+    title: "PLATAFORMAS Y APLICACIONES WEB",
+    description:
+      "Aplicaciones web con lógica propia para negocios que necesitan más que un sitio: usuarios, contenido dinámico y funcionalidades específicas.",
+    features: [
+      "Aplicaciones web multiusuario",
+      "Roles, permisos y paneles administrables",
+      "Arquitectura escalable a largo plazo",
+      "Alcance y presupuesto definidos a medida",
+    ],
+    price: "Presupuesto a medida",
+    whatsappMessage:
+      "Hola Lautaro! Estoy evaluando desarrollar una plataforma o aplicación web. ¿Podemos hablar?",
+    href: "/servicios/plataformas-digitales",
+  },
+  {
+    title: "MVP Y PRODUCTOS SAAS",
+    description:
+      "Desarrollo de tu producto digital desde cero, pensado para validar una idea de negocio y lanzarla al mercado con una base técnica sólida.",
+    features: [
+      "De la idea al producto funcional",
+      "Arquitectura preparada para iterar y crecer",
+      "Suscripciones, pagos y paneles de usuario",
+      "Alcance y presupuesto definidos a medida",
+    ],
+    price: "Presupuesto a medida",
+    whatsappMessage:
+      "Hola Lautaro! Quiero desarrollar un MVP o producto SaaS. ¿Podemos hablar?",
+    href: "/servicios/mvp",
   },
 ];
 
@@ -135,13 +154,18 @@ export function ServicesSection() {
       className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12"
     >
       {/* Section header */}
-      <div ref={headerRef} className="mb-16">
+      <div ref={headerRef} className="mb-16 max-w-3xl">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          01 / Services
+          01 / Servicios
         </span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
+        <h2 className="mt-4 font-[family-name:var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
           CÓMO HACEMOS CRECER TU PRODUCTO
         </h2>
+        <p className="mt-6 font-mono text-sm md:text-base text-muted-foreground leading-relaxed">
+          Desde el desarrollo web hasta software a medida, plataformas
+          digitales y productos SaaS: construimos la solución que tu negocio
+          necesita en cada etapa.
+        </p>
       </div>
 
       {/* Horizontal scroll container */}
@@ -161,13 +185,13 @@ export function ServicesSection() {
         className="mt-16 border border-border/40 p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
       >
         <div>
-          <h3 className="font-[var(--font-bebas)] text-2xl md:text-3xl tracking-tight">
+          <h3 className="font-[family-name:var(--font-bebas)] text-2xl md:text-3xl tracking-tight">
             {"¿Necesitás algo específico para "}
             <span className="text-accent">tu negocio</span>
             {"?"}
           </h3>
 
-          <p className="mt-2 font-mono text-xs text-muted-foreground leading-relaxed">
+          <p className="mt-2 font-mono text-sm text-muted-foreground leading-relaxed">
             Cada proyecto puede adaptarse a tus necesidades.
           </p>
           <p className="font-mono text-[10px] text-muted-foreground">
@@ -228,6 +252,7 @@ function ServiceCard({
     features: string[];
     price: string;
     whatsappMessage: string;
+    href: string;
   };
   index: number;
 }) {
@@ -255,7 +280,7 @@ function ServiceCard({
         </div>
 
         {/* Title */}
-        <h3 className="font-[var(--font-bebas)] text-3xl md:text-4xl tracking-tight mb-4 group-hover:text-accent transition-colors duration-300">
+        <h3 className="font-[family-name:var(--font-bebas)] text-3xl md:text-4xl tracking-tight mb-4 group-hover:text-accent transition-colors duration-300">
           {service.title}
         </h3>
 
@@ -263,7 +288,7 @@ function ServiceCard({
         <div className="w-12 h-px bg-accent/60 mb-6 group-hover:w-full transition-all duration-500" />
 
         {/* Description */}
-        <p className="font-mono text-xs text-muted-foreground leading-relaxed mb-6">
+        <p className="font-mono text-sm text-muted-foreground leading-relaxed mb-6">
           {service.description}
         </p>
 
@@ -272,7 +297,7 @@ function ServiceCard({
           {service.features.map((feature, i) => (
             <li
               key={i}
-              className="font-mono text-xs text-foreground/70 flex items-start gap-2"
+              className="font-mono text-sm text-foreground/70 flex items-start gap-2"
             >
               <span className="text-accent mt-0.5 shrink-0">{"/"}</span>
               {feature}
@@ -282,9 +307,16 @@ function ServiceCard({
 
         {/* Price + WhatsApp CTA */}
         <div className="mt-auto pt-6 border-t border-border/30 flex flex-col gap-4">
-          <span className="font-[var(--font-bebas)] text-2xl text-accent tracking-tight">
+          <span className="font-[family-name:var(--font-bebas)] text-2xl text-accent tracking-tight">
             {service.price}
           </span>
+
+          <Link
+            href={service.href}
+            className="text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors duration-200 underline underline-offset-2"
+          >
+            Ver {service.title.toLowerCase()} en detalle
+          </Link>
 
           <a
             href={whatsappLink}

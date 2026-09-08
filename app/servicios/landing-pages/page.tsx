@@ -1,18 +1,62 @@
-export const metadata = {
-  title: "Landing Pages en Argentina | Kodexa",
+import type { Metadata } from "next";
+import { BreadcrumbNav } from "@/components/breadcrumb-nav";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { RelatedLinks } from "@/components/related-links";
+
+export const metadata: Metadata = {
+  title: "Landing Pages que Convierten | Kodexa",
   description:
-    "Creamos landing pages enfocadas en conversión para negocios en Argentina. Generá más clientes con una página optimizada.",
+    "Diseño y desarrollo de landing pages enfocadas en conversión para negocios en Argentina. Estructura, velocidad e integraciones pensadas para generar clientes.",
+  alternates: {
+    canonical: "/servicios/landing-pages",
+  },
+  openGraph: {
+    title: "Landing Pages que Convierten | Kodexa",
+    description:
+      "Diseño y desarrollo de landing pages enfocadas en conversión, estructura y velocidad.",
+    url: "https://kodexa.ar/servicios/landing-pages",
+    siteName: "Kodexa",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Landing pages que convierten, desarrolladas por Kodexa",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
 };
 
 export default function LandingPages() {
   return (
     <section className="bg-black text-white overflow-hidden">
+      <BreadcrumbSchema
+        items={[
+          { name: "Kodexa", url: "https://kodexa.ar" },
+          { name: "Servicios", url: "https://kodexa.ar/servicios" },
+          {
+            name: "Landing Pages",
+            url: "https://kodexa.ar/servicios/landing-pages",
+          },
+        ]}
+      />
+
+      <BreadcrumbNav
+        items={[
+          { name: "Kodexa", href: "/" },
+          { name: "Servicios", href: "/servicios" },
+          { name: "Landing Pages" },
+        ]}
+      />
+
       {/* HERO */}
-      <div className="relative px-6 md:px-28 min-h-screen flex items-center">
+      <div className="relative px-6 md:px-28 pt-4 pb-24 md:pt-12 md:pb-32 flex items-center min-h-[80vh]">
         <div className="absolute right-0 w-[500px] h-[500px] bg-accent/20 blur-[120px]" />
 
         <div className="max-w-4xl">
-          <h1 className="text-[48px] md:text-[90px] leading-[0.9] font-[var(--font-bebas)]">
+          <h1 className="text-[48px] md:text-[90px] leading-[0.9] font-[family-name:var(--font-bebas)]">
             Landing pages que convierten
           </h1>
 
@@ -23,7 +67,9 @@ export default function LandingPages() {
 
           <div className="mt-10">
             <a
-              href="https://wa.me/5491167470473"
+              href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Me%20interesa%20una%20landing%20page.%20%C2%BFPodemos%20hablar%3F"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-accent text-black px-6 py-3 uppercase text-sm hover:scale-105 transition"
             >
               Quiero mi landing
@@ -91,8 +137,28 @@ export default function LandingPages() {
         </div>
       </div>
 
+      <RelatedLinks
+        items={[
+          {
+            label: "Desarrollo Web",
+            description: "Si además necesitás un sitio institucional más completo.",
+            href: "/servicios/desarrollo-web",
+          },
+          {
+            label: "Software y Sistemas a Medida",
+            description: "Cuando tu negocio necesita algo más que captar leads.",
+            href: "/servicios/software-a-medida",
+          },
+          {
+            label: "Proyectos de Kodexa",
+            description: "Conocé los productos que construimos.",
+            href: "/proyectos",
+          },
+        ]}
+      />
+
       {/* CTA */}
-      <div className="mt-32 text-center px-6">
+      <div className="mt-40 pb-24 text-center px-6">
         <h3 className="text-4xl font-semibold">
           Tu producto puede convertir más
         </h3>
@@ -102,7 +168,9 @@ export default function LandingPages() {
         </p>
 
         <a
-          href="https://wa.me/5491167470473"
+          href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Me%20interesa%20una%20landing%20page.%20%C2%BFPodemos%20hablar%3F"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-10 inline-block bg-accent text-black px-8 py-4 uppercase text-sm"
         >
           Empezar proyecto

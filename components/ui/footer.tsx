@@ -22,7 +22,7 @@ export default function Footer() {
             {/* SOCIAL */}
             <div className="mt-6 flex items-center gap-4">
               <a
-                href="https://instagram.com/TU_USUARIO"
+                href="https://www.instagram.com/kodexa.it/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 border border-white/10 rounded-lg hover:bg-white hover:text-black transition"
@@ -43,13 +43,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/equipo" className="hover:text-white transition relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                  Equipo
+                <Link href="/equipo-it" className="hover:text-white transition relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
+                  Equipo IT
                 </Link>
               </li>
               <li>
-                <Link href="/#servicios" className="hover:text-white transition relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
+                <Link href="/servicios" className="hover:text-white transition relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
                   Servicios
+                </Link>
+              </li>
+              <li>
+                <Link href="/proyectos" className="hover:text-white transition relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
+                  Proyectos
+                </Link>
+              </li>
+              <li>
+                <Link href="/recursos" className="hover:text-white transition relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
+                  Recursos
                 </Link>
               </li>
               <li>
@@ -65,10 +75,31 @@ export default function Footer() {
             <p className="text-sm font-semibold mb-4">Servicios</p>
 
             <ul className="space-y-3 text-sm text-gray-400">
-              <li className="hover:text-white transition">Desarrollo web</li>
-              <li className="hover:text-white transition">Optimización y performance</li>
-              <li className="hover:text-white transition">Mantenimiento continuo</li>
-              <li className="hover:text-white transition">SEO técnico</li>
+              <li>
+                <Link href="/servicios/desarrollo-web" className="hover:text-white transition">
+                  Desarrollo web
+                </Link>
+              </li>
+              <li>
+                <Link href="/servicios/software-a-medida" className="hover:text-white transition">
+                  Software a medida
+                </Link>
+              </li>
+              <li>
+                <Link href="/servicios/plataformas-digitales" className="hover:text-white transition">
+                  Plataformas digitales
+                </Link>
+              </li>
+              <li>
+                <Link href="/servicios/mvp" className="hover:text-white transition">
+                  MVP y SaaS
+                </Link>
+              </li>
+              <li>
+                <Link href="/equipo-it" className="hover:text-white transition">
+                  Mantenimiento continuo
+                </Link>
+              </li>
             </ul>
           </div>
 

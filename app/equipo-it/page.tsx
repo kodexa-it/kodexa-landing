@@ -80,7 +80,7 @@ export default function TeamPage() {
             ✔ Respuesta en 24h · Trabajo continuo · Sin contratos
           </p>
 
-          <h1 className="text-[52px] md:text-[110px] leading-[0.9] font-[var(--font-bebas)]">
+          <h1 className="text-[52px] md:text-[110px] leading-[0.9] font-[family-name:var(--font-bebas)]">
             Tu web o sistema
             <br />
             no crece solo.
@@ -119,7 +119,7 @@ export default function TeamPage() {
 
       {/* CAMBIO */}
       <div className="mt-40 text-center max-w-4xl mx-auto px-6">
-        <h2 className="text-6xl font-[var(--font-bebas)] reveal">
+        <h2 className="text-6xl font-[family-name:var(--font-bebas)] reveal">
           No necesitás otro freelancer
         </h2>
 
@@ -206,7 +206,7 @@ export default function TeamPage() {
             <div>
               <p className="text-sm text-gray-400">Planes desde</p>
 
-              <h3 className="text-6xl font-[var(--font-bebas)]">
+              <h3 className="text-6xl font-[family-name:var(--font-bebas)]">
                 USD <span className="text-orange-500">300</span>
               </h3>
 
