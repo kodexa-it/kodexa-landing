@@ -29,12 +29,18 @@ export default function RecursosPage() {
       <div className="relative px-6 md:px-28 pt-16 pb-20 md:pt-24 md:pb-28">
         <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-accent/20 blur-[140px] pointer-events-none" />
 
-        <div className="max-w-3xl relative z-10">
+        <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10">
+          <div className="border border-white/15 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
+            Digital Product Studio
+          </div>
+        </div>
+
+        <div className="max-w-4xl relative z-10">
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
             Recursos
           </span>
 
-          <h1 className="mt-4 text-[38px] md:text-[64px] leading-[0.95] font-[family-name:var(--font-bebas)]">
+          <h1 className="mt-4 text-[44px] md:text-[84px] leading-[0.95] font-[family-name:var(--font-bebas)]">
             Notas desde adentro de Kodexa
           </h1>
 
@@ -48,15 +54,15 @@ export default function RecursosPage() {
 
       {/* LISTADO */}
       <div className="max-w-4xl mx-auto px-6 pb-32">
-        <div className="border-t border-white/10">
+        <div className="flex flex-col gap-6">
           {articles.map((article) => (
             <Link
               key={article.href}
               href={article.href}
-              className="group block border-b border-white/10 py-10 hover:bg-white/[0.02] transition-colors"
+              className="group block border border-white/10 rounded-xl p-8 md:p-10 hover:border-accent/40 hover:bg-white/[0.03] transition-colors duration-300"
             >
               <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-3">
-                <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-bebas)] tracking-tight group-hover:text-accent transition-colors">
+                <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-bebas)] tracking-tight text-white group-hover:text-accent transition-colors duration-300">
                   {article.title}
                 </h2>
                 <span className="shrink-0 font-mono text-xs text-gray-500 uppercase tracking-widest">
@@ -66,8 +72,11 @@ export default function RecursosPage() {
               <p className="mt-4 text-gray-400 leading-relaxed max-w-2xl">
                 {article.description}
               </p>
-              <span className="mt-5 inline-block text-accent text-sm underline underline-offset-2">
+              <span className="mt-5 inline-flex items-center gap-2 text-gray-400 text-sm group-hover:text-accent transition-colors duration-300">
                 Leer artículo completo
+                <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
               </span>
             </Link>
           ))}

@@ -83,12 +83,18 @@ export default function SaasLearningsArticle() {
       <header className="relative px-6 md:px-28 pt-12 pb-16 md:pt-16 md:pb-20">
         <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-accent/20 blur-[140px] pointer-events-none" />
 
-        <div className="max-w-3xl relative z-10">
+        <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10">
+          <div className="border border-white/15 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
+            Digital Product Studio
+          </div>
+        </div>
+
+        <div className="max-w-4xl relative z-10">
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
             Recursos / Detrás de escena / Nexo
           </span>
 
-          <h1 className="mt-5 text-[34px] md:text-[58px] leading-[1.02] font-[family-name:var(--font-bebas)]">
+          <h1 className="mt-5 text-[38px] md:text-[68px] leading-[1.02] font-[family-name:var(--font-bebas)]">
             {TITLE}
           </h1>
 
