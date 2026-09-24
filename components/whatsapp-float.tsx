@@ -7,7 +7,7 @@ import { BitmapChevron } from "@/components/bitmap-chevron";
 const whatsappLink =
   "https://wa.me/5491167470473?text=" +
   encodeURIComponent(
-    "Hola Lautaro! Estuve viendo tu web y me gustaría hablar sobre un proyecto.",
+    "Hola Kodexa! Estuve viendo su web y me gustaría hablar sobre un proyecto.",
   );
 
 export function WhatsAppFloat() {

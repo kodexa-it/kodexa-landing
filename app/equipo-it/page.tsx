@@ -72,7 +72,7 @@ export default function TeamPage() {
   return (
     <section ref={sectionRef} className="bg-white text-black overflow-hidden">
       {/* HERO */}
-      <div className="relative bg-black text-white px-6 md:px-28 min-h-screen flex items-center">
+      <div className="relative bg-black text-white page-gutter min-h-screen flex items-center">
         <div className="absolute right-0 w-[600px] h-[600px] bg-orange-500/20 blur-[140px]" />
 
         <div className="max-w-[1100px]">

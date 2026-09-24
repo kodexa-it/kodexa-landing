@@ -5,7 +5,7 @@ import { Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="px-6 pt-10 pb-10 bg-black text-white">
+    <footer className="px-6 pt-10 pb-24 md:pb-10 bg-black text-white">
       <div className="max-w-6xl mx-auto">
 
         {/* TOP */}
@@ -16,7 +16,7 @@ export default function Footer() {
             <h3 className="text-xl font-semibold">Kodexa</h3>
 
             <p className="mt-4 text-sm text-gray-400 max-w-xs">
-              Equipo de desarrollo web enfocado en crear, mejorar y escalar productos digitales.
+              Equipo de desarrollo web enfocado en crear, mejorar y escalar soluciones digitales.
             </p>
 
             {/* SOCIAL */}
@@ -54,7 +54,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/proyectos" className="hover:text-white transition relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
-                  Proyectos
+                  Trabajos
+                </Link>
+              </li>
+              <li>
+                <Link href="/productos" className="hover:text-white transition relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">
+                  Productos
                 </Link>
               </li>
               <li>
@@ -108,7 +113,7 @@ export default function Footer() {
             <p className="text-sm font-semibold mb-4">Contacto</p>
 
             <p className="text-sm text-gray-400">
-              ¿Querés mejorar tu producto?
+              ¿Tenés un proyecto en mente?
             </p>
 
             <a

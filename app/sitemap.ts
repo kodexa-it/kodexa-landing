@@ -53,7 +53,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/proyectos/nexo`,
+      url: `${baseUrl}/productos`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/productos/nexo`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/productos/nodo`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,

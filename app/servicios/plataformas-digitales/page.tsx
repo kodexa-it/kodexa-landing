@@ -85,10 +85,10 @@ export default function PlataformasDigitalesPage() {
       />
 
       {/* HERO */}
-      <div className="relative px-6 md:px-28 pt-16 pb-24 md:pt-24 md:pb-32">
+      <div className="relative page-gutter pt-16 pb-24 md:pt-24 md:pb-32">
         <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-accent/20 blur-[140px] pointer-events-none" />
 
-        <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10">
+        <div className="absolute bottom-8 md:bottom-12 page-gutter-right z-10">
           <div className="border border-white/15 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
             Digital Product Studio
           </div>
@@ -107,7 +107,7 @@ export default function PlataformasDigitalesPage() {
 
           <div className="mt-10">
             <a
-              href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Estoy%20evaluando%20desarrollar%20una%20plataforma%20o%20aplicaci%C3%B3n%20web.%20%C2%BFPodemos%20hablar%3F"
+              href="https://wa.me/5491167470473?text=Hola%20Kodexa!%20Estoy%20evaluando%20desarrollar%20una%20plataforma%20o%20aplicaci%C3%B3n%20web.%20%C2%BFPodemos%20hablar%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-accent text-black px-6 py-3 text-xs uppercase tracking-widest hover:scale-105 transition"
@@ -147,7 +147,7 @@ export default function PlataformasDigitalesPage() {
 
       {/* EVIDENCIA REAL */}
       <div className="mt-32 max-w-4xl mx-auto px-6 text-center border border-white/10 rounded-2xl p-10 bg-white/[0.02]">
-        <p className="text-xs text-accent uppercase tracking-widest">Caso real</p>
+        <p className="text-xs text-accent uppercase tracking-widest">Producto propio</p>
         <p className="mt-4 text-2xl md:text-3xl font-[family-name:var(--font-bebas)]">
           Nexo, un producto propio de Kodexa
         </p>
@@ -157,10 +157,10 @@ export default function PlataformasDigitalesPage() {
           de lo que podemos construir.
         </p>
         <a
-          href="/proyectos/nexo"
+          href="/productos/nexo"
           className="mt-6 inline-block text-accent underline underline-offset-2 text-sm"
         >
-          Ver el caso de estudio de Nexo
+          Conocer Nexo
         </a>
       </div>
 
@@ -174,7 +174,7 @@ export default function PlataformasDigitalesPage() {
           Definimos el alcance y el presupuesto después de entender tu proyecto.
         </p>
         <a
-          href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Estoy%20evaluando%20desarrollar%20una%20plataforma%20o%20aplicaci%C3%B3n%20web.%20%C2%BFPodemos%20hablar%3F"
+          href="https://wa.me/5491167470473?text=Hola%20Kodexa!%20Estoy%20evaluando%20desarrollar%20una%20plataforma%20o%20aplicaci%C3%B3n%20web.%20%C2%BFPodemos%20hablar%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-8 inline-block bg-accent text-black px-6 py-3 text-xs uppercase tracking-widest hover:scale-105 transition"

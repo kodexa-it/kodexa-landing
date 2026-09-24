@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ScrambleTextOnHover } from "@/components/scramble-text";
 import { BitmapChevron } from "@/components/bitmap-chevron";
+import { trackEvent } from "@/lib/analytics";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -23,7 +24,7 @@ const services = [
     ],
     price: "Desde USD 250",
     whatsappMessage:
-      "Hola Lautaro! Vi tu web y me interesa desarrollar un sitio web. ¿Podemos hablar?",
+      "Hola Kodexa! Vi su web y me interesa desarrollar un sitio web. ¿Podemos hablar?",
     href: "/servicios/desarrollo-web",
   },
   {
@@ -38,7 +39,7 @@ const services = [
     ],
     price: "Desde USD 900",
     whatsappMessage:
-      "Hola Lautaro! Me interesa desarrollar un sistema a medida para mi empresa. ¿Podemos hablar?",
+      "Hola Kodexa! Me interesa desarrollar un sistema a medida para mi empresa. ¿Podemos hablar?",
     href: "/servicios/software-a-medida",
   },
   {
@@ -53,7 +54,7 @@ const services = [
     ],
     price: "Presupuesto a medida",
     whatsappMessage:
-      "Hola Lautaro! Estoy evaluando desarrollar una plataforma o aplicación web. ¿Podemos hablar?",
+      "Hola Kodexa! Estoy evaluando desarrollar una plataforma o aplicación web. ¿Podemos hablar?",
     href: "/servicios/plataformas-digitales",
   },
   {
@@ -68,7 +69,7 @@ const services = [
     ],
     price: "Presupuesto a medida",
     whatsappMessage:
-      "Hola Lautaro! Quiero desarrollar un MVP o producto SaaS. ¿Podemos hablar?",
+      "Hola Kodexa! Quiero desarrollar un MVP o producto SaaS. ¿Podemos hablar?",
     href: "/servicios/mvp",
   },
 ];
@@ -144,7 +145,7 @@ export function ServicesSection() {
   const whatsappGeneralLink =
     "https://wa.me/5491167470473?text=" +
     encodeURIComponent(
-      "Hola Lautaro! Estuve viendo tu web y me gustaría hablar sobre un proyecto.",
+      "Hola Kodexa! Estuve viendo su web y me gustaría hablar sobre un proyecto.",
     );
 
   return (
@@ -159,12 +160,12 @@ export function ServicesSection() {
           01 / Servicios
         </span>
         <h2 className="mt-4 font-[family-name:var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
-          CÓMO HACEMOS CRECER TU PRODUCTO
+          ¿QUÉ PODEMOS DESARROLLAR PARA TU NEGOCIO?
         </h2>
         <p className="mt-6 font-mono text-sm md:text-base text-muted-foreground leading-relaxed">
-          Desde el desarrollo web hasta software a medida, plataformas
-          digitales y productos SaaS: construimos la solución que tu negocio
-          necesita en cada etapa.
+          Sitios web, plataformas digitales, software a medida y soluciones
+          digitales para negocios: construimos lo que necesitás en cada
+          etapa, desde una web hasta un sistema completo.
         </p>
       </div>
 
@@ -195,7 +196,7 @@ export function ServicesSection() {
             Cada proyecto puede adaptarse a tus necesidades.
           </p>
           <p className="font-mono text-[10px] text-muted-foreground">
-            Respondo generalmente dentro de las próximas 24 horas.
+            Respondemos generalmente dentro de las próximas 24 horas.
           </p>
         </div>
 
@@ -216,6 +217,7 @@ export function ServicesSection() {
           {/* Form CTA */}
           <a
             href="#contact"
+            onClick={() => trackEvent("cta_click", { location: "services", label: "solicitar_propuesta" })}
             className="group inline-flex items-center justify-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
           >
             <ScrambleTextOnHover

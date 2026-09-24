@@ -10,6 +10,7 @@ const navItems = [
   { id: "proyectos", label: "Portfolio" },
   { id: "proceso", label: "Process" },
   { id: "por-que-kodexa", label: "Why Us" },
+  { id: "productos-kodexa", label: "Products" },
   { id: "equipo-it", label: "IT Team" },
   { id: "founders", label: "Studio" },
   { id: "contact", label: "Contact" },

@@ -86,7 +86,7 @@ export function AboutSection() {
       {/* HEADER */}
       <div ref={headerRef} className="mb-24 md:mb-28">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          07 / Sobre el estudio
+          08 / Sobre el estudio
         </span>
 
         <h2 className="mt-4 font-[family-name:var(--font-bebas)] text-5xl md:text-7xl lg:text-8xl tracking-tight">

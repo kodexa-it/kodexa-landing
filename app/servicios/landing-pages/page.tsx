@@ -52,7 +52,7 @@ export default function LandingPages() {
       />
 
       {/* HERO */}
-      <div className="relative px-6 md:px-28 pt-4 pb-24 md:pt-12 md:pb-32 flex items-center min-h-[80vh]">
+      <div className="relative page-gutter pt-4 pb-24 md:pt-12 md:pb-32 flex items-center min-h-[80vh]">
         <div className="absolute right-0 w-[500px] h-[500px] bg-accent/20 blur-[120px]" />
 
         <div className="max-w-4xl">
@@ -67,7 +67,7 @@ export default function LandingPages() {
 
           <div className="mt-10">
             <a
-              href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Me%20interesa%20una%20landing%20page.%20%C2%BFPodemos%20hablar%3F"
+              href="https://wa.me/5491167470473?text=Hola%20Kodexa!%20Me%20interesa%20una%20landing%20page.%20%C2%BFPodemos%20hablar%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-accent text-black px-6 py-3 uppercase text-sm hover:scale-105 transition"
@@ -168,7 +168,7 @@ export default function LandingPages() {
         </p>
 
         <a
-          href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Me%20interesa%20una%20landing%20page.%20%C2%BFPodemos%20hablar%3F"
+          href="https://wa.me/5491167470473?text=Hola%20Kodexa!%20Me%20interesa%20una%20landing%20page.%20%C2%BFPodemos%20hablar%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-10 inline-block bg-accent text-black px-8 py-4 uppercase text-sm"

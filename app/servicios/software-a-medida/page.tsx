@@ -86,10 +86,10 @@ export default function SoftwareAMedidaPage() {
       />
 
       {/* HERO */}
-      <div className="relative px-6 md:px-28 pt-16 pb-24 md:pt-24 md:pb-32">
+      <div className="relative page-gutter pt-16 pb-24 md:pt-24 md:pb-32">
         <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-accent/20 blur-[140px] pointer-events-none" />
 
-        <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10">
+        <div className="absolute bottom-8 md:bottom-12 page-gutter-right z-10">
           <div className="border border-white/15 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
             Digital Product Studio
           </div>
@@ -108,7 +108,7 @@ export default function SoftwareAMedidaPage() {
 
           <div className="mt-10">
             <a
-              href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Me%20interesa%20desarrollar%20un%20sistema%20a%20medida.%20%C2%BFPodemos%20hablar%3F"
+              href="https://wa.me/5491167470473?text=Hola%20Kodexa!%20Me%20interesa%20desarrollar%20un%20sistema%20a%20medida.%20%C2%BFPodemos%20hablar%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-accent text-black px-6 py-3 text-xs uppercase tracking-widest hover:scale-105 transition"
@@ -188,7 +188,7 @@ export default function SoftwareAMedidaPage() {
           El presupuesto final depende de la cantidad de módulos e integraciones.
         </p>
         <a
-          href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Me%20interesa%20desarrollar%20un%20sistema%20a%20medida.%20%C2%BFPodemos%20hablar%3F"
+          href="https://wa.me/5491167470473?text=Hola%20Kodexa!%20Me%20interesa%20desarrollar%20un%20sistema%20a%20medida.%20%C2%BFPodemos%20hablar%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-8 inline-block bg-accent text-black px-6 py-3 text-xs uppercase tracking-widest hover:scale-105 transition"
@@ -208,10 +208,10 @@ export default function SoftwareAMedidaPage() {
             href: "/servicios/plataformas-digitales",
           },
           {
-            label: "Caso de estudio: Nexo",
+            label: "Nexo, nuestro asistente digital",
             description:
               "Un producto SaaS propio de Kodexa construido con esta misma lógica.",
-            href: "/proyectos/nexo",
+            href: "/productos/nexo",
           },
           {
             label: "Proyectos de Kodexa",

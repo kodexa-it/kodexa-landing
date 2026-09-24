@@ -34,7 +34,7 @@ export default function GraciasPage() {
 
         <p className="mt-10 max-w-lg font-mono text-sm text-muted-foreground leading-relaxed">
           Gracias por confiar en Kodexa.  
-          Ya recibí tu mensaje y voy a analizar tu proyecto para responderte
+          Ya recibimos tu mensaje y vamos a analizar tu proyecto para responderte
           con una propuesta clara y estructurada dentro de las próximas 24 hs.
         </p>
 
@@ -47,12 +47,10 @@ export default function GraciasPage() {
           </a>
 
           <a
-            href="https://www.linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/proyectos"
             className="border border-border/40 px-8 py-4 font-mono text-xs uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-200"
           >
-            Conectar en LinkedIn
+            Ver nuestros trabajos
           </a>
         </div>
       </div>

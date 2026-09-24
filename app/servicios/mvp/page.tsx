@@ -50,7 +50,7 @@ const faqItems = [
   {
     question: "¿Kodexa tiene experiencia desarrollando productos propios?",
     answer:
-      "Sí. Nexo es un producto SaaS propio que estamos desarrollando internamente, con inteligencia artificial, integración con WhatsApp y sistema de suscripciones.",
+      "Sí. Nexo es un producto SaaS propio de Kodexa, en producción, con inteligencia artificial, integración con WhatsApp y sistema de suscripciones.",
   },
   {
     question: "¿Kodexa trabaja con empresas de Argentina?",
@@ -80,10 +80,10 @@ export default function MvpPage() {
       />
 
       {/* HERO */}
-      <div className="relative px-6 md:px-28 pt-16 pb-24 md:pt-24 md:pb-32">
+      <div className="relative page-gutter pt-16 pb-24 md:pt-24 md:pb-32">
         <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-accent/20 blur-[140px] pointer-events-none" />
 
-        <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10">
+        <div className="absolute bottom-8 md:bottom-12 page-gutter-right z-10">
           <div className="border border-white/15 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
             Digital Product Studio
           </div>
@@ -101,7 +101,7 @@ export default function MvpPage() {
 
           <div className="mt-10">
             <a
-              href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Quiero%20desarrollar%20un%20MVP%20o%20producto%20SaaS.%20%C2%BFPodemos%20hablar%3F"
+              href="https://wa.me/5491167470473?text=Hola%20Kodexa!%20Quiero%20desarrollar%20un%20MVP%20o%20producto%20SaaS.%20%C2%BFPodemos%20hablar%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-accent text-black px-6 py-3 text-xs uppercase tracking-widest hover:scale-105 transition"
@@ -142,18 +142,18 @@ export default function MvpPage() {
       <div className="mt-32 max-w-4xl mx-auto px-6 text-center border border-white/10 rounded-2xl p-10 bg-white/[0.02]">
         <p className="text-xs text-accent uppercase tracking-widest">Producto propio</p>
         <p className="mt-4 text-2xl md:text-3xl font-[family-name:var(--font-bebas)]">
-          Nexo: un SaaS que estamos construyendo nosotros mismos
+          Nexo: un SaaS que construimos nosotros mismos
         </p>
         <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-          Nexo es un asistente con inteligencia artificial para negocios, hoy
-          en desarrollo. Es la prueba de que sabemos construir un producto
+          Nexo es un asistente con inteligencia artificial para negocios, ya
+          en producción. Es la prueba de que sabemos construir un producto
           SaaS de punta a punta, no solo sitios web.
         </p>
         <a
-          href="/proyectos/nexo"
+          href="/productos/nexo"
           className="mt-6 inline-block text-accent underline underline-offset-2 text-sm"
         >
-          Ver el caso de estudio de Nexo
+          Conocer Nexo
         </a>
       </div>
 
@@ -167,7 +167,7 @@ export default function MvpPage() {
           Definimos el alcance de la primera versión y el presupuesto según lo que necesite tu producto.
         </p>
         <a
-          href="https://wa.me/5491167470473?text=Hola%20Lautaro!%20Quiero%20desarrollar%20un%20MVP%20o%20producto%20SaaS.%20%C2%BFPodemos%20hablar%3F"
+          href="https://wa.me/5491167470473?text=Hola%20Kodexa!%20Quiero%20desarrollar%20un%20MVP%20o%20producto%20SaaS.%20%C2%BFPodemos%20hablar%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-8 inline-block bg-accent text-black px-6 py-3 text-xs uppercase tracking-widest hover:scale-105 transition"
@@ -191,9 +191,9 @@ export default function MvpPage() {
             href: "/servicios/software-a-medida",
           },
           {
-            label: "Caso de estudio: Nexo",
-            description: "Nuestro propio producto SaaS, en desarrollo.",
-            href: "/proyectos/nexo",
+            label: "Nexo, nuestro asistente digital",
+            description: "Nuestro propio producto SaaS, en producción.",
+            href: "/productos/nexo",
           },
         ]}
       />

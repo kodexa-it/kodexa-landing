@@ -83,7 +83,7 @@ export function MembershipSection() {
       {/* HEADER */}
       <div ref={headerRef} className="max-w-4xl">
         <span className="font-mono text-xs text-accent uppercase tracking-widest">
-          06 / IT TEAM
+          07 / IT TEAM
         </span>
 
         <h2 className="mt-6 font-[family-name:var(--font-bebas)] text-5xl md:text-7xl leading-[0.95] tracking-tight">
@@ -97,7 +97,7 @@ export function MembershipSection() {
         </p>
 
         <p className="mt-3 text-sm text-muted-foreground/70 max-w-2xl font-mono">
-          Este plan es para productos que ya están en marcha. Si estás por
+          Este plan es para sitios y sistemas que ya están en marcha. Si estás por
           construir tu web, sistema o plataforma desde cero, mirá nuestros{" "}
           <a href="#servicios" className="text-accent underline underline-offset-2">
             servicios de desarrollo

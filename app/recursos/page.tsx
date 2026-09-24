@@ -26,10 +26,10 @@ export default function RecursosPage() {
       <BreadcrumbNav items={[{ name: "Kodexa", href: "/" }, { name: "Recursos" }]} />
 
       {/* HERO */}
-      <div className="relative px-6 md:px-28 pt-16 pb-20 md:pt-24 md:pb-28">
+      <div className="relative page-gutter pt-16 pb-20 md:pt-24 md:pb-28">
         <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-accent/20 blur-[140px] pointer-events-none" />
 
-        <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10">
+        <div className="absolute bottom-8 md:bottom-12 page-gutter-right z-10">
           <div className="border border-white/15 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
             Digital Product Studio
           </div>

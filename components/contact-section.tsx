@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Forminit } from "forminit";
+import { trackEvent } from "@/lib/analytics";
+import type { LeadType, ProductInterest } from "@/lib/products";
 
 const forminit = new Forminit({
   proxyUrl: "/api/forminit",
@@ -12,12 +14,23 @@ const forminit = new Forminit({
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projectTypes = [
-  "Sitio web o Landing Page",
-  "Software o Sistema a Medida",
-  "Plataforma o Aplicación Web",
-  "MVP o Producto SaaS",
-  "Soporte y Equipo IT",
+const PRODUCT_TYPE = "Producto Kodexa (Nexo / Nodo)";
+
+// Tipo de proyecto (visible) → leadType (campo oculto para segmentar consultas)
+const projectTypes: { label: string; leadType: LeadType }[] = [
+  { label: "Sitio web o Landing Page", leadType: "web" },
+  { label: "Software o Sistema a Medida", leadType: "software" },
+  { label: "Plataforma o Aplicación Web", leadType: "software" },
+  { label: "MVP o Producto SaaS", leadType: "software" },
+  { label: PRODUCT_TYPE, leadType: "product" },
+  { label: "Soporte y Equipo IT", leadType: "other" },
+];
+
+const productInterests: { label: string; value: ProductInterest }[] = [
+  { label: "Nexo — asistente digital", value: "nexo" },
+  { label: "Nodo — CRM", value: "nodo" },
+  { label: "Nexo + Nodo", value: "bundle" },
+  { label: "Todavía no sé cuál", value: "unknown" },
 ];
 
 const budgetRanges = [
@@ -27,7 +40,32 @@ const budgetRanges = [
   "Más de USD 5.000 / A definir",
 ];
 
-export function ContactSection() {
+type ContactSectionProps = {
+  /** "general" = consulta de proyecto (Home). "product" = interés en Nexo/Nodo. */
+  variant?: "general" | "product";
+  /** Identifica desde qué página/sección se envió (ej: "home", "productos-nexo"). */
+  source?: string;
+  defaultProductInterest?: ProductInterest;
+  eyebrow?: string;
+  title?: React.ReactNode;
+  description?: string;
+  submitLabel?: string;
+};
+
+export function ContactSection({
+  variant = "general",
+  source = "home",
+  defaultProductInterest = "unknown",
+  eyebrow = "09 / Contacto",
+  title = (
+    <>
+      ¿TENÉS UN PROYECTO <span className="text-accent">EN MENTE</span>?
+    </>
+  ),
+  description = "Contanos qué necesitás y vemos cómo podemos ayudarte a convertirlo en una solución digital.",
+  submitLabel = "Hablemos de tu proyecto",
+}: ContactSectionProps = {}) {
+  const isProduct = variant === "product";
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -40,6 +78,15 @@ export function ContactSection() {
     "fi-select-budget": "",
     "fi-text-message": "",
   });
+  const [productInterest, setProductInterest] = useState<ProductInterest>(
+    defaultProductInterest
+  );
+
+  const leadType: LeadType = isProduct
+    ? "product"
+    : (projectTypes.find(
+        (t) => t.label === formData["fi-select-projectType"]
+      )?.leadType ?? "other");
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -125,6 +172,12 @@ export function ContactSection() {
 
       if (error) throw new Error();
 
+      trackEvent("lead_form_submit", {
+        source,
+        leadType,
+        productInterest: isProduct ? productInterest : null,
+      });
+
       window.location.href = "/gracias";
     } catch {
       setError("Ocurrió un error. Intentá nuevamente.");
@@ -145,18 +198,15 @@ export function ContactSection() {
         className="flex flex-col items-center text-center mb-20"
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6">
-          08 / Contacto
+          {eyebrow}
         </span>
 
         <h2 className="font-[family-name:var(--font-bebas)] text-5xl md:text-7xl lg:text-8xl tracking-tight">
-          CONSTRUYAMOS <span className="text-accent">ALGO</span>
-          <br />
-          SÓLIDO.
+          {title}
         </h2>
 
         <p className="mt-8 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          Contanos tu idea, qué necesitás construir y con qué presupuesto
-          contás. Te respondemos con una propuesta clara.
+          {description}
         </p>
       </div>
 
@@ -170,6 +220,23 @@ export function ContactSection() {
         shadow-[0_0_40px_rgba(0,0,0,0.6)]"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Campos ocultos para segmentar y medir consultas */}
+          <input type="hidden" name="fi-text-leadType" value={leadType} />
+          <input type="hidden" name="fi-text-source" value={source} />
+          {isProduct && (
+            <>
+              <input
+                type="hidden"
+                name="fi-text-productInterest"
+                value={productInterest}
+              />
+              <input
+                type="hidden"
+                name="fi-select-projectType"
+                value={PRODUCT_TYPE}
+              />
+            </>
+          )}
 
           {/* NOMBRE */}
           <div className="space-y-2">
@@ -199,6 +266,26 @@ export function ContactSection() {
             />
           </div>
 
+          {isProduct ? (
+            /* INTERÉS EN PRODUCTO */
+            <div className="space-y-2 md:col-span-2">
+              <label className="label">Me interesa</label>
+              <select
+                value={productInterest}
+                onChange={(e) =>
+                  setProductInterest(e.target.value as ProductInterest)
+                }
+                className="input cursor-pointer"
+              >
+                {productInterests.map((p) => (
+                  <option key={p.value} value={p.value} className="bg-card">
+                    {p.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ) : (
+            <>
           {/* TIPO */}
           <div className="space-y-2">
             <label className="label">Tipo de proyecto</label>
@@ -216,9 +303,9 @@ export function ContactSection() {
               <option value="" disabled>
                 Seleccionar
               </option>
-              {projectTypes.map((type) => (
-                <option key={type} value={type} className="bg-card">
-                  {type}
+              {projectTypes.map(({ label }) => (
+                <option key={label} value={label} className="bg-card">
+                  {label}
                 </option>
               ))}
             </select>
@@ -250,6 +337,9 @@ export function ContactSection() {
             </select>
           </div>
 
+            </>
+          )}
+
           {/* MENSAJE */}
           <div className="space-y-2 md:col-span-2">
             <label className="label">Mensaje</label>
@@ -259,7 +349,11 @@ export function ContactSection() {
               rows={5}
               value={formData["fi-text-message"]}
               onChange={handleChange}
-              placeholder="Contame qué necesitás construir y tu idea..."
+              placeholder={
+                isProduct
+                  ? "Contanos qué te gustaría resolver en tu negocio..."
+                  : "Contanos qué necesitás construir y tu idea..."
+              }
               className="input min-h-[140px] resize-none"
             />
           </div>
@@ -278,7 +372,7 @@ export function ContactSection() {
             transition-all duration-200
             disabled:opacity-50"
           >
-            {isSubmitting ? "Enviando..." : "Iniciar Proyecto"}
+            {isSubmitting ? "Enviando..." : submitLabel}
           </button>
 
           {/* ERROR */}
@@ -293,7 +387,7 @@ export function ContactSection() {
             ref={footerRef}
             className="md:col-span-2 text-center text-muted-foreground text-xs font-mono uppercase"
           >
-            Te respondo dentro de 24 hs.
+            Te respondemos dentro de 24 hs.
           </p>
         </div>
       </form>

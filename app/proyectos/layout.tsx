@@ -3,16 +3,16 @@ import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
-  title: "Proyectos",
+  title: "Trabajos realizados",
   description:
-    "Productos digitales propios y proyectos de desarrollo web en los que participó Kodexa: sistemas, plataformas y sitios institucionales.",
+    "Proyectos de desarrollo web, plataformas y sistemas a medida en los que participó Kodexa: sitios institucionales, landings de conversión y plataformas multi-país.",
   alternates: {
     canonical: "/proyectos",
   },
   openGraph: {
-    title: "Proyectos | Kodexa",
+    title: "Trabajos realizados | Kodexa",
     description:
-      "Productos digitales propios y proyectos de desarrollo web en los que participó Kodexa.",
+      "Proyectos de desarrollo web, plataformas y sistemas a medida en los que participó Kodexa.",
     url: "https://kodexa.ar/proyectos",
     siteName: "Kodexa",
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Proyectos de Kodexa",
+        alt: "Trabajos de Kodexa",
       },
     ],
     locale: "es_AR",

@@ -98,7 +98,7 @@ export function AudienceSection() {
         </h2>
         <p className="mt-6 font-mono text-sm md:text-base text-muted-foreground leading-relaxed">
           Trabajamos con emprendedores, pymes y equipos que necesitan un
-          producto digital sólido, sin importar en qué etapa estén.
+          solución digital sólida, sin importar en qué etapa estén.
         </p>
       </div>
 

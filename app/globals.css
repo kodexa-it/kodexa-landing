@@ -150,3 +150,19 @@
   focus:border-accent focus:ring-1 focus:ring-accent/40
   hover:border-accent/40;
 }
+
+/* Gutter de páginas internas: alinea heroes y breadcrumb con el ancho del navbar (max-w-6xl + px-6) */
+.page-gutter {
+  padding-inline: 1.5rem;
+}
+.page-gutter-right {
+  right: 1.5rem;
+}
+@media (min-width: 768px) {
+  .page-gutter {
+    padding-inline: max(1.5rem, calc((100% - 72rem) / 2 + 1.5rem));
+  }
+  .page-gutter-right {
+    right: max(1.5rem, calc((100% - 72rem) / 2 + 1.5rem));
+  }
+}

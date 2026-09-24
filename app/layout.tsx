@@ -30,12 +30,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kodexa.ar"),
 
   title: {
-    default: "Kodexa | Desarrollo Web y Software a Medida",
+    default: "Desarrollo web y soluciones digitales para negocios | Kodexa",
     template: "%s | Kodexa",
   },
 
   description:
-    "Kodexa es un estudio de producto digital: desarrollamos sitios web, software a medida, sistemas y plataformas digitales, MVPs y productos SaaS pensados para crecer junto a tu negocio.",
+    "Desarrollamos sitios web, plataformas digitales y software a medida para negocios. Contanos tu proyecto. Además, Nexo (asistente digital) y Nodo (CRM), nuestras propias soluciones.",
 
   keywords: [
     "desarrollo web",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Kodexa — Desarrollo Web y Software a Medida",
+    title: "Desarrollo web y soluciones digitales para negocios | Kodexa",
     description:
       "Diseñamos y desarrollamos productos digitales — sitios web, sistemas a medida, plataformas y MVPs — pensados para crecer junto a tu negocio.",
     url: "https://kodexa.ar",

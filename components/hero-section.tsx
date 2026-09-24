@@ -5,6 +5,7 @@ import { ScrambleTextOnHover } from "@/components/scramble-text"
 import { SplitFlapText, SplitFlapMuteToggle, SplitFlapAudioProvider } from "@/components/split-flap-text"
 import { AnimatedNoise } from "@/components/animated-noise"
 import { BitmapChevron } from "@/components/bitmap-chevron"
+import { trackEvent } from "@/lib/analytics"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -66,23 +67,24 @@ export function HeroSection() {
 
         {/* H1 — PROPUESTA DE VALOR */}
         <h1 className="mt-6 max-w-2xl font-[family-name:var(--font-bebas)] text-[clamp(1.6rem,3vw,2.6rem)] leading-snug tracking-tight text-foreground">
-          Desarrollamos <span className="text-accent">productos digitales</span> que hacen crecer tu negocio
+          Desarrollo web y software a medida para <span className="text-accent">hacer crecer tu negocio</span>
         </h1>
 
         {/* SUBTEXTO */}
         <p className="mt-8 max-w-xl font-mono text-sm text-muted-foreground leading-relaxed">
-          Desde sitios web y sistemas a medida hasta plataformas digitales, MVPs
-          y productos SaaS: diseñamos y desarrollamos soluciones pensadas para
-          escalar junto a tu negocio.
+          Creamos sitios web, plataformas digitales y sistemas a medida para
+          negocios. Contanos qué necesitás y te respondemos con una propuesta
+          clara.
         </p>
 
         {/* 🚀 CTAs */}
         <div className="mt-14 flex items-center gap-6 flex-wrap">
           <a
             href="#contact"
+            onClick={() => trackEvent("cta_click", { location: "hero", label: "contanos_tu_proyecto" })}
             className="group inline-flex items-center gap-2 border border-accent px-6 py-3 font-mono text-[11px] uppercase tracking-widest text-accent hover:bg-accent hover:text-black transition-all duration-200"
           >
-            <ScrambleTextOnHover text="Iniciar proyecto" as="span" duration={0.6} />
+            <ScrambleTextOnHover text="Contanos tu proyecto" as="span" duration={0.6} />
             <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
 
@@ -97,7 +99,7 @@ export function HeroSection() {
             href="#proyectos"
             className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
-            Ver proyectos
+            Ver trabajos
           </a>
         </div>
       </div>

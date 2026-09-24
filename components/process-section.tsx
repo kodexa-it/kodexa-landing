@@ -202,7 +202,7 @@ export function ProcessSection() {
       {/* ================= CTA ================= */}
       <div className="mt-24 border border-border/40 p-10 md:p-16 text-center w-full">
         <h3 className="text-3xl md:text-5xl font-[family-name:var(--font-bebas)] max-w-3xl mx-auto">
-          Contanos tu idea y la convertimos en un producto real.
+          Contanos tu idea y la convertimos en una solución real.
         </h3>
 
         <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-xl mx-auto">

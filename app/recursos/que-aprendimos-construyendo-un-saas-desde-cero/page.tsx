@@ -80,7 +80,7 @@ export default function SaasLearningsArticle() {
       />
 
       {/* HERO */}
-      <header className="relative px-6 md:px-28 pt-12 pb-16 md:pt-16 md:pb-20">
+      <header className="relative page-gutter pt-12 pb-16 md:pt-16 md:pb-20">
         <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-accent/20 blur-[140px] pointer-events-none" />
 
         <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10">
@@ -128,18 +128,18 @@ export default function SaasLearningsArticle() {
           consultas, gestionar reservas y centralizar su información en un
           solo lugar. Podés conocer{" "}
           <Link
-            href="/proyectos/nexo"
+            href="/productos/nexo"
             className="text-accent underline underline-offset-2"
           >
-            el caso de estudio completo de Nexo
+            la página de Nexo
           </Link>{" "}
-          en nuestro portfolio.
+          en nuestros productos.
         </p>
 
         <p className="mt-6 text-gray-400 italic">
-          Una aclaración honesta antes de seguir: Nexo todavía está en
-          desarrollo. No tiene lanzamiento público todavía, y este texto no
-          es la historia de un éxito ya resuelto. Es un registro de las
+          Una aclaración honesta antes de seguir: Nexo ya está en producción
+          con negocios reales, pero sigue evolucionando, y este texto no es
+          la historia de un éxito ya resuelto. Es un registro de las
           decisiones que fuimos tomando mientras lo construíamos, y de lo que
           aprendimos en el camino.
         </p>
@@ -169,7 +169,7 @@ export default function SaasLearningsArticle() {
         </h2>
         <p>
           No tuvimos una validación de mercado clásica con métricas de
-          adquisición — todavía no lanzamos públicamente. Pero sí decidimos,
+          adquisición. Pero sí decidimos,
           desde el principio, no asumir qué necesitaba cada negocio. Por eso
           construimos una herramienta simple de autoevaluación: quien está
           interesado cuenta cómo funciona su negocio y qué quiere mejorar, y
@@ -294,7 +294,7 @@ export default function SaasLearningsArticle() {
           8. Lo que cambia cuando te acercás a producción
         </h2>
         <p>
-          Aunque Nexo todavía no tiene lanzamiento público, ya sentimos la
+          Con Nexo en producción y negocios reales operando, sentimos la
           diferencia entre "que funcione" y "que esté listo para operar un
           negocio real". Pagos que no pueden fallar, un panel de soporte para
           resolver problemas de un cliente sin tocar la base de datos a
