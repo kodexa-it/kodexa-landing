@@ -9,12 +9,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const serviceTeasers = [
   {
-    title: "Desarrollo Web",
+    title: "Landing Page",
     description:
-      "Sitios institucionales y landing pages diseñados para convertir visitas en clientes.",
-    bullets: ["Estructura orientada a conversión", "SEO técnico incluido"],
-    href: "/servicios/desarrollo-web",
+      "Una página enfocada en presentar un producto, servicio o campaña y convertir visitas en consultas.",
+    bullets: ["Estructura orientada a conversión", "CTA y formulario"],
+    href: "/servicios/landing-pages",
     anchorId: "landing-pages",
+  },
+  {
+    title: "Sitio Institucional",
+    description:
+      "Un sitio completo para presentar tu empresa, servicios, información y medios de contacto.",
+    bullets: ["Múltiples páginas", "SEO y buenas prácticas"],
+    href: "/servicios/institucional",
+    anchorId: "institucional",
+  },
+  {
+    title: "Institucional Pro",
+    description:
+      "Una web institucional más completa y dinámica, con contenido administrable y blog.",
+    bullets: ["Contenido administrable", "Blog y secciones dinámicas"],
+    href: "/servicios/institucional-pro",
+    anchorId: "institucional-pro",
   },
   {
     title: "Software y Sistemas a Medida",
@@ -146,23 +162,49 @@ export default function ServicesPage() {
         </div>
 
         {/* CARDS */}
-        <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
               number: "01",
-              title: "Desarrollo Web",
-              desc: "Sitios y landing pages que convierten visitas en clientes.",
+              title: "Landing Page",
+              desc: "Una página enfocada en presentar un producto, servicio o campaña y convertir visitas en consultas.",
               features: [
                 "Estructura enfocada en conversión",
-                "SEO técnico incluido",
-                "Deploy listo",
+                "CTA y formulario",
+                "SEO básico",
               ],
               price: "Desde USD 250",
-              msg: "Hola! Me interesa desarrollar un sitio web",
-              href: "/servicios/desarrollo-web",
+              msg: "Hola Kodexa! Me interesa una landing page para mi negocio. ¿Podemos hablar?",
+              href: "/servicios/landing-pages",
             },
             {
               number: "02",
+              title: "Sitio Institucional",
+              desc: "Un sitio completo para presentar tu empresa, servicios, información y medios de contacto.",
+              features: [
+                "Múltiples páginas",
+                "SEO y buenas prácticas",
+                "Integración con herramientas externas",
+              ],
+              price: "Desde USD 500",
+              msg: "Hola Kodexa! Me interesa un sitio institucional para mi empresa. ¿Podemos hablar?",
+              href: "/servicios/institucional",
+            },
+            {
+              number: "03",
+              title: "Institucional Pro",
+              desc: "Una web institucional más completa y dinámica, con contenido administrable y blog.",
+              features: [
+                "Contenido administrable",
+                "Blog y secciones dinámicas",
+                "Arquitectura preparada para crecer",
+              ],
+              price: "Desde USD 900",
+              msg: "Hola Kodexa! Me interesa un sitio institucional Pro, con contenido administrable. ¿Podemos hablar?",
+              href: "/servicios/institucional-pro",
+            },
+            {
+              number: "04",
               title: "Software a Medida",
               desc: "Sistemas y automatización adaptados a tu operación.",
               features: [
@@ -175,7 +217,7 @@ export default function ServicesPage() {
               href: "/servicios/software-a-medida",
             },
             {
-              number: "03",
+              number: "05",
               title: "Plataformas Digitales",
               desc: "Aplicaciones web con usuarios, roles y lógica propia.",
               features: [
@@ -188,7 +230,7 @@ export default function ServicesPage() {
               href: "/servicios/plataformas-digitales",
             },
             {
-              number: "04",
+              number: "06",
               title: "MVP y SaaS",
               desc: "De la idea a un producto digital funcional.",
               features: [

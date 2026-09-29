@@ -13,64 +13,71 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: "DESARROLLO WEB",
+    title: "LANDING PAGE",
     description:
-      "Sitios y landing pages diseñados para convertir visitas en clientes, con una base sólida para tu marca en internet.",
+      "Una página enfocada en presentar un producto, servicio o campaña y convertir visitas en consultas.",
     features: [
+      "Diseño responsive",
       "Estructura orientada a conversión",
-      "Diseño moderno y adaptable a todos los dispositivos",
-      "SEO técnico y buenas prácticas incluidas",
-      "Deploy y puesta en producción incluidos",
+      "CTA y formulario",
+      "SEO básico",
+      "Deploy y puesta en producción",
     ],
     price: "Desde USD 250",
     whatsappMessage:
-      "Hola Kodexa! Vi su web y me interesa desarrollar un sitio web. ¿Podemos hablar?",
-    href: "/servicios/desarrollo-web",
+      "Hola Kodexa! Me interesa una landing page para mi negocio. ¿Podemos hablar?",
+    href: "/servicios/landing-pages",
   },
   {
-    title: "SOFTWARE Y SISTEMAS A MEDIDA",
+    title: "SITIO INSTITUCIONAL",
     description:
-      "Sistemas adaptados a los procesos reales de tu empresa para centralizar información, automatizar tareas y ganar eficiencia.",
+      "Un sitio completo para presentar tu empresa, servicios, información y medios de contacto.",
     features: [
-      "Panel de gestión personalizado (ABM)",
-      "Automatización de procesos internos",
-      "Integración con APIs y herramientas externas",
-      "Arquitectura pensada para escalar",
+      "Múltiples páginas",
+      "Diseño responsive",
+      "Secciones personalizadas",
+      "SEO y buenas prácticas",
+      "Integración con herramientas externas",
+      "Deploy y puesta en producción",
+    ],
+    price: "Desde USD 500",
+    whatsappMessage:
+      "Hola Kodexa! Me interesa un sitio institucional para mi empresa. ¿Podemos hablar?",
+    href: "/servicios/institucional",
+  },
+  {
+    title: "INSTITUCIONAL PRO",
+    description:
+      "Una web institucional más completa y dinámica, pensada para negocios que necesitan administrar y actualizar su contenido.",
+    features: [
+      "Todo lo incluido en el sitio institucional",
+      "Contenido administrable",
+      "Blog",
+      "Secciones dinámicas",
+      "Gestión de contenido",
+      "Arquitectura preparada para crecer",
     ],
     price: "Desde USD 900",
     whatsappMessage:
-      "Hola Kodexa! Me interesa desarrollar un sistema a medida para mi empresa. ¿Podemos hablar?",
-    href: "/servicios/software-a-medida",
+      "Hola Kodexa! Me interesa un sitio institucional Pro, con contenido administrable. ¿Podemos hablar?",
+    href: "/servicios/institucional-pro",
   },
   {
-    title: "PLATAFORMAS Y APLICACIONES WEB",
+    title: "APLICACIONES WEB",
     description:
-      "Aplicaciones web con lógica propia para negocios que necesitan más que un sitio: usuarios, contenido dinámico y funcionalidades específicas.",
+      "Para negocios que necesitan algo más que un sitio web: desarrollamos aplicaciones y plataformas web a medida.",
     features: [
-      "Aplicaciones web multiusuario",
-      "Roles, permisos y paneles administrables",
-      "Arquitectura escalable a largo plazo",
-      "Alcance y presupuesto definidos a medida",
+      "Funcionalidades personalizadas",
+      "Usuarios y roles",
+      "Paneles de administración",
+      "Integraciones con APIs",
+      "Arquitectura escalable",
+      "Alcance definido según necesidad",
     ],
     price: "Presupuesto a medida",
     whatsappMessage:
-      "Hola Kodexa! Estoy evaluando desarrollar una plataforma o aplicación web. ¿Podemos hablar?",
+      "Hola Kodexa! Estoy evaluando desarrollar una aplicación o plataforma web. ¿Podemos hablar?",
     href: "/servicios/plataformas-digitales",
-  },
-  {
-    title: "MVP Y PRODUCTOS SAAS",
-    description:
-      "Desarrollo de tu producto digital desde cero, pensado para validar una idea de negocio y lanzarla al mercado con una base técnica sólida.",
-    features: [
-      "De la idea al producto funcional",
-      "Arquitectura preparada para iterar y crecer",
-      "Suscripciones, pagos y paneles de usuario",
-      "Alcance y presupuesto definidos a medida",
-    ],
-    price: "Presupuesto a medida",
-    whatsappMessage:
-      "Hola Kodexa! Quiero desarrollar un MVP o producto SaaS. ¿Podemos hablar?",
-    href: "/servicios/mvp",
   },
 ];
 
@@ -160,12 +167,12 @@ export function ServicesSection() {
           01 / Servicios
         </span>
         <h2 className="mt-4 font-[family-name:var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
-          ¿QUÉ PODEMOS DESARROLLAR PARA TU NEGOCIO?
+          DESARROLLO WEB PARA TU NEGOCIO
         </h2>
         <p className="mt-6 font-mono text-sm md:text-base text-muted-foreground leading-relaxed">
-          Sitios web, plataformas digitales, software a medida y soluciones
-          digitales para negocios: construimos lo que necesitás en cada
-          etapa, desde una web hasta un sistema completo.
+          Desde una landing page hasta una aplicación web a medida:
+          desarrollamos el sitio que tu negocio necesita, con precios claros
+          desde USD 250.
         </p>
       </div>
 

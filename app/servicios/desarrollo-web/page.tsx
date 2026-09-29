@@ -211,20 +211,19 @@ export default function DesarrolloWebPage() {
       <RelatedLinks
         items={[
           {
-            label: "Software y Sistemas a Medida",
-            description:
-              "Cuando necesitás automatizar procesos o gestionar información propia del negocio.",
-            href: "/servicios/software-a-medida",
-          },
-          {
             label: "Landing Pages",
             description: "Páginas enfocadas en un único objetivo: convertir.",
             href: "/servicios/landing-pages",
           },
           {
-            label: "Proyectos de Kodexa",
-            description: "Conocé los productos que construimos.",
-            href: "/proyectos",
+            label: "Sitio Institucional",
+            description: "Presencia completa de tu empresa, desde USD 500.",
+            href: "/servicios/institucional",
+          },
+          {
+            label: "Institucional Pro",
+            description: "Con contenido administrable y blog, desde USD 900.",
+            href: "/servicios/institucional-pro",
           },
         ]}
       />
