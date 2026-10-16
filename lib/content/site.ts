@@ -1,0 +1,45 @@
+/** Datos globales del sitio. Única fuente para URLs, contacto y flags de comportamiento. */
+
+export const site = {
+  name: "Kodexa",
+  url: "https://kodexa.ar",
+  locale: "es_AR",
+  tagline: "Estudio digital de diseño y desarrollo",
+  description:
+    "Diseñamos y desarrollamos sitios web, aplicaciones y sistemas a medida para negocios. Además, Nexo (asistente digital) y Nodo (CRM), nuestras propias soluciones.",
+  whatsappNumber: "5491167470473",
+  instagram: "https://www.instagram.com/kodexa.it/",
+  founder: {
+    name: "Lautaro Aquino",
+    role: "Founder & Full Stack Developer",
+    linkedin: "https://www.linkedin.com/in/lautaro-aquino-007a1625b/",
+    portfolio: "https://lautaroaquino.com/",
+  },
+  partner: { name: "Uno Collective", url: "https://www.unocollective.com/" },
+  /** Valor del formulario de Forminit actualmente en producción. */
+  forminitFormId: "920afmph8yf",
+} as const
+
+/**
+ * Mientras la versión nueva esté en revisión no debe indexarse.
+ * Al aprobarla: definir NEXT_PUBLIC_SITE_PREVIEW=false en el entorno de producción.
+ */
+export const isPreview = process.env.NEXT_PUBLIC_SITE_PREVIEW !== "false"
+
+/**
+ * Precios iniciales publicados hoy en kodexa.ar. Su vigencia está pendiente de confirmación:
+ * poniendo esto en false se ocultan de todas las páginas de detalle sin tocar nada más.
+ */
+export const showPrices = true
+
+export function whatsappHref(message?: string) {
+  const base = `https://wa.me/${site.whatsappNumber}`
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base
+}
+
+export const nav = [
+  { label: "Servicios", href: "/servicios" },
+  { label: "Proyectos", href: "/proyectos" },
+  { label: "Productos", href: "/productos" },
+  { label: "Estudio", href: "/estudio" },
+] as const

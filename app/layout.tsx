@@ -1,127 +1,81 @@
-import type React from "react";
-import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono, Bebas_Neue } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { SmoothScroll } from "@/components/smooth-scroll";
-import { StructuredData } from "@/components/structured-data";
-import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { PortfolioSchema } from "@/components/portfolio-schema";
-import "./globals.css";
+import type { Metadata, Viewport } from "next"
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import { SiteHeader } from "@/components/layout/site-header"
+import { SiteFooter } from "@/components/layout/site-footer"
+import { WhatsappFloat } from "@/components/layout/whatsapp-float"
+import { JsonLd, organizationLd } from "@/components/seo/json-ld"
+import { isPreview, site } from "@/lib/content/site"
+import "./globals.css"
 
-const ibmPlexSans = IBM_Plex_Sans({
-  weight: ["400", "500", "600", "700"],
+const plexSans = IBM_Plex_Sans({
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
-  variable: "--font-ibm-plex-sans",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-plex-sans",
+  display: "swap",
+})
+const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
   subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
-});
-
-const bebasNeue = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-bebas",
-});
+  variable: "--font-plex-mono",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kodexa.ar"),
-
+  metadataBase: new URL(site.url),
   title: {
-    default: "Desarrollo web y soluciones digitales para negocios | Kodexa",
+    default: "Kodexa | Estudio digital: diseño y desarrollo para negocios",
     template: "%s | Kodexa",
   },
-
-  description:
-    "Desarrollamos sitios web, plataformas digitales y software a medida para negocios. Contanos tu proyecto. Además, Nexo (asistente digital) y Nodo (CRM), nuestras propias soluciones.",
-
-  keywords: [
-    "desarrollo web",
-    "desarrollo de software",
-    "desarrollo de software a medida",
-    "software a medida",
-    "productos digitales",
-    "desarrollo web Argentina",
-  ],
-
-  authors: [{ name: "Lautaro Aquino", url: "https://kodexa.ar" }],
-
-  creator: "Kodexa",
-  publisher: "Kodexa",
-
-  alternates: {
-    canonical: "/",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-  },
-
+  description: site.description,
+  authors: [{ name: site.founder.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  alternates: { canonical: "/" },
+  robots: isPreview
+    ? { index: false, follow: false }
+    : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  icons: { icon: "/favicon.png", shortcut: "/favicon.png", apple: "/favicon.png" },
   openGraph: {
-    title: "Desarrollo web y soluciones digitales para negocios | Kodexa",
+    title: "Kodexa | Estudio digital: diseño y desarrollo para negocios",
     description:
-      "Diseñamos y desarrollamos productos digitales — sitios web, sistemas a medida, plataformas y MVPs — pensados para crecer junto a tu negocio.",
-    url: "https://kodexa.ar",
-    siteName: "Kodexa",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Kodexa — Estudio de desarrollo web y software a medida",
-      },
-    ],
-    locale: "es_AR",
+      "Diseñamos y desarrollamos sitios web, aplicaciones y sistemas a medida, pensados para crecer junto a tu negocio.",
+    url: site.url,
+    siteName: site.name,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Kodexa — estudio digital" }],
+    locale: site.locale,
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
-    title: "Kodexa — Desarrollo Web y Software a Medida",
-    description:
-      "Sitios web, sistemas a medida y plataformas digitales pensados para crecer junto a tu negocio.",
+    title: "Kodexa — Estudio digital",
+    description: "Sitios web, aplicaciones y sistemas a medida pensados para crecer junto a tu negocio.",
     images: ["/og-image2.png"],
   },
-};
+}
 
 export const viewport: Viewport = {
-  themeColor: "#ff6a00",
-};
+  themeColor: "#fafaf8",
+  colorScheme: "light",
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className="dark bg-background">
-      <body
-        className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased overflow-x-hidden`}
-      >
-        <div className="noise-overlay" aria-hidden="true" />
-
-        <SmoothScroll>{children}</SmoothScroll>
-        <WhatsAppFloat />
-        <StructuredData />
-        <PortfolioSchema />
+    <html lang="es-AR" className={`${plexSans.variable} ${plexMono.variable}`}>
+      <body>
+        <a
+          href="#contenido"
+          className="sr-only z-[60] rounded-full bg-ink px-5 py-3 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Saltar al contenido
+        </a>
+        <SiteHeader />
+        <main id="contenido">{children}</main>
+        <SiteFooter />
+        <WhatsappFloat />
+        <JsonLd data={organizationLd} />
         <Analytics />
       </body>
     </html>
-  );
+  )
 }
