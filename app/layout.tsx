@@ -5,7 +5,8 @@ import { SiteHeader } from "@/components/layout/site-header"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { WhatsappFloat } from "@/components/layout/whatsapp-float"
 import { JsonLd, organizationLd } from "@/components/seo/json-ld"
-import { isPreview, site } from "@/lib/content/site"
+import { GtmHead, GtmNoScript } from "@/components/seo/google-tag-manager"
+import { isPreview, loadTracking, site } from "@/lib/content/site"
 import "./globals.css"
 
 const plexSans = IBM_Plex_Sans({
@@ -69,7 +70,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es-AR" className={`${plexSans.variable} ${plexMono.variable}`}>
+      <head>{loadTracking && <GtmHead />}</head>
       <body>
+        {loadTracking && <GtmNoScript />}
         <a
           href="#contenido"
           className="sr-only z-[60] rounded-full bg-ink px-5 py-3 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"

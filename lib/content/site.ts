@@ -21,10 +21,21 @@ export const site = {
 } as const
 
 /**
- * Mientras la versión nueva esté en revisión no debe indexarse.
- * Al aprobarla: definir NEXT_PUBLIC_SITE_PREVIEW=false en el entorno de producción.
+ * Las previews no se indexan; el sitio publicado sí.
+ * - NEXT_PUBLIC_SITE_PREVIEW ("true"/"false"), si está definida, manda.
+ * - Si no, se usa el contexto de build de Netlify: solo "production" indexa
+ *   (deploy-preview y branch-deploy quedan bloqueados).
+ * - Fuera de Netlify y sin la variable, se indexa.
  */
-export const isPreview = process.env.NEXT_PUBLIC_SITE_PREVIEW !== "false"
+const previewEnv = process.env.NEXT_PUBLIC_SITE_PREVIEW
+const netlifyContext = process.env.CONTEXT
+export const isPreview =
+  previewEnv !== undefined && previewEnv !== ""
+    ? previewEnv !== "false"
+    : netlifyContext !== undefined && netlifyContext !== "production"
+
+/** Analítica de terceros (GTM): solo en el build de producción del sitio publicado. */
+export const loadTracking = process.env.NODE_ENV === "production" && !isPreview
 
 /**
  * Precios iniciales publicados hoy en kodexa.ar. Su vigencia está pendiente de confirmación:
