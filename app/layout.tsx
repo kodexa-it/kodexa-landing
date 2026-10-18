@@ -35,7 +35,14 @@ export const metadata: Metadata = {
   robots: isPreview
     ? { index: false, follow: false }
     : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
-  icons: { icon: "/favicon.png", shortcut: "/favicon.png", apple: "/favicon.png" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Kodexa | Estudio digital: diseño y desarrollo para negocios",
     description:
