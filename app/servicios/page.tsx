@@ -1,487 +1,82 @@
-"use client";
+import type { Metadata } from "next"
+import Link from "next/link"
+import { PageHero } from "@/components/sections/page-hero"
+import { CtaBand, MethodSection } from "@/components/sections/home-sections"
+import { Section } from "@/components/ui/section"
+import { ArrowRight } from "@/components/ui/icons"
+import { groupMeta, services, type ServiceGroup } from "@/lib/content/services"
 
-import { useRef, useEffect } from "react";
-import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+export const metadata: Metadata = {
+  title: "Servicios de diseño y desarrollo digital",
+  description:
+    "Landing pages, sitios institucionales, software a medida, plataformas y productos SaaS. Conocé las capacidades de Kodexa y cómo trabajamos.",
+  alternates: { canonical: "/servicios" },
+  openGraph: { title: "Servicios | Kodexa", url: "https://kodexa.ar/servicios", images: ["/og-image.png"] },
+}
 
-gsap.registerPlugin(ScrollTrigger);
+const order: ServiceGroup[] = ["web", "sistemas", "productos"]
 
-const serviceTeasers = [
-  {
-    title: "Landing Page",
-    description:
-      "Una página enfocada en presentar un producto, servicio o campaña y convertir visitas en consultas.",
-    bullets: ["Estructura orientada a conversión", "CTA y formulario"],
-    href: "/servicios/landing-pages",
-    anchorId: "landing-pages",
-  },
-  {
-    title: "Sitio Institucional",
-    description:
-      "Un sitio completo para presentar tu empresa, servicios, información y medios de contacto.",
-    bullets: ["Múltiples páginas", "SEO y buenas prácticas"],
-    href: "/servicios/institucional",
-    anchorId: "institucional",
-  },
-  {
-    title: "Institucional Pro",
-    description:
-      "Una web institucional más completa y dinámica, con contenido administrable y blog.",
-    bullets: ["Contenido administrable", "Blog y secciones dinámicas"],
-    href: "/servicios/institucional-pro",
-    anchorId: "institucional-pro",
-  },
-  {
-    title: "Software y Sistemas a Medida",
-    description:
-      "Sistemas adaptados a tus procesos para centralizar información y automatizar tareas.",
-    bullets: ["Panel de gestión (ABM)", "Automatización de procesos"],
-    href: "/servicios/software-a-medida",
-    anchorId: "sistemas",
-  },
-  {
-    title: "Plataformas y Aplicaciones Web",
-    description:
-      "Aplicaciones web con usuarios, roles y lógica propia para negocios que necesitan más que un sitio.",
-    bullets: ["Autenticación y roles", "Arquitectura multiusuario"],
-    href: "/servicios/plataformas-digitales",
-    anchorId: "plataformas",
-  },
-  {
-    title: "MVP y Productos SaaS",
-    description:
-      "Desarrollo de tu producto digital desde cero, para validar una idea y lanzarla al mercado.",
-    bullets: ["De la idea a un producto funcional", "Suscripciones y pagos"],
-    href: "/servicios/mvp",
-    anchorId: "mvp",
-  },
-];
-
-export default function ServicesPage() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray(".reveal").forEach((el: any) => {
-        gsap.fromTo(
-          el,
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-            },
-          },
-        );
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
+export default function ServiciosPage() {
   return (
-    <section ref={sectionRef} className="bg-black text-white overflow-hidden">
-      {/* HERO */}
-      <div className="relative page-gutter min-h-screen flex items-center">
-        <div className="absolute right-0 w-[600px] h-[600px] bg-accent/20 blur-[140px]" />
+    <>
+      <PageHero
+        path="/servicios"
+        crumbs={[{ name: "Kodexa", href: "/" }, { name: "Servicios" }]}
+        eyebrow="Servicios"
+        title="Tu negocio necesita algo más que una web."
+        lead="Creamos soluciones digitales pensadas para atraer clientes, mejorar procesos y crecer sobre una base sólida: desde una landing page hasta una plataforma a medida."
+      />
 
-        <div className="max-w-[1100px]">
-          <p className="text-xs text-gray-400 mb-6">01 / Servicios</p>
-
-          <h1 className="text-[52px] md:text-[110px] leading-[0.9] font-[family-name:var(--font-bebas)]">
-            Tu negocio necesita
-            <br />
-            algo más que una web.
-          </h1>
-
-          <p className="mt-6 text-xl text-gray-300 max-w-[600px]">
-            Creamos soluciones digitales pensadas para generar resultados
-            reales: atraer clientes, mejorar procesos y escalar tu negocio con
-            una base sólida.
-          </p>
-
-          <p className="mt-4 text-sm text-gray-500 max-w-[500px]">
-            Desde landings que convierten hasta plataformas que crecen con vos.
-          </p>
-        </div>
-      </div>
-
-      {/* SERVICIOS DETALLE */}
-      <div className="mt-32 max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-bebas)] reveal">
-          Nuestros servicios
-        </h2>
-
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
-          {serviceTeasers.map((service) => (
-            <div
-              key={service.href}
-              id={service.anchorId}
-              className="reveal scroll-mt-24 border border-white/10 rounded-xl p-8 bg-white/[0.02] backdrop-blur-sm hover:border-accent/40 transition"
-            >
-              <h3 className="text-2xl md:text-3xl font-[family-name:var(--font-bebas)]">
-                {service.title}
-              </h3>
-
-              <p className="mt-4 text-gray-400">{service.description}</p>
-
-              <ul className="mt-6 space-y-2 text-sm text-gray-500">
-                {service.bullets.map((bullet) => (
-                  <li key={bullet}>✔ {bullet}</li>
-                ))}
-              </ul>
-
-              <Link
-                href={service.href}
-                className="mt-8 inline-flex items-center gap-2 text-accent underline underline-offset-2 text-sm"
-              >
-                Ver {service.title.toLowerCase()} en detalle
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* PRICING */}
-      <div id="pricing" className="mt-40 max-w-6xl mx-auto px-6">
-        {/* HEADER */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-semibold reveal">
-            Soluciones pensadas para crecer
-          </h2>
-
-          <p className="mt-6 text-gray-500 reveal">
-            Cada servicio está diseñado para resolver una etapa distinta del
-            negocio. Podés empezar simple y escalar a medida que creces.
-          </p>
-        </div>
-
-        {/* CARDS */}
-        <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              number: "01",
-              title: "Landing Page",
-              desc: "Una página enfocada en presentar un producto, servicio o campaña y convertir visitas en consultas.",
-              features: [
-                "Estructura enfocada en conversión",
-                "CTA y formulario",
-                "SEO básico",
-              ],
-              price: "Desde USD 250",
-              msg: "Hola Kodexa! Me interesa una landing page para mi negocio. ¿Podemos hablar?",
-              href: "/servicios/landing-pages",
-            },
-            {
-              number: "02",
-              title: "Sitio Institucional",
-              desc: "Un sitio completo para presentar tu empresa, servicios, información y medios de contacto.",
-              features: [
-                "Múltiples páginas",
-                "SEO y buenas prácticas",
-                "Integración con herramientas externas",
-              ],
-              price: "Desde USD 500",
-              msg: "Hola Kodexa! Me interesa un sitio institucional para mi empresa. ¿Podemos hablar?",
-              href: "/servicios/institucional",
-            },
-            {
-              number: "03",
-              title: "Institucional Pro",
-              desc: "Una web institucional más completa y dinámica, con contenido administrable y blog.",
-              features: [
-                "Contenido administrable",
-                "Blog y secciones dinámicas",
-                "Arquitectura preparada para crecer",
-              ],
-              price: "Desde USD 900",
-              msg: "Hola Kodexa! Me interesa un sitio institucional Pro, con contenido administrable. ¿Podemos hablar?",
-              href: "/servicios/institucional-pro",
-            },
-            {
-              number: "04",
-              title: "Software a Medida",
-              desc: "Sistemas y automatización adaptados a tu operación.",
-              features: [
-                "Panel de gestión (ABM)",
-                "Automatización de procesos",
-                "Integraciones vía API",
-              ],
-              price: "Desde USD 900",
-              msg: "Hola! Me interesa un sistema a medida",
-              href: "/servicios/software-a-medida",
-            },
-            {
-              number: "05",
-              title: "Plataformas Digitales",
-              desc: "Aplicaciones web con usuarios, roles y lógica propia.",
-              features: [
-                "Autenticación y roles",
-                "Arquitectura multiusuario",
-                "Preparado para escalar",
-              ],
-              price: "Presupuesto a medida",
-              msg: "Hola! Estoy evaluando desarrollar una plataforma o aplicación web",
-              href: "/servicios/plataformas-digitales",
-            },
-            {
-              number: "06",
-              title: "MVP y SaaS",
-              desc: "De la idea a un producto digital funcional.",
-              features: [
-                "Producto validable",
-                "Suscripciones y pagos",
-                "Arquitectura para iterar",
-              ],
-              price: "Presupuesto a medida",
-              msg: "Hola! Quiero desarrollar un MVP o producto SaaS",
-              href: "/servicios/mvp",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="group relative border border-white/10 rounded-xl p-8
-        bg-gradient-to-b from-white/[0.04] to-white/[0.01]
-        backdrop-blur-sm
-        hover:border-accent/40
-        hover:shadow-[0_0_40px_rgba(255,115,0,0.15)]
-        transition-all duration-300"
-            >
-              {/* NUM */}
-              <span className="text-[10px] font-mono tracking-[0.3em] text-muted-foreground">
-                NO. {item.number}
-              </span>
-
-              {/* TITLE */}
-              <h3 className="mt-6 font-[family-name:var(--font-bebas)] text-2xl tracking-tight group-hover:text-accent transition">
-                {item.title}
-              </h3>
-
-              {/* LINE */}
-              <div className="w-12 h-px bg-accent/60 mt-4 mb-6 group-hover:w-full transition-all duration-500" />
-
-              {/* DESC */}
-              <p className="text-sm text-gray-400 mb-6">{item.desc}</p>
-
-              {/* FEATURES */}
-              <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                {item.features.map((f, idx) => (
-                  <li key={idx} className="flex gap-2">
-                    <span className="text-accent">/</span> {f}
-                  </li>
-                ))}
-              </ul>
-
-              {/* PRICE */}
-              <p className="font-[family-name:var(--font-bebas)] text-xl text-accent mb-6">
-                {item.price}
-              </p>
-
-              {/* CTA */}
-              <div className="space-y-3">
-                <Link
-                  href={item.href}
-                  className="block text-center border border-white/20 px-4 py-3 text-xs uppercase tracking-widest text-white hover:border-accent hover:text-accent transition w-full"
-                >
-                  Ver detalle
-                </Link>
-                <a
-                  href={`https://wa.me/5491167470473?text=${encodeURIComponent(item.msg)}`}
-                  target="_blank"
-                  className="inline-flex justify-center items-center border border-accent/40 px-4 py-3 text-xs uppercase tracking-widest text-accent hover:bg-accent hover:text-black transition w-full"
-                >
-                  Consultar
-                </a>
+      <Section className="!pt-8">
+        <div className="wrap space-y-20 md:space-y-28">
+          {order.map((g) => (
+            <div key={g} className="grid gap-10 lg:grid-cols-[0.8fr_1.4fr] lg:gap-16">
+              <div className="lg:sticky lg:top-28 lg:self-start">
+                <h2 className="t-h2">{groupMeta[g].title}</h2>
+                <p className="t-lead mt-4">{groupMeta[g].text}</p>
               </div>
+              <ul className="divide-y divide-line border-y border-line">
+                {services
+                  .filter((s) => s.group === g)
+                  .map((s) => (
+                    <li key={s.slug} className="reveal">
+                      <Link href={`/servicios/${s.slug}`} className="group grid gap-3 py-8 md:grid-cols-[1fr_auto] md:items-center md:gap-8">
+                        <div>
+                          <h3 className="t-h3 transition-colors group-hover:text-brand-ink">{s.title}</h3>
+                          <p className="mt-2 max-w-xl text-[0.97rem] text-ink-soft">{s.summary}</p>
+                          <p className="t-label mt-4 text-ink-faint">Objetivo · {s.goal}</p>
+                        </div>
+                        <span className="grid h-11 w-11 place-items-center rounded-full border border-line transition-all duration-300 group-hover:border-brand group-hover:bg-brand">
+                          <ArrowRight width={18} height={18} />
+                          <span className="sr-only">Ver {s.title}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
             </div>
           ))}
-        </div>
-      </div>
 
-      {/* DESARROLLO A MEDIDA */}
-      <div id="a-medida" className="mt-40 py-32 px-6 relative overflow-hidden scroll-mt-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent pointer-events-none" />
-
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl font-[family-name:var(--font-bebas)] tracking-tight">
-            ¿Necesitás algo más grande?
-          </h2>
-
-          <p className="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
-            Cuando tu negocio necesita más que una web, desarrollamos sistemas
-            y plataformas digitales adaptadas a tu operación.
-          </p>
-
-          {/* BLOQUES */}
-          <div className="mt-16 grid md:grid-cols-3 gap-6 text-left">
-            <Link
-              href="/servicios/software-a-medida"
-              className="block border border-white/10 rounded-xl p-6 bg-white/[0.02] backdrop-blur-sm hover:border-accent/40 transition"
-            >
-              <h4 className="font-semibold text-lg text-white">Software a Medida</h4>
-              <p className="mt-2 text-sm text-gray-500">
-                Sistemas para gestionar clientes, turnos, ventas o procesos internos.
+          <div className="glass reveal grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-12">
+            <div>
+              <h2 className="t-h3">Equipo IT y mejora continua</h2>
+              <p className="mt-3 max-w-2xl text-ink-soft">
+                Para productos que ya existen: un equipo técnico que mantiene, mejora y hace evolucionar tu sitio, sistema o plataforma de forma continua.
               </p>
-            </Link>
-            <Link
-              href="/servicios/plataformas-digitales"
-              className="block border border-white/10 rounded-xl p-6 bg-white/[0.02] backdrop-blur-sm hover:border-accent/40 transition"
-            >
-              <h4 className="font-semibold text-lg text-white">Plataformas Digitales</h4>
-              <p className="mt-2 text-sm text-gray-500">
-                Aplicaciones web con usuarios, roles y arquitectura propia.
-              </p>
-            </Link>
-            <Link
-              href="/servicios/mvp"
-              className="block border border-white/10 rounded-xl p-6 bg-white/[0.02] backdrop-blur-sm hover:border-accent/40 transition"
-            >
-              <h4 className="font-semibold text-lg text-white">MVP y Productos SaaS</h4>
-              <p className="mt-2 text-sm text-gray-500">
-                De una idea de negocio a un producto digital funcional.
-              </p>
+            </div>
+            <Link href="/equipo-it" className="inline-flex items-center gap-2 font-medium text-brand-ink underline underline-offset-4">
+              Ver cómo trabajamos <ArrowRight width={18} height={18} />
             </Link>
           </div>
 
-          {/* CARD PREMIUM */}
-          <div className="mt-16 max-w-xl mx-auto border border-accent/40 rounded-xl p-8 bg-gradient-to-b from-accent/10 to-transparent">
-            <p className="text-xs text-accent tracking-widest uppercase">
-              Solución avanzada
-            </p>
-
-            <h3 className="mt-4 font-[family-name:var(--font-bebas)] text-3xl">
-              Sistemas web a medida
-            </h3>
-
-            <p className="mt-4 text-gray-400 text-sm">
-              Desarrollo completo de plataformas adaptadas a tu negocio:
-              dashboards, CRM, sistemas de gestión o herramientas internas.
-            </p>
-
-            <p className="mt-6 text-2xl font-[family-name:var(--font-bebas)] text-accent">
-              Desde USD 1800+
-            </p>
-
-            <a
-              href="https://wa.me/5491167470473"
-              target="_blank"
-              className="mt-6 inline-block w-full text-center bg-accent text-black px-6 py-3 text-xs uppercase tracking-widest hover:scale-[1.02] transition"
-            >
-              Consultar proyecto
-            </a>
-          </div>
-
-          <p className="mt-12 text-gray-300 max-w-2xl mx-auto">
-            No se trata solo de tener presencia digital. Se trata de construir
-            herramientas que acompañen el crecimiento real de tu empresa.
+          <p className="max-w-2xl text-ink-soft">
+            Los desarrollos a medida se presupuestan según el alcance. Contanos tu caso y te respondemos con una propuesta concreta.
           </p>
         </div>
-      </div>
+      </Section>
 
-      {/* PROCESO */}
-      <div className="mt-40 max-w-6xl mx-auto px-6">
-        {/* HEADER */}
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-semibold reveal">
-            Cómo trabajamos
-          </h2>
-
-          <p className="mt-6 text-gray-500 reveal">
-            Un proceso claro, enfocado en generar impacto real desde el inicio.
-          </p>
-        </div>
-
-        {/* STEPS */}
-        <div className="mt-20 grid md:grid-cols-2 gap-6">
-          {[
-            {
-              step: "01",
-              title: "Entendemos tu negocio",
-              desc: "Analizamos tu situación actual, cómo funciona tu producto y qué está frenando tu crecimiento.",
-            },
-            {
-              step: "02",
-              title: "Detectamos oportunidades",
-              desc: "Identificamos mejoras concretas en conversión, performance o procesos internos.",
-            },
-            {
-              step: "03",
-              title: "Diseñamos la solución",
-              desc: "Definimos una estructura clara y escalable alineada a tus objetivos.",
-            },
-            {
-              step: "04",
-              title: "Desarrollamos y optimizamos",
-              desc: "Ejecutamos, iteramos y mejoramos constantemente para generar resultados reales.",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="group relative border border-white/10 rounded-xl p-6 md:p-8 
-        bg-white/[0.02] backdrop-blur-sm
-        hover:border-accent/40
-        hover:bg-white/[0.04]
-        transition-all duration-300"
-            >
-              {/* NUMERO */}
-              <span className="text-3xl font-[family-name:var(--font-bebas)] text-accent">
-                {item.step}
-              </span>
-
-              {/* CONTENIDO */}
-              <h4 className="mt-4 text-lg font-semibold">{item.title}</h4>
-
-              <p className="mt-2 text-sm text-gray-500 group-hover:text-gray-300 transition">
-                {item.desc}
-              </p>
-
-              {/* LINEA HOVER */}
-              <div className="mt-6 h-[1px] w-8 bg-accent/40 group-hover:w-16 transition-all duration-300" />
-            </div>
-          ))}
-        </div>
-
-        {/* FRASE FINAL */}
-        <div className="mt-16 text-center max-w-xl mx-auto reveal">
-          <p className="text-gray-400">
-            No es solo desarrollo. Es un proceso pensado para que tu producto
-            avance sin fricciones.
-          </p>
-        </div>
-      </div>
-
-      {/* CTA */}
-      <div className="mt-40 pb-24 text-center px-6">
-        <h3 className="text-4xl font-semibold reveal">
-          Tu producto puede crecer más
-        </h3>
-
-        <p className="mt-6 text-gray-500">
-          La diferencia está en cómo está construido.
-        </p>
-
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="https://wa.me/5491167470473"
-            target="_blank"
-            className="inline-block bg-accent text-black px-8 py-4 uppercase text-sm"
-          >
-            Empezar proyecto
-          </a>
-
-          <Link
-            href="/proyectos"
-            className="inline-block border border-white/20 px-8 py-4 uppercase text-sm hover:border-accent hover:text-accent transition"
-          >
-            Ver proyectos de Kodexa
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+      <MethodSection />
+      <CtaBand />
+    </>
+  )
 }

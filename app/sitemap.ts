@@ -1,110 +1,29 @@
-import { MetadataRoute } from "next"
+import type { MetadataRoute } from "next"
+import { services } from "@/lib/content/services"
+import { productList } from "@/lib/content/products"
+import { articles } from "@/lib/content/articles"
+import { site } from "@/lib/content/site"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://kodexa.ar"
+  const now = new Date()
+  const entry = (path: string, priority: number, changeFrequency: "weekly" | "monthly" | "yearly" = "monthly") => ({
+    url: `${site.url}${path}`,
+    lastModified: now,
+    changeFrequency,
+    priority,
+  })
 
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/servicios`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/servicios/desarrollo-web`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/servicios/institucional`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/servicios/institucional-pro`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/servicios/software-a-medida`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/servicios/plataformas-digitales`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/servicios/mvp`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/servicios/landing-pages`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/proyectos`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/productos`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/productos/nexo`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/productos/nodo`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/recursos`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/recursos/que-aprendimos-construyendo-un-saas-desde-cero`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/equipo-it`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/gracias`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    entry("", 1, "weekly"),
+    entry("/servicios", 0.9),
+    ...services.map((s) => entry(`/servicios/${s.slug}`, s.group === "web" || s.slug === "software-a-medida" ? 0.9 : 0.8)),
+    entry("/proyectos", 0.8),
+    entry("/productos", 0.8),
+    ...productList.map((p) => entry(`/productos/${p.slug}`, 0.7)),
+    entry("/estudio", 0.7),
+    entry("/contacto", 0.7),
+    entry("/equipo-it", 0.6),
+    entry("/recursos", 0.6),
+    ...articles.map((a) => entry(`/recursos/${a.slug}`, 0.6, "yearly")),
   ]
 }
