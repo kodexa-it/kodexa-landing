@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/layout/site-footer"
 import { WhatsappFloat } from "@/components/layout/whatsapp-float"
 import { JsonLd, organizationLd } from "@/components/seo/json-ld"
 import { GtmHead, GtmNoScript } from "@/components/seo/google-tag-manager"
+import { ClarityHead } from "@/components/seo/clarity"
 import { isPreview, loadTracking, site } from "@/lib/content/site"
 import "./globals.css"
 
@@ -70,7 +71,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es-AR" className={`${plexSans.variable} ${plexMono.variable}`}>
-      <head>{loadTracking && <GtmHead />}</head>
+      <head>
+        {loadTracking && (
+          <>
+            <GtmHead />
+            <ClarityHead />
+          </>
+        )}
+      </head>
       <body>
         {loadTracking && <GtmNoScript />}
         <a
