@@ -65,6 +65,29 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
       const { error } = await forminit.submit(site.forminitFormId, data)
       if (error) throw new Error()
       trackEvent("lead_form_submit", { source, leadType, productInterest: isProduct ? productInterest : null })
+      // Copia a Google Sheets (no bloquea: si falla, el lead ya quedó en Forminit).
+      try {
+        const str = (k: string) => (typeof data.get(k) === "string" ? (data.get(k) as string) : "")
+        await Promise.race([
+          fetch("/api/lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            keepalive: true,
+            body: JSON.stringify({
+              name: str("fi-sender-fullName"),
+              email: str("fi-sender-email"),
+              whatsapp: str("fi-text-whatsapp"),
+              projectType: str("fi-select-projectType"),
+              budget: str("fi-select-budget"),
+              message: str("fi-text-message"),
+              source,
+              productInterest: isProduct ? productInterest : "",
+              page: window.location.pathname,
+            }),
+          }),
+          new Promise((r) => setTimeout(r, 2500)),
+        ])
+      } catch {}
       window.location.href = "/gracias"
     } catch {
       setError("Ocurrió un error al enviar. Intentá nuevamente o escribinos por WhatsApp.")
