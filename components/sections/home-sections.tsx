@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/ui/button"
 import { ArrowRight, Whatsapp } from "@/components/ui/icons"
 import { Eyebrow, Section, SectionHeader } from "@/components/ui/section"
 import { ProjectCard } from "@/components/sections/project-card"
+import { ContactForm } from "@/components/forms/contact-form"
 import { featuredSlugs, getProject } from "@/lib/content/projects"
 import { productList } from "@/lib/content/products"
 import { EcosystemFlow } from "@/components/sections/ecosystem-flow"
@@ -253,6 +254,42 @@ export function CtaBand({
             </ButtonLink>
           </div>
         </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── 9. Consulta rápida (home) ───────────────────────────────── */
+export function HomeContact() {
+  return (
+    <section id="contact" aria-labelledby="home-contact-title" className="on-dark relative overflow-hidden bg-ink py-20 text-white md:py-28">
+      <div aria-hidden="true" className="drift absolute -left-24 top-1/3 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgb(251_110_26/0.45),transparent_65%)] blur-2xl" />
+      <div aria-hidden="true" className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-[#7c5cff]/15 blur-[110px]" />
+      <div className="wrap relative grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <div>
+          <Eyebrow onDark>Empecemos</Eyebrow>
+          <h2 id="home-contact-title" className="t-h1 mt-6 text-white">Contanos qué querés construir.</h2>
+          <p className="mt-6 max-w-md text-lg text-white/70">
+            Dejanos tu consulta y te respondemos dentro de las 24 hs. Sin compromiso: primero entendemos tu negocio y después te proponemos un camino.
+          </p>
+          <ul className="mt-8 space-y-3 text-white/75">
+            {["Trato directo con quien diseña y desarrolla", "Sin compromiso inicial", "Si preferís, hablamos por WhatsApp"].map((t) => (
+              <li key={t} className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand" />
+                {t}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href={whatsappHref("Hola Kodexa! Quiero hablar sobre un proyecto.")} variant="onDark" event="cta_click" eventProps={{ location: "home_contact", label: "whatsapp" }}>
+              <Whatsapp width={18} height={18} /> Escribir por WhatsApp
+            </ButtonLink>
+            <ButtonLink href="/contacto" variant="ghost" className="text-white hover:bg-white/10" event="cta_click" eventProps={{ location: "home_contact", label: "formulario_completo" }}>
+              Formulario completo <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </ButtonLink>
+          </div>
+        </div>
+        <ContactForm variant="quick" source="home" submitLabel="Enviar consulta" />
       </div>
     </section>
   )

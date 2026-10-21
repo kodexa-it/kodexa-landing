@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 const forminit = new Forminit({ proxyUrl: "/api/forminit" })
 
 const PRODUCT_TYPE = "Producto Kodexa (Nexo / Nodo)"
+const QUICK_TYPE = "Consulta rápida (home)"
 
 const projectTypes: { label: string; leadType: LeadType }[] = [
   { label: "Sitio web o Landing Page", leadType: "web" },
@@ -35,8 +36,8 @@ const field =
 const labelCls = "mb-2 block text-sm font-medium text-ink"
 
 type Props = {
-  /** "general" = consulta de proyecto. "product" = interés en Nexo/Nodo. */
-  variant?: "general" | "product"
+  /** "general" = consulta de proyecto. "product" = interés en Nexo/Nodo. "quick" = consulta rápida (home). */
+  variant?: "general" | "product" | "quick"
   /** Identifica desde qué página se envió (campo oculto para segmentar leads). */
   source?: string
   defaultProductInterest?: ProductInterest
@@ -46,12 +47,13 @@ type Props = {
 export function ContactForm({ variant = "general", source = "contacto", defaultProductInterest = "unknown", submitLabel = "Hablemos de tu proyecto" }: Props) {
   const uid = useId()
   const isProduct = variant === "product"
+  const isQuick = variant === "quick"
   const [projectType, setProjectType] = useState("")
   const [productInterest, setProductInterest] = useState<ProductInterest>(defaultProductInterest)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const leadType: LeadType = isProduct ? "product" : (projectTypes.find((t) => t.label === projectType)?.leadType ?? "other")
+  const leadType: LeadType = isProduct ? "product" : isQuick ? "other" : (projectTypes.find((t) => t.label === projectType)?.leadType ?? "other")
   const id = (n: string) => `${uid}-${n}`
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -71,7 +73,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
   }
 
   return (
-    <form onSubmit={onSubmit} aria-describedby={error ? id("error") : undefined} className="glass p-6 text-ink md:p-10">
+    <form onSubmit={onSubmit} aria-describedby={error ? id("error") : undefined} className={isQuick ? "rounded-[1.75rem] bg-paper p-6 text-ink shadow-[0_40px_80px_-30px_rgb(0_0_0/0.6)] md:p-8" : "glass p-6 text-ink md:p-10"}>
       <div className="grid gap-6 md:grid-cols-2">
         <input type="hidden" name="fi-text-leadType" value={leadType} />
         <input type="hidden" name="fi-text-source" value={source} />
@@ -81,6 +83,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
             <input type="hidden" name="fi-select-projectType" value={PRODUCT_TYPE} />
           </>
         )}
+        {isQuick && <input type="hidden" name="fi-select-projectType" value={QUICK_TYPE} />}
 
         <div>
           <label htmlFor={id("name")} className={labelCls}>Nombre</label>
@@ -91,7 +94,22 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
           <input id={id("email")} name="fi-sender-email" type="email" required autoComplete="email" placeholder="tu@email.com" className={field} />
         </div>
 
-        {isProduct ? (
+        <div className="md:col-span-2">
+          <label htmlFor={id("whatsapp")} className={labelCls}>
+            WhatsApp <span className="font-normal text-ink-faint">(opcional)</span>
+          </label>
+          <input
+            id={id("whatsapp")}
+            name="fi-text-whatsapp"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="Ej: 11 2345 6789"
+            className={field}
+          />
+        </div>
+
+        {isQuick ? null : isProduct ? (
           <div className="md:col-span-2">
             <label htmlFor={id("interest")} className={labelCls}>Me interesa</label>
             <select id={id("interest")} value={productInterest} onChange={(e) => setProductInterest(e.target.value as ProductInterest)} className={field}>
@@ -131,9 +149,15 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
             id={id("message")}
             name="fi-text-message"
             required
-            rows={5}
-            placeholder={isProduct ? "Contanos qué te gustaría resolver en tu negocio…" : "Contanos qué necesitás construir y cuál es tu idea…"}
-            className={`${field} min-h-36 resize-y`}
+            rows={isQuick ? 4 : 5}
+            placeholder={
+              isProduct
+                ? "Contanos qué te gustaría resolver en tu negocio…"
+                : isQuick
+                  ? "Contanos en pocas palabras qué necesitás…"
+                  : "Contanos qué necesitás construir y cuál es tu idea…"
+            }
+            className={`${field} ${isQuick ? "min-h-28" : "min-h-36"} resize-y`}
           />
         </div>
 
