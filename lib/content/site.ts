@@ -7,7 +7,7 @@ export const site = {
   tagline: "Estudio digital de diseño y desarrollo",
   description:
     "Diseñamos y desarrollamos sitios web, aplicaciones y sistemas a medida para negocios. Además, Nexo (asistente digital) y Nodo (CRM), nuestras propias soluciones.",
-  whatsappNumber: "5491167470473",
+  whatsappNumber: "5491178148150",
   instagram: "https://www.instagram.com/kodexa.it/",
   founder: {
     name: "Lautaro Aquino",
