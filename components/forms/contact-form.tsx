@@ -1,9 +1,10 @@
 "use client"
 
-import { useId, useState } from "react"
+import { useEffect, useId, useRef, useState } from "react"
 import { Forminit } from "forminit"
 import { trackEvent } from "@/lib/analytics"
 import { site } from "@/lib/content/site"
+import { HONEYPOT_FIELD, LIMITS, STARTED_FIELD, clean, digitsOnly, looksLikeBot, validateLead, type LeadErrors } from "@/lib/lead-validation"
 import type { LeadType, ProductInterest } from "@/lib/content/products"
 import { Button } from "@/components/ui/button"
 
@@ -52,14 +53,65 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
   const [productInterest, setProductInterest] = useState<ProductInterest>(defaultProductInterest)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [errors, setErrors] = useState<LeadErrors>({})
+  const formRef = useRef<HTMLFormElement>(null)
+  const startedAt = useRef(0)
+  useEffect(() => {
+    startedAt.current = Date.now()
+  }, [])
 
   const leadType: LeadType = isProduct ? "product" : isQuick ? "other" : (projectTypes.find((t) => t.label === projectType)?.leadType ?? "other")
   const id = (n: string) => `${uid}-${n}`
 
+  const readValues = (form: HTMLFormElement) => {
+    const d = new FormData(form)
+    const get = (k: string) => (typeof d.get(k) === "string" ? (d.get(k) as string) : "")
+    return {
+      name: get("fi-sender-fullName"),
+      email: get("fi-sender-email"),
+      whatsapp: get("fi-text-whatsapp"),
+      message: get("fi-text-message"),
+      projectType: get("fi-select-projectType"),
+    }
+  }
+  const check = (form: HTMLFormElement) => validateLead(readValues(form), { requireProjectType: variant === "general" })
+
+  /** Después del primer intento, los errores se actualizan mientras la persona corrige. */
+  function onFieldChange() {
+    if (Object.keys(errors).length && formRef.current) setErrors(check(formRef.current))
+  }
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError(null)
-    const data = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const raw = new FormData(form)
+
+    // Bots: campo trampa completo o envío instantáneo → simulamos éxito sin enviar nada.
+    if (looksLikeBot(raw.get(HONEYPOT_FIELD), startedAt.current)) {
+      window.location.href = "/gracias"
+      return
+    }
+
+    const found = check(form)
+    setErrors(found)
+    const first = Object.keys(found)[0]
+    if (first) {
+      const target: Record<string, string> = { name: "name", email: "email", whatsapp: "whatsapp", message: "message", projectType: "type" }
+      document.getElementById(id(target[first]))?.focus()
+      return
+    }
+
+    // Datos normalizados: sin espacios de más, email en minúsculas, teléfono solo con dígitos.
+    const v = readValues(form)
+    const data = new FormData(form)
+    data.delete(HONEYPOT_FIELD)
+    data.delete(STARTED_FIELD)
+    data.set("fi-sender-fullName", clean(v.name))
+    data.set("fi-sender-email", clean(v.email).toLowerCase())
+    data.set("fi-text-message", v.message.trim())
+    if (clean(v.whatsapp)) data.set("fi-text-whatsapp", digitsOnly(v.whatsapp))
+    else data.delete("fi-text-whatsapp")
     try {
       setSubmitting(true)
       const { error } = await forminit.submit(site.forminitFormId, data)
@@ -95,8 +147,11 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
     }
   }
 
+  const invalid = (k: keyof LeadErrors, idKey: string = k) =>
+    errors[k] ? { "aria-invalid": true as const, "aria-describedby": id(`${idKey}-err`) } : {}
+
   return (
-    <form onSubmit={onSubmit} aria-describedby={error ? id("error") : undefined} className={isQuick ? "rounded-[1.75rem] bg-paper p-6 text-ink shadow-[0_40px_80px_-30px_rgb(0_0_0/0.6)] md:p-8" : "glass p-6 text-ink md:p-10"}>
+    <form ref={formRef} noValidate onSubmit={onSubmit} onChange={onFieldChange} aria-describedby={error ? id("error") : undefined} className={isQuick ? "relative rounded-[1.75rem] bg-paper p-6 text-ink shadow-[0_40px_80px_-30px_rgb(0_0_0/0.6)] md:p-8" : "glass relative p-6 text-ink md:p-10"}>
       <div className="grid gap-6 md:grid-cols-2">
         <input type="hidden" name="fi-text-leadType" value={leadType} />
         <input type="hidden" name="fi-text-source" value={source} />
@@ -108,13 +163,21 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
         )}
         {isQuick && <input type="hidden" name="fi-select-projectType" value={QUICK_TYPE} />}
 
+        {/* Anti-spam: campo invisible para personas (los bots suelen completarlo). */}
+        <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+          <label htmlFor={id("hp")}>No completar</label>
+          <input id={id("hp")} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </div>
+
         <div>
           <label htmlFor={id("name")} className={labelCls}>Nombre</label>
-          <input id={id("name")} name="fi-sender-fullName" type="text" required autoComplete="name" placeholder="Tu nombre" className={field} />
+          <input id={id("name")} name="fi-sender-fullName" type="text" required minLength={LIMITS.nameMin} maxLength={LIMITS.nameMax} autoComplete="name" placeholder="Tu nombre" className={field} {...invalid("name")} />
+          <FieldError id={id("name-err")} msg={errors.name} />
         </div>
         <div>
           <label htmlFor={id("email")} className={labelCls}>Email</label>
-          <input id={id("email")} name="fi-sender-email" type="email" required autoComplete="email" placeholder="tu@email.com" className={field} />
+          <input id={id("email")} name="fi-sender-email" type="email" required maxLength={LIMITS.emailMax} autoComplete="email" inputMode="email" autoCapitalize="none" spellCheck={false} placeholder="tu@email.com" className={field} {...invalid("email")} />
+          <FieldError id={id("email-err")} msg={errors.email} />
         </div>
 
         <div className="md:col-span-2">
@@ -127,9 +190,12 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
             type="tel"
             inputMode="tel"
             autoComplete="tel"
+            maxLength={24}
             placeholder="Ej: 11 2345 6789"
             className={field}
+            {...invalid("whatsapp")}
           />
+          <FieldError id={id("whatsapp-err")} msg={errors.whatsapp} />
         </div>
 
         {isQuick ? null : isProduct ? (
@@ -145,12 +211,13 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
           <>
             <div>
               <label htmlFor={id("type")} className={labelCls}>Tipo de proyecto</label>
-              <select id={id("type")} name="fi-select-projectType" required value={projectType} onChange={(e) => setProjectType(e.target.value)} className={field}>
+              <select id={id("type")} name="fi-select-projectType" required value={projectType} onChange={(e) => setProjectType(e.target.value)} className={field} {...invalid("projectType", "type")}>
                 <option value="" disabled>Seleccionar</option>
                 {projectTypes.map(({ label }) => (
                   <option key={label} value={label}>{label}</option>
                 ))}
               </select>
+              <FieldError id={id("type-err")} msg={errors.projectType} />
             </div>
             <div>
               <label htmlFor={id("budget")} className={labelCls}>
@@ -172,6 +239,8 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
             id={id("message")}
             name="fi-text-message"
             required
+            minLength={LIMITS.messageMin}
+            maxLength={LIMITS.messageMax}
             rows={isQuick ? 4 : 5}
             placeholder={
               isProduct
@@ -181,7 +250,9 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
                   : "Contanos qué necesitás construir y cuál es tu idea…"
             }
             className={`${field} ${isQuick ? "min-h-28" : "min-h-36"} resize-y`}
+            {...invalid("message")}
           />
+          <FieldError id={id("message-err")} msg={errors.message} />
         </div>
 
         <div className="md:col-span-2">
@@ -199,5 +270,14 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
         </div>
       </div>
     </form>
+  )
+}
+
+function FieldError({ id, msg }: { id: string; msg?: string }) {
+  if (!msg) return null
+  return (
+    <p id={id} className="mt-2 text-sm text-red-700">
+      {msg}
+    </p>
   )
 }
