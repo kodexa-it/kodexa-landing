@@ -1,3 +1,5 @@
+import { validateLead } from "@/lib/lead-validation"
+
 /**
  * Copia cada consulta del sitio a una planilla de Google, vía un Apps Script publicado
  * como aplicación web (ver docs/google-sheets-leads.md).
@@ -25,7 +27,8 @@ export async function POST(req: Request) {
     const v = body[k]
     lead[k] = typeof v === "string" ? v.slice(0, 3000) : ""
   }
-  if (!lead.name && !lead.email && !lead.message) return new Response("empty", { status: 400 })
+  const errors = validateLead({ name: lead.name, email: lead.email, whatsapp: lead.whatsapp, message: lead.message })
+  if (Object.keys(errors).length) return Response.json({ error: "VALIDATION_ERROR", errors }, { status: 400 })
 
   try {
     const res = await fetch(url, {
