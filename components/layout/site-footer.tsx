@@ -23,7 +23,7 @@ export function SiteFooter() {
               <a href={site.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Kodexa" className={socialCls}>
                 <Instagram width={18} height={18} />
               </a>
-              <a href={site.founder.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Lautaro Aquino" className={socialCls}>
+              <a href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Kodexa" className={socialCls}>
                 <Linkedin width={18} height={18} />
               </a>
             </div>

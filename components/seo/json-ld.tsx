@@ -41,8 +41,8 @@ export const organizationLd = [
     logo: `${site.url}/favicon.png`,
     description:
       "Estudio digital especializado en diseño y desarrollo de sitios web, aplicaciones, sistemas a medida y productos digitales.",
-    founder: { "@type": "Person", name: site.founder.name },
-    sameAs: [site.founder.linkedin, site.instagram],
+    founder: { "@type": "Person", name: site.founder.name, sameAs: [site.founder.linkedin] },
+    sameAs: [site.linkedin, site.instagram],
   },
   { "@context": "https://schema.org", "@type": "WebSite", name: site.name, url: site.url, inLanguage: "es-AR" },
   {
