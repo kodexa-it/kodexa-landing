@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const channels = [
   { label: "WhatsApp", value: "Escribinos directamente", href: whatsappHref("Hola Kodexa! Quiero hablar sobre un proyecto.") },
   { label: "Instagram", value: "@kodexa.it", href: site.instagram },
-  { label: "LinkedIn", value: site.founder.name, href: site.founder.linkedin },
+  { label: "LinkedIn", value: "Kodexa", href: site.linkedin },
 ]
 
 export default function ContactoPage() {

@@ -9,6 +9,7 @@ export const site = {
     "Diseñamos y desarrollamos sitios web, aplicaciones y sistemas a medida para negocios. Además, Nexo (asistente digital) y Nodo (CRM), nuestras propias soluciones.",
   whatsappNumber: "5491178148150",
   instagram: "https://www.instagram.com/kodexa.it/",
+  linkedin: "https://www.linkedin.com/in/kodexa-it-58623a446/",
   founder: {
     name: "Lautaro Aquino",
     role: "Founder & Full Stack Developer",
