@@ -7,6 +7,7 @@ import { WhatsappFloat } from "@/components/layout/whatsapp-float"
 import { JsonLd, organizationLd } from "@/components/seo/json-ld"
 import { GtmHead, GtmNoScript } from "@/components/seo/google-tag-manager"
 import { ClarityHead } from "@/components/seo/clarity"
+import { AttributionCapture } from "@/components/seo/attribution"
 import { isPreview, loadTracking, site } from "@/lib/content/site"
 import "./globals.css"
 
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="contenido">{children}</main>
         <SiteFooter />
         <WhatsappFloat />
+        <AttributionCapture />
         <JsonLd data={organizationLd} />
         <Analytics />
       </body>

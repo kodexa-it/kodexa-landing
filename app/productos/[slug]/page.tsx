@@ -175,7 +175,6 @@ export default async function ProductPage({ params }: Params) {
             variant="product"
             source={`productos-${p.slug}`}
             defaultProductInterest={p.contact.interest}
-            submitLabel={p.contact.submitLabel}
           />
         </div>
       </Section>

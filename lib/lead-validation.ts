@@ -2,19 +2,27 @@
  * Reglas de validación de los formularios de contacto.
  * Se usan en el navegador (mensajes por campo) y en el servidor (/api/forminit y /api/lead),
  * así nadie puede saltearlas enviando datos directo a la API.
+ *
+ * Obligatorios: nombre, tipo de proyecto y el dato de contacto del medio elegido
+ * (WhatsApp o email). El resto —negocio y mensaje— es opcional.
  */
+
+export type ContactMethod = "whatsapp" | "email"
+export const CONTACT_METHODS: readonly ContactMethod[] = ["whatsapp", "email"]
 
 export type LeadInput = {
   name: string
-  email: string
+  business?: string
+  contactMethod?: string
+  email?: string
   whatsapp?: string
-  message: string
+  message?: string
   projectType?: string
 }
 
 export type LeadErrors = Partial<Record<keyof LeadInput, string>>
 
-export const LIMITS = { nameMin: 2, nameMax: 80, emailMax: 254, messageMin: 10, messageMax: 2000, phoneMin: 8, phoneMax: 15 } as const
+export const LIMITS = { nameMin: 2, nameMax: 80, businessMax: 80, emailMax: 254, messageMax: 2000, phoneMin: 8, phoneMax: 15 } as const
 
 // usuario@dominio.tld — sin espacios, un solo @, dominio con al menos un punto y TLD de 2+ letras.
 const EMAIL_RE = /^[a-z0-9._%+\-]+@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,24}$/i
@@ -55,32 +63,46 @@ export function emailSuggestion(email: string): string | null {
 export function validateLead(input: LeadInput, opts: { requireProjectType?: boolean } = {}): LeadErrors {
   const e: LeadErrors = {}
   const name = clean(input.name)
+  const business = clean(input.business)
+  const method = clean(input.contactMethod).toLowerCase()
   const email = clean(input.email).toLowerCase()
+  const whatsapp = clean(input.whatsapp)
+  const phone = digitsOnly(whatsapp)
   const message = clean(input.message)
-  const phone = digitsOnly(input.whatsapp ?? "")
 
   if (!name) e.name = "Ingresá tu nombre."
   else if (name.length < LIMITS.nameMin || name.length > LIMITS.nameMax) e.name = `El nombre debe tener entre ${LIMITS.nameMin} y ${LIMITS.nameMax} caracteres.`
   else if (!/\p{L}.*\p{L}/u.test(name) || /[<>{}@]|https?:|www\./i.test(name)) e.name = "Ingresá un nombre válido."
 
-  if (!email) e.email = "Ingresá tu email."
-  else if (email.length > LIMITS.emailMax || !EMAIL_RE.test(email) || email.includes("..")) e.email = "Revisá el email: debería ser del estilo nombre@dominio.com."
-  else {
-    const s = emailSuggestion(email)
-    if (s) e.email = `¿Quisiste decir ${s}?`
+  if (business) {
+    if (business.length > LIMITS.businessMax) e.business = `El nombre del negocio admite hasta ${LIMITS.businessMax} caracteres.`
+    else if (/[<>{}]|https?:|www\./i.test(business)) e.business = "Ingresá un nombre de negocio válido."
   }
 
-  if (input.whatsapp && clean(input.whatsapp)) {
-    if (/[^\d\s()+\-.]/.test(input.whatsapp)) e.whatsapp = "Usá solo números (podés incluir +, espacios o guiones)."
+  if (opts.requireProjectType && !clean(input.projectType)) e.projectType = "Elegí un tipo de proyecto."
+
+  if (!CONTACT_METHODS.includes(method as ContactMethod)) e.contactMethod = "Elegí cómo preferís que te contactemos."
+
+  // El dato del medio elegido es obligatorio; el otro, si viene, se valida igual.
+  if (email || method === "email") {
+    if (!email) e.email = "Ingresá tu email."
+    else if (email.length > LIMITS.emailMax || !EMAIL_RE.test(email) || email.includes("..")) e.email = "Revisá el email: debería ser del estilo nombre@dominio.com."
+    else {
+      const s = emailSuggestion(email)
+      if (s) e.email = `¿Quisiste decir ${s}?`
+    }
+  }
+
+  if (whatsapp || method === "whatsapp") {
+    if (!whatsapp) e.whatsapp = "Ingresá tu número de WhatsApp."
+    else if (/[^\d\s()+\-.]/.test(whatsapp)) e.whatsapp = "Usá solo números (podés incluir +, espacios o guiones)."
     else if (phone.length < LIMITS.phoneMin || phone.length > LIMITS.phoneMax) e.whatsapp = "Revisá el número: incluí el código de área (ej. 11 2345 6789)."
   }
 
-  if (!message) e.message = "Contanos brevemente qué necesitás."
-  else if (message.length < LIMITS.messageMin) e.message = `Contanos un poco más (mínimo ${LIMITS.messageMin} caracteres).`
-  else if (message.length > LIMITS.messageMax) e.message = `El mensaje es demasiado largo (máximo ${LIMITS.messageMax} caracteres).`
-  else if ((message.match(URL_RE) ?? []).length > 2) e.message = "El mensaje tiene demasiados enlaces."
-
-  if (opts.requireProjectType && !clean(input.projectType)) e.projectType = "Elegí un tipo de proyecto."
+  if (message) {
+    if (message.length > LIMITS.messageMax) e.message = `El mensaje es demasiado largo (máximo ${LIMITS.messageMax} caracteres).`
+    else if ((message.match(URL_RE) ?? []).length > 2) e.message = "El mensaje tiene demasiados enlaces."
+  }
 
   return e
 }

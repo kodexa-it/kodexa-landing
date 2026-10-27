@@ -31,12 +31,18 @@ export async function POST(req: NextRequest) {
   if (form.get("forminitFormId") !== site.forminitFormId) return bad(400, "Formulario inválido.")
 
   const str = (k: string) => (typeof form.get(k) === "string" ? (form.get(k) as string) : "")
-  const errors = validateLead({
-    name: str("fi-sender-fullName"),
-    email: str("fi-sender-email"),
-    whatsapp: str("fi-text-whatsapp"),
-    message: str("fi-text-message"),
-  })
+  const errors = validateLead(
+    {
+      name: str("fi-sender-fullName"),
+      business: str("fi-text-business"),
+      contactMethod: str("fi-text-contactMethod"),
+      email: str("fi-sender-email"),
+      whatsapp: str("fi-text-whatsapp"),
+      message: str("fi-text-message"),
+      projectType: str("fi-select-projectType"),
+    },
+    { requireProjectType: true },
+  )
   const first = Object.values(errors)[0]
   if (first) return bad(400, first)
 

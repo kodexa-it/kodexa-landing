@@ -4,6 +4,7 @@ import Link from "next/link"
 import type { ComponentProps, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { trackEvent } from "@/lib/analytics"
+import { trackWhatsappClick, type WhatsappCta } from "@/lib/whatsapp"
 
 type Variant = "primary" | "secondary" | "ghost" | "onDark"
 
@@ -26,6 +27,8 @@ type Common = {
   children: ReactNode
   event?: string
   eventProps?: Record<string, string | number | boolean | null>
+  /** Si el enlace va a WhatsApp: registra `whatsapp_click` (GA4 + planilla) en lugar de un evento genérico. */
+  whatsapp?: WhatsappCta
 }
 
 /** Enlace con apariencia de botón. Interno → next/link, externo → <a rel=noopener>. */
@@ -36,10 +39,11 @@ export function ButtonLink({
   children,
   event,
   eventProps,
+  whatsapp,
   ...rest
 }: Common & Omit<ComponentProps<"a">, "href" | "className" | "children"> & { href: string }) {
   const cls = cn(base, variants[variant], className)
-  const onClick = event ? () => trackEvent(event, eventProps) : undefined
+  const onClick = whatsapp ? () => trackWhatsappClick(whatsapp) : event ? () => trackEvent(event, eventProps) : undefined
   const external = /^https?:\/\//.test(href)
 
   if (external) {
@@ -61,7 +65,7 @@ export function Button({
   className,
   children,
   ...rest
-}: Omit<Common, "event" | "eventProps"> & ComponentProps<"button">) {
+}: Omit<Common, "event" | "eventProps" | "whatsapp"> & ComponentProps<"button">) {
   return (
     <button className={cn(base, variants[variant], className)} {...rest}>
       {children}

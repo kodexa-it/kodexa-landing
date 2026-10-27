@@ -87,7 +87,7 @@ export default function ProductosPage() {
             <h2 className="t-h2 mt-5">Contanos qué necesitás.</h2>
             <p className="t-lead mt-5">Te ayudamos a elegir por dónde empezar: Nexo, Nodo o una web a medida.</p>
           </div>
-          <ContactForm variant="product" source="productos" defaultProductInterest="unknown" submitLabel="Enviar consulta" />
+          <ContactForm variant="product" source="productos" defaultProductInterest="unknown" />
         </div>
       </Section>
     </>

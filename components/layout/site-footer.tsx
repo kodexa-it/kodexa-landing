@@ -36,7 +36,6 @@ export function SiteFooter() {
               {nav.map((i) => (
                 <li key={i.href}><Link className={linkCls} href={i.href}>{i.label}</Link></li>
               ))}
-              <li><Link className={linkCls} href="/recursos">Recursos</Link></li>
               <li><Link className={linkCls} href="/contacto">Contacto</Link></li>
             </ul>
           </nav>
@@ -54,7 +53,7 @@ export function SiteFooter() {
           <div>
             <p className="t-label text-ink-faint">Contacto</p>
             <p className="mt-5 text-[0.95rem] text-ink-soft">¿Tenés un proyecto en mente? Te respondemos dentro de las 24 hs.</p>
-            <ButtonLink href={whatsappHref()} variant="secondary" className="mt-5">
+            <ButtonLink href={whatsappHref("Hola Kodexa! Quiero hablar sobre un proyecto.")} variant="secondary" className="mt-5" whatsapp={{ location: "footer", label: "footer_whatsapp" }}>
               Escribir por WhatsApp
             </ButtonLink>
           </div>

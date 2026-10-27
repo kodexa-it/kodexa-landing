@@ -62,7 +62,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <ButtonLink href="/contacto" event="cta_click" eventProps={{ location: "service_hero", service: s.slug }}>
               {s.ctaLabel} <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </ButtonLink>
-            <ButtonLink href={wa} variant="secondary" event="cta_click" eventProps={{ location: "service_hero_whatsapp", service: s.slug }}>
+            <ButtonLink href={wa} variant="secondary" whatsapp={{ location: "services", label: "service_hero", service: s.slug }}>
               Consultar por WhatsApp
             </ButtonLink>
           </>
@@ -207,7 +207,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Section>
 
-      <CtaBand title={s.ctaTitle} />
+      <CtaBand title={s.ctaTitle} whatsappMessage={s.whatsappMessage} service={s.slug} location="services" />
     </>
   )
 }

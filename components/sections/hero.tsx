@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ui/button"
+import { whatsappHref } from "@/lib/content/site"
 import { ArrowRight } from "@/components/ui/icons"
 import { Eyebrow } from "@/components/ui/section"
 import { StudioShowcase } from "@/components/visuals/studio-showcase"
@@ -31,12 +32,15 @@ export function Hero() {
           </p>
 
           <div className="enter mt-8 flex flex-col gap-3 sm:flex-row sm:items-center" style={{ "--d": "280ms" } as React.CSSProperties}>
-            <ButtonLink href="/contacto" event="cta_click" eventProps={{ location: "hero", label: "hablemos" }}>
-              Hablemos de tu proyecto
+            <ButtonLink
+              href={whatsappHref("Hola Kodexa! Quiero conversar sobre mi proyecto.")}
+              whatsapp={{ location: "hero", label: "hero_primary" }}
+            >
+              Conversemos sobre tu proyecto
               <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </ButtonLink>
-            <ButtonLink href="/proyectos" variant="secondary" event="cta_click" eventProps={{ location: "hero", label: "explorar_proyectos" }}>
-              Ver proyectos
+            <ButtonLink href="#servicios" variant="secondary" event="cta_click" eventProps={{ location: "hero", label: "explorar_servicios" }}>
+              Explorar servicios
             </ButtonLink>
           </div>
 

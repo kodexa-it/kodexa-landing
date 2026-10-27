@@ -3,11 +3,12 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
-import { nav } from "@/lib/content/site"
+import { nav, whatsappHref } from "@/lib/content/site"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/ui/logo"
 import { ButtonLink } from "@/components/ui/button"
-import { Close, Menu } from "@/components/ui/icons"
+import { Close, Menu, Whatsapp } from "@/components/ui/icons"
+import { WhatsappLink } from "@/components/ui/whatsapp-link"
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -63,7 +64,7 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative rounded-full px-4 py-2 text-[0.92rem] font-medium tracking-[-0.01em] transition-colors",
+                  "relative rounded-full px-3 py-2 text-[0.92rem] lg:px-4 font-medium tracking-[-0.01em] transition-colors",
                   active ? "text-ink" : "text-ink-soft hover:text-ink",
                 )}
               >
@@ -81,6 +82,14 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <WhatsappLink
+            message="Hola Kodexa! Quiero hablar sobre un proyecto."
+            cta={{ location: "navbar", label: "navbar_icon" }}
+            aria-label="Escribir a Kodexa por WhatsApp"
+            className="hidden h-11 w-11 place-items-center rounded-full text-ink transition-colors hover:bg-ink/5 lg:grid"
+          >
+            <Whatsapp width={20} height={20} />
+          </WhatsappLink>
           <ButtonLink href="/contacto" className="hidden px-5 py-3 md:inline-flex" event="cta_click" eventProps={{ location: "header" }}>
             Hablemos
           </ButtonLink>
@@ -113,8 +122,15 @@ export function SiteHeader() {
               </Link>
             ))}
           </nav>
-          <ButtonLink href="/contacto" className="mt-2 w-full">
-            Hablemos de tu proyecto
+          <ButtonLink
+            href={whatsappHref("Hola Kodexa! Quiero hablar sobre un proyecto.")}
+            className="mt-2 w-full"
+            whatsapp={{ location: "navbar", label: "navbar_mobile" }}
+          >
+            <Whatsapp width={18} height={18} /> Escribir por WhatsApp
+          </ButtonLink>
+          <ButtonLink href="/contacto" variant="secondary" className="mt-2 w-full">
+            Enviar una consulta
           </ButtonLink>
         </div>
       )}

@@ -54,7 +54,7 @@ export default function EquipoItPage() {
         actions={
           <>
             <ButtonLink href="/contacto">Empezar ahora</ButtonLink>
-            <ButtonLink href={wa} variant="secondary">WhatsApp</ButtonLink>
+            <ButtonLink href={wa} variant="secondary" whatsapp={{ location: "services", label: "equipo_it_hero", service: "equipo-it" }}>WhatsApp</ButtonLink>
           </>
         }
       />
@@ -131,7 +131,13 @@ export default function EquipoItPage() {
         </div>
       </Section>
 
-      <CtaBand title="Dejá de ser el cuello de botella." lead="Sumá un equipo técnico que se encargue de tu producto. Respuesta en menos de 24 h, sin compromiso inicial." />
+      <CtaBand
+        title="Dejá de ser el cuello de botella."
+        lead="Sumá un equipo técnico que se encargue de tu producto. Respuesta en menos de 24 h, sin compromiso inicial."
+        whatsappMessage="Hola Kodexa! Me interesa sumar un equipo técnico para mi producto. ¿Podemos hablar?"
+        service="equipo-it"
+        location="services"
+      />
     </>
   )
 }

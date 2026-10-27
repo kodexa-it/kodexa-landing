@@ -76,6 +76,19 @@ export function FeaturedProjects() {
           <div className="reveal md:col-span-6"><ProjectCard project={items[2]} /></div>
           <div className="reveal md:col-span-6"><ProjectCard project={items[3]} /></div>
         </div>
+
+        <div className="reveal glass mt-12 flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
+          <p className="max-w-xl text-lg text-ink-soft">
+            Cada proyecto nace de un negocio distinto. Si tenés una idea o un problema para resolver, conversemos y vemos qué solución le queda mejor.
+          </p>
+          <ButtonLink
+            href={whatsappHref("Hola Kodexa! Quiero desarrollar mi proyecto. ¿Podemos conversar?")}
+            className="shrink-0"
+            whatsapp={{ location: "projects", label: "projects_develop" }}
+          >
+            Quiero desarrollar mi proyecto <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </ButtonLink>
+        </div>
       </div>
     </Section>
   )
@@ -91,7 +104,7 @@ const serviceFamilies = [
 
 export function ServicesOverview() {
   return (
-    <Section labelledBy="services-title" className="overflow-hidden">
+    <Section id="servicios" labelledBy="services-title" className="scroll-mt-24 overflow-hidden">
       <div aria-hidden="true" className="absolute inset-x-0 top-1/4 -z-10 mx-auto h-96 max-w-4xl rounded-full bg-[radial-gradient(closest-side,rgb(251_110_26/0.16),transparent)] blur-2xl" />
       <div className="wrap">
         <SectionHeader
@@ -117,10 +130,19 @@ export function ServicesOverview() {
           ))}
         </div>
 
-        <div className="mt-16 md:mt-20">
-          <ButtonLink href="/servicios" variant="secondary">
+        <div className="mt-16 flex flex-col gap-8 md:mt-20 md:flex-row md:items-center md:justify-between">
+          <ButtonLink href="/servicios" variant="secondary" className="self-start">
             Ver todos los servicios <ArrowRight width={18} height={18} />
           </ButtonLink>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <p className="text-lg font-medium tracking-[-0.01em] text-ink">¿Necesitás algo así para tu negocio?</p>
+            <ButtonLink
+              href={whatsappHref("Hola Kodexa! Quiero consultar por un proyecto para mi negocio.")}
+              whatsapp={{ location: "services", label: "services_consult" }}
+            >
+              Consultar por mi proyecto
+            </ButtonLink>
+          </div>
         </div>
       </div>
     </Section>
@@ -193,10 +215,22 @@ export function ProductsEcosystem() {
           <p className="max-w-2xl text-sm text-white/60">
             Los productos propios son distintos del desarrollo a medida: se usan tal como están. Si necesitás algo construido desde cero para tu operación, ese es el trabajo del estudio.
           </p>
-          <ButtonLink href="/contacto" className="shrink-0" event="cta_click" eventProps={{ location: "ecosistema", label: "quiero_ecosistema" }}>
-            Quiero sumar el ecosistema
-            <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-          </ButtonLink>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+            <ButtonLink
+              href={whatsappHref("Hola Kodexa! Quiero saber más sobre Nexo y Nodo para mi negocio.")}
+              whatsapp={{ location: "products", label: "products_ecosystem", service: "nexo-nodo" }}
+            >
+              Quiero sumar el ecosistema
+              <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </ButtonLink>
+            <ButtonLink
+              href={whatsappHref("Hola Kodexa! Necesito desarrollar una solución a medida para mi negocio.")}
+              variant="onDark"
+              whatsapp={{ location: "products", label: "products_custom_dev", service: "desarrollo-a-medida" }}
+            >
+              Necesito desarrollo a medida
+            </ButtonLink>
+          </div>
         </div>
       </div>
     </Section>
@@ -231,26 +265,44 @@ export function MethodSection() {
 
 /* ── 8. CTA final ────────────────────────────────────────────── */
 export function CtaBand({
-  title = "Contanos qué querés construir.",
-  lead = "Te escuchamos, entendemos el contexto y te proponemos un camino claro. Sin compromiso.",
+  title = "Tu próximo proyecto puede empezar con una conversación.",
+  lead = "Contanos qué querés lograr y veamos cómo podemos hacerlo realidad.",
+  whatsappMessage = "Hola Kodexa! Quiero hablar sobre un proyecto.",
+  service,
+  location = "cta_final",
+  id = "contact",
+  tone = "dark",
 }: {
   title?: string
   lead?: string
+  /** Mensaje precargado de WhatsApp (puede ser específico del servicio). */
+  whatsappMessage?: string
+  /** Servicio asociado, para el mensaje y la analítica. */
+  service?: string
+  /** Ubicación del botón en la analítica (cta_location). */
+  location?: string
+  id?: string
+  tone?: "dark" | "light"
 }) {
+  const dark = tone === "dark"
   return (
-    <section id="contact" aria-labelledby="cta-title" className="on-dark relative overflow-hidden bg-ink py-24 text-white md:py-32">
-      <div aria-hidden="true" className="drift absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgb(251_110_26/0.55),transparent_65%)] blur-2xl" />
+    <section
+      id={id}
+      aria-labelledby={`${id}-title`}
+      className={`${dark ? "on-dark bg-ink text-white" : "bg-paper text-ink"} relative overflow-hidden py-24 md:py-32`}
+    >
+      <div aria-hidden="true" className={`drift absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgb(251_110_26/0.55),transparent_65%)] blur-2xl ${dark ? "" : "opacity-40"}`} />
       <div className="wrap relative">
-        <div className="glass-dark mx-auto max-w-4xl px-6 py-14 text-center md:px-16 md:py-20">
-          <Eyebrow onDark className="justify-center">Empecemos</Eyebrow>
-          <h2 id="cta-title" className="t-h1 mt-6 text-white">{title}</h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">{lead}</p>
+        <div className={`${dark ? "glass-dark" : "glass"} mx-auto max-w-4xl px-6 py-14 text-center md:px-16 md:py-20`}>
+          <Eyebrow onDark={dark} className="justify-center">Empecemos</Eyebrow>
+          <h2 id={`${id}-title`} className={`t-h1 mt-6 ${dark ? "text-white" : "text-ink"}`}>{title}</h2>
+          <p className={`mx-auto mt-6 max-w-xl text-lg ${dark ? "text-white/70" : "text-ink-soft"}`}>{lead}</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink href="/contacto" event="cta_click" eventProps={{ location: "cta_band" }}>
-              Hablemos de tu proyecto <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            <ButtonLink href={whatsappHref(whatsappMessage)} whatsapp={{ location, label: `${location}_whatsapp`, service }}>
+              <Whatsapp width={18} height={18} /> Hablemos por WhatsApp
             </ButtonLink>
-            <ButtonLink href={whatsappHref("Hola Kodexa! Quiero hablar sobre un proyecto.")} variant="onDark" event="cta_click" eventProps={{ location: "cta_band", label: "whatsapp" }}>
-              <Whatsapp width={18} height={18} /> Escribir por WhatsApp
+            <ButtonLink href="/contacto" variant={dark ? "onDark" : "secondary"} event="cta_click" eventProps={{ location, label: "formulario" }}>
+              Prefiero dejar mi consulta <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </ButtonLink>
           </div>
         </div>
@@ -259,7 +311,7 @@ export function CtaBand({
   )
 }
 
-/* ── 9. Consulta rápida (home) ───────────────────────────────── */
+/* ── 9. Contacto (home) ──────────────────────────────────────── */
 export function HomeContact() {
   return (
     <section id="contact" aria-labelledby="home-contact-title" className="on-dark relative overflow-hidden bg-ink py-20 text-white md:py-28">
@@ -267,29 +319,31 @@ export function HomeContact() {
       <div aria-hidden="true" className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-[#7c5cff]/15 blur-[110px]" />
       <div className="wrap relative grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div>
-          <Eyebrow onDark>Empecemos</Eyebrow>
-          <h2 id="home-contact-title" className="t-h1 mt-6 text-white">Contanos qué querés construir.</h2>
+          <Eyebrow onDark>Contacto</Eyebrow>
+          <h2 id="home-contact-title" className="t-h1 mt-6 text-white">Hablemos de tu próximo proyecto.</h2>
           <p className="mt-6 max-w-md text-lg text-white/70">
-            Dejanos tu consulta y te respondemos dentro de las 24 hs. Sin compromiso: primero entendemos tu negocio y después te proponemos un camino.
+            Contanos qué tenés en mente. Te ayudamos a encontrar la mejor solución para tu negocio.
           </p>
+          <div className="mt-8">
+            <ButtonLink
+              href={whatsappHref("Hola Kodexa! Quiero hablar sobre un proyecto.")}
+              className="w-full sm:w-auto"
+              whatsapp={{ location: "contact", label: "home_contact_whatsapp" }}
+            >
+              <Whatsapp width={18} height={18} /> Contactar por WhatsApp
+            </ButtonLink>
+            <p className="mt-3 text-sm text-white/55">La forma más directa. O dejá tus datos en el formulario y te contactamos.</p>
+          </div>
           <ul className="mt-8 space-y-3 text-white/75">
-            {["Trato directo con quien diseña y desarrolla", "Sin compromiso inicial", "Si preferís, hablamos por WhatsApp"].map((t) => (
+            {["Trato directo con quien diseña y desarrolla", "Sin compromiso inicial", "Respuesta dentro de las 24 hs"].map((t) => (
               <li key={t} className="flex items-center gap-3">
                 <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand" />
                 {t}
               </li>
             ))}
           </ul>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={whatsappHref("Hola Kodexa! Quiero hablar sobre un proyecto.")} variant="onDark" event="cta_click" eventProps={{ location: "home_contact", label: "whatsapp" }}>
-              <Whatsapp width={18} height={18} /> Escribir por WhatsApp
-            </ButtonLink>
-            <ButtonLink href="/contacto" variant="ghost" className="text-white hover:bg-white/10" event="cta_click" eventProps={{ location: "home_contact", label: "formulario_completo" }}>
-              Formulario completo <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </ButtonLink>
-          </div>
         </div>
-        <ContactForm variant="quick" source="home" submitLabel="Enviar consulta" />
+        <ContactForm variant="quick" source="home" />
       </div>
     </section>
   )
