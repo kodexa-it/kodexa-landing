@@ -1,1 +1,9 @@
-{ "viewSite": "Visit site", "viewSiteOf": " of {title}", "with": "with {via}" }
+{
+  "viewSite": "Visit site",
+  "viewSiteOf": " of {title}",
+  "with": "with {via}",
+  "published": "Live",
+  "inDevelopment": "In development",
+  "caseStudy": "Read the case study",
+  "caseStudyOf": " for {title}"
+}

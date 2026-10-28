@@ -1,11 +1,19 @@
 {
   "meta": {
     "title": "Thank you for your message",
-    "description": "We received your project. We'll reply within the next 24 hours."
+    "description": "We received your project. We'll reply as soon as we can."
   },
   "eyebrow": "Message sent",
   "title": "We received your project.",
-  "lead": "Thank you for trusting Kodexa. We'll review what you told us and reply with a clear proposal within the next 24 hours.",
+  "lead": "Thank you for trusting Kodexa. We'll review what you told us and reply with a clear proposal as soon as we can.",
   "home": "Back to home",
-  "projects": "View projects"
+  "projects": "View projects",
+  "direct": {
+    "meta": "Contact",
+    "eyebrow": "Contact",
+    "title": "We haven't received an inquiry yet.",
+    "lead": "This page is shown after the contact form is sent. If you'd like to reach out, fill in the form or use WhatsApp.",
+    "form": "Go to the form",
+    "whatsapp": "Message us on WhatsApp"
+  }
 }

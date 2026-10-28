@@ -5,6 +5,8 @@ import { getT } from "@/lib/i18n/server"
 import { Logo } from "@/components/ui/logo"
 import { ButtonLink } from "@/components/ui/button"
 import { Instagram, Linkedin } from "@/components/ui/icons"
+import { CookiePrefsButton } from "@/components/consent/cookie-banner"
+import { loadTracking } from "@/lib/content/site"
 import { EmailLink } from "@/components/ui/email-link"
 
 const linkCls = "text-ink-soft transition-colors hover:text-ink"
@@ -58,7 +60,7 @@ export async function SiteFooter() {
             <p className="t-label text-ink-faint">{t("footer.contactTitle")}</p>
             <p className="mt-5 text-[0.95rem] text-ink-soft">{t("footer.contactText")}</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <ButtonLink href="/contacto" variant="secondary" event="cta_click" eventProps={{ location: "footer" }}>
+              <ButtonLink href="/contacto" variant="secondary" event="contact_cta_click" eventProps={{ location: "footer" }}>
                 {t("header.sendInquiry")}
               </ButtonLink>
               <ButtonLink href={whatsappHref(t("common.whatsappDefault"))} variant="secondary" whatsapp={{ location: "footer", label: "footer_whatsapp" }}>
@@ -75,7 +77,11 @@ export async function SiteFooter() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-line pt-6 text-sm text-ink-faint md:flex-row md:justify-between">
           <p>{t("footer.rights", { year: new Date().getFullYear() })}</p>
-          <p>{t("footer.tag")}</p>
+          <nav aria-label={t("footer.legalAria")} className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link className={linkCls} href="/privacidad">{t("footer.privacy")}</Link>
+            <Link className={linkCls} href="/cookies">{t("footer.cookies")}</Link>
+            {loadTracking && <CookiePrefsButton className={linkCls} />}
+          </nav>
         </div>
       </div>
     </footer>

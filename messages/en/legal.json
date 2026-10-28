@@ -1,0 +1,128 @@
+{
+  "privacy": {
+    "meta": {
+      "title": "Privacy policy",
+      "description": "How Kodexa uses the data you share when you contact us: what we collect, why, who processes it and how to exercise your rights."
+    },
+    "crumb": "Privacy policy",
+    "eyebrow": "Legal",
+    "title": "Privacy policy",
+    "lead": "We use the data you share with us only to reply to your inquiry. Here is what we collect, who processes it, and how you can ask us to correct or delete it.",
+    "updated": "Last updated: October 28, 2026",
+    "sections": [
+      {
+        "title": "Who is responsible",
+        "body": [
+          "Kodexa (kodexa.ar) is a digital design and development studio run by Lautaro Aquino. For any question about your data, write to {email}."
+        ]
+      },
+      {
+        "title": "What data we collect",
+        "body": [
+          "Only what we need to start a business conversation:"
+        ],
+        "list": [
+          "Contact form: name, business name (optional), project type, how you'd like us to reach you, your WhatsApp number or email, message (optional) and estimated budget (optional). We also record the date and the form you sent it from.",
+          "WhatsApp button click: we log the click anonymously (page, button location and visit source, such as the campaign or site you came from). It does not include name, email or phone. The conversation itself takes place on WhatsApp and is governed by that platform's policies.",
+          "Site analytics: only if you accept cookies. See the Cookie policy."
+        ]
+      },
+      {
+        "title": "What we use it for",
+        "body": [
+          "We use your contact details only to reply to your inquiry and, if we move forward, to prepare a proposal. We don't sell them or share them with third parties for advertising. If we ever want to use them for another purpose (for example, sending you news), we will ask you separately."
+        ]
+      },
+      {
+        "title": "Who processes it",
+        "body": [
+          "To run the site and handle inquiries we use providers that process data on our behalf. Some are located abroad (for example, in the United States), so your data may be transferred outside Argentina:"
+        ],
+        "list": [
+          "Forminit: receives form submissions.",
+          "Google (Google Sheets): the inquiry tracking sheet, from which entries flow into our CRM. Google Analytics and Tag Manager, only if you accept analytics cookies.",
+          "Microsoft Clarity: heatmaps and session recordings, only if you accept analytics cookies.",
+          "Netlify and Vercel: site hosting and aggregated visit measurement, without cookies."
+        ]
+      },
+      {
+        "title": "How long we keep it",
+        "body": [
+          "We keep your data for as long as needed to answer your inquiry and maintain the business relationship. You can ask us to delete it at any time."
+        ]
+      },
+      {
+        "title": "Your rights",
+        "body": [
+          "You can request access, correction, update or deletion of your data by writing to {email}. We reply promptly and within the legal deadlines. Depending on where you live (for example, the EU or UK) you may have additional rights, such as portability or objection; write to us and we will handle your request.",
+          "Under Argentine law (Law 25,326) you may exercise your right of access free of charge at intervals of no less than six months, unless a legitimate interest is shown. The Agency for Access to Public Information (AAIP), as the supervisory authority of Law 25,326, is empowered to handle complaints regarding non-compliance with personal data protection rules."
+        ]
+      },
+      {
+        "title": "Security",
+        "body": [
+          "The site uses encrypted connections (HTTPS) and access to data is limited to people who need it to reply to you. No system is infallible, but we take reasonable measures to protect it."
+        ]
+      },
+      {
+        "title": "Changes to this policy",
+        "body": [
+          "If we change this policy we will publish the new version on this page with its update date."
+        ]
+      }
+    ]
+  },
+  "cookies": {
+    "meta": {
+      "title": "Cookie policy",
+      "description": "Which cookies and similar technologies kodexa.ar uses, what they are for and how to change your choice."
+    },
+    "crumb": "Cookie policy",
+    "eyebrow": "Legal",
+    "title": "Cookie policy",
+    "lead": "We use few cookies. Analytics cookies only run if you accept them, and you can change your choice at any time.",
+    "updated": "Last updated: October 28, 2026",
+    "sections": [
+      {
+        "title": "Necessary (no consent needed)",
+        "body": [
+          "They make the site work and are not used to track you:"
+        ],
+        "list": [
+          "kx_consent (first-party, 6 months): remembers whether you accepted or rejected analytics cookies.",
+          "kx_lang (first-party, 1 year): remembers your language only if you choose it manually in the selector.",
+          "kx_sent (first-party, 10 minutes): signed proof that your inquiry was received, used to show the thank-you page. It does not contain your data.",
+          "Browser session storage (kx_attribution): keeps the visit source during the session so we know where you came from. It is cleared when you close the tab."
+        ]
+      },
+      {
+        "title": "Analytics (only if you accept)",
+        "body": [
+          "They help us understand which sections are used and where there are problems. We don't use advertising cookies."
+        ],
+        "list": [
+          "Google Analytics, through Google Tag Manager (for example, _ga and _ga_*): site usage statistics. The events we send do not include name, email, phone or messages.",
+          "Microsoft Clarity (for example, _clck and _clsk): heatmaps and session recordings to spot usability issues."
+        ]
+      },
+      {
+        "title": "No cookies",
+        "body": [
+          "Vercel Analytics measures visits and clicks in aggregate without using cookies or identifying people."
+        ]
+      },
+      {
+        "title": "How to change your choice",
+        "body": [
+          "You can reopen the notice at any time with “Cookie preferences” in the page footer. If you reject, Google Tag Manager still loads with all analytics storage denied and Microsoft Clarity does not load. You can also delete cookies from your browser settings."
+        ]
+      },
+      {
+        "title": "More information",
+        "body": [
+          "To learn how we handle the data you send through the form, read the Privacy policy. Questions: {email}."
+        ]
+      }
+    ]
+  }
+}

@@ -72,6 +72,8 @@ const sectionEn: Record<string, string> = {
   "equipo-it": "it-team",
   recursos: "resources",
   gracias: "thank-you",
+  privacidad: "privacy",
+  cookies: "cookies",
 }
 
 /** Slugs de contenido (segundo segmento) que cambian de idioma, por sección interna. */
@@ -153,7 +155,7 @@ export function parsePublicPath(pathname: string): ParsedPath {
 }
 
 /** ¿Existe una ruta interna con este formato? (para decidir equivalentes al cambiar de idioma) */
-const staticInternal = new Set(["/", "/servicios", "/proyectos", "/productos", "/estudio", "/contacto", "/equipo-it", "/recursos", "/gracias"])
+const staticInternal = new Set(["/", "/servicios", "/proyectos", "/productos", "/estudio", "/contacto", "/equipo-it", "/recursos", "/gracias", "/privacidad", "/cookies"])
 export function isKnownInternalPath(internal: string, known: { services: string[]; products: string[]; projects: string[]; articles: string[] }): boolean {
   if (staticInternal.has(internal)) return true
   const [section, slug, ...rest] = split(internal)

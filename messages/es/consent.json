@@ -1,0 +1,11 @@
+{
+  "aria": "Aviso de cookies",
+  "title": "Tu privacidad",
+  "text": "Usamos cookies de analítica (Google Analytics y Microsoft Clarity) para mejorar el sitio. Solo se activan si aceptás.",
+  "more": "Más información",
+  "accept": "Aceptar",
+  "reject": "Rechazar",
+  "prefs": "Preferencias de cookies",
+  "currentGranted": "Hoy tenés aceptadas las cookies de analítica.",
+  "currentDenied": "Hoy tenés rechazadas las cookies de analítica."
+}

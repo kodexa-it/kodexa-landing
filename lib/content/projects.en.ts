@@ -28,6 +28,7 @@ export const projectsEn: Project[] = [
     kind: "cliente",
     summary:
       "Corporate website with an API-based architecture and a management system (CRUD), designed to streamline content management, improve scalability and make day-to-day operations easier.",
+    caseStudy: "/recursos/de-los-requerimientos-a-una-solucion-digital-a-medida",
     image: "/images/waste-treatment.png",
     imageAlt: "Home page of the Waste Treatment website, an industrial waste management company (the live site is in Spanish)",
     status: "In development",

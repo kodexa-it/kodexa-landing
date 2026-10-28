@@ -25,7 +25,7 @@
   "retry": "Try again",
   "skipText": "Would you rather not fill in the form?",
   "skipLink": "Open WhatsApp anyway",
-  "reply": "We reply within 24 hours.",
+  "reply": "We reply as soon as we can.",
   "emailAlt": "Prefer to write by email?",
   "directWhatsappProject": "Hi Kodexa! I'd like to talk about a project: {type}.",
   "saved": {
@@ -77,5 +77,7 @@
     "interested": "I'm interested in: {type}.",
     "email": "My email: {email}"
   },
-  "honeypot": "Leave this field empty"
+  "honeypot": "Leave this field empty",
+  "privacy": "We'll use your details only to reply to your inquiry.",
+  "privacyLink": "Privacy policy"
 }

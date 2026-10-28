@@ -57,7 +57,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         lead={s.heroLead}
         actions={
           <>
-            <ButtonLink href="/contacto" event="cta_click" eventProps={{ location: "service_hero", service: s.slug }}>
+            <ButtonLink href={`/contacto?servicio=${s.slug}#formulario`} event="service_cta_click" eventProps={{ location: "service_hero", service: s.slug }}>
               {s.ctaLabel} <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </ButtonLink>
             <ButtonLink href={wa} variant="secondary" whatsapp={{ location: "services", label: "service_hero", service: s.slug }}>
@@ -169,7 +169,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <p className="mt-6 text-4xl font-medium tracking-[-0.03em] md:text-5xl">{t("servicio.custom")}</p>
             )}
             <p className="mx-auto mt-5 max-w-lg text-white/70">{s.pricingNote}</p>
-            <ButtonLink href={wa} className="mt-9" event="cta_click" eventProps={{ location: "service_price", service: s.slug }}>
+            <ButtonLink href={wa} className="mt-9" whatsapp={{ location: "service_price", label: "service_price", service: s.slug }}>
               {t("servicio.quote")}
             </ButtonLink>
           </div>

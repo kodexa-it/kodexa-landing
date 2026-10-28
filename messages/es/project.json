@@ -1,1 +1,9 @@
-{ "viewSite": "Ver sitio", "viewSiteOf": " de {title}", "with": "con {via}" }
+{
+  "viewSite": "Ver sitio",
+  "viewSiteOf": " de {title}",
+  "with": "con {via}",
+  "published": "Publicado",
+  "inDevelopment": "En desarrollo",
+  "caseStudy": "Leer el caso de estudio",
+  "caseStudyOf": " de {title}"
+}

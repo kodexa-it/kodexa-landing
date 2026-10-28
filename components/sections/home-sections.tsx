@@ -1,7 +1,7 @@
 import { Link } from "@/components/i18n/link"
 import { ProductBadge } from "@/components/ui/product-badge"
 import { ButtonLink } from "@/components/ui/button"
-import { ArrowRight, Whatsapp } from "@/components/ui/icons"
+import { ArrowRight, Check, Whatsapp } from "@/components/ui/icons"
 import { Eyebrow, Section, SectionHeader } from "@/components/ui/section"
 import { ProjectCard } from "@/components/sections/project-card"
 import { ContactForm } from "@/components/forms/contact-form"
@@ -15,7 +15,7 @@ type Card = { title: string; text: string; href: string; tag?: string }
 
 export async function StudioIntro() {
   const { t } = await getT()
-  const capabilities = t.raw<Card[]>("home.studio.capabilities")
+  const points = t.raw<string[]>("home.studio.points")
   return (
     <Section labelledBy="studio-title">
       <div className="wrap grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
@@ -32,15 +32,11 @@ export async function StudioIntro() {
           </ButtonLink>
         </div>
 
-        <ul className="reveal grid gap-px overflow-hidden rounded-[1.5rem] border border-line bg-line sm:grid-cols-2">
-          {capabilities.map((c, i) => (
-            <li key={c.title} className="bg-paper">
-              <Link href={c.href} className="group flex h-full flex-col gap-3 p-7 transition-colors hover:bg-white">
-                <span className="t-label text-ink-faint">{String(i + 1).padStart(2, "0")}</span>
-                <span className="t-h3">{c.title}</span>
-                <span className="text-[0.97rem] text-ink-soft">{c.text}</span>
-                <ArrowRight width={18} height={18} className="mt-auto text-brand-ink opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
-              </Link>
+        <ul className="reveal grid content-center gap-4">
+          {points.map((p) => (
+            <li key={p} className="glass flex items-start gap-4 p-6">
+              <span aria-hidden="true" className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand/15 text-brand-ink"><Check width={14} height={14} /></span>
+              <span className="text-lg text-ink">{p}</span>
             </li>
           ))}
         </ul>
@@ -106,20 +102,35 @@ export async function ServicesOverview() {
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">
-          {serviceFamilies.map((s, i) => (
-            <Link key={s.title} href={s.href} className={`reveal glass glass-lift group flex min-h-56 flex-col justify-between p-8 ${i % 2 ? "md:translate-y-8" : ""}`}>
-              <div className="flex items-center justify-between">
-                <span className="t-label text-ink-faint">{s.tag}</span>
-                <span className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink transition-all duration-300 group-hover:border-brand group-hover:bg-brand">
-                  <ArrowRight width={17} height={17} />
-                </span>
+          {serviceFamilies.map((s, i) => {
+            const slug = s.href.split("/").pop()!
+            return (
+              <div key={s.title} className={`reveal glass glass-lift group flex min-h-56 flex-col justify-between gap-8 p-8 ${i % 2 ? "md:translate-y-8" : ""}`}>
+                <Link href={s.href} className="flex flex-1 flex-col justify-between rounded-xl">
+                  <div className="flex items-center justify-between">
+                    <span className="t-label text-ink-faint">{s.tag}</span>
+                    <span className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink transition-all duration-300 group-hover:border-brand group-hover:bg-brand">
+                      <ArrowRight width={17} height={17} />
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="t-h3 mt-10">{s.title}</h3>
+                    <p className="mt-3 max-w-sm text-[0.97rem] text-ink-soft">{s.text}</p>
+                  </div>
+                </Link>
+                <ButtonLink
+                  href={`/contacto?servicio=${slug}#formulario`}
+                  variant="ghost"
+                  className="-ml-4 self-start !py-2.5 text-brand-ink"
+                  event="service_cta_click"
+                  eventProps={{ location: "home_services", service: slug }}
+                >
+                  {t("home.services.consultService")}<span className="sr-only">{t("home.services.consultServiceOf", { title: s.title })}</span>
+                  <ArrowRight width={16} height={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </ButtonLink>
               </div>
-              <div>
-                <h3 className="t-h3 mt-10">{s.title}</h3>
-                <p className="mt-3 max-w-sm text-[0.97rem] text-ink-soft">{s.text}</p>
-              </div>
-            </Link>
-          ))}
+            )
+          })}
         </div>
 
         <div className="mt-16 flex flex-col gap-8 md:mt-20 md:flex-row md:items-center md:justify-between">
@@ -253,6 +264,38 @@ export async function MethodSection() {
   )
 }
 
+/* ── 7. Recursos ─────────────────────────────────────────────── */
+export async function ResourcesTeaser() {
+  const { locale, t } = await getT()
+  const { articles } = getContent(locale)
+  return (
+    <Section labelledBy="resources-title" className="bg-mist/50">
+      <div className="wrap">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeader eyebrow={t("home.resources.eyebrow")} title={<span id="resources-title">{t("home.resources.title")}</span>} lead={t("home.resources.lead")} />
+          <ButtonLink href="/recursos" variant="secondary" className="self-start md:self-auto">
+            {t("home.resources.all")} <ArrowRight width={18} height={18} />
+          </ButtonLink>
+        </div>
+        <ul className="mt-12 grid gap-5 md:grid-cols-2">
+          {articles.slice(0, 2).map((a) => (
+            <li key={a.slug}>
+              <Link href={`/recursos/${a.slug}`} className="reveal glass glass-lift group flex h-full flex-col p-8">
+                <span className="t-label text-ink-faint">{t("recursos.readingTime", { time: a.readingTime })}</span>
+                <h3 className="t-h3 mt-4">{a.title}</h3>
+                <p className="mt-3 text-[0.97rem] text-ink-soft">{a.description}</p>
+                <span className="mt-6 inline-flex items-center gap-2 font-medium text-brand-ink">
+                  {t("home.resources.read")} <ArrowRight width={17} height={17} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
+  )
+}
+
 /* ── 8. CTA final ────────────────────────────────────────────── */
 export async function CtaBand({
   title,
@@ -295,7 +338,7 @@ export async function CtaBand({
             <ButtonLink href={whatsappHref(whatsappMessage)} whatsapp={{ location, label: `${location}_whatsapp`, service }}>
               <Whatsapp width={18} height={18} /> {t("home.cta.whatsapp")}
             </ButtonLink>
-            <ButtonLink href="/contacto" variant={dark ? "onDark" : "secondary"} event="cta_click" eventProps={{ location, label: "formulario" }}>
+            <ButtonLink href="/contacto" variant={dark ? "onDark" : "secondary"} event="contact_cta_click" eventProps={{ location, label: "formulario" }}>
               {t("home.cta.form")} <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </ButtonLink>
           </div>

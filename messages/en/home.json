@@ -8,18 +8,17 @@
     "primary": "Let's discuss your project",
     "primaryMessage": "Hi Kodexa! I'd like to discuss my project.",
     "secondary": "Explore our work",
-    "trust": "Direct contact with the people who design and build · Reply within 24 hours"
+    "trust": "Direct contact with the people who design and build · Personalized attention"
   },
   "studio": {
     "eyebrow": "The studio",
     "title": "We start by understanding your business. Then we design and build.",
     "lead": "Kodexa works with small and mid-sized businesses, startups and agencies that need a development partner to take the next step: well-built digital solutions designed to attract customers, organize operations and support growth. Design and development under one roof, with direct contact throughout the project.",
     "link": "About the studio",
-    "capabilities": [
-      { "title": "Corporate websites", "text": "A complete, clear and well-structured web presence.", "href": "/servicios/institucional" },
-      { "title": "Landing pages", "text": "Pages built around a specific business goal.", "href": "/servicios/landing-pages" },
-      { "title": "Custom applications and systems", "text": "Tools adapted to how your business operates.", "href": "/servicios/software-a-medida" },
-      { "title": "Digital products", "text": "From an idea to a working product.", "href": "/servicios/mvp" }
+    "points": [
+      "Direct contact with the people who design and build, throughout the project.",
+      "Design and development in one place.",
+      "Scope and proposal defined before development starts."
     ]
   },
   "work": {
@@ -36,25 +35,59 @@
     "title": "Capabilities for every stage of your business.",
     "lead": "Every project is defined by its scope. We start by understanding what you need and recommend what fits.",
     "families": [
-      { "title": "Websites", "text": "Landing pages, corporate websites and versions with editable content.", "href": "/servicios/desarrollo-web", "tag": "Presence" },
-      { "title": "Custom software", "text": "Systems that centralize information and automate tasks in your operations.", "href": "/servicios/software-a-medida", "tag": "Operations" },
-      { "title": "Platforms and applications", "text": "Web applications with users, roles and custom logic.", "href": "/servicios/plataformas-digitales", "tag": "Product" },
-      { "title": "MVPs and SaaS products", "text": "An idea turned into a working product you can validate.", "href": "/servicios/mvp", "tag": "Idea → product" }
+      {
+        "title": "Websites",
+        "text": "Landing pages, corporate websites and versions with editable content.",
+        "href": "/servicios/desarrollo-web",
+        "tag": "Presence"
+      },
+      {
+        "title": "Custom software",
+        "text": "Systems that centralize information and automate tasks in your operations.",
+        "href": "/servicios/software-a-medida",
+        "tag": "Operations"
+      },
+      {
+        "title": "Platforms and applications",
+        "text": "Web applications with users, roles and custom logic.",
+        "href": "/servicios/plataformas-digitales",
+        "tag": "Product"
+      },
+      {
+        "title": "MVPs and SaaS products",
+        "text": "An idea turned into a working product you can validate.",
+        "href": "/servicios/mvp",
+        "tag": "Idea → product"
+      }
     ],
     "all": "See all services",
     "ask": "Need something like this for your business?",
     "consult": "Ask about my project",
-    "whatsappMessage": "Hi Kodexa! I'd like to ask about a project for my business."
+    "whatsappMessage": "Hi Kodexa! I'd like to ask about a project for my business.",
+    "consultService": "Ask about this service",
+    "consultServiceOf": " ({title})"
   },
   "eco": {
     "eyebrow": "The Kodexa ecosystem",
     "title": "Your website, your customer service and your customers, connected.",
     "lead": "An inquiry that arrives on your site ends up as a confirmed appointment and a customer being followed up, with nothing to transfer by hand. This is how Kodexa's pieces work together.",
     "benefits": [
-      { "title": "No entering data twice", "text": "What comes in through your website or WhatsApp reaches where you need it on its own." },
-      { "title": "Customer service at any hour", "text": "Nexo answers and schedules even while you're busy or outside business hours." },
-      { "title": "Every inquiry followed up", "text": "Opportunities are recorded with their source and their next task." },
-      { "title": "Start with one piece", "text": "Each solution works on its own. Add the others when your business needs them." }
+      {
+        "title": "No entering data twice",
+        "text": "What comes in through your website or WhatsApp reaches where you need it on its own."
+      },
+      {
+        "title": "Customer service at any hour",
+        "text": "Nexo answers and schedules even while you're busy or outside business hours."
+      },
+      {
+        "title": "Every inquiry followed up",
+        "text": "Opportunities are recorded with their source and their next task."
+      },
+      {
+        "title": "Start with one piece",
+        "text": "Each solution works on its own. Add the others when your business needs them."
+      }
     ],
     "ownEyebrow": "Our own products",
     "ownTitle": "Nexo and Nodo: ready to use, with plans and setup.",
@@ -83,9 +116,20 @@
     "lead": "Tell us what you have in mind. We'll help you find the best solution for your business.",
     "whatsapp": "Contact us on WhatsApp",
     "note": "The most direct way. Or leave your details in the form and we'll get back to you.",
-    "bullets": ["Direct contact with the people who design and build", "No initial commitment", "Reply within 24 hours"]
+    "bullets": [
+      "Direct contact with the people who design and build",
+      "No initial commitment",
+      "Personalized attention"
+    ]
   },
   "meta": {
     "ogAlt": "Kodexa — web studio"
+  },
+  "resources": {
+    "eyebrow": "Resources",
+    "title": "How we work, told transparently.",
+    "lead": "Notes on real product and development decisions, and work in progress.",
+    "read": "Read article",
+    "all": "See all resources"
   }
 }

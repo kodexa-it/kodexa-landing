@@ -4,22 +4,21 @@
     "titleBefore": "Soluciones digitales para",
     "titleHighlight": "hacer crecer",
     "titleAfter": "tu negocio.",
-    "lead": "Diseñamos y desarrollamos sitios web, sistemas a medida y productos digitales adaptados a cada negocio. De la idea a algo que funciona.",
-    "primary": "Conversemos sobre tu proyecto",
+    "lead": "Diseñamos y desarrollamos sitios web, sistemas a medida y productos digitales adaptados a tu negocio. Te acompañamos desde la idea hasta una solución lista para funcionar.",
+    "primary": "Hablemos de tu proyecto",
     "primaryMessage": "Hola Kodexa! Quiero conversar sobre mi proyecto.",
-    "secondary": "Explorar servicios",
-    "trust": "Trato directo con quien diseña y desarrolla · Respuesta en 24 hs"
+    "secondary": "Ver nuestros servicios",
+    "trust": "Trato directo con quien diseña y desarrolla · Atención personalizada"
   },
   "studio": {
     "eyebrow": "El estudio",
     "title": "Primero entendemos el negocio. Después diseñamos y construimos.",
     "lead": "Kodexa trabaja con pymes, emprendimientos y agencias que buscan dar el siguiente paso: soluciones digitales bien construidas, pensadas para atraer clientes, ordenar la operación y sostener el crecimiento. Diseño y desarrollo en un mismo lugar, con trato directo durante todo el proyecto.",
     "link": "Conocer el estudio",
-    "capabilities": [
-      { "title": "Sitios institucionales", "text": "Presencia web completa, clara y bien estructurada.", "href": "/servicios/institucional" },
-      { "title": "Landing pages", "text": "Páginas con un objetivo comercial concreto.", "href": "/servicios/landing-pages" },
-      { "title": "Aplicaciones y sistemas a medida", "text": "Herramientas adaptadas a cómo opera tu negocio.", "href": "/servicios/software-a-medida" },
-      { "title": "Productos digitales", "text": "De la idea a un producto funcional.", "href": "/servicios/mvp" }
+    "points": [
+      "Trato directo con quien diseña y desarrolla, durante todo el proyecto.",
+      "Diseño y desarrollo en un mismo lugar.",
+      "Alcance y propuesta definidos antes de empezar a desarrollar."
     ]
   },
   "work": {
@@ -36,25 +35,59 @@
     "title": "Capacidades para cada etapa del negocio.",
     "lead": "Cada proyecto se define según su alcance. Empezamos por entender qué necesitás y recomendamos lo que corresponde.",
     "families": [
-      { "title": "Sitios web", "text": "Landing pages, sitios institucionales y versiones con contenido administrable.", "href": "/servicios/desarrollo-web", "tag": "Presencia" },
-      { "title": "Software a medida", "text": "Sistemas que centralizan información y automatizan tareas de tu operación.", "href": "/servicios/software-a-medida", "tag": "Operación" },
-      { "title": "Plataformas y aplicaciones", "text": "Aplicaciones web con usuarios, roles y lógica propia.", "href": "/servicios/plataformas-digitales", "tag": "Producto" },
-      { "title": "MVP y productos SaaS", "text": "Una idea llevada a un producto funcional que se puede validar.", "href": "/servicios/mvp", "tag": "Idea → producto" }
+      {
+        "title": "Sitios web",
+        "text": "Landing pages, sitios institucionales y versiones con contenido administrable.",
+        "href": "/servicios/desarrollo-web",
+        "tag": "Presencia"
+      },
+      {
+        "title": "Software a medida",
+        "text": "Sistemas que centralizan información y automatizan tareas de tu operación.",
+        "href": "/servicios/software-a-medida",
+        "tag": "Operación"
+      },
+      {
+        "title": "Plataformas y aplicaciones",
+        "text": "Aplicaciones web con usuarios, roles y lógica propia.",
+        "href": "/servicios/plataformas-digitales",
+        "tag": "Producto"
+      },
+      {
+        "title": "MVP y productos SaaS",
+        "text": "Una idea llevada a un producto funcional que se puede validar.",
+        "href": "/servicios/mvp",
+        "tag": "Idea → producto"
+      }
     ],
     "all": "Ver todos los servicios",
     "ask": "¿Necesitás algo así para tu negocio?",
     "consult": "Consultar por mi proyecto",
-    "whatsappMessage": "Hola Kodexa! Quiero consultar por un proyecto para mi negocio."
+    "whatsappMessage": "Hola Kodexa! Quiero consultar por un proyecto para mi negocio.",
+    "consultService": "Consultar por este servicio",
+    "consultServiceOf": " ({title})"
   },
   "eco": {
     "eyebrow": "Ecosistema Kodexa",
     "title": "Tu web, tu atención y tus clientes, conectados.",
     "lead": "Una consulta que llega a tu sitio termina como turno confirmado y cliente en seguimiento, sin que tengas que pasar nada a mano. Así trabajan juntas las piezas de Kodexa.",
     "benefits": [
-      { "title": "Sin cargar datos dos veces", "text": "Lo que entra por tu web o por WhatsApp llega solo a donde lo necesitás." },
-      { "title": "Atención a cualquier hora", "text": "Nexo responde y agenda aunque vos estés atendiendo o fuera de horario." },
-      { "title": "Cada consulta con seguimiento", "text": "Las oportunidades quedan registradas con su origen y su próxima tarea." },
-      { "title": "Empezá por una pieza", "text": "Cada solución funciona sola. Sumás las demás cuando tu negocio lo pide." }
+      {
+        "title": "Sin cargar datos dos veces",
+        "text": "Lo que entra por tu web o por WhatsApp llega solo a donde lo necesitás."
+      },
+      {
+        "title": "Atención a cualquier hora",
+        "text": "Nexo responde y agenda aunque vos estés atendiendo o fuera de horario."
+      },
+      {
+        "title": "Cada consulta con seguimiento",
+        "text": "Las oportunidades quedan registradas con su origen y su próxima tarea."
+      },
+      {
+        "title": "Empezá por una pieza",
+        "text": "Cada solución funciona sola. Sumás las demás cuando tu negocio lo pide."
+      }
     ],
     "ownEyebrow": "Productos propios",
     "ownTitle": "Nexo y Nodo: listos para usar, con planes y configuración.",
@@ -83,9 +116,20 @@
     "lead": "Contanos qué tenés en mente. Te ayudamos a encontrar la mejor solución para tu negocio.",
     "whatsapp": "Contactar por WhatsApp",
     "note": "La forma más directa. O dejá tus datos en el formulario y te contactamos.",
-    "bullets": ["Trato directo con quien diseña y desarrolla", "Sin compromiso inicial", "Respuesta dentro de las 24 hs"]
+    "bullets": [
+      "Trato directo con quien diseña y desarrolla",
+      "Sin compromiso inicial",
+      "Atención personalizada"
+    ]
   },
   "meta": {
     "ogAlt": "Kodexa — estudio digital"
+  },
+  "resources": {
+    "eyebrow": "Recursos",
+    "title": "Cómo trabajamos, contado con transparencia.",
+    "lead": "Notas sobre decisiones reales de producto y desarrollo, y casos de trabajo en curso.",
+    "read": "Leer artículo",
+    "all": "Ver todos los recursos"
   }
 }

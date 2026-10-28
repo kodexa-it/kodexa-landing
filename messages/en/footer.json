@@ -7,9 +7,12 @@
   "servicesTitle": "Services",
   "itTeam": "Ongoing IT team",
   "contactTitle": "Contact",
-  "contactText": "Have a project in mind? We reply within 24 hours.",
+  "contactText": "Have a project in mind? We reply as soon as we can.",
   "whatsapp": "Message us on WhatsApp",
   "email": "Email us",
   "rights": "© {year} Kodexa. All rights reserved.",
-  "tag": "Design and development of digital solutions."
+  "tag": "Design and development of digital solutions.",
+  "privacy": "Privacy policy",
+  "cookies": "Cookie policy",
+  "legalAria": "Legal information"
 }

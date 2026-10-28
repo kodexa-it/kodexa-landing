@@ -108,28 +108,37 @@ export function DeviceStage({
       </div>
 
       {nav && (
-        <div className="relative z-10 mx-auto -mt-1 flex w-fit max-w-full items-center gap-0.5 overflow-x-auto rounded-full border border-white/80 bg-white/70 p-1 shadow-[var(--shadow-glass)] backdrop-blur-xl" role="group" aria-label={navLabel}>
-          {scenes.map((s, i) => (
-            <button
-              key={s.id}
-              type="button"
-              onClick={() => go(i)}
-              aria-pressed={step === i}
-              className={cn(
-                "relative shrink-0 overflow-hidden rounded-full px-3 py-2 text-left transition-colors duration-300 sm:px-4",
-                step === i ? "bg-ink text-white" : "text-ink-soft hover:bg-ink/5 hover:text-ink",
-              )}
-            >
-              <span className="flex items-baseline gap-1.5 whitespace-nowrap">
-                <span className={cn("hidden font-mono text-[0.65rem] sm:inline", step === i ? "text-brand-soft" : "text-ink-faint")}>0{i + 1}</span>
-                <span className="text-[0.8rem] font-medium">{s.label}</span>
-                {s.hint && <span className={cn("hidden text-[0.75rem] xl:inline", step === i ? "text-white/60" : "text-ink-faint")}>{s.hint}</span>}
-              </span>
-              {step === i && !reduced && (
-                <span key={k} className="eco-progress absolute bottom-0 left-0 h-[2px] bg-brand" style={{ animationDuration: `${s.ms}ms` }} />
-              )}
-            </button>
-          ))}
+        // El ancho del conjunto depende del alto disponible (maxHeight), así que el selector se reparte
+        // el ancho del contenedor en columnas iguales en vez de medir su contenido: nunca lo excede ni
+        // necesita scroll horizontal. Los textos auxiliares aparecen solo si el contenedor tiene lugar.
+        <div className="@container relative z-10 mx-auto -mt-1 w-full">
+          <div
+            className="grid w-full grid-flow-col auto-cols-fr gap-0.5 rounded-[1.4rem] border border-white/80 bg-white/70 p-1 shadow-[var(--shadow-glass)] backdrop-blur-xl @[34rem]:rounded-full"
+            role="group"
+            aria-label={navLabel}
+          >
+            {scenes.map((s, i) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => go(i)}
+                aria-pressed={step === i}
+                className={cn(
+                  "relative min-w-0 overflow-hidden rounded-[1.1rem] px-2 py-2 text-center transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand @[34rem]:rounded-full @[34rem]:px-4",
+                  step === i ? "bg-ink text-white" : "text-ink-soft hover:bg-ink/5 hover:text-ink",
+                )}
+              >
+                <span className="flex flex-col items-center justify-center @[34rem]:flex-row @[34rem]:flex-wrap @[34rem]:items-baseline @[34rem]:gap-x-1.5">
+                  <span className={cn("hidden font-mono text-[0.65rem] @[34rem]:inline", step === i ? "text-brand-soft" : "text-ink-faint")}>0{i + 1}</span>
+                  <span className="text-balance text-[0.78rem] font-medium leading-tight @[34rem]:text-[0.8rem]">{s.label}</span>
+                  {s.hint && <span className={cn("hidden text-[0.72rem] leading-tight @[46rem]:inline", step === i ? "text-white/60" : "text-ink-faint")}>{s.hint}</span>}
+                </span>
+                {step === i && !reduced && (
+                  <span key={k} className="eco-progress absolute bottom-0 left-0 h-[2px] bg-brand" style={{ animationDuration: `${s.ms}ms` }} />
+                )}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

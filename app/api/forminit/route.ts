@@ -2,6 +2,7 @@ import type { NextRequest } from "next/server"
 import { createForminitProxy } from "forminit/next"
 import { site } from "@/lib/content/site"
 import { validateLead } from "@/lib/lead-validation"
+import { PROOF_COOKIE, PROOF_TTL_SECONDS, signProof } from "@/lib/lead-proof"
 
 const proxy = createForminitProxy({
   apiKey: process.env.FORMINIT_API_KEY!,
@@ -47,5 +48,18 @@ export async function POST(req: NextRequest) {
   const first = Object.values(errors)[0]
   if (first) return bad(400, first)
 
-  return proxy.POST(req)
+  const res = await proxy.POST(req)
+
+  // Solo si Forminit confirmó la consulta, se emite la prueba que habilita la confirmación en /gracias.
+  if (res.status === 200) {
+    try {
+      const data = (await res.clone().json()) as { success?: boolean; submission?: unknown }
+      const proof = data.success === true && data.submission ? signProof() : null
+      if (proof) {
+        const secure = req.nextUrl.protocol === "https:" ? "; Secure" : ""
+        res.headers.append("Set-Cookie", `${PROOF_COOKIE}=${proof}; Path=/; Max-Age=${PROOF_TTL_SECONDS}; HttpOnly; SameSite=Lax${secure}`)
+      }
+    } catch {}
+  }
+  return res
 }

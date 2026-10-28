@@ -158,7 +158,7 @@ export default async function CaseArticle() {
           <h2 className="t-h2">{t("caso.close.ctaTitle")}</h2>
           <p className="mt-5 text-lg text-white/70">{t("caso.close.ctaText")}</p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink href="/contacto" event="cta_click" eventProps={{ location: "article_case_final" }}>{t("caso.close.cta")}</ButtonLink>
+            <ButtonLink href="/contacto" event="contact_cta_click" eventProps={{ location: "article_case_final" }}>{t("caso.close.cta")}</ButtonLink>
             <ButtonLink href={whatsappHref(t("common.whatsappDefault"))} variant="onDark" whatsapp={{ location: "article", label: "case_final" }}>WhatsApp</ButtonLink>
           </div>
           <p className="mt-6 text-sm text-white/60"><EmailLink location="article_case_final" className="underline underline-offset-4 hover:text-white">{contactEmail}</EmailLink></p>

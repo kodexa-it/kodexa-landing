@@ -3,13 +3,16 @@ import { cn } from "@/lib/utils"
 import type { Project } from "@/lib/content/projects"
 import { getContent } from "@/lib/content"
 import { getT } from "@/lib/i18n/server"
-import { ArrowUpRight } from "@/components/ui/icons"
+import { ArrowRight, ArrowUpRight } from "@/components/ui/icons"
+import { Link } from "@/components/i18n/link"
 
 /** Tarjeta editorial de proyecto. Sin imagen real → presentación tipográfica (nunca imágenes genéricas). */
 export async function ProjectCard({ project, priority, className }: { project: Project; priority?: boolean; className?: string }) {
   const { locale, t } = await getT()
   const { kindLabel } = getContent(locale)
-  const { title, category, summary, image, imageAlt, url, status, via, bullets, mark, kind } = project
+  const { title, category, summary, image, imageAlt, url, status, via, bullets, mark, kind, caseStudy } = project
+  // En curso → "En desarrollo" (nunca como lanzado); con sitio publicado → "Publicado".
+  const badge = status ?? (url ? t("project.published") : null)
 
   return (
     <article className={cn("group glass glass-lift flex h-full flex-col overflow-hidden p-3 md:p-4", className)}>
@@ -30,10 +33,10 @@ export async function ProjectCard({ project, priority, className }: { project: P
             </span>
           </div>
         )}
-        {status && (
+        {badge && (
           <span className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-medium text-ink backdrop-blur">
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand" />
-            {status}
+            <span aria-hidden="true" className={cn("h-1.5 w-1.5 rounded-full", status ? "bg-brand" : "bg-ink")} />
+            {badge}
           </span>
         )}
       </div>
@@ -59,6 +62,12 @@ export async function ProjectCard({ project, priority, className }: { project: P
             {kindLabel[kind]}
             {via && <> · {t("project.with", { via })}</>}
           </p>
+          {caseStudy && (
+            <Link href={caseStudy} className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-ink/85">
+              {t("project.caseStudy")}<span className="sr-only">{t("project.caseStudyOf", { title })}</span>
+              <ArrowRight width={15} height={15} />
+            </Link>
+          )}
           {url && (
             <a
               href={url}

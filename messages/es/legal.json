@@ -1,0 +1,128 @@
+{
+  "privacy": {
+    "meta": {
+      "title": "Política de privacidad",
+      "description": "Cómo usa Kodexa los datos que dejás al contactarnos: qué recolectamos, para qué, con quién se procesan y cómo ejercer tus derechos."
+    },
+    "crumb": "Política de privacidad",
+    "eyebrow": "Legal",
+    "title": "Política de privacidad",
+    "lead": "Los datos que nos dejás los usamos únicamente para responder tu consulta. Acá explicamos qué recolectamos, con quién se procesan y cómo podés pedir que los corrijamos o eliminemos.",
+    "updated": "Última actualización: 28 de octubre de 2026",
+    "sections": [
+      {
+        "title": "Quién es responsable",
+        "body": [
+          "Kodexa (kodexa.ar) es un estudio digital de diseño y desarrollo a cargo de Lautaro Aquino. Para cualquier consulta sobre tus datos escribinos a {email}."
+        ]
+      },
+      {
+        "title": "Qué datos recolectamos",
+        "body": [
+          "Solo lo necesario para iniciar una conversación comercial:"
+        ],
+        "list": [
+          "Formulario de contacto: nombre, nombre del negocio (opcional), tipo de proyecto, cómo preferís que te contactemos, tu número de WhatsApp o tu email, mensaje (opcional) y presupuesto estimado (opcional). También queda registrada la fecha y el formulario desde el que escribiste.",
+          "Clic en un botón de WhatsApp: registramos el clic de forma anónima (página, ubicación del botón y origen de la visita, como la campaña o el sitio desde el que llegaste). No incluye nombre, email ni teléfono. La conversación en sí ocurre en WhatsApp y se rige por las políticas de esa plataforma.",
+          "Analítica del sitio: solo si aceptás las cookies. Ver la Política de cookies."
+        ]
+      },
+      {
+        "title": "Para qué los usamos",
+        "body": [
+          "Usamos tus datos de contacto únicamente para responder tu consulta y, si avanzamos, preparar una propuesta. No los vendemos ni los cedemos a terceros para publicidad. Si en el futuro quisiéramos usarlos para otra finalidad (por ejemplo, enviarte novedades), te lo pediremos por separado."
+        ]
+      },
+      {
+        "title": "Con quién se procesan",
+        "body": [
+          "Para operar el sitio y atender las consultas usamos proveedores que tratan los datos en nuestro nombre. Algunos están en el exterior (por ejemplo, en Estados Unidos), por lo que tus datos pueden transferirse fuera de Argentina:"
+        ],
+        "list": [
+          "Forminit: recibe los envíos del formulario.",
+          "Google (Google Sheets): planilla de seguimiento de consultas, de donde pasan a nuestro CRM. Google Analytics y Tag Manager, solo si aceptás las cookies de analítica.",
+          "Microsoft Clarity: mapas de calor y grabaciones de sesión, solo si aceptás las cookies de analítica.",
+          "Netlify y Vercel: alojamiento del sitio y medición agregada de visitas, sin cookies."
+        ]
+      },
+      {
+        "title": "Cuánto tiempo los conservamos",
+        "body": [
+          "Conservamos tus datos mientras sea necesario para responder tu consulta y mantener la relación comercial. Podés pedir que los eliminemos en cualquier momento."
+        ]
+      },
+      {
+        "title": "Tus derechos",
+        "body": [
+          "Podés pedir acceso, rectificación, actualización o supresión de tus datos escribiendo a {email}. Respondemos a la brevedad y dentro de los plazos que fija la ley.",
+          "El titular de los datos personales tiene la facultad de ejercer el derecho de acceso a los mismos en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto (art. 14, inc. 3 de la Ley 25.326). La Agencia de Acceso a la Información Pública, en su carácter de órgano de control de la Ley 25.326, tiene la atribución de atender las denuncias y reclamos que se interpongan con relación al incumplimiento de las normas sobre protección de datos personales."
+        ]
+      },
+      {
+        "title": "Seguridad",
+        "body": [
+          "El sitio usa conexiones cifradas (HTTPS) y el acceso a los datos se limita a quienes los necesitan para responderte. Ningún sistema es infalible, pero tomamos medidas razonables para protegerlos."
+        ]
+      },
+      {
+        "title": "Cambios en esta política",
+        "body": [
+          "Si cambiamos esta política, publicaremos la nueva versión en esta página con su fecha de actualización."
+        ]
+      }
+    ]
+  },
+  "cookies": {
+    "meta": {
+      "title": "Política de cookies",
+      "description": "Qué cookies y tecnologías similares usa kodexa.ar, para qué sirven y cómo cambiar tu elección."
+    },
+    "crumb": "Política de cookies",
+    "eyebrow": "Legal",
+    "title": "Política de cookies",
+    "lead": "Usamos pocas cookies. Las de analítica solo se activan si las aceptás, y podés cambiar tu elección cuando quieras.",
+    "updated": "Última actualización: 28 de octubre de 2026",
+    "sections": [
+      {
+        "title": "Necesarias (sin consentimiento)",
+        "body": [
+          "Hacen que el sitio funcione y no sirven para medirte:"
+        ],
+        "list": [
+          "kx_consent (propia, 6 meses): recuerda si aceptaste o rechazaste las cookies de analítica.",
+          "kx_lang (propia, 1 año): recuerda el idioma solo si lo elegís manualmente en el selector.",
+          "kx_sent (propia, 10 minutos): comprobante firmado de que tu consulta fue recibida, para mostrar la página de agradecimiento. No contiene tus datos.",
+          "Almacenamiento de sesión del navegador (kx_attribution): guarda el origen de la visita durante la sesión para saber desde dónde llegaste. Se borra al cerrar la pestaña."
+        ]
+      },
+      {
+        "title": "De analítica (solo si aceptás)",
+        "body": [
+          "Nos ayudan a entender qué secciones se usan y dónde hay problemas. No usamos cookies de publicidad."
+        ],
+        "list": [
+          "Google Analytics, a través de Google Tag Manager (por ejemplo, _ga y _ga_*): estadísticas de uso del sitio. Los eventos que enviamos no incluyen nombre, email, teléfono ni mensajes.",
+          "Microsoft Clarity (por ejemplo, _clck y _clsk): mapas de calor y grabaciones de sesión para detectar problemas de uso."
+        ]
+      },
+      {
+        "title": "Sin cookies",
+        "body": [
+          "Vercel Analytics mide visitas y clics de forma agregada sin usar cookies ni identificar a las personas."
+        ]
+      },
+      {
+        "title": "Cómo cambiar tu elección",
+        "body": [
+          "Podés volver a abrir el aviso en cualquier momento con “Preferencias de cookies” al pie de la página. Si rechazás, Google Tag Manager sigue cargándose con todo el almacenamiento de analítica denegado y Microsoft Clarity no se carga. También podés borrar las cookies desde la configuración de tu navegador."
+        ]
+      },
+      {
+        "title": "Más información",
+        "body": [
+          "Para saber cómo tratamos los datos que nos enviás por el formulario, leé la Política de privacidad. Consultas: {email}."
+        ]
+      }
+    ]
+  }
+}

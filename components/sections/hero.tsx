@@ -1,9 +1,13 @@
 import { ButtonLink } from "@/components/ui/button"
 import { whatsappHref } from "@/lib/content/site"
-import { ArrowRight } from "@/components/ui/icons"
+import { ArrowRight, Whatsapp } from "@/components/ui/icons"
 import { Eyebrow } from "@/components/ui/section"
 import { StudioShowcase } from "@/components/visuals/studio-showcase"
 import { getT } from "@/lib/i18n/server"
+
+// CTA principal: el elemento más grande y de mayor contraste del hero; ancho completo en móvil.
+const primaryCls = "w-full sm:w-auto sm:px-8 sm:py-4 sm:text-base"
+const secondaryCls = "w-full sm:w-auto"
 
 export async function Hero() {
   const { locale, t } = await getT()
@@ -37,23 +41,23 @@ export async function Hero() {
           <div className="enter mt-8 flex flex-col gap-3 sm:flex-row sm:items-center" style={{ "--d": "280ms" } as React.CSSProperties}>
             {locale === "es" ? (
               // Mercado hispanohablante: WhatsApp es el canal más directo.
-              <ButtonLink href={whatsappHref(t("home.hero.primaryMessage"))} whatsapp={{ location: "hero", label: "hero_primary" }}>
+              <ButtonLink href={whatsappHref(t("home.hero.primaryMessage"))} className={primaryCls} whatsapp={{ location: "hero", label: "hero_primary" }}>
+                <Whatsapp width={20} height={20} />
                 {t("home.hero.primary")}
-                <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </ButtonLink>
             ) : (
               // Mercado internacional: el formulario (y el correo, si está configurado) es la vía principal; WhatsApp sigue disponible más abajo.
-              <ButtonLink href="/contacto" event="cta_click" eventProps={{ location: "hero", label: "hero_primary" }}>
+              <ButtonLink href="/contacto#formulario" className={primaryCls} event="contact_cta_click" eventProps={{ location: "hero", label: "hero_primary" }}>
                 {t("home.hero.primary")}
                 <ArrowRight width={18} height={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </ButtonLink>
             )}
             {locale === "es" ? (
-              <ButtonLink href="#servicios" variant="secondary" event="cta_click" eventProps={{ location: "hero", label: "explorar_servicios" }}>
+              <ButtonLink href="#servicios" variant="secondary" className={secondaryCls} event="cta_click" eventProps={{ location: "hero", label: "explorar_servicios" }}>
                 {t("home.hero.secondary")}
               </ButtonLink>
             ) : (
-              <ButtonLink href="/proyectos" variant="secondary" event="cta_click" eventProps={{ location: "hero", label: "explore_work" }}>
+              <ButtonLink href="/proyectos" variant="secondary" className={secondaryCls} event="cta_click" eventProps={{ location: "hero", label: "explore_work" }}>
                 {t("home.hero.secondary")}
               </ButtonLink>
             )}

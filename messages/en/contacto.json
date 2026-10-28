@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Contact: let's talk about your project",
-    "description": "Tell us what you have in mind. We'll help you find the best solution for your business and reply within 24 hours.",
+    "description": "Tell us what you have in mind. We'll help you find the best solution for your business and reply as soon as we can.",
     "ogTitle": "Contact | Kodexa"
   },
   "crumb": "Contact",
@@ -10,11 +10,11 @@
   "lead": "Tell us what you have in mind. We'll help you find the best solution for your business.",
   "directLabel": "The most direct way",
   "whatsappTitle": "Message us on WhatsApp",
-  "whatsappText": "Tell us your idea in a message. We reply within 24 hours.",
+  "whatsappText": "Tell us your idea in a message. We reply as soon as we can.",
   "whatsappButton": "Contact us on WhatsApp",
   "emailLabel": "By email",
   "emailTitle": "Email us",
-  "emailText": "If you prefer email, write to us and we'll reply within 24 hours.",
+  "emailText": "If you prefer email, write to us and we'll reply as soon as we can.",
   "emailButton": "Send an email",
   "formHint": "Prefer to leave your details? Fill in the form and choose whether we contact you by email or WhatsApp.",
   "next": "What happens next: we read your message, ask the questions we need and send you a proposal with scope and budget."

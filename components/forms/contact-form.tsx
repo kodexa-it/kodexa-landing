@@ -6,6 +6,7 @@ import { trackEvent } from "@/lib/analytics"
 import { contactEmail, site, whatsappHref } from "@/lib/content/site"
 import { useT } from "@/lib/i18n/client"
 import { toPublicPath } from "@/lib/i18n/core"
+import { Link } from "@/components/i18n/link"
 import { EmailLink } from "@/components/ui/email-link"
 import { HONEYPOT_FIELD, LIMITS, clean, digitsOnly, looksLikeBot, validateLead, type ContactMethod, type LeadErrors } from "@/lib/lead-validation"
 import { buildLeadWhatsappMessage, trackWhatsappClick } from "@/lib/whatsapp"
@@ -38,6 +39,17 @@ const productInterests: { label: string; value: ProductInterest; projectType: st
   { label: "Nexo + Nodo", value: "bundle", projectType: "Nexo + Nodo", service: "nexo-nodo" },
   { label: "Todavía no sé cuál", value: "unknown", projectType: "Producto Kodexa (Nexo / Nodo)", service: "productos" },
 ]
+
+/** Servicio de interés que llega por `?servicio=<slug>` desde los CTA de servicios → tipo de proyecto canónico. */
+const serviceToType: Record<string, string> = {
+  "landing-pages": "Sitio web",
+  institucional: "Sitio web",
+  "institucional-pro": "Sitio web",
+  "desarrollo-web": "Sitio web",
+  "software-a-medida": "Sistema a medida",
+  "plataformas-digitales": "Sistema a medida",
+  mvp: "Sistema a medida",
+}
 
 const field =
   "w-full rounded-2xl border border-ink/12 bg-white/80 px-4 py-3.5 text-base text-ink placeholder:text-ink-faint/70 outline-none transition-[border-color,box-shadow] duration-200 hover:border-ink/25 focus:border-ink focus:ring-4 focus:ring-brand/25 aria-[invalid=true]:border-red-600"
@@ -78,7 +90,13 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
   const lastAction = useRef<Action>("contact_me")
   useEffect(() => {
     startedAt.current = Date.now()
-  }, [])
+    // Servicio preseleccionado por el enlace (sin pedirle a la persona que lo repita). Solo en el formulario general.
+    if (variant === "product") return
+    try {
+      const preset = serviceToType[new URLSearchParams(window.location.search).get("servicio") ?? ""]
+      if (preset) setValues((p) => (p.projectType ? p : { ...p, projectType: preset }))
+    } catch {}
+  }, [variant])
 
   const set = <K extends keyof typeof values>(k: K, v: (typeof values)[K]) => setValues((p) => ({ ...p, [k]: v }))
 
@@ -512,6 +530,13 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
             )}
           </div>
           <p className="mt-4 text-center text-sm text-ink-faint">{t("form.reply")}</p>
+          <p className="mt-1 text-center text-sm text-ink-faint">
+            {t("form.privacy")}{" "}
+            <Link href="/privacidad" className="font-medium text-brand-ink underline underline-offset-4">
+              {t("form.privacyLink")}
+            </Link>
+            .
+          </p>
           {contactEmail && (
             <p className="mt-1 text-center text-sm text-ink-faint">
               {t("form.emailAlt")}{" "}

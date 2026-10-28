@@ -1,11 +1,19 @@
 {
   "meta": {
     "title": "Gracias por tu mensaje",
-    "description": "Recibimos tu proyecto. Te respondemos dentro de las próximas 24 horas."
+    "description": "Recibimos tu proyecto. Te respondemos a la brevedad."
   },
   "eyebrow": "Mensaje enviado",
   "title": "Recibimos tu proyecto.",
   "lead": "Gracias por confiar en Kodexa. Vamos a analizar lo que nos contaste y a responderte con una propuesta clara dentro de las próximas 24 hs.",
   "home": "Volver al inicio",
-  "projects": "Ver proyectos"
+  "projects": "Ver proyectos",
+  "direct": {
+    "meta": "Contacto",
+    "eyebrow": "Contacto",
+    "title": "Todavía no recibimos ninguna consulta.",
+    "lead": "Esta página se muestra después de enviar el formulario de contacto. Si querés escribirnos, completalo o usá WhatsApp.",
+    "form": "Ir al formulario",
+    "whatsapp": "Escribir por WhatsApp"
+  }
 }

@@ -18,6 +18,8 @@ export type Project = {
   imageAlt?: string
   url?: string
   status?: string
+  /** Ruta interna (español) del caso de estudio, si existe. */
+  caseStudy?: string
   via?: string
   bullets?: string[]
   /** Iniciales para la presentación tipográfica cuando no hay imagen. */
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     kind: "cliente",
     summary:
       "Sitio institucional con arquitectura basada en API y sistema de gestión (ABM), diseñado para optimizar la gestión de contenido, mejorar la escalabilidad y facilitar la operación del negocio.",
+    caseStudy: "/recursos/de-los-requerimientos-a-una-solucion-digital-a-medida",
     image: "/images/waste-treatment.png",
     imageAlt: "Inicio del sitio de Waste Treatment, gestión de residuos industriales",
     status: "En desarrollo",
@@ -90,6 +93,6 @@ export const projects: Project[] = [
   },
 ]
 
-export const featuredSlugs = ["peabody-argentina", "waste-treatment", "mega-promociones", "bigsur-energy"]
+export const featuredSlugs = ["waste-treatment", "mega-promociones", "bigsur-energy", "peabody-argentina"]
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug)

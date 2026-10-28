@@ -1,6 +1,7 @@
 import article from "./article.json"
 import caso from "./caso.json"
 import common from "./common.json"
+import consent from "./consent.json"
 import contacto from "./contacto.json"
 import ecoflow from "./ecoflow.json"
 import equipo from "./equipo.json"
@@ -11,6 +12,7 @@ import form from "./form.json"
 import gracias from "./gracias.json"
 import header from "./header.json"
 import home from "./home.json"
+import legal from "./legal.json"
 import meta from "./meta.json"
 import notfound from "./notfound.json"
 import producto from "./producto.json"
@@ -23,4 +25,4 @@ import servicios from "./servicios.json"
 import share from "./share.json"
 import visuals from "./visuals.json"
 
-export default { article, caso, common, contacto, ecoflow, equipo, estudio, float, footer, form, gracias, header, home, meta, notfound, producto, productos, project, proyectos, recursos, servicio, servicios, share, visuals }
+export default { article, caso, common, consent, contacto, ecoflow, equipo, estudio, float, footer, form, gracias, header, home, legal, meta, notfound, producto, productos, project, proyectos, recursos, servicio, servicios, share, visuals }

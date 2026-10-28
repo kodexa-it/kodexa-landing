@@ -91,7 +91,7 @@ export default async function ContactoPage() {
             </ul>
             <p className="pt-4 text-sm text-ink-soft">{t("contacto.next")}</p>
           </div>
-          <ContactForm source="contacto" />
+          <div id="formulario" className="scroll-mt-28"><ContactForm source="contacto" /></div>
         </div>
       </Section>
     </>

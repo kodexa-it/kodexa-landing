@@ -29,6 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   add("/contacto", 0.7)
   add("/equipo-it", 0.6)
   add("/recursos", 0.6)
+  add("/privacidad", 0.2, "yearly")
+  add("/cookies", 0.2, "yearly")
   for (const slug of knownSlugs.articles) add(`/recursos/${slug}`, 0.6, "yearly")
   return entries
 }

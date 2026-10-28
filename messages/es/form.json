@@ -25,7 +25,7 @@
   "retry": "Reintentar",
   "skipText": "¿Preferís no completar el formulario?",
   "skipLink": "Abrir WhatsApp igual",
-  "reply": "Te respondemos dentro de las 24 hs.",
+  "reply": "Te respondemos a la brevedad.",
   "emailAlt": "¿Preferís escribir por email?",
   "directWhatsappProject": "Hola Kodexa! Quiero hablar sobre un proyecto: {type}.",
   "saved": {
@@ -77,5 +77,7 @@
     "interested": "Me interesa: {type}.",
     "email": "Mi email: {email}"
   },
-  "honeypot": "No completar"
+  "honeypot": "No completar",
+  "privacy": "Usaremos tus datos únicamente para responder tu consulta.",
+  "privacyLink": "Política de privacidad"
 }

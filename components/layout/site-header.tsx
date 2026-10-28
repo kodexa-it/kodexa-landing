@@ -96,7 +96,7 @@ export function SiteHeader({ known }: { known: KnownSlugs }) {
           >
             <Whatsapp width={20} height={20} />
           </WhatsappLink>
-          <ButtonLink href="/contacto" className="hidden px-5 py-3 md:inline-flex" event="cta_click" eventProps={{ location: "header" }}>
+          <ButtonLink href="/contacto" className="hidden px-5 py-3 md:inline-flex" event="contact_cta_click" eventProps={{ location: "header" }}>
             {t("header.talk")}
           </ButtonLink>
           <button

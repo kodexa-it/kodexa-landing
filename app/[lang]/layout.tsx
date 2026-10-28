@@ -7,6 +7,7 @@ import { WhatsappFloat } from "@/components/layout/whatsapp-float"
 import { JsonLd, organizationLd } from "@/components/seo/json-ld"
 import { GtmHead, GtmNoScript } from "@/components/seo/google-tag-manager"
 import { ClarityHead } from "@/components/seo/clarity"
+import { CookieBanner } from "@/components/consent/cookie-banner"
 import { AttributionCapture } from "@/components/seo/attribution"
 import { isPreview, loadTracking, site } from "@/lib/content/site"
 import { localeMeta, locales, absoluteUrl } from "@/lib/i18n/core"
@@ -121,6 +122,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <main id="contenido">{children}</main>
           <SiteFooter />
           <WhatsappFloat />
+          {loadTracking && <CookieBanner />}
           <AttributionCapture />
           <JsonLd data={organizationLd(locale, t)} />
           <Analytics />

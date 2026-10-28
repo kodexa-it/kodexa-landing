@@ -6,7 +6,7 @@ export type Messages = typeof es
 export const allMessages: Record<Locale, Messages> = { es, en: en as unknown as Messages }
 
 /** Namespaces que se envían al navegador (componentes cliente). El resto se queda en el servidor. */
-export const clientNamespaces = ["common", "header", "footer", "float", "share", "form", "faq", "project", "visuals", "ecoflow"] as const
+export const clientNamespaces = ["common", "header", "footer", "float", "share", "form", "faq", "project", "visuals", "ecoflow", "consent"] as const
 
 function lookup(messages: unknown, key: string): unknown {
   let cur: unknown = messages
