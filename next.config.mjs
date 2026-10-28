@@ -5,7 +5,9 @@ const nextConfig = {
   },
   // Redirect heredado de kodexa.ar. Todas las demás URLs públicas se conservan sin cambios.
   async redirects() {
-    return [{ source: "/proyectos/nexo", destination: "/productos/nexo", permanent: true }]
+    return [
+      { source: "/proyectos/nexo", destination: "/productos/nexo", permanent: true },
+    ]
   },
 }
 

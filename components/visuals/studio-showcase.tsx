@@ -1,6 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import { useT } from "@/lib/i18n/client"
 import { LiquidOrb } from "@/components/visuals/liquid-orb"
 import { BrowserBar, d, DeviceStage, Laptop, Phone, Toast, type Scene } from "@/components/visuals/device-stage"
 import { Chat, NexoPanel } from "@/components/visuals/ecosystem-showcase"
@@ -12,14 +13,17 @@ import { Chat, NexoPanel } from "@/components/visuals/ecosystem-showcase"
  * 3) Productos: Nexo atendiendo una reserva (negocio ficticio).
  */
 const SCENES: readonly Scene[] = [
-  { id: "web", label: "Sitios web", hint: "diseño y desarrollo", ms: 5400 },
-  { id: "sistemas", label: "Sistemas a medida", hint: "gestión y paneles", ms: 5400 },
-  { id: "productos", label: "Productos", hint: "Nexo y Nodo", ms: 5800 },
+  { id: "web", label: "", hint: "", ms: 5400 },
+  { id: "sistemas", label: "", hint: "", ms: 5400 },
+  { id: "productos", label: "", hint: "", ms: 5800 },
 ]
 
 export function StudioShowcase({ maxHeight }: { maxHeight?: string }) {
+  const { t } = useT()
+  const scenes = SCENES.map((sc, i) => ({ ...sc, label: t(`visuals.studio.scenes.${i}.label`), hint: t(`visuals.studio.scenes.${i}.hint`) }))
+  const toast = (k: string) => ({ title: t(`visuals.studio.toasts.${k}.title`), text: t(`visuals.studio.toasts.${k}.text`), app: t(`visuals.studio.toasts.${k}.app`) })
   return (
-    <DeviceStage scenes={SCENES} navLabel="Lo que hacemos: sitios web, sistemas a medida y productos" maxHeight={maxHeight}>
+    <DeviceStage scenes={scenes} navLabel={t("visuals.studio.navLabel")} maxHeight={maxHeight}>
       {(s, k) => (
         <>
           <div className="absolute left-[250px] top-[-150px] h-[460px] w-[460px]">
@@ -44,9 +48,9 @@ export function StudioShowcase({ maxHeight }: { maxHeight?: string }) {
           </Phone>
 
           <div key={`n-${k}`} className="pointer-events-none absolute left-[330px] top-[0px] z-20 w-[226px]">
-            {s === 0 && <Toast delay={1200} dot="bg-[#13245a]" title="Waste Treatment" text="Sitio institucional + ABM" app="Proyecto" badge="WT" />}
-            {s === 1 && <Toast delay={3000} dot="bg-ink" title="Orden aprobada" text="#1048 · al día en todos los equipos" app="Gestión" badge="OP" />}
-            {s === 2 && <Toast delay={3900} dot="bg-white ring-1 ring-ink/10" title="Nueva reserva" text="Atendida por Nexo, sin intervención" app="Nexo" logo="/brand/nexo-mark.png" />}
+            {s === 0 && <Toast delay={1200} dot="bg-[#13245a]" {...toast("wt")} badge="WT" />}
+            {s === 1 && <Toast delay={3000} dot="bg-ink" {...toast("ops")} badge="OP" />}
+            {s === 2 && <Toast delay={3900} dot="bg-white ring-1 ring-ink/10" {...toast("nexo")} logo="/brand/nexo-mark.png" />}
           </div>
         </>
       )}
@@ -57,9 +61,10 @@ export function StudioShowcase({ maxHeight }: { maxHeight?: string }) {
 /* ─────────────── 1. Sitio web real: Waste Treatment ─────────────── */
 
 function WtDesktop() {
+  const { t } = useT()
   return (
     <div className="absolute inset-0 bg-[#1b1f22]">
-      <BrowserBar url="Waste Treatment · sitio institucional" />
+      <BrowserBar url={t("visuals.studio.wtUrl")} />
       <div className="absolute inset-x-0 bottom-0 top-[30px] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/images/hero/wt-desktop.webp" alt="" className="eco-kenburns h-full w-full object-cover object-top" />
@@ -68,6 +73,10 @@ function WtDesktop() {
   )
 }
 
+/**
+ * Réplica de la web real del cliente (Waste Treatment), cuyo contenido está en español: se muestra tal cual es el
+ * sitio publicado, no se traduce ni se inventa una versión en inglés.
+ */
 function WtMobile() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-white">
@@ -123,23 +132,25 @@ function WtMobile() {
 
 /* ─────────────── 2. Sistema a medida (ilustrativo) ─────────────── */
 
-const orders = [
-  { id: "#1046", what: "Retiro · Planta Norte", st: "En curso", tone: "bg-[#2f5be0]/10 text-[#2f5be0]" },
-  { id: "#1047", what: "Entrega · Depósito 2", st: "Completada", tone: "bg-[#22b394]/12 text-[#137a63]" },
-]
+const statusTone: Record<"inProgress" | "done", string> = {
+  inProgress: "bg-[#2f5be0]/10 text-[#2f5be0]",
+  done: "bg-[#22b394]/12 text-[#137a63]",
+}
 
 function OpsDashboard() {
+  const { t } = useT()
+  const o = (k: string) => t(`visuals.ops.${k}`)
   return (
     <div className="absolute inset-0 flex bg-[#f6f6f4] text-ink">
       <BrowserBar url="gestion.tuempresa.com" />
       <div className="eco-in mt-[30px] flex w-[118px] shrink-0 flex-col gap-1 bg-ink px-3 py-3 text-white" style={d(0)}>
         <div className="mb-2 flex items-center gap-1.5">
           <span className="grid h-4 w-4 place-items-center rounded bg-brand text-[0.4rem] font-bold text-ink">TE</span>
-          <span className="text-[0.62rem] font-semibold">Operaciones</span>
+          <span className="text-[0.62rem] font-semibold">{o("brand")}</span>
         </div>
-        {["Resumen", "Órdenes", "Clientes", "Stock", "Reportes"].map((t, i) => (
-          <span key={t} className={cn("rounded-lg px-2 py-1.5 text-[0.56rem]", i === 0 ? "bg-white/12 font-medium" : "text-white/55")}>
-            {t}
+        {t.raw<string[]>("visuals.ops.menu").map((m, i) => (
+          <span key={m} className={cn("rounded-lg px-2 py-1.5 text-[0.56rem]", i === 0 ? "bg-white/12 font-medium" : "text-white/55")}>
+            {m}
           </span>
         ))}
       </div>
@@ -147,26 +158,28 @@ function OpsDashboard() {
       <div className="mt-[30px] flex-1 py-3.5 pl-4 pr-[66px]">
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-[0.52rem] text-ink-faint">Resumen</p>
-            <p className="text-[0.82rem] font-semibold tracking-[-0.01em]">Hoy, en tiempo real</p>
+            <p className="text-[0.52rem] text-ink-faint">{o("summary")}</p>
+            <p className="text-[0.82rem] font-semibold tracking-[-0.01em]">{o("today")}</p>
           </div>
           <span className="flex items-center gap-1 rounded-full border border-ink/10 bg-white px-2 py-1 text-[0.5rem] text-ink-soft">
-            <span className="eco-live h-1.5 w-1.5 rounded-full bg-[#22b394]" /> En vivo
+            <span className="eco-live h-1.5 w-1.5 rounded-full bg-[#22b394]" /> {o("live")}
           </span>
         </div>
 
         <div className="mt-2.5 grid grid-cols-3 gap-2">
-          {[
-            ["Órdenes", "48", [5, 8, 6, 9, 7, 11]],
-            ["En curso", "17", [3, 4, 6, 5, 7, 6]],
-            ["Entregas", "29", [4, 6, 5, 8, 9, 10]],
-          ].map(([t, v, bars], i) => (
-            <div key={t as string} className="eco-in rounded-xl border border-ink/[0.06] bg-white p-2" style={d(100 + i * 90)}>
-              <p className="text-[0.5rem] text-ink-faint">{t as string}</p>
+          {(
+            [
+              [t.raw<string[]>("visuals.ops.kpis")[0], "48", [5, 8, 6, 9, 7, 11]],
+              [t.raw<string[]>("visuals.ops.kpis")[1], "17", [3, 4, 6, 5, 7, 6]],
+              [t.raw<string[]>("visuals.ops.kpis")[2], "29", [4, 6, 5, 8, 9, 10]],
+            ] as const
+          ).map(([label, v, bars], i) => (
+            <div key={label} className="eco-in rounded-xl border border-ink/[0.06] bg-white p-2" style={d(100 + i * 90)}>
+              <p className="text-[0.5rem] text-ink-faint">{label}</p>
               <div className="flex items-end justify-between">
-                <p className="text-[0.95rem] font-semibold tracking-[-0.02em]">{v as string}</p>
+                <p className="text-[0.95rem] font-semibold tracking-[-0.02em]">{v}</p>
                 <span className="flex h-5 items-end gap-[2px]">
-                  {(bars as number[]).map((b, j) => (
+                  {bars.map((b, j) => (
                     <span key={j} className={cn("eco-bar w-[3px] rounded-sm", j === 5 ? "bg-brand" : "bg-ink/15")} style={{ height: `${b * 9}%`, animationDelay: `${300 + i * 90 + j * 50}ms` }} />
                   ))}
                 </span>
@@ -177,8 +190,8 @@ function OpsDashboard() {
 
         <div className="eco-in mt-2 rounded-xl border border-ink/[0.06] bg-white p-2.5" style={d(350)}>
           <div className="flex items-center justify-between">
-            <p className="text-[0.55rem] font-medium">Actividad de la semana</p>
-            <span className="text-[0.48rem] text-ink-faint">Lun — Dom</span>
+            <p className="text-[0.55rem] font-medium">{o("weekTitle")}</p>
+            <span className="text-[0.48rem] text-ink-faint">{o("weekRange")}</span>
           </div>
           <svg viewBox="0 0 300 70" className="mt-1 h-[58px] w-full" preserveAspectRatio="none">
             <defs>
@@ -193,15 +206,15 @@ function OpsDashboard() {
         </div>
 
         <div className="eco-in mt-2 rounded-xl border border-ink/[0.06] bg-white px-2.5 py-1.5" style={d(500)}>
-          {orders.map((o) => (
-            <OrderRow key={o.id} {...o} />
+          {t.raw<{ id: string; what: string; st: "inProgress" | "done" }[]>("visuals.ops.orders").map((ord) => (
+            <OrderRow key={ord.id} id={ord.id} what={ord.what} st={o(ord.st)} tone={statusTone[ord.st]} />
           ))}
           <div className="flex items-center gap-2 py-1 text-[0.52rem]">
             <span className="w-8 font-mono text-ink-faint">#1048</span>
-            <span className="flex-1 text-ink-soft">Retiro · Planta Sur</span>
+            <span className="flex-1 text-ink-soft">{o("pickupSouth")}</span>
             <span className="relative h-[15px] w-[58px]">
-              <span className="eco-count-out absolute inset-0 grid place-items-center rounded-full bg-[#febc2e]/20 text-[0.46rem] font-medium text-[#8a5a00]" style={d(2900)}>Pendiente</span>
-              <span className="eco-count-in absolute inset-0 grid place-items-center rounded-full bg-[#22b394]/15 text-[0.46rem] font-medium text-[#137a63]" style={d(2900)}>Aprobada ✓</span>
+              <span className="eco-count-out absolute inset-0 grid place-items-center rounded-full bg-[#febc2e]/20 text-[0.46rem] font-medium text-[#8a5a00]" style={d(2900)}>{o("pending")}</span>
+              <span className="eco-count-in absolute inset-0 grid place-items-center rounded-full bg-[#22b394]/15 text-[0.46rem] font-medium text-[#137a63]" style={d(2900)}>{o("approved")}</span>
             </span>
           </div>
         </div>
@@ -221,24 +234,29 @@ function OrderRow({ id, what, st, tone }: { id: string; what: string; st: string
 }
 
 function OpsMobile() {
+  const { t } = useT()
+  const o = (k: string) => t(`visuals.ops.${k}`)
+  const m = (k: string) => t(`visuals.ops.mobile.${k}`)
   return (
     <div className="absolute inset-0 flex flex-col bg-[#f6f6f4] text-ink">
       {/* push */}
       <div className="eco-push absolute inset-x-2 top-[34px] z-20 flex items-center gap-2 rounded-2xl bg-white/90 p-2 shadow-[0_14px_24px_-12px_rgb(32_33_36/0.45)] backdrop-blur" style={d(2950)}>
         <span className="grid h-6 w-6 place-items-center rounded-lg bg-ink text-[0.42rem] font-bold text-brand">OP</span>
         <span className="leading-tight">
-          <span className="block text-[0.52rem] font-semibold">Orden #1048 aprobada</span>
-          <span className="block text-[0.46rem] text-ink-faint">Ya podés asignar el retiro</span>
+          <span className="block text-[0.52rem] font-semibold">{m("pushTitle")}</span>
+          <span className="block text-[0.46rem] text-ink-faint">{m("pushText")}</span>
         </span>
       </div>
 
       <div className="px-3.5 pb-2 pt-[40px]">
-        <p className="text-[0.48rem] text-ink-faint">Operaciones</p>
-        <p className="text-[0.9rem] font-semibold tracking-[-0.02em]">Órdenes</p>
+        <p className="text-[0.48rem] text-ink-faint">{o("brand")}</p>
+        <p className="text-[0.9rem] font-semibold tracking-[-0.02em]">{m("title")}</p>
         <div className="mt-2 flex rounded-lg bg-ink/[0.05] p-0.5 text-[0.48rem]">
-          <span className="flex-1 rounded-md bg-white py-1 text-center font-medium shadow-sm">Hoy</span>
-          <span className="flex-1 py-1 text-center text-ink-faint">Semana</span>
-          <span className="flex-1 py-1 text-center text-ink-faint">Mes</span>
+          {t.raw<string[]>("visuals.ops.mobile.tabs").map((tab, i) => (
+            <span key={tab} className={i === 0 ? "flex-1 rounded-md bg-white py-1 text-center font-medium shadow-sm" : "flex-1 py-1 text-center text-ink-faint"}>
+              {tab}
+            </span>
+          ))}
         </div>
       </div>
 
@@ -247,33 +265,30 @@ function OpsMobile() {
           <div className="flex items-center justify-between">
             <span className="font-mono text-[0.5rem] text-ink-faint">#1048</span>
             <span className="relative h-[14px] w-[56px]">
-              <span className="eco-count-out absolute inset-0 grid place-items-center rounded-full bg-[#febc2e]/20 text-[0.44rem] font-medium text-[#8a5a00]" style={d(2900)}>Pendiente</span>
-              <span className="eco-count-in absolute inset-0 grid place-items-center rounded-full bg-[#22b394]/15 text-[0.44rem] font-medium text-[#137a63]" style={d(2900)}>Aprobada ✓</span>
+              <span className="eco-count-out absolute inset-0 grid place-items-center rounded-full bg-[#febc2e]/20 text-[0.44rem] font-medium text-[#8a5a00]" style={d(2900)}>{o("pending")}</span>
+              <span className="eco-count-in absolute inset-0 grid place-items-center rounded-full bg-[#22b394]/15 text-[0.44rem] font-medium text-[#137a63]" style={d(2900)}>{o("approved")}</span>
             </span>
           </div>
-          <p className="mt-1 text-[0.6rem] font-medium">Retiro · Planta Sur</p>
-          <p className="text-[0.48rem] text-ink-faint">Hoy · 15:30 · Unidad 07</p>
+          <p className="mt-1 text-[0.6rem] font-medium">{o("pickupSouth")}</p>
+          <p className="text-[0.48rem] text-ink-faint">{m("detail")}</p>
         </div>
-        {[
-          ["#1046", "Retiro · Planta Norte", "En curso", "bg-[#2f5be0]/10 text-[#2f5be0]"],
-          ["#1047", "Entrega · Depósito 2", "Completada", "bg-[#22b394]/12 text-[#137a63]"],
-          ["#1045", "Retiro · Parque Ind.", "Completada", "bg-[#22b394]/12 text-[#137a63]"],
-        ].map(([id, w, st, tone], i) => (
-          <div key={id} className="eco-in rounded-xl border border-ink/[0.06] bg-white p-2.5" style={d(300 + i * 90)}>
+        {t.raw<{ id: string; what: string; st: "inProgress" | "done" }[]>("visuals.ops.mobile.list").map((row, i) => (
+          <div key={row.id} className="eco-in rounded-xl border border-ink/[0.06] bg-white p-2.5" style={d(300 + i * 90)}>
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[0.5rem] text-ink-faint">{id}</span>
-              <span className={cn("rounded-full px-1.5 py-0.5 text-[0.44rem] font-medium", tone)}>{st}</span>
+              <span className="font-mono text-[0.5rem] text-ink-faint">{row.id}</span>
+              <span className={cn("rounded-full px-1.5 py-0.5 text-[0.44rem] font-medium", statusTone[row.st])}>{o(row.st)}</span>
             </div>
-            <p className="mt-1 text-[0.58rem] font-medium">{w}</p>
+            <p className="mt-1 text-[0.58rem] font-medium">{row.what}</p>
           </div>
         ))}
       </div>
 
       <div className="mx-3 mb-3 mt-2 flex justify-around rounded-2xl bg-white py-2 text-[0.46rem] text-ink-faint shadow-[0_1px_2px_rgb(32_33_36/0.08)]">
-        <span className="font-semibold text-ink">Órdenes</span>
-        <span>Mapa</span>
-        <span>Clientes</span>
-        <span>Perfil</span>
+        {t.raw<string[]>("visuals.ops.mobile.bottom").map((b, i) => (
+          <span key={b} className={i === 0 ? "font-semibold text-ink" : undefined}>
+            {b}
+          </span>
+        ))}
       </div>
     </div>
   )

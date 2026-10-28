@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "From requirements to a custom digital solution",
+    "description": "How we went from the initial discovery to the design and development of a custom corporate website for a waste management and treatment company. A project in progress, told transparently.",
+    "ogTitle": "From requirements to a custom digital solution | Kodexa"
+  },
+  "crumb": "From requirements to a custom solution",
+  "eyebrow": "Projects · Web development",
+  "title": "From requirements to a custom digital solution",
+  "lead": "Discovery, planning and development of a corporate website for a waste management and treatment company. A project under way, told as it stands today.",
+  "byline": "By {name} — Founder, Kodexa · {time} read",
+  "keywords": [
+    "custom corporate website",
+    "custom web development",
+    "corporate website pro",
+    "website for a waste management company",
+    "web requirements discovery",
+    "web development studio"
+  ],
+  "cover": {
+    "alt": "Conceptual illustration of an industrial waste management plant with chimneys, silos and a truck, next to a browser window.",
+    "badge": "Conceptual illustration"
+  },
+  "intro": [
+    "At Kodexa we believe a good web project doesn't start by writing code, but by listening, researching and understanding what each business needs.",
+    "Our first client project began with an initial meeting to learn about their activity, understand their requirements and analyze how a new corporate website could support their goals."
+  ],
+  "s1": {
+    "h": "Understand before you build",
+    "p": "Every project starts by understanding how the business works, what it needs to communicate and which tools can help it grow. After the first meeting, we gathered the requirements and defined a solution aligned with their needs.",
+    "alt": "Conceptual illustration: a laptop showing a corporate website wireframe, a sketch with the site map and sticky notes with discovery questions.",
+    "caption": "Conceptual illustration of the discovery stage. It is not client documentation or material.",
+    "board": {
+      "sitemap": "Site map",
+      "home": "Home",
+      "services": "Services",
+      "plants": "Plants",
+      "docs": "Documents",
+      "news": "News",
+      "contact": "Contact",
+      "note1": "What does the company need to communicate?",
+      "note2": "Which content can it authorize to publish?",
+      "note3": "Who keeps it up to date?"
+    }
+  },
+  "s2": {
+    "h": "Designing the solution",
+    "p": [
+      "Based on that discovery, we worked on a [Corporate Website Pro](/services/corporate-websites-pro) proposal, designed so the company can communicate its services better, show its operations and keep the relevant information about its activity up to date.",
+      "In waste management and treatment, information and transparency play a key role. A well-organized digital presence makes it possible to communicate services, present the operations of each plant and make institutional information and relevant documentation easy to find."
+    ],
+    "alt": "Five conceptual mockups of a corporate website: home, services, plants and operations, documents and a news blog, plus a mobile version.",
+    "caption": "Conceptual visual proposal with sample content. These are not screens of the implemented site and contain no real client data.",
+    "badge": "Sample content",
+    "mock": {
+      "url": "example-company.com",
+      "headline": "Sample headline for the home page",
+      "cta": "Contact us",
+      "home": "Home",
+      "services": "Services",
+      "plants": "Plants and operations",
+      "docs": "Permits and documents",
+      "blog": "Industry news",
+      "service": "Sample service",
+      "plant": "Sample plant",
+      "doc": "Sample document",
+      "post": "Sample news post title",
+      "example": "Sample",
+      "mobile": "Mobile"
+    }
+  },
+  "s3": {
+    "h": "From mockups to the developed site",
+    "p": "The conceptual design becomes a real website: what you see below is the version in development. It is not published yet.",
+    "desktopAlt": "Screenshot of the in-development Waste Treatment website on desktop: home page with a menu for services, company, news and permits.",
+    "mobileAlt": "Screenshot of the in-development Waste Treatment website on a mobile phone.",
+    "caption": "Real screenshot of the version in development (desktop view). The website's content belongs to the client.",
+    "desktop": "Desktop",
+    "mobile": "Mobile"
+  },
+  "s4": {
+    "h": "A tool to communicate better",
+    "p": "The solution includes dynamic features, designed so the website is not just a business card but a communication tool that can evolve along with the company.",
+    "imageAlt": "Detail of the in-development site's menu, with the Services, Company, News and Permits sections.",
+    "imageCaption": "Detail of the navigation in the version in development.",
+    "features": [
+      {
+        "t": "Present its services",
+        "x": "Clearly communicate the different solutions the company offers."
+      },
+      {
+        "t": "Permits and documentation",
+        "x": "Organize and publish the relevant information, according to the needs and the content the company authorizes."
+      },
+      {
+        "t": "Share news",
+        "x": "A blog to report on regulatory changes related to waste management, industry progress and innovations implemented at its plants."
+      },
+      {
+        "t": "Show its operations",
+        "x": "Spaces to present facilities, processes and operating capabilities."
+      }
+    ]
+  },
+  "s5": {
+    "h": "A project in progress",
+    "p": [
+      "Every project involves its own decisions, priorities and timing. Throughout this process, we support the client in defining the scope and choosing a solution aligned with their current needs and future goals.",
+      "Right now, publishing the site is on hold while the company goes through internal changes and defines aspects of its new stage."
+    ],
+    "quote": "The development is part of a transition stage for the company. While it moves forward with its internal decisions, we keep supporting the process so the new digital presence can launch once the conditions are right.",
+    "stepsLabel": "Project status",
+    "steps": [
+      {
+        "t": "Discovery",
+        "s": "done"
+      },
+      {
+        "t": "Proposal",
+        "s": "done"
+      },
+      {
+        "t": "Development",
+        "s": "progress"
+      },
+      {
+        "t": "Launch",
+        "s": "pending"
+      }
+    ],
+    "status": {
+      "done": "Completed",
+      "progress": "In progress",
+      "pending": "Pending the client's decisions"
+    }
+  },
+  "close": {
+    "h": "We keep building",
+    "p": "This project is an important part of how we work: listen first, propose with judgment and build digital solutions that answer real needs. At Kodexa, every project is a chance to turn real requirements into tools that help companies communicate what they do.",
+    "ctaTitle": "Thinking about renewing your company's website, or need a platform that supports your business's growth?",
+    "ctaText": "Let's talk about your project.",
+    "cta": "Contact Kodexa"
+  }
+}

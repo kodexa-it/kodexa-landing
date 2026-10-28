@@ -40,6 +40,7 @@ export async function POST(req: NextRequest) {
       whatsapp: str("fi-text-whatsapp"),
       message: str("fi-text-message"),
       projectType: str("fi-select-projectType"),
+      budget: str("fi-text-budget"),
     },
     { requireProjectType: true },
   )

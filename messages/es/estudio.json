@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "El estudio: enfoque, método y equipo",
+    "description": "Kodexa es un estudio digital que diseña y desarrolla soluciones para negocios. Conocé nuestra filosofía de trabajo, el enfoque técnico y cómo trabajamos.",
+    "ogTitle": "El estudio | Kodexa"
+  },
+  "crumb": "Estudio",
+  "eyebrow": "El estudio",
+  "title": "Desarrollar no es solo escribir código.",
+  "lead": "Primero hay que entender el problema, el negocio y a quien lo va a usar. Kodexa nace para resolver algo claro: negocios que necesitan crecer, pero están limitados por soluciones digitales mal construidas o que no escalan.",
+  "philosophyEyebrow": "Filosofía",
+  "philosophyTitle": "Tres ideas que ordenan cada proyecto.",
+  "techEyebrow": "Enfoque técnico",
+  "techTitle": "Tecnología al servicio del negocio.",
+  "techLead": "Elegimos las herramientas según lo que el proyecto necesita, no al revés. Trabajamos con tecnología moderna y mantenible, con foco en rendimiento, estructura y evolución.",
+  "stackLabel": "Con lo que trabajamos",
+  "own1": "Construimos también productos propios —como",
+  "own2": "— y compartimos lo que vamos aprendiendo en",
+  "resources": "Recursos",
+  "whoEyebrow": "Quién está detrás",
+  "whoTitle": "Trato directo, de principio a fin.",
+  "whoLead": "Trabajás con quien diseña y desarrolla, sin intermediarios. Así las decisiones se toman rápido y con contexto.",
+  "bio": "Desarrollador full stack especializado en sitios, landings y sistemas web escalables, con enfoque en estructura, rendimiento y claridad técnica.",
+  "partner1": "Además de los proyectos propios, participó en el desarrollo y la arquitectura de proyectos junto a",
+  "agencyEyebrow": "Para agencias y estudios",
+  "agencyTitle": "Un equipo técnico para tus proyectos.",
+  "agencyText": "Colaboramos con agencias de diseño, marketing y otros estudios como equipo técnico, participando en el desarrollo y la arquitectura de sus proyectos.",
+  "agencyCta": "Hablemos de una colaboración",
+  "agencyMessage": "Hola Kodexa! Represento a una agencia/estudio y me interesa colaborar con ustedes en desarrollo."
+}

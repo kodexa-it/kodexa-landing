@@ -9,6 +9,8 @@ type EventProps = Record<string, string | number | boolean | null>
  */
 export function trackEvent(name: string, props?: EventProps) {
   if (typeof window === "undefined") return
+  // Idioma de la página (es / en) en todos los eventos; nunca datos personales.
+  props = { language: document.documentElement.lang.slice(0, 2) || "es", ...props }
   try {
     track(name, props)
   } catch {}

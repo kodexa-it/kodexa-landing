@@ -1,0 +1,9 @@
+{
+  "skipToContent": "Saltar al contenido",
+  "nav": { "servicios": "Servicios", "proyectos": "Proyectos", "productos": "Productos", "estudio": "Estudio", "recursos": "Recursos" },
+  "home": "Inicio",
+  "contact": "Contacto",
+  "breadcrumbLabel": "Ruta",
+  "whatsappDefault": "Hola Kodexa! Quiero hablar sobre un proyecto.",
+  "language": { "label": "Idioma", "switchTo": "Cambiar idioma a {language}", "current": "{language} (idioma actual)" }
+}

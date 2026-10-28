@@ -1,0 +1,17 @@
+{
+  "siteTitle": "Kodexa | Web development & digital solutions studio",
+  "siteDescription": "We design and develop websites, applications and custom digital solutions for businesses. Plus Nexo (digital assistant) and Nodo (CRM), our own products.",
+  "ogDescription": "We design and develop websites, applications and custom systems built to grow with your business.",
+  "ogAlt": "Kodexa — web studio",
+  "twitterTitle": "Kodexa — Web studio",
+  "twitterDescription": "Websites, applications and custom digital solutions built to grow with your business.",
+  "orgDescription": "Web studio specialized in the design and development of websites, applications, custom software and digital products.",
+  "tagline": "Web design and development studio",
+  "serviceTypes": [
+    "Web development",
+    "Custom software development",
+    "Web platforms and applications",
+    "MVP development",
+    "SaaS product development"
+  ]
+}

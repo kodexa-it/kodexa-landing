@@ -1,0 +1,100 @@
+{
+  "studio": {
+    "navLabel": "Lo que hacemos: sitios web, sistemas a medida y productos",
+    "scenes": [
+      { "label": "Sitios web", "hint": "diseño y desarrollo" },
+      { "label": "Sistemas a medida", "hint": "gestión y paneles" },
+      { "label": "Productos", "hint": "Nexo y Nodo" }
+    ],
+    "toasts": {
+      "wt": { "title": "Waste Treatment", "text": "Sitio institucional + ABM", "app": "Proyecto" },
+      "ops": { "title": "Orden aprobada", "text": "#1048 · al día en todos los equipos", "app": "Gestión" },
+      "nexo": { "title": "Nueva reserva", "text": "Atendida por Nexo, sin intervención", "app": "Nexo" }
+    },
+    "wtUrl": "Waste Treatment · sitio institucional"
+  },
+  "ops": {
+    "brand": "Operaciones",
+    "menu": ["Resumen", "Órdenes", "Clientes", "Stock", "Reportes"],
+    "summary": "Resumen",
+    "today": "Hoy, en tiempo real",
+    "live": "En vivo",
+    "kpis": ["Órdenes", "En curso", "Entregas"],
+    "weekTitle": "Actividad de la semana",
+    "weekRange": "Lun — Dom",
+    "pickupSouth": "Retiro · Planta Sur",
+    "pending": "Pendiente",
+    "approved": "Aprobada ✓",
+    "inProgress": "En curso",
+    "done": "Completada",
+    "orders": [
+      { "id": "#1046", "what": "Retiro · Planta Norte", "st": "inProgress" },
+      { "id": "#1047", "what": "Entrega · Depósito 2", "st": "done" }
+    ],
+    "mobile": {
+      "pushTitle": "Orden #1048 aprobada",
+      "pushText": "Ya podés asignar el retiro",
+      "title": "Órdenes",
+      "tabs": ["Hoy", "Semana", "Mes"],
+      "detail": "Hoy · 15:30 · Unidad 07",
+      "list": [
+        { "id": "#1046", "what": "Retiro · Planta Norte", "st": "inProgress" },
+        { "id": "#1047", "what": "Entrega · Depósito 2", "st": "done" },
+        { "id": "#1045", "what": "Retiro · Parque Ind.", "st": "done" }
+      ],
+      "bottom": ["Órdenes", "Mapa", "Clientes", "Perfil"]
+    }
+  },
+  "eco": {
+    "navLabel": "Recorrido: cómo trabajan juntos tu web, Nexo y Nodo",
+    "scenes": [
+      { "label": "Tu web", "hint": "recibe la consulta" },
+      { "label": "Nexo", "hint": "responde y agenda" },
+      { "label": "Nodo", "hint": "organiza el lead" }
+    ],
+    "toasts": {
+      "nexo": { "title": "Nueva reserva", "text": "Cancha 2 · mañana 19:00", "app": "Nexo" },
+      "nodo": { "title": "Nuevo lead", "text": "Martín G. · llegó desde Nexo", "app": "Nodo" }
+    },
+    "site": {
+      "nav": ["Canchas", "Clases", "Torneos"],
+      "eyebrow": "PÁDEL · CLASES · TORNEOS",
+      "title": "Reservá tu cancha en segundos.",
+      "text": "Elegí día y horario, y confirmá tu turno por WhatsApp. Sin llamadas, a cualquier hora.",
+      "button": "Reservar por WhatsApp",
+      "cards": [["Canchas", "4 techadas"], ["Clases", "Todos los niveles"], ["Torneos", "Cada mes"]]
+    },
+    "panel": {
+      "menu": ["Inicio", "Turnos", "Conversaciones", "Servicios", "Ajustes"],
+      "connected": "WhatsApp conectado",
+      "label": "Turnos",
+      "day": "Mañana · jueves",
+      "auto": "Disponibilidad automática",
+      "courts": ["Cancha 1", "Cancha 2", "Cancha 3"],
+      "hours": ["17:00", "18:00", "19:00", "20:00", "21:00"],
+      "viaWhatsapp": "vía WhatsApp"
+    },
+    "board": {
+      "title": "Oportunidades",
+      "sync": "Sincronizado con Nexo",
+      "cols": [
+        { "t": "Nuevos", "cards": [["Lucía P.", "Consulta clases"], ["Grupo Sur", "Torneo empresa"]] },
+        { "t": "En contacto", "cards": [["Diego R.", "Abono mensual"], ["Ana M.", "Clases niños"]] },
+        { "t": "Propuesta", "cards": [["Club Este", "Alquiler fijo"]] },
+        { "t": "Ganados", "cards": [["Sofía L.", "Abono x4"], ["Pablo T.", "Clases"]] }
+      ],
+      "leadDetail": "Cancha 2 · jue 19:00",
+      "viaNexo": "vía Nexo",
+      "task": "Tarea: ofrecer abono mensual"
+    },
+    "chat": {
+      "status": "Asistente Nexo · en línea",
+      "today": "Hoy",
+      "q1": "Hola! ¿Tienen cancha mañana a las 19?",
+      "a1": "¡Hola! Sí, mañana a las 19:00 está libre la **Cancha 2**. ¿Te la reservo?",
+      "q2": "Dale, gracias 🙌",
+      "a2": "Listo ✅ Reserva confirmada: **jueves 19:00, Cancha 2**. ¡Te esperamos!",
+      "input": "Mensaje"
+    }
+  }
+}

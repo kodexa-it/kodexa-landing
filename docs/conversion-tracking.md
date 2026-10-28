@@ -13,6 +13,10 @@ El código **no envía nada a GA4 directamente**: publica cada evento en `window
 | `form_submit` | El servidor **confirmó** que guardó la consulta (Forminit). | `form_source`, `contact_method`, `project_type`, `lead_type`, `action` |
 | `generate_lead` | Mismo momento que `form_submit`: consulta comercial registrada. Es la conversión. | igual que `form_submit` |
 | `form_error` | Falla de validación o de guardado. | `form_source`, `error_type` (`validation` / `server`), `error_fields` (solo nombres de campo) |
+| `language_select` | La persona elige el idioma manualmente en el selector (no se emite por la detección automática). | `language_from`, `language_to`, `cta_location` (`navbar` / `mobile_menu`), `page_path` |
+| `email_click` | Clic en un enlace de correo. Solo existe si `NEXT_PUBLIC_CONTACT_EMAIL` está configurada. | `cta_location`, `page_path`, `contact_method` (`email`) |
+
+**Todos** los eventos incluyen además `language` (`es` / `en`, idioma de la página). En la versión inglesa, el formulario envía `source` con sufijo `_en` a la planilla y las páginas aparecen como `/en/...`.
 
 `cta_location` posibles: `hero`, `services`, `projects`, `products`, `contact`, `navbar`, `footer`, `floating`, `cta_final`.
 
@@ -20,9 +24,9 @@ Un clic en WhatsApp **no** emite `generate_lead`: es una interacción, no un lea
 
 ## 1. Configuración en GTM (acción manual, una sola vez)
 
-1. **Variables** → *Nuevas* → tipo *Variable de capa de datos*, una por parámetro (versión 2): `cta_location`, `cta_label`, `page_path`, `service_type`, `contact_method`, `form_source`, `project_type`, `lead_type`, `action`, `error_type`, `error_fields`.
+1. **Variables** → *Nuevas* → tipo *Variable de capa de datos*, una por parámetro (versión 2): `cta_location`, `cta_label`, `page_path`, `service_type`, `contact_method`, `form_source`, `project_type`, `lead_type`, `action`, `error_type`, `error_fields`, `language`, `language_from`, `language_to`.
 2. **Activadores** → *Nuevo* → tipo *Evento personalizado*, nombre del evento (regex activado):
-   `^(whatsapp_click|form_start|form_submit|generate_lead|form_error)$`
+   `^(whatsapp_click|form_start|form_submit|generate_lead|form_error|language_select|email_click)$`
 3. **Etiquetas** → *Nueva* → *Evento de Google Analytics: GA4*
    - Etiqueta de configuración: la existente (`G-BX1MFLCDJH`).
    - Nombre del evento: `{{Event}}` (variable integrada; actívala en *Variables → Configurar*).
@@ -32,7 +36,7 @@ Un clic en WhatsApp **no** emite `generate_lead`: es una interacción, no un lea
 
 ## 2. Configuración en GA4 (acción manual)
 
-- **Datos personalizados**: *Administrar → Definiciones personalizadas* → crear dimensiones de evento para `cta_location`, `cta_label`, `service_type` (para verlas en informes).
+- **Datos personalizados**: *Administrar → Definiciones personalizadas* → crear dimensiones de evento para `cta_location`, `cta_label`, `service_type`, `language` (para verlas en informes).
 - **Evento clave**: *Administrar → Eventos* → marcar `generate_lead` como evento clave. **No** marques `whatsapp_click` ni `form_submit` como clave (el primero es solo un clic; marcar los dos últimos duplicaría la conversión).
 - **Medición mejorada**: *Administrar → Flujos de datos → (tu flujo) → Medición mejorada → engranaje* → desactivar **Interacciones con formularios**. Si queda activada, GA4 genera por su cuenta `form_start` y `form_submit` cada vez que se toca el botón, aunque la validación falle o el guardado no ocurra, y se mezclan con los eventos propios del sitio.
   - El contenedor GTM publicado incluye esa medición automática de formularios (`ccd_em_form`), por lo que probablemente está activa.

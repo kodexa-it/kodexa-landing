@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "De los requerimientos a una solución digital a medida",
+    "description": "Cómo pasamos del relevamiento inicial al diseño y desarrollo de una web institucional a medida para una empresa de gestión y tratamiento de residuos. Un proyecto en desarrollo, contado con transparencia.",
+    "ogTitle": "De los requerimientos a una solución digital a medida | Kodexa"
+  },
+  "crumb": "De los requerimientos a una solución a medida",
+  "eyebrow": "Proyectos · Desarrollo web",
+  "title": "De los requerimientos a una solución digital a medida",
+  "lead": "Relevamiento, planificación y desarrollo de una web institucional para una empresa de gestión y tratamiento de residuos. Un proyecto en marcha, contado tal como está hoy.",
+  "byline": "Por {name} — Founder, Kodexa · {time} de lectura",
+  "keywords": [
+    "web institucional a medida",
+    "desarrollo web a medida",
+    "web institucional pro",
+    "sitio web para empresa de residuos",
+    "relevamiento de requerimientos web",
+    "desarrollo de sitios web en Argentina"
+  ],
+  "cover": {
+    "alt": "Ilustración conceptual de una planta industrial de gestión de residuos con chimeneas, silos y un camión, junto a una ventana de navegador.",
+    "badge": "Ilustración conceptual"
+  },
+  "intro": [
+    "En Kodexa creemos que un buen proyecto web no empieza escribiendo código, sino escuchando, relevando y entendiendo las necesidades de cada negocio.",
+    "Nuestro primer proyecto con un cliente comenzó con una reunión inicial para conocer su actividad, comprender sus requerimientos y analizar cómo una nueva web institucional podía acompañar sus objetivos."
+  ],
+  "s1": {
+    "h": "Entender antes de desarrollar",
+    "p": "Todo proyecto comienza entendiendo cómo trabaja el negocio, qué necesita comunicar y qué herramientas pueden ayudarlo a crecer. A partir de la primera reunión, relevamos los requerimientos y definimos una solución alineada con sus necesidades.",
+    "alt": "Ilustración conceptual: notebook con el wireframe de una web institucional, un boceto con el mapa del sitio y notas adhesivas con preguntas de relevamiento.",
+    "caption": "Ilustración conceptual de la etapa de relevamiento. No es documentación ni material del cliente.",
+    "board": {
+      "sitemap": "Mapa del sitio",
+      "home": "Inicio",
+      "services": "Servicios",
+      "plants": "Plantas",
+      "docs": "Documentación",
+      "news": "Novedades",
+      "contact": "Contacto",
+      "note1": "¿Qué necesita comunicar la empresa?",
+      "note2": "¿Qué contenido autoriza publicar?",
+      "note3": "¿Quién lo mantiene actualizado?"
+    }
+  },
+  "s2": {
+    "h": "Diseñar la solución",
+    "p": [
+      "A partir de ese relevamiento, trabajamos en una propuesta de [Web Institucional Pro](/servicios/institucional-pro), pensada para que la empresa pueda comunicar mejor sus servicios, mostrar sus operaciones y mantener actualizada la información relevante de su actividad.",
+      "En el ámbito de la gestión y el tratamiento de residuos, la información y la transparencia tienen un papel fundamental. Contar con una presencia digital bien organizada permite comunicar servicios, presentar las operaciones de las distintas plantas y facilitar el acceso a información institucional y documentación relevante."
+    ],
+    "alt": "Cinco mockups conceptuales de una web institucional: inicio, servicios, plantas y operaciones, documentación y blog de novedades, más una versión móvil.",
+    "caption": "Propuesta visual conceptual con contenido de ejemplo. No son pantallas del sitio implementado ni contienen datos reales del cliente.",
+    "badge": "Contenido de ejemplo",
+    "mock": {
+      "url": "empresa-ejemplo.com",
+      "headline": "Titular de ejemplo para la portada",
+      "cta": "Contactar",
+      "home": "Inicio",
+      "services": "Servicios",
+      "plants": "Plantas y operaciones",
+      "docs": "Habilitaciones y documentación",
+      "blog": "Novedades del sector",
+      "service": "Servicio de ejemplo",
+      "plant": "Planta de ejemplo",
+      "doc": "Documento de ejemplo",
+      "post": "Título de ejemplo de una novedad",
+      "example": "Ejemplo",
+      "mobile": "Móvil"
+    }
+  },
+  "s3": {
+    "h": "De los mockups a la web desarrollada",
+    "p": "El diseño conceptual se convierte en una web real: la que ves a continuación es la versión en desarrollo. Todavía no está publicada.",
+    "desktopAlt": "Captura de la versión en desarrollo de la web de Waste Treatment en escritorio: portada con menú de servicios, empresa, novedades y permisos.",
+    "mobileAlt": "Captura de la versión en desarrollo de la web de Waste Treatment en un teléfono móvil.",
+    "caption": "Captura real de la versión en desarrollo (vista de escritorio). El contenido de la web pertenece al cliente.",
+    "desktop": "Escritorio",
+    "mobile": "Móvil"
+  },
+  "s4": {
+    "h": "Una herramienta para comunicar mejor",
+    "p": "La solución contempla funcionalidades dinámicas, pensadas para que la web no sea solamente una carta de presentación, sino también una herramienta de comunicación que pueda evolucionar junto con la empresa.",
+    "imageAlt": "Detalle del menú de la versión en desarrollo, con las secciones Servicios, Empresa, Novedades y Permisos.",
+    "imageCaption": "Detalle de la navegación de la versión en desarrollo.",
+    "features": [
+      {
+        "t": "Presentar sus servicios",
+        "x": "Comunicar de forma clara las distintas soluciones que ofrece la empresa."
+      },
+      {
+        "t": "Habilitaciones y documentación",
+        "x": "Organizar y publicar la información correspondiente, de acuerdo con las necesidades y los contenidos que la empresa autorice."
+      },
+      {
+        "t": "Compartir novedades",
+        "x": "Un blog para informar sobre cambios normativos relacionados con la gestión de residuos, avances del sector e innovaciones implementadas en las distintas plantas."
+      },
+      {
+        "t": "Mostrar sus operaciones",
+        "x": "Espacios para presentar instalaciones, procesos y capacidades operativas."
+      }
+    ]
+  },
+  "s5": {
+    "h": "Un proyecto en evolución",
+    "p": [
+      "Todo proyecto implica decisiones, prioridades y tiempos propios. Durante este proceso, acompañamos al cliente en la definición del alcance y en la elección de una solución alineada con sus necesidades actuales y sus objetivos a futuro.",
+      "Actualmente, la publicación del sitio se encuentra pendiente mientras la empresa atraviesa cambios internos y define aspectos de su nueva etapa."
+    ],
+    "quote": "El desarrollo forma parte de una etapa de transición para la empresa. Mientras avanza con sus definiciones internas, seguimos acompañando el proceso para que la nueva presencia digital pueda ponerse en marcha cuando estén dadas las condiciones.",
+    "stepsLabel": "Estado del proyecto",
+    "steps": [
+      {
+        "t": "Relevamiento",
+        "s": "done"
+      },
+      {
+        "t": "Propuesta",
+        "s": "done"
+      },
+      {
+        "t": "Desarrollo",
+        "s": "progress"
+      },
+      {
+        "t": "Publicación",
+        "s": "pending"
+      }
+    ],
+    "status": {
+      "done": "Completado",
+      "progress": "En curso",
+      "pending": "Pendiente de definiciones del cliente"
+    }
+  },
+  "close": {
+    "h": "Seguimos construyendo",
+    "p": "Este proyecto representa una parte importante de nuestra manera de trabajar: escuchar primero, proponer con criterio y desarrollar soluciones digitales que respondan a necesidades concretas. En Kodexa, cada proyecto es una oportunidad para convertir requerimientos reales en herramientas que ayuden a las empresas a comunicar mejor lo que hacen.",
+    "ctaTitle": "¿Estás pensando en renovar la web de tu empresa o necesitás una plataforma que acompañe el crecimiento de tu negocio?",
+    "ctaText": "Hablemos de tu proyecto.",
+    "cta": "Contactar a Kodexa"
+  }
+}

@@ -49,10 +49,19 @@ export function whatsappHref(message?: string) {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base
 }
 
+/** Navegación principal. Los textos viven en messages/<lang>/common.json → nav.<key>. */
 export const nav = [
-  { label: "Servicios", href: "/servicios" },
-  { label: "Proyectos", href: "/proyectos" },
-  { label: "Productos", href: "/productos" },
-  { label: "Estudio", href: "/estudio" },
-  { label: "Recursos", href: "/recursos" },
+  { key: "servicios", href: "/servicios" },
+  { key: "proyectos", href: "/proyectos" },
+  { key: "productos", href: "/productos" },
+  { key: "estudio", href: "/estudio" },
+  { key: "recursos", href: "/recursos" },
 ] as const
+
+/**
+ * Correo profesional de contacto (contacto@kodexa.ar). Se puede sobrescribir con NEXT_PUBLIC_CONTACT_EMAIL.
+ * Si el valor configurado no es un correo válido, se ignora y se usa el predeterminado.
+ */
+const DEFAULT_CONTACT_EMAIL = "contacto@kodexa.ar"
+const envEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? ""
+export const contactEmail: string | null = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(envEmail) ? envEmail : DEFAULT_CONTACT_EMAIL

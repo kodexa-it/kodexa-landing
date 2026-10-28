@@ -3,7 +3,10 @@
 import { useEffect, useId, useRef, useState } from "react"
 import { Forminit } from "forminit"
 import { trackEvent } from "@/lib/analytics"
-import { site, whatsappHref } from "@/lib/content/site"
+import { contactEmail, site, whatsappHref } from "@/lib/content/site"
+import { useT } from "@/lib/i18n/client"
+import { toPublicPath } from "@/lib/i18n/core"
+import { EmailLink } from "@/components/ui/email-link"
 import { HONEYPOT_FIELD, LIMITS, clean, digitsOnly, looksLikeBot, validateLead, type ContactMethod, type LeadErrors } from "@/lib/lead-validation"
 import { buildLeadWhatsappMessage, trackWhatsappClick } from "@/lib/whatsapp"
 import type { LeadType, ProductInterest } from "@/lib/content/products"
@@ -14,7 +17,10 @@ import { Whatsapp } from "@/components/ui/icons"
 // Mismo proxy y mismo formulario que usa kodexa.ar hoy (ver app/api/forminit/route.ts).
 const forminit = new Forminit({ proxyUrl: "/api/forminit" })
 
-/** Lo que el visitante elige como tipo de proyecto, con el tipo de lead y el identificador para analítica. */
+/**
+ * Tipos de proyecto. `label` es el valor canónico (español) que se guarda en Forminit y en la planilla,
+ * igual en ambos idiomas para no fragmentar los datos; el texto que ve la persona sale de form.types.<service>.
+ */
 const projectTypes: { label: string; leadType: LeadType; service: string }[] = [
   { label: "Sitio web", leadType: "web", service: "sitio-web" },
   { label: "Tienda online", leadType: "web", service: "tienda-online" },
@@ -25,6 +31,7 @@ const projectTypes: { label: string; leadType: LeadType; service: string }[] = [
   { label: "Otro", leadType: "other", service: "otro" },
 ]
 
+/** `label` canónico (español); lo visible sale de form.interests.<value>. */
 const productInterests: { label: string; value: ProductInterest; projectType: string; service: string }[] = [
   { label: "Nexo — asistente digital", value: "nexo", projectType: "Nexo", service: "nexo" },
   { label: "Nodo — CRM", value: "nodo", projectType: "Nodo", service: "nodo" },
@@ -48,11 +55,14 @@ type Props = {
 
 export function ContactForm({ variant = "general", source = "contacto", defaultProductInterest = "unknown" }: Props) {
   const uid = useId()
+  const { locale, t } = useT()
+  const leadSource = locale === "en" ? `${source}_en` : source
   const isProduct = variant === "product"
   const isQuick = variant === "quick"
   const id = (n: string) => `${uid}-${n}`
 
-  const [values, setValues] = useState({ name: "", business: "", projectType: "", method: "whatsapp" as ContactMethod, whatsapp: "", email: "", message: "" })
+  const defaultMethod: ContactMethod = locale === "en" ? "email" : "whatsapp"
+  const [values, setValues] = useState({ name: "", business: "", budget: "", projectType: "", method: defaultMethod as ContactMethod, whatsapp: "", email: "", message: "" })
   const [productInterest, setProductInterest] = useState<ProductInterest>(defaultProductInterest)
   const [busy, setBusy] = useState<Action | null>(null)
   const [attempted, setAttempted] = useState(false)
@@ -73,17 +83,19 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
   const set = <K extends keyof typeof values>(k: K, v: (typeof values)[K]) => setValues((p) => ({ ...p, [k]: v }))
 
   const productChoice = productInterests.find((p) => p.value === productInterest)!
-  const typeChoice = projectTypes.find((t) => t.label === values.projectType)
+  const typeChoice = projectTypes.find((p) => p.label === values.projectType)
   const projectType = isProduct ? productChoice.projectType : values.projectType
   const service = isProduct ? productChoice.service : (typeChoice?.service ?? "")
   const leadType: LeadType = isProduct ? "product" : (typeChoice?.leadType ?? "other")
 
   /** Solo se valida el dato del medio elegido: el otro campo no existe en pantalla. */
+  const fmt = (code: string, p: { min?: number; max?: number; suggestion?: string }) => t(`form.errors.${code}`, p as Record<string, string | number>)
   const check = (): LeadErrors =>
     validateLead(
       {
         name: values.name,
         business: values.business,
+        budget: values.budget,
         contactMethod: values.method,
         email: values.method === "email" ? values.email : "",
         whatsapp: values.method === "whatsapp" ? values.whatsapp : "",
@@ -91,15 +103,17 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
         projectType,
       },
       { requireProjectType: !isProduct },
+      fmt,
     )
   // Después del primer intento, los errores se actualizan mientras la persona corrige.
   const errors: LeadErrors = attempted ? check() : {}
 
-  const pristine = !clean(values.name) && !clean(values.business) && !clean(values.whatsapp) && !clean(values.email) && !clean(values.message)
+  const pristine = !clean(values.name) && !clean(values.business) && !clean(values.budget) && !clean(values.whatsapp) && !clean(values.email) && !clean(values.message)
 
   const normalized = () => ({
     name: clean(values.name),
     business: clean(values.business),
+    budget: clean(values.budget),
     projectType,
     contactMethod: values.method,
     email: values.method === "email" ? clean(values.email).toLowerCase() : "",
@@ -114,9 +128,11 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
     if (n.whatsapp) data.set("fi-text-whatsapp", n.whatsapp)
     if (n.business) data.set("fi-text-business", n.business)
     data.set("fi-select-projectType", n.projectType)
-    if (n.message) data.set("fi-text-message", n.message)
+    // El presupuesto viaja dentro del mensaje hacia Forminit (campos conocidos) y como columna aparte hacia la planilla.
+    const forminitMessage = [n.message, n.budget ? `[Budget: ${n.budget}]` : ""].filter(Boolean).join("\n\n")
+    if (forminitMessage) data.set("fi-text-message", forminitMessage)
     data.set("fi-text-leadType", leadType)
-    data.set("fi-text-source", source)
+    data.set("fi-text-source", leadSource)
     data.set("fi-text-contactMethod", n.contactMethod)
     data.set("fi-text-action", action)
     data.set("fi-text-status", "nuevo")
@@ -136,7 +152,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
       keepalive: true,
       body: JSON.stringify({
         ...n,
-        source,
+        source: leadSource,
         productInterest: isProduct ? productInterest : "",
         page: window.location.pathname,
         action,
@@ -158,10 +174,16 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
     if (hit) document.getElementById(id(hit[1]))?.focus()
   }
 
+  /** Texto precargado cuando se abre WhatsApp sin datos: usa el tipo elegido, traducido. */
+  function directMessage() {
+    const shown = isProduct ? t(`form.interests.${productInterest}`) : typeChoice ? t(`form.types.${typeChoice.service}`) : ""
+    return shown ? t("form.directWhatsappProject", { type: shown }) : t("common.whatsappDefault")
+  }
+
   /** WhatsApp sin completar el formulario: se abre directo y se registra como interacción aparte (no es un lead). */
   function openWhatsappDirect() {
     trackWhatsappClick({ location: "contact", label: "form_whatsapp_direct", service: service || undefined })
-    const text = projectType ? `Hola Kodexa! Quiero hablar sobre un proyecto: ${projectType}.` : "Hola Kodexa! Quiero hablar sobre un proyecto."
+    const text = directMessage()
     window.open(whatsappHref(text), "_blank", "noopener,noreferrer")
   }
 
@@ -174,7 +196,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
     // Bots: campo trampa completo o envío instantáneo → simulamos éxito sin enviar nada.
     const honeypot = formRef.current ? new FormData(formRef.current).get(HONEYPOT_FIELD) : ""
     if (looksLikeBot(honeypot, startedAt.current)) {
-      if (action === "contact_me") window.location.href = "/gracias"
+      if (action === "contact_me") window.location.href = toPublicPath("/gracias", locale)
       return
     }
 
@@ -217,11 +239,12 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
 
       if (action === "contact_me") {
         redirecting = true
-        window.location.href = "/gracias"
+        window.location.href = toPublicPath("/gracias", locale)
         return
       }
 
-      const url = whatsappHref(buildLeadWhatsappMessage({ ...n, contactMethod: n.contactMethod }))
+      const shownType = isProduct ? t(`form.interests.${productInterest}`) : typeChoice ? t(`form.types.${typeChoice.service}`) : undefined
+      const url = whatsappHref(buildLeadWhatsappMessage({ ...n, contactMethod: n.contactMethod }, t, shownType))
       const opened = !!win && !win.closed
       if (opened) {
         trackWhatsappClick({ location: "contact", label: "form_continue_whatsapp", service: service || undefined })
@@ -231,7 +254,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
     } catch {
       win?.close()
       trackEvent("form_error", { form_source: source, error_type: "server" })
-      setError("No pudimos guardar tu consulta. Reintentá o escribinos directo por WhatsApp.")
+      setError(t("form.errorSave"))
     } finally {
       lock.current = false
       if (!redirecting) setBusy(null)
@@ -241,7 +264,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
   function reset() {
     setSaved(null)
     setAttempted(false)
-    setValues({ name: "", business: "", projectType: "", method: "whatsapp", whatsapp: "", email: "", message: "" })
+    setValues({ name: "", business: "", budget: "", projectType: "", method: defaultMethod, whatsapp: "", email: "", message: "" })
     savedKey.current = ""
     startedAt.current = Date.now()
   }
@@ -256,27 +279,25 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
   if (saved) {
     return (
       <div className={container} role="status">
-        <p className="t-label text-ink-faint">Consulta guardada</p>
-        <h3 className="t-h3 mt-3">Recibimos tu consulta.</h3>
+        <p className="t-label text-ink-faint">{t("form.saved.label")}</p>
+        <h3 className="t-h3 mt-3">{t("form.saved.title")}</h3>
         <p className="mt-3 text-ink-soft">
-          {saved.opened
-            ? "Se abrió WhatsApp con tu mensaje listo. Si lo enviás desde ahí, lo vemos más rápido. Si no se abrió, tocá el botón."
-            : "Para que la veamos más rápido, enviá el mensaje desde WhatsApp. Tu navegador no abrió la ventana: tocá el botón."}
+          {saved.opened ? t("form.saved.opened") : t("form.saved.notOpened")}
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href={saved.url} whatsapp={{ location: "contact", label: "form_open_whatsapp", service: saved.service || undefined }}>
-            <Whatsapp width={18} height={18} /> Abrir WhatsApp
+            <Whatsapp width={18} height={18} /> {t("form.saved.open")}
           </ButtonLink>
           <Button type="button" variant="ghost" onClick={reset}>
-            Enviar otra consulta
+            {t("form.saved.another")}
           </Button>
         </div>
-        <p className="mt-5 text-sm text-ink-faint">Abrir WhatsApp no significa que el mensaje se haya enviado: confirmalo en la conversación.</p>
+        <p className="mt-5 text-sm text-ink-faint">{t("form.saved.note")}</p>
       </div>
     )
   }
 
-  const skipMessage = projectType ? `Hola Kodexa! Quiero hablar sobre un proyecto: ${projectType}.` : "Hola Kodexa! Quiero hablar sobre un proyecto."
+  const skipMessage = directMessage()
 
   return (
     <form
@@ -297,12 +318,12 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
       <div className="grid gap-6 md:grid-cols-2">
         {/* Anti-spam: campo invisible para personas (los bots suelen completarlo). */}
         <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-          <label htmlFor={id("hp")}>No completar</label>
+          <label htmlFor={id("hp")}>{t("form.honeypot")}</label>
           <input id={id("hp")} name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
         </div>
 
         <div>
-          <label htmlFor={id("name")} className={labelCls}>Nombre</label>
+          <label htmlFor={id("name")} className={labelCls}>{t("form.name")}</label>
           <input
             id={id("name")}
             type="text"
@@ -311,7 +332,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
             required
             maxLength={LIMITS.nameMax}
             autoComplete="name"
-            placeholder="Tu nombre"
+            placeholder={t("form.namePlaceholder")}
             className={field}
             {...invalid("name")}
           />
@@ -319,7 +340,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
         </div>
         <div>
           <label htmlFor={id("business")} className={labelCls}>
-            Nombre del negocio <span className="font-normal text-ink-faint">(opcional)</span>
+            {t("form.business")} <span className="font-normal text-ink-faint">{t("form.optional")}</span>
           </label>
           <input
             id={id("business")}
@@ -328,7 +349,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
             onChange={(e) => set("business", e.target.value)}
             maxLength={LIMITS.businessMax}
             autoComplete="organization"
-            placeholder="Cómo se llama tu negocio"
+            placeholder={t("form.businessPlaceholder")}
             className={field}
             {...invalid("business")}
           />
@@ -337,20 +358,20 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
 
         {isProduct ? (
           <div className="md:col-span-2">
-            <label htmlFor={id("interest")} className={labelCls}>Me interesa</label>
+            <label htmlFor={id("interest")} className={labelCls}>{t("form.interest")}</label>
             <select id={id("interest")} value={productInterest} onChange={(e) => setProductInterest(e.target.value as ProductInterest)} className={field}>
               {productInterests.map((p) => (
-                <option key={p.value} value={p.value}>{p.label}</option>
+                <option key={p.value} value={p.value}>{t(`form.interests.${p.value}`)}</option>
               ))}
             </select>
           </div>
         ) : (
           <div className="md:col-span-2">
-            <label htmlFor={id("type")} className={labelCls}>Tipo de proyecto</label>
+            <label htmlFor={id("type")} className={labelCls}>{t("form.projectType")}</label>
             <select id={id("type")} required value={values.projectType} onChange={(e) => set("projectType", e.target.value)} className={field} {...invalid("projectType", "type")}>
-              <option value="" disabled>Seleccionar</option>
-              {projectTypes.map(({ label }) => (
-                <option key={label} value={label}>{label}</option>
+              <option value="" disabled>{t("form.select")}</option>
+              {projectTypes.map(({ label, service }) => (
+                <option key={label} value={label}>{t(`form.types.${service}`)}</option>
               ))}
             </select>
             <FieldError id={id("type-err")} msg={errors.projectType} />
@@ -358,9 +379,9 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
         )}
 
         <fieldset className="md:col-span-2">
-          <legend className={labelCls}>¿Cómo preferís que te contactemos?</legend>
+          <legend className={labelCls}>{t("form.methodLegend")}</legend>
           <div className="grid grid-cols-2 gap-3">
-            {(["whatsapp", "email"] as const).map((m) => (
+            {(locale === "en" ? (["email", "whatsapp"] as const) : (["whatsapp", "email"] as const)).map((m) => (
               <label
                 key={m}
                 className="flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-ink/12 bg-white/80 px-4 py-3.5 text-[0.95rem] font-medium text-ink transition-colors hover:border-ink/25 has-[:checked]:border-ink has-[:checked]:bg-ink has-[:checked]:text-white has-[:focus-visible]:ring-4 has-[:focus-visible]:ring-brand/25"
@@ -388,7 +409,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
 
         <div className="md:col-span-2">
           <label htmlFor={id("contact")} className={labelCls}>
-            {values.method === "whatsapp" ? "Tu número de WhatsApp" : "Tu email"}
+            {values.method === "whatsapp" ? t("form.whatsappLabel") : t("form.emailLabel")}
           </label>
           {values.method === "whatsapp" ? (
             <input
@@ -400,7 +421,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
               maxLength={24}
               value={values.whatsapp}
               onChange={(e) => set("whatsapp", e.target.value)}
-              placeholder="Ej: 11 2345 6789"
+              placeholder={t("form.whatsappPlaceholder")}
               className={field}
               {...invalid("whatsapp", "contact")}
             />
@@ -416,7 +437,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
               maxLength={LIMITS.emailMax}
               value={values.email}
               onChange={(e) => set("email", e.target.value)}
-              placeholder="tu@email.com"
+              placeholder={t("form.emailPlaceholder")}
               className={field}
               {...invalid("email", "contact")}
             />
@@ -426,7 +447,7 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
 
         <div className="md:col-span-2">
           <label htmlFor={id("message")} className={labelCls}>
-            Mensaje <span className="font-normal text-ink-faint">(opcional)</span>
+            {t("form.message")} <span className="font-normal text-ink-faint">{t("form.optional")}</span>
           </label>
           <textarea
             id={id("message")}
@@ -434,21 +455,40 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
             onChange={(e) => set("message", e.target.value)}
             maxLength={LIMITS.messageMax}
             rows={3}
-            placeholder={isProduct ? "Contanos qué te gustaría resolver en tu negocio…" : "Si querés, contanos brevemente qué tenés en mente…"}
+            placeholder={isProduct ? t("form.messagePlaceholderProduct") : t("form.messagePlaceholder")}
             className={`${field} min-h-24 resize-y`}
             {...invalid("message")}
           />
           <FieldError id={id("message-err")} msg={errors.message} />
         </div>
 
+        {!isProduct && (
+          <div className="md:col-span-2">
+            <label htmlFor={id("budget")} className={labelCls}>
+              {t("form.budget")} <span className="font-normal text-ink-faint">{t("form.optional")}</span>
+            </label>
+            <input
+              id={id("budget")}
+              type="text"
+              value={values.budget}
+              onChange={(e) => set("budget", e.target.value)}
+              maxLength={LIMITS.budgetMax}
+              placeholder={t("form.budgetPlaceholder")}
+              className={field}
+              {...invalid("budget")}
+            />
+            <FieldError id={id("budget-err")} msg={errors.budget} />
+          </div>
+        )}
+
         <div className="md:col-span-2">
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button type="submit" disabled={busy !== null} className="sm:flex-1">
-              {busy === "contact_me" ? "Enviando…" : "Que me contacten"}
+              {busy === "contact_me" ? t("form.sending") : t("form.contactMe")}
             </Button>
             <Button type="button" variant="secondary" disabled={busy !== null} onClick={() => void submit("whatsapp")} className="sm:flex-1">
               <Whatsapp width={18} height={18} />
-              {busy === "whatsapp" ? "Guardando…" : "Continuar por WhatsApp"}
+              {busy === "whatsapp" ? t("form.saving") : t("form.continueWhatsapp")}
             </Button>
           </div>
 
@@ -457,21 +497,29 @@ export function ContactForm({ variant = "general", source = "contacto", defaultP
               <div id={id("error")} role="alert" className="mt-4 flex flex-col gap-3 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-800 sm:flex-row sm:items-center sm:justify-between">
                 <p>{error}</p>
                 <button type="button" onClick={() => void submit(lastAction.current)} disabled={busy !== null} className="shrink-0 rounded-full border border-red-800/30 px-4 py-2 font-medium hover:bg-red-100 disabled:opacity-60">
-                  Reintentar
+                  {t("form.retry")}
                 </button>
               </div>
             )}
             {showSkip && (
               <p className="mt-4 rounded-2xl bg-mist px-4 py-3 text-sm text-ink-soft">
-                ¿Preferís no completar el formulario?{" "}
+                {t("form.skipText")}{" "}
                 <WhatsappLink message={skipMessage} cta={{ location: "contact", label: "form_whatsapp_skip", service: service || undefined }} className="font-medium text-brand-ink underline underline-offset-4">
-                  Abrir WhatsApp igual
+                  {t("form.skipLink")}
                 </WhatsappLink>
                 .
               </p>
             )}
           </div>
-          <p className="mt-4 text-center text-sm text-ink-faint">Te respondemos dentro de las 24 hs.</p>
+          <p className="mt-4 text-center text-sm text-ink-faint">{t("form.reply")}</p>
+          {contactEmail && (
+            <p className="mt-1 text-center text-sm text-ink-faint">
+              {t("form.emailAlt")}{" "}
+              <EmailLink location={`form_${source}`} className="font-medium text-brand-ink underline underline-offset-4">
+                {contactEmail}
+              </EmailLink>
+            </p>
+          )}
         </div>
       </div>
     </form>

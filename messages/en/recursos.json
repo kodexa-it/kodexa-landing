@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Resources: notes from inside Kodexa",
+    "description": "A record of real product, architecture and development decisions we make while building software, our own and for others.",
+    "ogTitle": "Resources | Kodexa"
+  },
+  "crumb": "Resources",
+  "eyebrow": "Resources",
+  "title": "Notes from inside Kodexa.",
+  "lead": "This isn't a marketing blog. It's a record of real product, architecture and development decisions we make while building software, our own and for others.",
+  "readingTime": "{time} read",
+  "read": "Read the full article"
+}

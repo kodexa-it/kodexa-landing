@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Equipo IT para mantenimiento y evolución de tu producto",
+    "description": "Sumá un equipo técnico dedicado a mejorar, mantener y hacer crecer tu sitio, sistema o plataforma de forma continua, sin depender de freelancers sueltos.",
+    "ogTitle": "Equipo IT para mantenimiento y evolución de tu producto | Kodexa",
+    "keywords": [
+      "equipo desarrollo web",
+      "mantenimiento de software",
+      "soporte técnico web",
+      "equipo técnico dedicado"
+    ]
+  },
+  "crumb": "Equipo IT",
+  "eyebrow": "Respuesta en 24 h · Trabajo continuo · Sin contratos",
+  "title": "Tu web o sistema no crece solo.",
+  "lead": "Si no hay alguien mejorándolo constantemente, se estanca, pierde oportunidades y termina quedando atrás. Sumá un equipo técnico que piense en tu producto todos los días.",
+  "start": "Empezar ahora",
+  "whatsappMessage": "Hola Kodexa! Me interesa sumar un equipo técnico para mi producto. ¿Podemos hablar?",
+  "problemEyebrow": "El problema",
+  "problemTitle": "Si hoy tu producto depende de vos, hay un problema.",
+  "problems": [
+    "Tenés que resolver todo vos.",
+    "Dependés de freelancers que desaparecen.",
+    "Todo tarda más de lo que debería.",
+    "Tu producto no evoluciona."
+  ],
+  "servicesTitle": "No necesitás otro freelancer. Necesitás un equipo que piense en tu producto.",
+  "services": [
+    {
+      "title": "Desarrollo continuo",
+      "text": "No hacemos tareas sueltas: evolucionamos tu producto constantemente. Cada funcionalidad tiene un objetivo claro: mejorar conversión, retención o escalabilidad."
+    },
+    {
+      "title": "Performance y escalabilidad",
+      "text": "Optimizamos velocidad, estructura y crecimiento técnico: tiempos de carga, arquitectura y SEO técnico para soportar crecimiento real."
+    },
+    {
+      "title": "Resolución de problemas",
+      "text": "Detectamos y solucionamos antes de que impacten: monitoreamos errores y comportamiento para actuar antes de afectar usuarios."
+    },
+    {
+      "title": "Decisiones técnicas",
+      "text": "Nos hacemos cargo del rumbo técnico de tu producto: definimos stack, arquitectura y prioridades alineadas al negocio."
+    }
+  ],
+  "servicesNote": "Ya vimos qué pasa cuando un sistema crece sin estructura, cuando aparecen bugs en producción o cuando las decisiones técnicas frenan el negocio. Nuestro trabajo no es solo que funcione: es que crezca sin romperse.",
+  "priceEyebrow": "Planes desde",
+  "priceCurrency": "USD",
+  "priceUnit": "por mes",
+  "priceAmount": "300",
+  "priceNote": "Precio en dólares estadounidenses (USD). El alcance se define según tu producto.",
+  "priceItems": [
+    "Equipo técnico dedicado",
+    "Desarrollo y mejoras continuas",
+    "Soporte y resolución de bugs",
+    "Decisiones técnicas incluidas"
+  ],
+  "priceTag": "No pagás tareas. Pagás porque tu producto avance.",
+  "howEyebrow": "Cómo empezamos",
+  "howTitle": "Un proceso simple, pensado para generar impacto desde el primer mes.",
+  "steps": [
+    {
+      "title": "Entendemos tu producto",
+      "text": "Analizamos cómo funciona hoy, dónde están los problemas y qué está frenando el crecimiento."
+    },
+    {
+      "title": "Detectamos oportunidades",
+      "text": "Identificamos mejoras concretas que pueden impactar en performance, UX o negocio."
+    },
+    {
+      "title": "Definimos prioridades",
+      "text": "Armamos un enfoque claro para no perder tiempo en cosas que no mueven la aguja."
+    },
+    {
+      "title": "Ejecutamos y mejoramos",
+      "text": "Nos convertimos en tu equipo técnico y trabajamos de forma continua."
+    }
+  ],
+  "ctaTitle": "Dejá de ser el cuello de botella.",
+  "ctaLead": "Sumá un equipo técnico que se encargue de tu producto. Respuesta en menos de 24 h, sin compromiso inicial."
+}

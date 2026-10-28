@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Recursos: notas desde adentro de Kodexa",
+    "description": "Un registro de decisiones reales de producto, arquitectura y desarrollo que tomamos mientras construimos software, propio y para otros.",
+    "ogTitle": "Recursos | Kodexa"
+  },
+  "crumb": "Recursos",
+  "eyebrow": "Recursos",
+  "title": "Notas desde adentro de Kodexa.",
+  "lead": "No es un blog de marketing. Es un registro de decisiones reales de producto, arquitectura y desarrollo que tomamos mientras construimos software, propio y para otros.",
+  "readingTime": "{time} de lectura",
+  "read": "Leer artículo completo"
+}

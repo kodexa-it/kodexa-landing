@@ -1,5 +1,6 @@
 import { trackEvent } from "@/lib/analytics"
 import { getAttribution } from "@/lib/attribution"
+import type { T } from "@/lib/i18n/messages"
 
 /**
  * Identifica un botón de WhatsApp. Los valores son identificadores estables (no texto visible):
@@ -52,20 +53,27 @@ export function trackWhatsappClick(cta: WhatsappCta) {
   } catch {}
 }
 
-/** Mensaje precargado a partir de lo que la persona completó en el formulario. */
-export function buildLeadWhatsappMessage(v: {
-  name: string
-  business?: string
-  projectType?: string
-  contactMethod: "whatsapp" | "email"
-  email?: string
-  message?: string
-}) {
+/** Mensaje precargado a partir de lo que la persona completó en el formulario (en el idioma de la página). */
+export function buildLeadWhatsappMessage(
+  v: {
+    name: string
+    business?: string
+    projectType?: string
+    contactMethod: "whatsapp" | "email"
+    email?: string
+    message?: string
+  },
+  t: T,
+  /** Nombre del servicio tal como lo ve la persona (traducido). */
+  projectLabel?: string,
+) {
   const business = v.business?.trim()
-  const lines = [`Hola Kodexa! Soy ${v.name.trim()}${business ? ` (${business})` : ""}.`]
-  if (v.projectType) lines.push(`Me interesa: ${v.projectType}.`)
+  const name = v.name.trim()
+  const lines = [business ? t("form.whatsappLead.introBusiness", { name, business }) : t("form.whatsappLead.intro", { name })]
+  const type = projectLabel ?? v.projectType
+  if (type) lines.push(t("form.whatsappLead.interested", { type }))
   const msg = v.message?.trim()
   if (msg) lines.push(msg.length > 500 ? `${msg.slice(0, 497)}…` : msg)
-  if (v.contactMethod === "email" && v.email) lines.push(`Mi email: ${v.email}`)
+  if (v.contactMethod === "email" && v.email) lines.push(t("form.whatsappLead.email", { email: v.email }))
   return lines.join("\n")
 }

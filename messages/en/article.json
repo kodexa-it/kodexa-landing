@@ -1,0 +1,141 @@
+{
+  "crumb": "What we learned building a SaaS",
+  "eyebrow": "Behind the scenes · Nexo",
+  "lead": "Building Nexo forced us to make decisions about product, architecture, user experience, artificial intelligence and payments. This is part of what we've been learning along the way — and we're still learning.",
+  "byline": "By {name} — Founder, Kodexa · {time} read",
+  "cta": "Start a project",
+  "keywords": [
+    "how to build a SaaS",
+    "SaaS development",
+    "build a SaaS from scratch",
+    "SaaS MVP",
+    "digital product development",
+    "building a SaaS product"
+  ],
+  "blocks": [
+    {
+      "t": "p",
+      "x": "At Kodexa we've been building websites and systems for other businesses. Nexo started from a different question: what happens if we build our own product, end to end, instead of only what a client asks us for?"
+    },
+    {
+      "t": "p",
+      "x": "Nexo is an AI-powered assistant that learns how a business works and helps serve customers, answer questions, manage bookings and centralize its information in one place. You can learn more on [the Nexo page](/productos/nexo) in our products."
+    },
+    {
+      "t": "pi",
+      "x": "An honest note before we continue: Nexo is already in production with real businesses, but it keeps evolving, and this isn't the story of a success already settled. It's a record of the decisions we made while building it, and of what we learned along the way."
+    },
+    {
+      "t": "h2",
+      "x": "1. The idea is not the product"
+    },
+    {
+      "t": "p",
+      "x": "\"An AI assistant for businesses\" is an idea. It isn't a product. Traditional scheduling tools solve a very small part of the problem: they store appointments. They don't understand what the business is about, they can't answer a question, and they leave information scattered across WhatsApp, spreadsheets and somebody's memory. That's where we saw a real opening: an assistant that, besides scheduling, understands the business and acts on that information."
+    },
+    {
+      "t": "p",
+      "x": "Turning that idea into concrete decisions —what to build first, what to leave out, how it gets configured, who will use it every day— was the part that really took us time."
+    },
+    {
+      "t": "h2",
+      "x": "2. Validate before building everything"
+    },
+    {
+      "t": "p",
+      "x": "We didn't run a classic market validation with acquisition metrics. But from the start we did decide not to assume what each business needed. So we built a simple self-assessment tool: interested people describe how their business works and what they want to improve, and from that answer we understand whether Nexo makes sense for their case and which plan fits best."
+    },
+    {
+      "t": "p",
+      "x": "It's a small validation, but a real one: instead of guessing, we asked."
+    },
+    {
+      "t": "h2",
+      "x": "3. Design the experience before the code"
+    },
+    {
+      "t": "p",
+      "x": "The most important product decision we made with Nexo wasn't technical: it was about experience. Most AI products add a chat in a corner and ask users to configure everything through separate forms. We flipped that logic: **talking to Nexo is configuring Nexo**. The business owner tells Nexo what they do, which services they offer, their prices, hours and policies — and that conversation turns directly into the business's real configuration."
+    },
+    {
+      "t": "p",
+      "x": "That decision changed everything that came after: the architecture, the onboarding, even what we asked the AI model to do."
+    },
+    {
+      "t": "h2",
+      "x": "4. Choose an architecture that can grow"
+    },
+    {
+      "t": "p",
+      "x": "A SaaS isn't a single application. It's at least two: the product the end customer uses, and the internal system the business itself needs to run it. Nexo is built on Next.js and PostgreSQL, with its own authentication and an architecture designed to support multiple businesses, each with its own configuration and its own plans."
+    },
+    {
+      "t": "p",
+      "x": "Besides the product itself, we had to build an internal admin panel to manage plans, leads and promo codes. Panels like that are, at heart, [custom software](/servicios/software-a-medida) — nobody sees them from the outside, but without them the product can't be operated as a business."
+    },
+    {
+      "t": "h2",
+      "x": "5. Build the MVP without over-engineering"
+    },
+    {
+      "t": "p",
+      "x": "It was tempting to design a generic, flexible permission system \"for any future case.\" We didn't. We defined concrete plans —with specific features switched on or off depending on the plan— instead of building an abstract configuration layer we didn't need yet. The website, bookings and the AI assistant are available from the simplest plan; features like WhatsApp with AI, photo gallery or digital menu are added in higher plans."
+    },
+    {
+      "t": "p",
+      "x": "Building less, but making that \"less\" work end to end, is the difference between a real MVP and a demo."
+    },
+    {
+      "t": "h2",
+      "x": "6. Integrate AI when it really adds value"
+    },
+    {
+      "t": "p",
+      "x": "Putting artificial intelligence in a product isn't adding a chat. It's deciding where in the product AI replaces real friction. In Nexo, AI isn't just another feature: it's how the business gets configured and how its customers get answers. That means training it with the business's real information —services, prices, hours, frequently asked questions, policies— and not with generic answers."
+    },
+    {
+      "t": "p",
+      "x": "We learned that the hard part of AI isn't \"making it answer,\" but making it answer with the right information about the right business, without inventing anything."
+    },
+    {
+      "t": "h2",
+      "x": "7. Payments are part of the product, not a detail at the end"
+    },
+    {
+      "t": "p",
+      "x": "Subscriptions, plans and recurring payments aren't an extra added at the end: they define the product's structure from the start. We had to integrate a payment system that supported recurring subscriptions, promo codes and plan changes, and think about the product in terms of which feature belongs to which plan — not the other way around."
+    },
+    {
+      "t": "p",
+      "x": "If you're thinking about [your own SaaS product](/servicios/mvp), this is one of the first things worth defining, not one of the last."
+    },
+    {
+      "t": "h2",
+      "x": "8. What changes as you get close to production"
+    },
+    {
+      "t": "p",
+      "x": "With Nexo in production and real businesses operating, we felt the difference between \"it works\" and \"it's ready to run a real business.\" Payments that can't fail, a support panel to resolve a customer's problem without touching the database by hand, promo codes, lead tracking. None of those is the product's main feature, but all of them are necessary for it to exist as a business and not just as a demo."
+    },
+    {
+      "t": "h2",
+      "x": "9. What we adjusted along the way"
+    },
+    {
+      "t": "p",
+      "x": "If there's something we revisited along the way, it was how we communicated the product. The first version of Nexo's landing page didn't explain the real differentiator well, and we had to redesign it so it was clear from the first seconds that talking to Nexo is configuring Nexo. Sometimes what needs iterating isn't the code: it's how you explain what you built."
+    },
+    {
+      "t": "h2",
+      "x": "10. What building a SaaS means, in practice"
+    },
+    {
+      "t": "p",
+      "x": "Building a SaaS isn't programming a feature and putting it online. It's making product decisions, designing an experience before writing code, choosing an [architecture ready for multiple users and roles](/servicios/plataformas-digitales), using AI where it really solves something, and treating payments and operations as part of the product from day one. It's, at heart, the same logic we apply when we build products for other businesses: understand the problem before writing code."
+    },
+    {
+      "t": "closing",
+      "x": "Building Nexo taught us something simple: a good idea needs much more than code to become a product. If you have an idea, a process you want to digitalize or a product you want to take to production, we can help you build it."
+    }
+  ]
+}

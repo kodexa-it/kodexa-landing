@@ -1,10 +1,14 @@
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { kindLabel, type Project } from "@/lib/content/projects"
+import type { Project } from "@/lib/content/projects"
+import { getContent } from "@/lib/content"
+import { getT } from "@/lib/i18n/server"
 import { ArrowUpRight } from "@/components/ui/icons"
 
 /** Tarjeta editorial de proyecto. Sin imagen real → presentación tipográfica (nunca imágenes genéricas). */
-export function ProjectCard({ project, priority, className }: { project: Project; priority?: boolean; className?: string }) {
+export async function ProjectCard({ project, priority, className }: { project: Project; priority?: boolean; className?: string }) {
+  const { locale, t } = await getT()
+  const { kindLabel } = getContent(locale)
   const { title, category, summary, image, imageAlt, url, status, via, bullets, mark, kind } = project
 
   return (
@@ -53,7 +57,7 @@ export function ProjectCard({ project, priority, className }: { project: Project
         <div className="mt-auto flex flex-wrap items-end justify-between gap-3 pt-6">
           <p className="text-sm text-ink-faint">
             {kindLabel[kind]}
-            {via && <> · con {via}</>}
+            {via && <> · {t("project.with", { via })}</>}
           </p>
           {url && (
             <a
@@ -62,7 +66,7 @@ export function ProjectCard({ project, priority, className }: { project: Project
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-white"
             >
-              Ver sitio<span className="sr-only"> de {title}</span>
+              {t("project.viewSite")}<span className="sr-only">{t("project.viewSiteOf", { title })}</span>
               <ArrowUpRight width={15} height={15} />
             </a>
           )}

@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "The studio: approach, method and team",
+    "description": "Kodexa is a web studio that designs and develops digital solutions for businesses. Learn about our philosophy, our technical approach and how we work.",
+    "ogTitle": "The studio | Kodexa"
+  },
+  "crumb": "Studio",
+  "eyebrow": "The studio",
+  "title": "Building isn't just writing code.",
+  "lead": "First you have to understand the problem, the business and the people who will use it. Kodexa exists to solve something clear: businesses that need to grow but are held back by poorly built digital solutions that don't scale.",
+  "philosophyEyebrow": "Philosophy",
+  "philosophyTitle": "Three ideas that shape every project.",
+  "techEyebrow": "Technical approach",
+  "techTitle": "Technology in service of the business.",
+  "techLead": "We choose tools based on what the project needs, not the other way around. We work with modern, maintainable technology, focused on performance, structure and evolution.",
+  "stackLabel": "What we work with",
+  "own1": "We also build our own products — like",
+  "own2": "— and share what we learn in",
+  "resources": "Resources",
+  "whoEyebrow": "Who's behind it",
+  "whoTitle": "Direct contact, from start to finish.",
+  "whoLead": "You work with the people who design and build, with no middlemen. Decisions get made quickly and with context.",
+  "bio": "Full stack developer specialized in websites, landing pages and scalable web systems, with a focus on structure, performance and technical clarity.",
+  "partner1": "In addition to our own projects, he has taken part in the development and architecture of projects alongside",
+  "agencyEyebrow": "For agencies and studios",
+  "agencyTitle": "A technical team for your projects.",
+  "agencyText": "We collaborate with design, marketing and other agencies and studios as a technical team, taking part in the development and architecture of their projects.",
+  "agencyCta": "Let's talk about collaborating",
+  "agencyMessage": "Hi Kodexa! I represent an agency/studio and I'm interested in collaborating with you on development."
+}

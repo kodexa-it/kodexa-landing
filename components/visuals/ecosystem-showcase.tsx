@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { LiquidOrb } from "@/components/visuals/liquid-orb"
+import { useT } from "@/lib/i18n/client"
 import { BrowserBar, Cursor, d, DeviceStage, Laptop, Phone, Toast, type Px, type Scene } from "@/components/visuals/device-stage"
 
 /**
@@ -26,8 +27,10 @@ export function EcosystemShowcase({
   nav?: boolean
   orb?: boolean
 }) {
+  const { t } = useT()
+  const scenes = ECO_SCENES.map((sc, i) => ({ ...sc, label: t(`visuals.eco.scenes.${i}.label`), hint: t(`visuals.eco.scenes.${i}.hint`) }))
   return (
-    <DeviceStage scenes={ECO_SCENES} step={step} onStepChange={onStepChange} nav={nav} navLabel="Recorrido: cómo trabajan juntos tu web, Nexo y Nodo">
+    <DeviceStage scenes={scenes} step={step} onStepChange={onStepChange} nav={nav} navLabel={t("visuals.eco.navLabel")}>
       {(s, k) => (
         <>
           {orb && (
@@ -50,8 +53,8 @@ export function EcosystemShowcase({
           </Phone>
 
           <div key={`n-${k}`} className="pointer-events-none absolute left-[330px] top-[0px] z-20 w-[226px]">
-            {s === 1 && <Toast delay={3900} dot="bg-white ring-1 ring-ink/10" title="Nueva reserva" text="Cancha 2 · mañana 19:00" app="Nexo" logo="/brand/nexo-mark.png" />}
-            {s === 2 && <Toast delay={1500} dot="bg-ink" title="Nuevo lead" text="Martín G. · llegó desde Nexo" app="Nodo" badge="ND" />}
+            {s === 1 && <Toast delay={3900} dot="bg-white ring-1 ring-ink/10" title={t("visuals.eco.toasts.nexo.title")} text={t("visuals.eco.toasts.nexo.text")} app={t("visuals.eco.toasts.nexo.app")} logo="/brand/nexo-mark.png" />}
+            {s === 2 && <Toast delay={1500} dot="bg-ink" title={t("visuals.eco.toasts.nodo.title")} text={t("visuals.eco.toasts.nodo.text")} app={t("visuals.eco.toasts.nodo.app")} badge="ND" />}
           </div>
         </>
       )}
@@ -62,6 +65,8 @@ export function EcosystemShowcase({
 /* ─────────────────── Pantalla 1: sitio del negocio ─────────────────── */
 
 function SiteScreen() {
+  const { t } = useT()
+  const site = (k: string) => t(`visuals.eco.site.${k}`)
   return (
     <div className="absolute inset-0 bg-[#0d2238] text-white">
       <BrowserBar url="clubnorte.com" dark />
@@ -70,21 +75,21 @@ function SiteScreen() {
         <span className="grid h-[22px] w-[22px] place-items-center rounded-full bg-[#c6f432] text-[0.5rem] font-bold text-[#0d2238]">CN</span>
         <span className="ml-2 text-[0.72rem] font-semibold tracking-[-0.01em]">Club Norte</span>
         <span className="ml-auto flex gap-4 text-[0.6rem] text-white/60">
-          <span>Canchas</span>
-          <span>Clases</span>
-          <span>Torneos</span>
+          {t.raw<string[]>("visuals.eco.site.nav").map((n) => (
+            <span key={n}>{n}</span>
+          ))}
         </span>
       </div>
 
       {/* texto */}
       <div className="eco-in absolute left-[26px] top-[96px] w-[262px]" style={d(150)}>
-        <p className="font-mono text-[0.5rem] tracking-[0.18em] text-[#c6f432]">PÁDEL · CLASES · TORNEOS</p>
-        <p className="mt-2 text-[1.55rem] font-medium leading-[1.05] tracking-[-0.03em]">Reservá tu cancha en segundos.</p>
-        <p className="mt-2.5 text-[0.62rem] leading-[1.5] text-white/60">Elegí día y horario, y confirmá tu turno por WhatsApp. Sin llamadas, a cualquier hora.</p>
+        <p className="font-mono text-[0.5rem] tracking-[0.18em] text-[#c6f432]">{site("eyebrow")}</p>
+        <p className="mt-2 text-[1.55rem] font-medium leading-[1.05] tracking-[-0.03em]">{site("title")}</p>
+        <p className="mt-2.5 text-[0.62rem] leading-[1.5] text-white/60">{site("text")}</p>
       </div>
       <div className="eco-in absolute left-[26px] top-[228px]" style={d(300)}>
         <span className="eco-press relative flex h-[30px] w-[164px] items-center justify-center gap-1.5 rounded-full bg-[#c6f432] text-[0.62rem] font-semibold text-[#0d2238]">
-          <WaIcon className="h-3 w-3" /> Reservar por WhatsApp
+          <WaIcon className="h-3 w-3" /> {site("button")}
           <span className="eco-ripple absolute inset-0 rounded-full" />
         </span>
       </div>
@@ -103,13 +108,9 @@ function SiteScreen() {
 
       {/* tarjetas */}
       <div className="absolute bottom-[22px] left-[26px] right-[70px] grid grid-cols-3 gap-2.5">
-        {[
-          ["Canchas", "4 techadas"],
-          ["Clases", "Todos los niveles"],
-          ["Torneos", "Cada mes"],
-        ].map(([t, s], i) => (
-          <div key={t} className="eco-in rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2.5" style={d(380 + i * 80)}>
-            <p className="text-[0.62rem] font-medium">{t}</p>
+        {t.raw<string[][]>("visuals.eco.site.cards").map(([title, s], i) => (
+          <div key={title} className="eco-in rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2.5" style={d(380 + i * 80)}>
+            <p className="text-[0.62rem] font-medium">{title}</p>
             <p className="text-[0.55rem] text-white/50">{s}</p>
           </div>
         ))}
@@ -123,7 +124,8 @@ function SiteScreen() {
 /* ─────────────────── Pantalla 2: panel de Nexo ─────────────────── */
 
 export function NexoPanel() {
-  const hours = ["17:00", "18:00", "19:00", "20:00", "21:00"]
+  const { t } = useT()
+  const hours = t.raw<string[]>("visuals.eco.panel.hours")
   // turnos ya tomados [cancha, fila]
   const taken: [number, number][] = [[0, 0], [2, 0], [0, 1], [1, 1], [0, 2], [2, 3], [1, 4]]
   return (
@@ -136,14 +138,14 @@ export function NexoPanel() {
           <img src="/brand/nexo-mark.png" alt="" className="h-4 w-4" />
           <span className="text-[0.68rem] font-semibold">Nexo</span>
         </div>
-        {["Inicio", "Turnos", "Conversaciones", "Servicios", "Ajustes"].map((t, i) => (
-          <span key={t} className={cn("rounded-lg px-2 py-1.5 text-[0.58rem]", i === 1 ? "bg-[#2f5be0]/10 font-medium text-[#2f5be0]" : "text-ink-soft")}>
-            {t}
+        {t.raw<string[]>("visuals.eco.panel.menu").map((m, i) => (
+          <span key={m} className={cn("rounded-lg px-2 py-1.5 text-[0.58rem]", i === 1 ? "bg-[#2f5be0]/10 font-medium text-[#2f5be0]" : "text-ink-soft")}>
+            {m}
           </span>
         ))}
         <div className="mt-auto rounded-lg bg-[#22b394]/10 px-2 py-1.5 text-[0.52rem] text-[#137a63]">
           <span className="eco-live mr-1 inline-block h-1.5 w-1.5 rounded-full bg-[#22b394]" />
-          WhatsApp conectado
+          {t("visuals.eco.panel.connected")}
         </div>
       </div>
 
@@ -151,18 +153,18 @@ export function NexoPanel() {
       <div className="mt-[30px] flex-1 py-4 pl-4 pr-[64px]">
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-[0.55rem] text-ink-faint">Turnos</p>
-            <p className="text-[0.85rem] font-semibold tracking-[-0.01em]">Mañana · jueves</p>
+            <p className="text-[0.55rem] text-ink-faint">{t("visuals.eco.panel.label")}</p>
+            <p className="text-[0.85rem] font-semibold tracking-[-0.01em]">{t("visuals.eco.panel.day")}</p>
           </div>
-          <span className="rounded-full border border-ink/10 bg-white px-2.5 py-1 text-[0.52rem] text-ink-soft">Disponibilidad automática</span>
+          <span className="rounded-full border border-ink/10 bg-white px-2.5 py-1 text-[0.52rem] text-ink-soft">{t("visuals.eco.panel.auto")}</span>
         </div>
         <div className="mt-3 grid grid-cols-[44px_1fr_1fr_1fr] gap-1.5">
           <span />
-          {["Cancha 1", "Cancha 2", "Cancha 3"].map((c) => (
+          {t.raw<string[]>("visuals.eco.panel.courts").map((c) => (
             <span key={c} className="text-center text-[0.55rem] font-medium text-ink-soft">{c}</span>
           ))}
           {hours.map((h, r) => (
-            <Row key={h} h={h} r={r} taken={taken} />
+            <Row key={h} h={h} r={r} taken={taken} via={t("visuals.eco.panel.viaWhatsapp")} />
           ))}
         </div>
       </div>
@@ -170,7 +172,7 @@ export function NexoPanel() {
   )
 }
 
-function Row({ h, r, taken }: { h: string; r: number; taken: [number, number][] }) {
+function Row({ h, r, taken, via }: { h: string; r: number; taken: [number, number][]; via: string }) {
   return (
     <>
       <span className="self-center text-[0.52rem] text-ink-faint">{h}</span>
@@ -188,7 +190,7 @@ function Row({ h, r, taken }: { h: string; r: number; taken: [number, number][] 
             {isNew && (
               <div className="eco-pop absolute inset-[3px] flex flex-col justify-center rounded-md bg-[linear-gradient(135deg,#2f5be0,#22b394)] px-1.5 text-white shadow-[0_10px_18px_-8px_rgb(47_91_224/0.8)]" style={d(3700)}>
                 <span className="text-[0.52rem] font-semibold leading-tight">Martín G.</span>
-                <span className="text-[0.46rem] leading-tight text-white/80">vía WhatsApp</span>
+                <span className="text-[0.46rem] leading-tight text-white/80">{via}</span>
                 <span className="eco-ring absolute -inset-[3px] rounded-[9px] border-2 border-[#22b394]" style={d(3700)} />
               </div>
             )}
@@ -202,21 +204,18 @@ function Row({ h, r, taken }: { h: string; r: number; taken: [number, number][] 
 /* ─────────────────── Pantalla 3: Nodo (CRM) ─────────────────── */
 
 function NodoBoard() {
-  const cols: { t: string; n: number; cards: [string, string][] }[] = [
-    { t: "Nuevos", n: 2, cards: [["Lucía P.", "Consulta clases"], ["Grupo Sur", "Torneo empresa"]] },
-    { t: "En contacto", n: 3, cards: [["Diego R.", "Abono mensual"], ["Ana M.", "Clases niños"]] },
-    { t: "Propuesta", n: 2, cards: [["Club Este", "Alquiler fijo"]] },
-    { t: "Ganados", n: 4, cards: [["Sofía L.", "Abono x4"], ["Pablo T.", "Clases"]] },
-  ]
+  const { t } = useT()
+  const counts = [2, 3, 2, 4]
+  const cols = t.raw<{ t: string; cards: [string, string][] }[]>("visuals.eco.board.cols").map((c, i) => ({ ...c, n: counts[i] }))
   return (
     <div className="absolute inset-0 bg-[#faf9f7] text-ink">
       <BrowserBar url="nodo.kodexa.ar/oportunidades" />
       <div className="absolute inset-x-0 top-[30px] flex items-center gap-2 border-b border-ink/[0.06] bg-white py-2.5 pl-4 pr-[64px]">
         <span className="grid h-5 w-5 place-items-center rounded-md bg-ink text-[0.48rem] font-semibold text-white">ND</span>
         <span className="text-[0.7rem] font-semibold">Nodo</span>
-        <span className="ml-3 text-[0.58rem] text-ink-faint">Oportunidades</span>
+        <span className="ml-3 text-[0.58rem] text-ink-faint">{t("visuals.eco.board.title")}</span>
         <span className="ml-auto flex items-center gap-1.5 rounded-full bg-brand/10 px-2.5 py-1 text-[0.52rem] font-medium text-brand-ink">
-          <span className="eco-live h-1.5 w-1.5 rounded-full bg-brand" /> Sincronizado con Nexo
+          <span className="eco-live h-1.5 w-1.5 rounded-full bg-brand" /> {t("visuals.eco.board.sync")}
         </span>
       </div>
 
@@ -237,14 +236,14 @@ function NodoBoard() {
             {ci === 0 && (
               <div className="eco-drop relative rounded-lg border border-brand/40 bg-white p-2 shadow-[0_14px_24px_-12px_rgb(251_110_26/0.6)]" style={d(700)}>
                 <p className="text-[0.6rem] font-semibold">Martín G.</p>
-                <p className="text-[0.52rem] text-ink-soft">Cancha 2 · jue 19:00</p>
+                <p className="text-[0.52rem] text-ink-soft">{t("visuals.eco.board.leadDetail")}</p>
                 <span className="mt-1.5 inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-[#22b394]/12 px-1.5 py-0.5 text-[0.46rem] font-medium text-[#137a63]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/brand/nexo-mark.png" alt="" className="h-2 w-2" /> vía Nexo
+                  <img src="/brand/nexo-mark.png" alt="" className="h-2 w-2" /> {t("visuals.eco.board.viaNexo")}
                 </span>
                 <div className="eco-in mt-1.5 flex items-center gap-1 border-t border-ink/[0.06] pt-1.5 text-[0.48rem] text-ink-soft" style={d(2600)}>
                   <span className="grid h-2.5 w-2.5 place-items-center rounded-full bg-brand text-[0.4rem] text-white">✓</span>
-                  Tarea: ofrecer abono mensual
+                  {t("visuals.eco.board.task")}
                 </div>
               </div>
             )}
@@ -264,6 +263,8 @@ function NodoBoard() {
 /* ─────────────────── Celular: chat con Nexo ─────────────────── */
 
 export function Chat({ step }: { step: number }) {
+  const { t } = useT()
+  const c = (k: string) => t(`visuals.eco.chat.${k}`)
   // tiempos (ms) de cada mensaje según la escena; null = ya visible sin animar
   const at = (s0: number | null, s1: number | null): Px | undefined => {
     if (step === 2) return undefined
@@ -283,16 +284,16 @@ export function Chat({ step }: { step: number }) {
           <span className="flex items-center gap-1 text-[0.5rem] text-[#137a63]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/nexo-mark.png" alt="" className="h-2.5 w-2.5" />
-            Asistente Nexo · en línea
+            {c("status")}
           </span>
         </span>
       </div>
 
       <div className="flex flex-1 flex-col gap-1.5 px-2.5 pt-3">
-        <span className="mx-auto rounded-full bg-white/70 px-2 py-0.5 text-[0.46rem] text-ink-faint">Hoy</span>
+        <span className="mx-auto rounded-full bg-white/70 px-2 py-0.5 text-[0.46rem] text-ink-faint">{c("today")}</span>
 
         <Bubble me className={step === 0 ? "eco-in" : ""} style={at(3300, null)}>
-          Hola! ¿Tienen cancha mañana a las 19?
+          {c("q1")}
         </Bubble>
 
         {step === 0 && <Typing style={d(3900)} />}
@@ -301,14 +302,14 @@ export function Chat({ step }: { step: number }) {
           <>
             {step === 1 && <Typing style={d(0)} out={1100} />}
             <Bubble className={step === 1 ? "eco-in" : ""} style={at(null, 1100)}>
-              ¡Hola! Sí, mañana a las 19:00 está libre la <b>Cancha 2</b>. ¿Te la reservo?
+              <Rich text={c("a1")} />
             </Bubble>
             <Bubble me className={step === 1 ? "eco-in" : ""} style={at(null, 2300)}>
-              Dale, gracias 🙌
+              {c("q2")}
             </Bubble>
             {step === 1 && <Typing style={d(2700)} out={3500} />}
             <Bubble className={step === 1 ? "eco-in" : ""} style={at(null, 3500)}>
-              Listo ✅ Reserva confirmada: <b>jueves 19:00, Cancha 2</b>. ¡Te esperamos!
+              <Rich text={c("a2")} />
             </Bubble>
           </>
         )}
@@ -316,12 +317,21 @@ export function Chat({ step }: { step: number }) {
 
       {/* input */}
       <div className="m-2 flex items-center gap-1.5 rounded-full bg-white px-3 py-2">
-        <span className="flex-1 text-[0.52rem] text-ink-faint">Mensaje</span>
+        <span className="flex-1 text-[0.52rem] text-ink-faint">{c("input")}</span>
         <span className="grid h-5 w-5 place-items-center rounded-full bg-[#22b394]">
           <span className="h-0 w-0 border-y-[3px] border-l-[5px] border-y-transparent border-l-white" />
         </span>
       </div>
     </div>
+  )
+}
+
+/** Texto con **negrita** (marcas simples en los mensajes). */
+function Rich({ text }: { text: string }) {
+  return (
+    <>
+      {text.split("**").map((part, i) => (i % 2 ? <b key={i}>{part}</b> : <span key={i}>{part}</span>))}
+    </>
   )
 }
 

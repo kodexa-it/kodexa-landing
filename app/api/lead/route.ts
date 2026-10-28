@@ -10,7 +10,7 @@ import { clientIp, rateLimit } from "@/lib/rate-limit"
  *
  * Solo responde 204 si el script confirmó la escritura ("ok"). El estado de la fila lo fija el servidor.
  */
-const FIELDS = ["name", "business", "email", "whatsapp", "projectType", "contactMethod", "message", "source", "productInterest", "page"] as const
+const FIELDS = ["name", "business", "email", "whatsapp", "projectType", "contactMethod", "budget", "message", "source", "productInterest", "page"] as const
 const ACTIONS = ["contact_me", "whatsapp"] as const
 
 export async function POST(req: Request) {
@@ -44,6 +44,7 @@ export async function POST(req: Request) {
       whatsapp: lead.whatsapp,
       message: lead.message,
       projectType: lead.projectType,
+      budget: lead.budget,
     },
     { requireProjectType: true },
   )

@@ -1,0 +1,8 @@
+{
+  "aria": "Cómo funciona el ecosistema",
+  "steps": [
+    { "app": "Tu web", "title": "Atrae y convierte", "text": "Un sitio claro y rápido, con acceso directo a WhatsApp o a tus reservas. Cada visita puede convertirse en una consulta.", "href": "/servicios/desarrollo-web", "link": "Desarrollo web" },
+    { "app": "Nexo", "title": "Atiende al instante", "text": "Responde con la información real de tu negocio, ofrece horarios disponibles y confirma la reserva por WhatsApp, a cualquier hora.", "href": "/productos/nexo", "link": "Conocer Nexo" },
+    { "app": "Nodo", "title": "Organiza y da seguimiento", "text": "Cada reserva o consulta entra a tu CRM como lead, con su origen identificado, para que ninguna oportunidad quede sin respuesta.", "href": "/productos/nodo", "link": "Conocer Nodo" }
+  ]
+}

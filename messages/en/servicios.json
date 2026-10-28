@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Web design and development services",
+    "description": "Landing pages, corporate websites, custom software, platforms and SaaS products. Explore what Kodexa can build and how we work.",
+    "ogTitle": "Services | Kodexa"
+  },
+  "crumb": "Services",
+  "eyebrow": "Services",
+  "title": "Your business needs more than a website.",
+  "lead": "We create digital solutions designed to attract customers, improve processes and grow on a solid foundation: from a landing page to a custom platform.",
+  "goal": "Goal · {goal}",
+  "view": "View {title}",
+  "itTitle": "Ongoing IT team and improvement",
+  "itText": "For products that already exist: a technical team that maintains, improves and evolves your website, system or platform on an ongoing basis.",
+  "itLink": "See how we work",
+  "agencyTitle": "For agencies and studios",
+  "agencyText": "We collaborate with design, marketing and other agencies and studios as a technical team, taking part in the development and architecture of their projects.",
+  "agencyLink": "Let's talk about collaborating",
+  "note": "Custom development is quoted according to scope. Tell us about your case and we'll reply with a concrete proposal.",
+  "pricesNote": "Published prices are starting figures in US dollars (USD); the final price depends on scope."
+}

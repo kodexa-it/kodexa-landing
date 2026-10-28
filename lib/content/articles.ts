@@ -11,6 +11,16 @@ export type Article = {
 // URL y archivos heredados de kodexa.ar: no cambian para conservar el SEO del artículo.
 export const articles: Article[] = [
   {
+    slug: "de-los-requerimientos-a-una-solucion-digital-a-medida",
+    title: "De los requerimientos a una solución digital a medida",
+    description:
+      "Del relevamiento inicial al diseño y desarrollo de una web institucional a medida para una empresa de gestión de residuos. Un proyecto en desarrollo, contado con transparencia.",
+    date: "2026-10-28",
+    readingTime: "5 min",
+    ogImage: "/recursos/de-los-requerimientos-a-una-solucion-og.png",
+    storyImage: "/recursos/de-los-requerimientos-a-una-solucion-story.png",
+  },
+  {
     slug: "que-aprendimos-construyendo-un-saas-desde-cero",
     title: "Qué aprendimos construyendo un SaaS desde cero",
     description:
@@ -21,3 +31,9 @@ export const articles: Article[] = [
     storyImage: "/recursos/que-aprendimos-construyendo-un-saas-story.png",
   },
 ]
+
+export const getArticle = (list: Article[], slug: string) => {
+  const a = list.find((x) => x.slug === slug)
+  if (!a) throw new Error(`Artículo desconocido: ${slug}`)
+  return a
+}

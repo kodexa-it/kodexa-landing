@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/components/i18n/link"
 import type { ComponentProps, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { trackEvent } from "@/lib/analytics"

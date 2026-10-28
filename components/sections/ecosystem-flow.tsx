@@ -1,37 +1,16 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/components/i18n/link"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { ArrowRight } from "@/components/ui/icons"
+import { useT } from "@/lib/i18n/client"
 import { ECO_SCENES, EcosystemShowcase } from "@/components/visuals/ecosystem-showcase"
-
-const steps = [
-  {
-    app: "Tu web",
-    title: "Atrae y convierte",
-    text: "Un sitio claro y rápido, con acceso directo a WhatsApp o a tus reservas. Cada visita puede convertirse en una consulta.",
-    href: "/servicios/desarrollo-web",
-    link: "Desarrollo web",
-  },
-  {
-    app: "Nexo",
-    title: "Atiende al instante",
-    text: "Responde con la información real de tu negocio, ofrece horarios disponibles y confirma la reserva por WhatsApp, a cualquier hora.",
-    href: "/productos/nexo",
-    link: "Conocer Nexo",
-  },
-  {
-    app: "Nodo",
-    title: "Organiza y da seguimiento",
-    text: "Cada reserva o consulta entra a tu CRM como lead, con su origen identificado, para que ninguna oportunidad quede sin respuesta.",
-    href: "/productos/nodo",
-    link: "Conocer Nodo",
-  },
-]
 
 /** Pasos del ecosistema sincronizados con la animación de equipos. */
 export function EcosystemFlow() {
+  const { t } = useT()
+  const steps = t.raw<{ app: string; title: string; text: string; href: string; link: string }[]>("ecoflow.steps")
   const [step, setStep] = useState(0)
   const [n, setN] = useState(0)
   const go = (i: number) => {
@@ -42,7 +21,7 @@ export function EcosystemFlow() {
 
   return (
     <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
-      <ol className="order-2 flex min-w-0 flex-col gap-2.5 lg:order-1" aria-label="Cómo funciona el ecosistema">
+      <ol className="order-2 flex min-w-0 flex-col gap-2.5 lg:order-1" aria-label={t("ecoflow.aria")}>
         {steps.map((s, i) => {
           const active = step === i
           return (

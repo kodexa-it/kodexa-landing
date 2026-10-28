@@ -1,6 +1,7 @@
-import Link from "next/link"
+import { Link } from "@/components/i18n/link"
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
+import { getT } from "@/lib/i18n/server"
 
 export function Eyebrow({ children, className, onDark }: { children: ReactNode; className?: string; onDark?: boolean }) {
   return (
@@ -56,9 +57,10 @@ export function Section({
 }
 
 /** Migas de pan (también emite BreadcrumbList vía <JsonLd /> en cada página). */
-export function Breadcrumbs({ items }: { items: { name: string; href?: string }[] }) {
+export async function Breadcrumbs({ items }: { items: { name: string; href?: string }[] }) {
+  const { t } = await getT()
   return (
-    <nav aria-label="Ruta" className="t-label flex flex-wrap items-center gap-2 text-ink-faint">
+    <nav aria-label={t("common.breadcrumbLabel")} className="t-label flex flex-wrap items-center gap-2 text-ink-faint">
       {items.map((item, i) => (
         <span key={item.name} className="inline-flex items-center gap-2">
           {item.href ? (

@@ -1,0 +1,8 @@
+{
+  "aria": "How the ecosystem works",
+  "steps": [
+    { "app": "Your website", "title": "Attracts and converts", "text": "A clear, fast site with direct access to WhatsApp or your bookings. Every visit can become an inquiry.", "href": "/servicios/desarrollo-web", "link": "Web development" },
+    { "app": "Nexo", "title": "Answers instantly", "text": "Replies with your business's real information, offers available times and confirms the booking on WhatsApp, at any hour.", "href": "/productos/nexo", "link": "Meet Nexo" },
+    { "app": "Nodo", "title": "Organizes and follows up", "text": "Every booking or inquiry enters your CRM as a lead, with its source identified, so no opportunity goes unanswered.", "href": "/productos/nodo", "link": "Meet Nodo" }
+  ]
+}

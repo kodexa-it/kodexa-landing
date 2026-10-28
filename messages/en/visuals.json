@@ -1,0 +1,100 @@
+{
+  "studio": {
+    "navLabel": "What we do: websites, custom systems and products",
+    "scenes": [
+      { "label": "Websites", "hint": "design and development" },
+      { "label": "Custom systems", "hint": "management and dashboards" },
+      { "label": "Products", "hint": "Nexo and Nodo" }
+    ],
+    "toasts": {
+      "wt": { "title": "Waste Treatment", "text": "Corporate website + CRUD", "app": "Project" },
+      "ops": { "title": "Order approved", "text": "#1048 · up to date across all teams", "app": "Management" },
+      "nexo": { "title": "New booking", "text": "Handled by Nexo, no intervention", "app": "Nexo" }
+    },
+    "wtUrl": "Waste Treatment · corporate website"
+  },
+  "ops": {
+    "brand": "Operations",
+    "menu": ["Overview", "Orders", "Customers", "Stock", "Reports"],
+    "summary": "Overview",
+    "today": "Today, in real time",
+    "live": "Live",
+    "kpis": ["Orders", "In progress", "Deliveries"],
+    "weekTitle": "This week's activity",
+    "weekRange": "Mon — Sun",
+    "pickupSouth": "Pickup · South Plant",
+    "pending": "Pending",
+    "approved": "Approved ✓",
+    "inProgress": "In progress",
+    "done": "Completed",
+    "orders": [
+      { "id": "#1046", "what": "Pickup · North Plant", "st": "inProgress" },
+      { "id": "#1047", "what": "Delivery · Warehouse 2", "st": "done" }
+    ],
+    "mobile": {
+      "pushTitle": "Order #1048 approved",
+      "pushText": "You can now assign the pickup",
+      "title": "Orders",
+      "tabs": ["Today", "Week", "Month"],
+      "detail": "Today · 3:30 PM · Unit 07",
+      "list": [
+        { "id": "#1046", "what": "Pickup · North Plant", "st": "inProgress" },
+        { "id": "#1047", "what": "Delivery · Warehouse 2", "st": "done" },
+        { "id": "#1045", "what": "Pickup · Industrial Park", "st": "done" }
+      ],
+      "bottom": ["Orders", "Map", "Customers", "Profile"]
+    }
+  },
+  "eco": {
+    "navLabel": "Walkthrough: how your website, Nexo and Nodo work together",
+    "scenes": [
+      { "label": "Your website", "hint": "receives the inquiry" },
+      { "label": "Nexo", "hint": "replies and schedules" },
+      { "label": "Nodo", "hint": "organizes the lead" }
+    ],
+    "toasts": {
+      "nexo": { "title": "New booking", "text": "Court 2 · tomorrow 7:00 PM", "app": "Nexo" },
+      "nodo": { "title": "New lead", "text": "Martín G. · came from Nexo", "app": "Nodo" }
+    },
+    "site": {
+      "nav": ["Courts", "Lessons", "Tournaments"],
+      "eyebrow": "PADEL · LESSONS · TOURNAMENTS",
+      "title": "Book your court in seconds.",
+      "text": "Pick a day and time, and confirm your slot on WhatsApp. No phone calls, at any hour.",
+      "button": "Book on WhatsApp",
+      "cards": [["Courts", "4 indoor"], ["Lessons", "All levels"], ["Tournaments", "Every month"]]
+    },
+    "panel": {
+      "menu": ["Home", "Bookings", "Conversations", "Services", "Settings"],
+      "connected": "WhatsApp connected",
+      "label": "Bookings",
+      "day": "Tomorrow · Thursday",
+      "auto": "Automatic availability",
+      "courts": ["Court 1", "Court 2", "Court 3"],
+      "hours": ["5 PM", "6 PM", "7 PM", "8 PM", "9 PM"],
+      "viaWhatsapp": "via WhatsApp"
+    },
+    "board": {
+      "title": "Opportunities",
+      "sync": "Synced with Nexo",
+      "cols": [
+        { "t": "New", "cards": [["Lucía P.", "Lesson inquiry"], ["Grupo Sur", "Company tournament"]] },
+        { "t": "In contact", "cards": [["Diego R.", "Monthly pass"], ["Ana M.", "Kids' lessons"]] },
+        { "t": "Proposal", "cards": [["Club Este", "Recurring rental"]] },
+        { "t": "Won", "cards": [["Sofía L.", "Pass x4"], ["Pablo T.", "Lessons"]] }
+      ],
+      "leadDetail": "Court 2 · Thu 7 PM",
+      "viaNexo": "via Nexo",
+      "task": "Task: offer a monthly pass"
+    },
+    "chat": {
+      "status": "Nexo assistant · online",
+      "today": "Today",
+      "q1": "Hi! Do you have a court tomorrow at 7?",
+      "a1": "Hi! Yes, **Court 2** is free tomorrow at 7:00 PM. Shall I book it for you?",
+      "q2": "Sure, thanks 🙌",
+      "a2": "Done ✅ Booking confirmed: **Thursday 7:00 PM, Court 2**. See you then!",
+      "input": "Message"
+    }
+  }
+}

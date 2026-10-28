@@ -1,0 +1,9 @@
+{
+  "skipToContent": "Skip to content",
+  "nav": { "servicios": "Services", "proyectos": "Projects", "productos": "Products", "estudio": "Studio", "recursos": "Resources" },
+  "home": "Home",
+  "contact": "Contact",
+  "breadcrumbLabel": "Breadcrumb",
+  "whatsappDefault": "Hi Kodexa! I'd like to talk about a project.",
+  "language": { "label": "Language", "switchTo": "Switch language to {language}", "current": "{language} (current language)" }
+}

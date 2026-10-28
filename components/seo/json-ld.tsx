@@ -1,5 +1,8 @@
 import { site } from "@/lib/content/site"
-import type { FaqItem } from "@/lib/content/services"
+import { localeMeta, toPublicPath, type Locale } from "@/lib/i18n/core"
+import type { T } from "@/lib/i18n/messages"
+
+type Faq = { question: string; answer: string }
 
 export function JsonLd({ data }: { data: object | object[] }) {
   return (
@@ -10,18 +13,17 @@ export function JsonLd({ data }: { data: object | object[] }) {
   )
 }
 
-export const breadcrumbLd = (items: { name: string; path: string }[]) => ({
+/** `path` es la ruta canónica interna (/servicios/mvp); se publica con la URL del idioma. */
+export const breadcrumbLd = (items: { name: string; path: string }[], locale: Locale) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  itemListElement: items.map((item, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: item.name,
-    item: `${site.url}${item.path}`,
-  })),
+  itemListElement: items.map((item, i) => {
+    const p = toPublicPath(item.path, locale)
+    return { "@type": "ListItem", position: i + 1, name: item.name, item: `${site.url}${p === "/" ? "" : p}` }
+  }),
 })
 
-export const faqLd = (items: FaqItem[]) => ({
+export const faqLd = (items: Faq[]) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: items.map((q) => ({
@@ -31,34 +33,30 @@ export const faqLd = (items: FaqItem[]) => ({
   })),
 })
 
-/** Organización + sitio + servicio profesional. Mismos datos que kodexa.ar, con la descripción actualizada. */
-export const organizationLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: site.name,
-    url: site.url,
-    logo: `${site.url}/favicon.png`,
-    description:
-      "Estudio digital especializado en diseño y desarrollo de sitios web, aplicaciones, sistemas a medida y productos digitales.",
-    founder: { "@type": "Person", name: site.founder.name, sameAs: [site.founder.linkedin] },
-    sameAs: [site.linkedin, site.instagram],
-  },
-  { "@context": "https://schema.org", "@type": "WebSite", name: site.name, url: site.url, inLanguage: "es-AR" },
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: site.name,
-    url: site.url,
-    image: `${site.url}/og-image.png`,
-    founder: { "@type": "Person", name: site.founder.name },
-    areaServed: [{ "@type": "Country", name: "Argentina" }, "Worldwide"],
-    serviceType: [
-      "Desarrollo web",
-      "Desarrollo de software a medida",
-      "Plataformas y aplicaciones web",
-      "Desarrollo de MVP",
-      "Desarrollo de productos SaaS",
-    ],
-  },
-]
+/** Organización + sitio + servicio profesional, en el idioma de la página. */
+export const organizationLd = (locale: Locale, t: T) => {
+  const home = `${site.url}${toPublicPath("/", locale) === "/" ? "" : toPublicPath("/", locale)}`
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: `${site.url}/favicon.png`,
+      description: t("meta.orgDescription"),
+      founder: { "@type": "Person", name: site.founder.name, sameAs: [site.founder.linkedin] },
+      sameAs: [site.linkedin, site.instagram],
+    },
+    { "@context": "https://schema.org", "@type": "WebSite", name: site.name, url: home, inLanguage: localeMeta[locale].htmlLang },
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      name: site.name,
+      url: home,
+      image: `${site.url}/og-image.png`,
+      founder: { "@type": "Person", name: site.founder.name },
+      areaServed: [{ "@type": "Country", name: "Argentina" }, "Worldwide"],
+      serviceType: t.raw<string[]>("meta.serviceTypes"),
+    },
+  ]
+}

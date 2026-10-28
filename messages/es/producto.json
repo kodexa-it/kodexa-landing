@@ -1,0 +1,16 @@
+{
+  "visit": "Visitar {label}",
+  "open": "Abrir {label}",
+  "building": "{name} está en desarrollo.",
+  "buildingText": "Podés dejarnos tu consulta y te avisamos cuando esté disponible; no hay fecha de lanzamiento confirmada.",
+  "problem": "El problema",
+  "solution": "La solución",
+  "benefits": "Beneficios para tu negocio",
+  "step": "Paso {n}",
+  "ecoEyebrow": "Parte de un ecosistema",
+  "ecoTitle": "{name} funciona solo, y mejor acompañado.",
+  "custom": "¿Necesitás algo a medida?",
+  "customLink": "Mirá nuestros servicios de desarrollo",
+  "contactEyebrow": "Contacto",
+  "ogAlt": "{name}, de Kodexa"
+}

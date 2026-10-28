@@ -13,6 +13,7 @@ export const CONTACT_METHODS: readonly ContactMethod[] = ["whatsapp", "email"]
 export type LeadInput = {
   name: string
   business?: string
+  budget?: string
   contactMethod?: string
   email?: string
   whatsapp?: string
@@ -22,7 +23,7 @@ export type LeadInput = {
 
 export type LeadErrors = Partial<Record<keyof LeadInput, string>>
 
-export const LIMITS = { nameMin: 2, nameMax: 80, businessMax: 80, emailMax: 254, messageMax: 2000, phoneMin: 8, phoneMax: 15 } as const
+export const LIMITS = { nameMin: 2, nameMax: 80, businessMax: 80, budgetMax: 80, emailMax: 254, messageMax: 2000, phoneMin: 8, phoneMax: 15 } as const
 
 // usuario@dominio.tld — sin espacios, un solo @, dominio con al menos un punto y TLD de 2+ letras.
 const EMAIL_RE = /^[a-z0-9._%+\-]+@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,24}$/i
@@ -60,7 +61,42 @@ export function emailSuggestion(email: string): string | null {
   return fix ? `${user}@${fix}` : null
 }
 
-export function validateLead(input: LeadInput, opts: { requireProjectType?: boolean } = {}): LeadErrors {
+/** Códigos de error. El texto visible se resuelve por idioma (messages/<lang>/form.json → errors.<código>). */
+export type ErrorCode =
+  | "name_required" | "name_length" | "name_invalid"
+  | "business_length" | "business_invalid"
+  | "budget_length" | "budget_invalid"
+  | "project_type_required" | "contact_method_required"
+  | "email_required" | "email_invalid" | "email_suggestion"
+  | "whatsapp_required" | "whatsapp_chars" | "whatsapp_length"
+  | "message_length" | "message_links"
+
+export type ErrorParams = { min?: number; max?: number; suggestion?: string }
+export type ErrorFormatter = (code: ErrorCode, params: ErrorParams) => string
+
+/** Textos en español: los que usa el servidor (que no muestra errores a personas) y el fallback. */
+const ES: Record<ErrorCode, (p: ErrorParams) => string> = {
+  name_required: () => "Ingresá tu nombre.",
+  name_length: (p) => `El nombre debe tener entre ${p.min} y ${p.max} caracteres.`,
+  name_invalid: () => "Ingresá un nombre válido.",
+  business_length: (p) => `El nombre del negocio admite hasta ${p.max} caracteres.`,
+  business_invalid: () => "Ingresá un nombre de negocio válido.",
+  budget_length: (p) => `El presupuesto admite hasta ${p.max} caracteres.`,
+  budget_invalid: () => "Ingresá un presupuesto válido.",
+  project_type_required: () => "Elegí un tipo de proyecto.",
+  contact_method_required: () => "Elegí cómo preferís que te contactemos.",
+  email_required: () => "Ingresá tu email.",
+  email_invalid: () => "Revisá el email: debería ser del estilo nombre@dominio.com.",
+  email_suggestion: (p) => `¿Quisiste decir ${p.suggestion}?`,
+  whatsapp_required: () => "Ingresá tu número de WhatsApp.",
+  whatsapp_chars: () => "Usá solo números (podés incluir +, espacios o guiones).",
+  whatsapp_length: () => "Revisá el número: incluí el código de área (ej. 11 2345 6789).",
+  message_length: (p) => `El mensaje es demasiado largo (máximo ${p.max} caracteres).`,
+  message_links: () => "El mensaje tiene demasiados enlaces.",
+}
+const defaultFormat: ErrorFormatter = (code, params) => ES[code](params)
+
+export function validateLead(input: LeadInput, opts: { requireProjectType?: boolean } = {}, format: ErrorFormatter = defaultFormat): LeadErrors {
   const e: LeadErrors = {}
   const name = clean(input.name)
   const business = clean(input.business)
@@ -69,39 +105,46 @@ export function validateLead(input: LeadInput, opts: { requireProjectType?: bool
   const whatsapp = clean(input.whatsapp)
   const phone = digitsOnly(whatsapp)
   const message = clean(input.message)
+  const budget = clean(input.budget)
+  const f = format
 
-  if (!name) e.name = "Ingresá tu nombre."
-  else if (name.length < LIMITS.nameMin || name.length > LIMITS.nameMax) e.name = `El nombre debe tener entre ${LIMITS.nameMin} y ${LIMITS.nameMax} caracteres.`
-  else if (!/\p{L}.*\p{L}/u.test(name) || /[<>{}@]|https?:|www\./i.test(name)) e.name = "Ingresá un nombre válido."
+  if (!name) e.name = f("name_required", {})
+  else if (name.length < LIMITS.nameMin || name.length > LIMITS.nameMax) e.name = f("name_length", { min: LIMITS.nameMin, max: LIMITS.nameMax })
+  else if (!/\p{L}.*\p{L}/u.test(name) || /[<>{}@]|https?:|www\./i.test(name)) e.name = f("name_invalid", {})
 
   if (business) {
-    if (business.length > LIMITS.businessMax) e.business = `El nombre del negocio admite hasta ${LIMITS.businessMax} caracteres.`
-    else if (/[<>{}]|https?:|www\./i.test(business)) e.business = "Ingresá un nombre de negocio válido."
+    if (business.length > LIMITS.businessMax) e.business = f("business_length", { max: LIMITS.businessMax })
+    else if (/[<>{}]|https?:|www\./i.test(business)) e.business = f("business_invalid", {})
   }
 
-  if (opts.requireProjectType && !clean(input.projectType)) e.projectType = "Elegí un tipo de proyecto."
+  if (budget) {
+    if (budget.length > LIMITS.budgetMax) e.budget = f("budget_length", { max: LIMITS.budgetMax })
+    else if (/[<>{}]|https?:|www\./i.test(budget)) e.budget = f("budget_invalid", {})
+  }
 
-  if (!CONTACT_METHODS.includes(method as ContactMethod)) e.contactMethod = "Elegí cómo preferís que te contactemos."
+  if (opts.requireProjectType && !clean(input.projectType)) e.projectType = f("project_type_required", {})
+
+  if (!CONTACT_METHODS.includes(method as ContactMethod)) e.contactMethod = f("contact_method_required", {})
 
   // El dato del medio elegido es obligatorio; el otro, si viene, se valida igual.
   if (email || method === "email") {
-    if (!email) e.email = "Ingresá tu email."
-    else if (email.length > LIMITS.emailMax || !EMAIL_RE.test(email) || email.includes("..")) e.email = "Revisá el email: debería ser del estilo nombre@dominio.com."
+    if (!email) e.email = f("email_required", {})
+    else if (email.length > LIMITS.emailMax || !EMAIL_RE.test(email) || email.includes("..")) e.email = f("email_invalid", {})
     else {
       const s = emailSuggestion(email)
-      if (s) e.email = `¿Quisiste decir ${s}?`
+      if (s) e.email = f("email_suggestion", { suggestion: s })
     }
   }
 
   if (whatsapp || method === "whatsapp") {
-    if (!whatsapp) e.whatsapp = "Ingresá tu número de WhatsApp."
-    else if (/[^\d\s()+\-.]/.test(whatsapp)) e.whatsapp = "Usá solo números (podés incluir +, espacios o guiones)."
-    else if (phone.length < LIMITS.phoneMin || phone.length > LIMITS.phoneMax) e.whatsapp = "Revisá el número: incluí el código de área (ej. 11 2345 6789)."
+    if (!whatsapp) e.whatsapp = f("whatsapp_required", {})
+    else if (/[^\d\s()+\-.]/.test(whatsapp)) e.whatsapp = f("whatsapp_chars", {})
+    else if (phone.length < LIMITS.phoneMin || phone.length > LIMITS.phoneMax) e.whatsapp = f("whatsapp_length", {})
   }
 
   if (message) {
-    if (message.length > LIMITS.messageMax) e.message = `El mensaje es demasiado largo (máximo ${LIMITS.messageMax} caracteres).`
-    else if ((message.match(URL_RE) ?? []).length > 2) e.message = "El mensaje tiene demasiados enlaces."
+    if (message.length > LIMITS.messageMax) e.message = f("message_length", { max: LIMITS.messageMax })
+    else if ((message.match(URL_RE) ?? []).length > 2) e.message = f("message_links", {})
   }
 
   return e
