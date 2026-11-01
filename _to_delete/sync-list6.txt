@@ -1,2 +1,0 @@
-lib/content/services.ts
-lib/content/services.en.ts
