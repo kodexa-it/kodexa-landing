@@ -1,4 +1,4 @@
-import { site } from "@/lib/content/site"
+import { contactEmail, site } from "@/lib/content/site"
 import { localeMeta, toPublicPath, type Locale } from "@/lib/i18n/core"
 import type { T } from "@/lib/i18n/messages"
 
@@ -35,6 +35,12 @@ export const faqLd = (items: Faq[]) => ({
 
 /** Organización + sitio + servicio profesional, en el idioma de la página. */
 export const organizationLd = (locale: Locale, t: T) => {
+  // Solo datos que ya son públicos en el sitio (WhatsApp y email configurados en lib/content/site.ts).
+  const telephone = `+${site.whatsappNumber}`
+  const contact = {
+    ...(contactEmail ? { email: contactEmail } : {}),
+    telephone,
+  }
   const home = `${site.url}${toPublicPath("/", locale) === "/" ? "" : toPublicPath("/", locale)}`
   return [
     {
@@ -46,6 +52,14 @@ export const organizationLd = (locale: Locale, t: T) => {
       description: t("meta.orgDescription"),
       founder: { "@type": "Person", name: site.founder.name, sameAs: [site.founder.linkedin] },
       sameAs: [site.linkedin, site.instagram],
+      ...contact,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        telephone,
+        ...(contactEmail ? { email: contactEmail } : {}),
+        availableLanguage: ["es", "en"],
+      },
     },
     { "@context": "https://schema.org", "@type": "WebSite", name: site.name, url: home, inLanguage: localeMeta[locale].htmlLang },
     {
@@ -54,6 +68,7 @@ export const organizationLd = (locale: Locale, t: T) => {
       name: site.name,
       url: home,
       image: `${site.url}/og-image.png`,
+      ...contact,
       founder: { "@type": "Person", name: site.founder.name },
       areaServed: [{ "@type": "Country", name: "Argentina" }, "Worldwide"],
       serviceType: t.raw<string[]>("meta.serviceTypes"),

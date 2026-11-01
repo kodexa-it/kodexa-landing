@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Resources: notes from inside Kodexa",
-    "description": "A record of real product, architecture and development decisions we make while building software, our own and for others.",
+    "description": "Kodexa notes on real product and development decisions, plus work in progress: how we build Nexo and custom websites, told transparently.",
     "ogTitle": "Resources | Kodexa"
   },
   "crumb": "Resources",
@@ -9,5 +9,11 @@
   "title": "Notes from inside Kodexa.",
   "lead": "This isn't a marketing blog. It's a record of real product, architecture and development decisions we make while building software, our own and for others.",
   "readingTime": "{time} read",
-  "read": "Read the full article"
+  "read": "Read the full article",
+  "intro": [
+    "Here we share how we work at Kodexa: the product, architecture and development decisions we make while building software, both our own and for clients. These notes are written from what we actually did, with no invented results.",
+    "There are five notes so far. Two tell how we build: Nexo, our digital assistant, and a custom corporate website for a waste management company, with its process explained transparently. The other three are practical guides for deciding and budgeting: how much a website costs, the difference between a website and an application, and when a landing page or a corporate website makes sense.",
+    "If you're evaluating a project of your own, these pieces show how we think and what to expect from our process. And if you already have an idea, take a look at our custom web development, custom software and systems, or MVP and SaaS product services, or get in touch directly."
+  ],
+  "relatedTitle": "Related services"
 }

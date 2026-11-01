@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Recursos: notas desde adentro de Kodexa",
-    "description": "Un registro de decisiones reales de producto, arquitectura y desarrollo que tomamos mientras construimos software, propio y para otros.",
+    "description": "Notas de Kodexa sobre decisiones reales de producto y desarrollo, y casos de trabajo en curso: cómo construimos Nexo y webs a medida, con transparencia.",
     "ogTitle": "Recursos | Kodexa"
   },
   "crumb": "Recursos",
@@ -9,5 +9,11 @@
   "title": "Notas desde adentro de Kodexa.",
   "lead": "No es un blog de marketing. Es un registro de decisiones reales de producto, arquitectura y desarrollo que tomamos mientras construimos software, propio y para otros.",
   "readingTime": "{time} de lectura",
-  "read": "Leer artículo completo"
+  "read": "Leer artículo completo",
+  "intro": [
+    "Acá contamos cómo trabajamos en Kodexa: las decisiones de producto, arquitectura y desarrollo que tomamos mientras construimos software, propio y para clientes. Son notas escritas con lo que realmente hicimos, sin resultados inventados.",
+    "Hoy hay cinco notas. Dos cuentan cómo construimos: Nexo, nuestro asistente digital, y una web institucional a medida para una empresa de gestión de residuos, con su proceso explicado con transparencia. Las otras tres son guías prácticas para decidir y presupuestar: cuánto cuesta una página web, la diferencia entre un sitio y una aplicación, y cuándo conviene una landing page o un sitio institucional.",
+    "Si estás evaluando un proyecto propio, estos textos te muestran cómo pensamos y qué esperar de nuestro proceso. Y si ya tenés una idea, mirá nuestros servicios de desarrollo web a medida, de software y sistemas a medida o de MVP y productos SaaS, o escribinos directamente."
+  ],
+  "relatedTitle": "Servicios relacionados"
 }

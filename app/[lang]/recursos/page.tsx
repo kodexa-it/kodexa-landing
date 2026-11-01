@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RecursosPage() {
   const { locale, t } = await getT()
-  const { articles } = getContent(locale)
+  const { articles, getService } = getContent(locale)
   return (
     <>
       <PageHero
@@ -25,7 +25,22 @@ export default async function RecursosPage() {
         lead={t("recursos.lead")}
       />
       <Section className="!pt-4">
-        <div className="wrap-narrow !max-w-4xl space-y-6">
+        <div className="wrap-narrow !max-w-4xl">
+          <div className="max-w-2xl space-y-4 text-lg leading-relaxed text-ink-soft">
+            {t.raw<string[]>("recursos.intro").map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
+          <nav aria-label={t("recursos.relatedTitle")} className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            {["desarrollo-web", "software-a-medida", "mvp"].map((slug) => {
+              const s = getService(slug)
+              return s ? (
+                <Link key={slug} href={`/servicios/${slug}`} className="font-medium text-brand-ink underline underline-offset-4">{s.title}</Link>
+              ) : null
+            })}
+          </nav>
+        </div>
+        <div className="wrap-narrow !max-w-4xl mt-12 space-y-6">
           {articles.map((a) => (
             <Link key={a.slug} href={`/recursos/${a.slug}`} className="glass glass-lift group block p-8 md:p-10">
               <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">

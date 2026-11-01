@@ -146,8 +146,7 @@ export const products: Record<Product["slug"], Product> = {
       interest: "nodo",
     },
     metaTitle: "Nodo | CRM para negocios",
-    metaDescription:
-      "Nodo es el CRM de Kodexa: organizá clientes, leads y oportunidades, y hacé seguimiento comercial con tareas y toda la información en un solo lugar.",
+    metaDescription: "Nodo es el CRM de Kodexa: organizá clientes, leads y oportunidades en un solo lugar, con seguimiento y tareas para que ninguna consulta quede sin respuesta.",
     keywords: ["CRM para negocios", "CRM para pymes", "gestión de clientes", "seguimiento de leads", "Nodo"],
   },
 }

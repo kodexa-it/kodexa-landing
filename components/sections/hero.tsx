@@ -23,7 +23,7 @@ export async function Hero() {
             <Eyebrow>{t("home.hero.eyebrow")}</Eyebrow>
           </div>
 
-          <h1 id="hero-title" className="t-hero enter mt-5" style={{ "--d": "80ms" } as React.CSSProperties}>
+          <h1 id="hero-title" className="t-hero enter mt-5 !text-[clamp(2.1rem,min(1rem+2.8vw,7svh),3.7rem)]" style={{ "--d": "80ms" } as React.CSSProperties}>
             {t("home.hero.titleBefore")}{" "}
             <span className="relative whitespace-nowrap">
               <span className="text-shine">{t("home.hero.titleHighlight")}</span>
@@ -34,7 +34,10 @@ export async function Hero() {
             {after && <> {after}</>}
           </h1>
 
-          <p className="t-lead enter mt-6 max-w-lg" style={{ "--d": "180ms" } as React.CSSProperties}>
+          <p className="enter mt-5 text-lg font-medium text-ink md:text-xl" style={{ "--d": "140ms" } as React.CSSProperties}>
+            {t("home.hero.subtitle")}
+          </p>
+          <p className="t-lead enter mt-3 max-w-lg" style={{ "--d": "180ms" } as React.CSSProperties}>
             {t("home.hero.lead")}
           </p>
 

@@ -107,8 +107,7 @@ export const productsEn: Record<Product["slug"], Product> = {
       interest: "nodo",
     },
     metaTitle: "Nodo | CRM for businesses",
-    metaDescription:
-      "Nodo is Kodexa's CRM: organize customers, leads and opportunities, and follow up on sales with tasks and all the information in one place.",
+    metaDescription: "Nodo is Kodexa's CRM: organize customers, leads and opportunities in one place, with follow-ups and tasks so no inquiry goes unanswered.",
     keywords: ["CRM for small businesses", "customer management", "lead tracking", "sales follow-up", "Nodo"],
   },
 }

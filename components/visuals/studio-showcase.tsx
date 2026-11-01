@@ -67,7 +67,7 @@ function WtDesktop() {
       <BrowserBar url={t("visuals.studio.wtUrl")} />
       <div className="absolute inset-x-0 bottom-0 top-[30px] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/hero/wt-desktop.webp" alt="" className="eco-kenburns h-full w-full object-cover object-top" />
+        <img src="/images/hero/wt-desktop.webp" alt={t("visuals.studio.wtDesktopAlt")} width={1440} height={900} decoding="async" className="eco-kenburns h-full w-full object-cover object-top" />
       </div>
     </div>
   )
@@ -78,12 +78,13 @@ function WtDesktop() {
  * sitio publicado, no se traduce ni se inventa una versión en inglés.
  */
 function WtMobile() {
+  const { t } = useT()
   return (
     <div className="absolute inset-0 overflow-hidden bg-white">
       {/* barra del sitio */}
       <div className="absolute inset-x-0 top-0 z-10 flex items-end justify-between bg-white px-3.5 pb-2 pt-[36px] shadow-[0_1px_0_rgb(32_33_36/0.08)]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/hero/wt-logo.png" alt="" className="h-[18px] w-auto" />
+        <img src="/images/hero/wt-logo.png" alt={t("visuals.studio.wtLogoAlt")} width={110} height={44} className="h-[18px] w-auto" />
         <span className="flex flex-col gap-[3px]">
           <span className="h-[2px] w-3.5 rounded bg-[#13245a]" />
           <span className="h-[2px] w-3.5 rounded bg-[#13245a]" />
@@ -94,7 +95,7 @@ function WtMobile() {
       <div className="eco-scroll absolute inset-x-0 top-[62px]">
         <div className="relative h-[300px] overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/hero/wt-mobile.webp" alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <img src="/images/hero/wt-mobile.webp" alt="" width={330} height={601} className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(10_14_18/0.55),rgb(10_14_18/0.82))]" />
           <div className="relative px-4 pt-5 text-white">
             <p className="text-[0.42rem] font-semibold tracking-[0.12em] text-white/70">— GESTIÓN DE RESIDUOS INDUSTRIALES</p>

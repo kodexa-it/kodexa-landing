@@ -90,6 +90,9 @@ const slugEn: Record<string, Record<string, string>> = {
   recursos: {
     "que-aprendimos-construyendo-un-saas-desde-cero": "what-we-learned-building-a-saas-from-scratch",
     "de-los-requerimientos-a-una-solucion-digital-a-medida": "from-requirements-to-a-custom-digital-solution",
+    "cuanto-cuesta-una-pagina-web-en-argentina": "how-much-does-a-website-cost-in-argentina",
+    "sitio-web-vs-aplicacion-web": "website-vs-web-application",
+    "landing-page-vs-sitio-institucional": "landing-page-vs-corporate-website",
   },
 }
 

@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/sections/related-links"
 import type { Metadata } from "next"
 import { PageHero } from "@/components/sections/page-hero"
 import { ArticleShare } from "@/components/ui/article-share"
@@ -165,7 +166,9 @@ export default async function CaseArticle() {
         </div>
       </section>
 
-      <div className="wrap-narrow pb-28 pt-14">
+      <RelatedLinks articleSlug={a.slug} serviceSlugs={["institucional", "desarrollo-web", "software-a-medida"]} />
+
+      <div className="wrap-narrow pb-28 pt-8">
         <ArticleShare title={a.title} storyImage={a.storyImage} />
       </div>
     </>

@@ -137,5 +137,10 @@
       "t": "closing",
       "x": "Building Nexo taught us something simple: a good idea needs much more than code to become a product. If you have an idea, a process you want to digitalize or a product you want to take to production, we can help you build it."
     }
-  ]
+  ],
+  "related": {
+    "aria": "Related articles and services",
+    "keepReading": "Keep reading",
+    "services": "Related services"
+  }
 }

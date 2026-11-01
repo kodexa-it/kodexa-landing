@@ -1,4 +1,5 @@
 import article from "./article.json"
+import articulos from "./articulos.json"
 import caso from "./caso.json"
 import common from "./common.json"
 import consent from "./consent.json"
@@ -25,4 +26,4 @@ import servicios from "./servicios.json"
 import share from "./share.json"
 import visuals from "./visuals.json"
 
-export default { article, caso, common, consent, contacto, ecoflow, equipo, estudio, float, footer, form, gracias, header, home, legal, meta, notfound, producto, productos, project, proyectos, recursos, servicio, servicios, share, visuals }
+export default { article, articulos, caso, common, consent, contacto, ecoflow, equipo, estudio, float, footer, form, gracias, header, home, legal, meta, notfound, producto, productos, project, proyectos, recursos, servicio, servicios, share, visuals }

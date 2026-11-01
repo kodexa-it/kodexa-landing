@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { site } from "@/lib/content/site"
+import { isPreview, site } from "@/lib/content/site"
 import { absoluteUrl, localeMeta, locales, type Locale } from "@/lib/i18n/core"
 
 type Opts = {
@@ -37,6 +37,10 @@ export function pageMetadata(o: Opts): Metadata {
     description: o.description,
     ...(o.keywords ? { keywords: o.keywords } : {}),
     alternates: { canonical: url, languages },
+    // Versión en revisión: no indexar. Se define acá y no en el layout para que la 404 no herede "index".
+    robots: isPreview
+      ? { index: false, follow: false }
+      : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
     openGraph: {
       title: o.ogTitle ?? o.title,
       description: o.description,

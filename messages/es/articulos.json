@@ -1,0 +1,442 @@
+{
+  "cuanto-cuesta-una-pagina-web-en-argentina": {
+    "eyebrow": "Desarrollo web",
+    "lead": "El precio de una web depende del alcance. Entender qué lo mueve te evita sorpresas al comparar presupuestos.",
+    "keywords": [
+      "cuánto cuesta una página web en Argentina",
+      "precio de una página web",
+      "cuánto cuesta una landing page",
+      "cuánto cuesta un sitio institucional",
+      "presupuesto de desarrollo web"
+    ],
+    "blocks": [
+      {
+        "t": "p",
+        "x": "Es la pregunta que más nos hacen, y la respuesta honesta es: depende. No es una evasiva. Dos páginas web que se ven parecidas pueden costar muy distinto, porque lo que cambia está por debajo: cuántas secciones tiene, qué hace cada una y con qué herramientas se conecta."
+      },
+      {
+        "t": "p",
+        "x": "Esta nota explica qué define el precio, cuáles son nuestros valores de partida y qué conviene tener claro antes de pedir un presupuesto, a nosotros o a cualquier otro estudio."
+      },
+      {
+        "t": "h2",
+        "x": "Los valores de partida de Kodexa"
+      },
+      {
+        "t": "p",
+        "x": "Estos son los precios iniciales que publicamos en el sitio, en dólares. Son un punto de partida, no un precio cerrado:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "[Landing page](/servicios/landing-pages): desde USD 250. Una sola página, pensada para convertir visitas en consultas.",
+          "[Sitio institucional](/servicios/institucional): desde USD 500. Varias páginas para presentar la empresa, los servicios y el contacto.",
+          "[Institucional Pro](/servicios/institucional-pro): desde USD 900. Suma contenido administrable y blog, para actualizar el sitio sin depender de un desarrollador.",
+          "[Software a medida](/servicios/software-a-medida): a consultar, se estima según el proyecto. Sistemas internos, paneles e integraciones, donde el alcance pesa todavía más."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "En todos los casos el precio final depende del alcance. Un valor inicial indica dónde empieza el rango, no dónde termina."
+      },
+      {
+        "t": "h2",
+        "x": "Qué hace que el precio suba o baje"
+      },
+      {
+        "t": "p",
+        "x": "Estas cinco decisiones son las que más mueven un presupuesto:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Cantidad de páginas y secciones.** Cada página necesita diseño, contenido y pruebas. No es lo mismo una página que diez.",
+          "**Diseño a medida o plantilla.** Un diseño pensado para tu marca y tu público lleva más trabajo que adaptar una plantilla genérica. En Kodexa trabajamos con diseño propio, sin plantillas genéricas.",
+          "**Contenido administrable.** Si querés editar textos, sumar novedades o publicar un blog por tu cuenta, el sitio necesita un panel y una estructura de datos detrás.",
+          "**Integraciones.** Formularios que lleguen a una planilla o a un CRM, analytics, campañas, WhatsApp: cada conexión se diseña, se prueba y se mantiene.",
+          "**Funciones propias.** Usuarios con cuenta, paneles o lógica de negocio ya no son un sitio: son una [aplicación web](/servicios/plataformas-digitales), y se presupuestan de otra manera."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Qué conviene preguntar si está incluido"
+      },
+      {
+        "t": "p",
+        "x": "Cuando comparás presupuestos, preguntá qué incluye cada uno. Estas partidas a veces no entran en la cuenta y aparecen después:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "El dominio y el hosting, que se renuevan periódicamente y dependen de dónde se publique el sitio.",
+          "La redacción de los textos y la producción de imágenes, si todavía no los tenés.",
+          "Los cambios de alcance durante el proyecto, como sumar una sección o una integración cuando ya se empezó.",
+          "El mantenimiento posterior: correcciones, mejoras y nuevas funciones una vez publicado. Para eso existe un [equipo IT continuo](/equipo-it)."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "En nuestros proyectos de [desarrollo web](/servicios/desarrollo-web) el deploy y la puesta en producción están incluidos, y el SEO técnico se trabaja desde el inicio: estructura, velocidad de carga y metadatos por página."
+      },
+      {
+        "t": "h2",
+        "x": "Cómo pedir un presupuesto que se pueda comparar"
+      },
+      {
+        "t": "p",
+        "x": "Cuanto más claro llega el pedido, más ajustado sale el número. Antes de escribir, intentá tener a mano:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "Para qué querés el sitio: recibir consultas, mostrar tu empresa, ordenar tu información.",
+          "Una lista de las secciones que imaginás, aunque sea provisoria.",
+          "Ejemplos de webs que te gustan y qué te gusta de cada una.",
+          "Qué herramientas ya usás y con cuáles tendría que conectarse.",
+          "Quién va a escribir y mantener el contenido."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "Si no tenés todo eso, no pasa nada: definirlo con vos es parte de nuestro proceso. Primero entendemos el negocio, después definimos objetivos y alcance, y recién entonces se cierra una propuesta."
+      },
+      {
+        "t": "h2",
+        "x": "Cuánto tarda"
+      },
+      {
+        "t": "p",
+        "x": "El tiempo también depende del alcance. Una landing page suele estar lista en pocas semanas. Un sitio institucional con más contenido puede llevar algo más, sobre todo si depende de que lleguen textos e imágenes definitivas."
+      },
+      {
+        "t": "h2",
+        "x": "Tres situaciones típicas"
+      },
+      {
+        "t": "p",
+        "x": "Para ubicarte, estos son los caminos más habituales. Los valores son los iniciales; el final se define según el proyecto:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Estás arrancando y necesitás que te encuentren.** Una [landing page](/servicios/landing-pages) concentra el mensaje y el contacto en una sola página. Es el punto de entrada más accesible.",
+          "**Tu empresa tiene varios servicios que explicar.** Un [sitio institucional](/servicios/institucional) le da a cada servicio su propio lugar y ordena la información de contacto.",
+          "**Querés mantener el contenido vos mismo.** [Institucional Pro](/servicios/institucional-pro) agrega un panel para editar textos e imágenes y un blog para publicar novedades."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Desconfiá de un número sin detalle"
+      },
+      {
+        "t": "p",
+        "x": "Un presupuesto que solo dice un monto, sin explicar qué incluye, es difícil de comparar y fácil de que se transforme en otro monto más adelante. Pedí que detalle las páginas, las integraciones, lo que queda a tu cargo y qué pasa si el alcance cambia. Un buen presupuesto no es el más barato: es el que te permite entender qué vas a recibir."
+      },
+      {
+        "t": "h2",
+        "x": "Preguntas frecuentes"
+      },
+      {
+        "t": "p",
+        "x": "**¿Los precios son en dólares?** Los valores iniciales que publicamos están expresados en dólares estadounidenses."
+      },
+      {
+        "t": "p",
+        "x": "**¿Trabajan con empresas de Argentina?** Sí. Trabajamos con empresas y emprendedores de Argentina, y también de forma remota con clientes de otros países."
+      },
+      {
+        "t": "p",
+        "x": "**¿El precio incluye el posicionamiento en buscadores?** Incluye SEO técnico desde el inicio: estructura semántica, velocidad de carga y metadatos por página. Lograr una buena posición además requiere contenido y tiempo, y no se puede prometer un resultado puntual."
+      },
+      {
+        "t": "closing",
+        "x": "La mejor forma de saber cuánto cuesta tu sitio es contarnos qué necesitás. [Escribinos](/contacto) y te respondemos con una propuesta según el alcance de tu proyecto."
+      }
+    ]
+  },
+  "sitio-web-vs-aplicacion-web": {
+    "eyebrow": "Desarrollo web",
+    "lead": "Un sitio comunica y una aplicación opera. Saber cuál necesitás ordena el alcance, el presupuesto y los tiempos.",
+    "keywords": [
+      "sitio web vs aplicación web",
+      "diferencia entre sitio web y aplicación web",
+      "qué es una aplicación web",
+      "cuándo necesito una aplicación web",
+      "desarrollo de aplicaciones web a medida"
+    ],
+    "blocks": [
+      {
+        "t": "p",
+        "x": "Muchos proyectos arrancan con la frase \"necesito una página web\" y terminan siendo otra cosa. A veces, un sitio alcanza y sobra. Otras veces, lo que el negocio necesita es una aplicación. Confundirlos es una de las causas más comunes de presupuestos que no cierran y proyectos que se alargan."
+      },
+      {
+        "t": "p",
+        "x": "Acá va la diferencia, con ejemplos, y una forma simple de decidir."
+      },
+      {
+        "t": "h2",
+        "x": "El sitio web comunica"
+      },
+      {
+        "t": "p",
+        "x": "Un sitio web presenta tu propuesta y busca que alguien te contacte o entienda qué hacés. El visitante lee, mira y, con suerte, te escribe. Cualquiera puede entrar y todos ven lo mismo."
+      },
+      {
+        "t": "p",
+        "x": "Entran en esta categoría las [landing pages](/servicios/landing-pages), los [sitios institucionales](/servicios/institucional) y los sitios con contenido administrable y blog. Aun con formularios, analytics y campañas conectadas, el centro del proyecto es comunicar."
+      },
+      {
+        "t": "h2",
+        "x": "La aplicación web opera"
+      },
+      {
+        "t": "p",
+        "x": "Una aplicación web hace algo con los datos de cada persona. Tiene usuarios que inician sesión, ven información propia y realizan acciones: cargar datos, gestionar pedidos, seguir el estado de algo. Detrás hay una base de datos, reglas de negocio y, muchas veces, un panel de administración."
+      },
+      {
+        "t": "p",
+        "x": "Es el terreno de las [plataformas y aplicaciones web](/servicios/plataformas-digitales) y del [software a medida](/servicios/software-a-medida): paneles internos, gestión de operaciones, integraciones entre sistemas."
+      },
+      {
+        "t": "h2",
+        "x": "Cómo darte cuenta de cuál necesitás"
+      },
+      {
+        "t": "p",
+        "x": "Respondé estas preguntas sobre tu proyecto:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "¿Alguien tiene que iniciar sesión para ver o hacer algo? Si es así, necesitás una aplicación.",
+          "¿Cada persona ve información distinta según quién es? Si es así, es una aplicación.",
+          "¿El sistema guarda y procesa datos con reglas propias, como estados, permisos o cálculos? Aplicación.",
+          "¿Solo querés que te encuentren, entiendan qué ofrecés y te contacten? Es un sitio."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "Si todas tus respuestas apuntan al sitio, no hace falta complicarlo. Si alguna apunta a la aplicación, conviene pensarlo desde el principio, porque cambia la arquitectura."
+      },
+      {
+        "t": "h2",
+        "x": "Qué cambia en el proyecto"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Alcance.** Un sitio se define por páginas y secciones. Una aplicación se define por funciones, roles de usuario y reglas.",
+          "**Presupuesto.** Los valores iniciales publicados reflejan la diferencia: una landing parte desde USD 250, un sitio institucional desde USD 500, y el software a medida es a consultar: se estima según el proyecto. El final siempre depende del alcance.",
+          "**Mantenimiento.** Una aplicación suele evolucionar con el uso: aparecen ajustes y funciones nuevas. Un [equipo IT continuo](/equipo-it) ayuda a sostener ese ritmo.",
+          "**Prueba.** En una aplicación hay más caminos para verificar antes de lanzar: permisos, errores, datos reales."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Empezar por un MVP si hay dudas"
+      },
+      {
+        "t": "p",
+        "x": "Si tenés una idea que claramente es una aplicación pero no sabés si va a funcionar, no hace falta construirlo todo de entrada. Un [MVP](/servicios/mvp) permite lanzar lo mínimo funcional, validarlo con usuarios reales y crecer desde ahí con una arquitectura preparada. Contamos cómo fue construir un producto propio en [qué aprendimos construyendo un SaaS desde cero](/recursos/que-aprendimos-construyendo-un-saas-desde-cero)."
+      },
+      {
+        "t": "h2",
+        "x": "Un sitio y una aplicación pueden convivir"
+      },
+      {
+        "t": "p",
+        "x": "No es una elección excluyente. Muchos negocios tienen un sitio que explica su propuesta y capta consultas, y una aplicación aparte para operar. Lo importante es no mezclar los objetivos: decidir primero qué rol cumple cada pieza."
+      },
+      {
+        "t": "h2",
+        "x": "Ejemplos concretos"
+      },
+      {
+        "t": "p",
+        "x": "Algunos casos ayudan a ver la frontera:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "Una empresa de servicios quiere explicar qué hace, mostrar sus trabajos y recibir consultas: es un sitio institucional.",
+          "Un negocio quiere que sus clientes reserven y consulten el estado de sus turnos con su propia cuenta: es una aplicación.",
+          "Un equipo quiere reemplazar planillas dispersas por un panel donde cargar y seguir la operación diaria: es una aplicación, o directamente software a medida.",
+          "Una campaña necesita una página que lleve a una sola acción: es una landing page."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Los errores más comunes"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Pedir un sitio cuando en realidad necesitás una aplicación.** Se descubre a mitad del proyecto, cuando aparecen los usuarios, los permisos y los paneles, y el alcance cambia.",
+          "**Construir una aplicación cuando alcanzaba con un sitio.** Es más cara y más lenta de mantener, y no mejora la forma en que te encuentran tus clientes.",
+          "**Tratar de resolverlo todo en una sola entrega.** Dividir en etapas ordena el trabajo y permite aprender entre una y otra."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Qué preguntarle a quien te presupuesta"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "¿Cómo se define el alcance: por páginas o por funciones?",
+          "¿Qué pasa con los usuarios y los datos: dónde se guardan y quién puede verlos?",
+          "¿Qué queda incluido al lanzar y qué hay que contratar aparte?",
+          "¿Cómo se sigue después del lanzamiento si hace falta corregir o sumar algo?"
+        ]
+      },
+      {
+        "t": "closing",
+        "x": "Si todavía no tenés claro cuál necesitás, contanos tu caso. [Escribinos](/contacto) y lo definimos juntos antes de hablar de números."
+      }
+    ]
+  },
+  "landing-page-vs-sitio-institucional": {
+    "eyebrow": "Desarrollo web",
+    "lead": "Una landing tiene un solo objetivo; un sitio institucional presenta toda la empresa. Elegir bien depende de lo que necesitás lograr.",
+    "keywords": [
+      "landing page vs sitio institucional",
+      "diferencia entre landing page y sitio web",
+      "cuándo usar una landing page",
+      "sitio institucional para empresas",
+      "qué conviene landing o sitio web"
+    ],
+    "blocks": [
+      {
+        "t": "p",
+        "x": "Landing page y sitio institucional son dos formas de estar en internet, y se parecen lo suficiente como para confundirse. Pero responden a necesidades distintas, tienen precios de partida distintos y se piensan de manera diferente."
+      },
+      {
+        "t": "p",
+        "x": "Esta nota te ayuda a decidir cuál conviene según tu momento y tu objetivo."
+      },
+      {
+        "t": "h2",
+        "x": "Qué es cada uno"
+      },
+      {
+        "t": "p",
+        "x": "Una [landing page](/servicios/landing-pages) es una sola página con un único objetivo: que la persona que llega haga una acción concreta, como pedir una consulta o escribir por WhatsApp. Todo en ella empuja hacia ese paso."
+      },
+      {
+        "t": "p",
+        "x": "Un [sitio institucional](/servicios/institucional) presenta tu empresa completa en varias páginas: quiénes son, qué servicios ofrecen, cómo trabajan y cómo contactarlos. Quien llega puede explorar y entender el negocio antes de escribir."
+      },
+      {
+        "t": "h2",
+        "x": "Cuándo conviene una landing page"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "Estás lanzando una campaña, un producto o un servicio puntual y querés que el tráfico llegue a una página pensada para eso.",
+          "Querés validar una oferta o una idea sin construir un sitio completo.",
+          "Tenés poco para contar y mucho para convertir: un servicio, un público, una acción.",
+          "Necesitás estar online rápido. Una landing suele estar lista en pocas semanas."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "Una landing parte desde USD 250 según nuestros valores iniciales. Incluye estructura orientada a conversión, velocidad optimizada, formulario y CTA, integraciones y SEO básico."
+      },
+      {
+        "t": "h2",
+        "x": "Cuándo conviene un sitio institucional"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "Querés que quien te busque entienda quién sos, qué ofrecés y cómo trabajás.",
+          "Tenés varios servicios que merecen su propia sección.",
+          "Tu información de servicios y contacto está dispersa o desactualizada.",
+          "Querés una presencia digital completa, que respalde a la empresa más allá de una campaña."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "Un sitio institucional parte desde USD 500. Incluye múltiples páginas, diseño responsive, SEO técnico, integraciones y puesta en producción. Si necesitás editar el contenido vos mismo o publicar un blog, existe [Institucional Pro](/servicios/institucional-pro), desde USD 900."
+      },
+      {
+        "t": "h2",
+        "x": "Las diferencias, lado a lado"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Objetivo.** La landing busca una acción. El sitio busca presentar la empresa.",
+          "**Estructura.** Una página enfocada frente a varias secciones y páginas.",
+          "**Visitantes.** La landing suele recibir tráfico de una campaña. El sitio recibe a quien busca información de la empresa.",
+          "**Alcance y precio inicial.** Desde USD 250 frente a desde USD 500. El final depende de páginas, diseño e integraciones."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "¿Y si necesito las dos?"
+      },
+      {
+        "t": "p",
+        "x": "Es muy común. Un sitio institucional presenta la empresa de forma permanente, y cada campaña suma su propia landing, con un mensaje específico y un único llamado a la acción. Se puede empezar por una y sumar la otra más adelante, siempre que se piense con una base coherente de diseño."
+      },
+      {
+        "t": "p",
+        "x": "Si estás evaluando opciones, la nota [cuánto cuesta una página web en Argentina](/recursos/cuanto-cuesta-una-pagina-web-en-argentina) detalla qué mueve el presupuesto de cada una."
+      },
+      {
+        "t": "h2",
+        "x": "Un criterio simple para decidir"
+      },
+      {
+        "t": "p",
+        "x": "Preguntate qué querés que pase cuando alguien llegue. Si la respuesta es una sola acción, empezá por una landing. Si la respuesta es \"que entienda quiénes somos y qué hacemos\", necesitás un sitio institucional. Y si no estás seguro, esa duda es justamente lo primero que conviene conversar."
+      },
+      {
+        "t": "h2",
+        "x": "Qué debería tener una buena landing page"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "Un recorrido claro que lleve a la persona hasta la consulta, sin distracciones.",
+          "Velocidad de carga: la performance influye en la experiencia y en el SEO.",
+          "Un formulario y un llamado a la acción visibles, y medibles con analytics.",
+          "Integraciones con las herramientas que ya usás, como formularios, analytics y campañas.",
+          "Metadatos y estructura semántica desde el inicio, como SEO básico."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Qué debería tener un buen sitio institucional"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "Secciones propias para cada servicio y para la información de la empresa.",
+          "Diseño responsive, que se vea bien en escritorio, tablet y móvil.",
+          "SEO técnico: estructura, velocidad y metadatos por cada página.",
+          "Datos de contacto fáciles de encontrar desde cualquier página.",
+          "Puesta en producción incluida, con el sitio probado antes de lanzar."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Errores frecuentes"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Usar una landing como único sitio de la empresa.** Funciona para una campaña, pero no responde a quien quiere conocer la empresa en profundidad.",
+          "**Hacer un sitio enorme cuando solo necesitás validar una oferta.** Conviene empezar chico, medir y crecer.",
+          "**Mezclar varios objetivos en una landing.** Si le pedís tres acciones distintas, ninguna se cumple bien."
+        ]
+      },
+      {
+        "t": "closing",
+        "x": "Contanos tu proyecto y te ayudamos a elegir. [Escribinos](/contacto) y vemos juntos cuál se ajusta a lo que querés lograr."
+      }
+    ]
+  }
+}

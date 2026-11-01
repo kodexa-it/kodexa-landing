@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
+import { useT } from "@/lib/i18n/client"
 
 /**
  * Escenario de equipos (notebook + celular) que se escala al ancho disponible.
@@ -180,11 +181,12 @@ export function Phone({ children }: { children: React.ReactNode }) {
 }
 
 export function Toast({ delay, dot, title, text, app, logo, badge }: { delay: number; dot: string; title: string; text: string; app: string; logo?: string; badge?: string }) {
+  const { t } = useT()
   return (
     <div className="eco-toast flex items-center gap-3 rounded-2xl border border-white/80 bg-white/85 p-3 shadow-[0_24px_40px_-20px_rgb(32_33_36/0.45)] backdrop-blur-xl" style={d(delay)}>
       <span className={cn("grid h-8 w-8 shrink-0 place-items-center rounded-xl text-[0.6rem] font-semibold text-white", dot)}>{logo ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={logo} alt="" className="h-4 w-4" />
+          <img src={logo} alt={t("visuals.studio.nexoLogoAlt")} width={48} height={48} className="h-4 w-4" />
         ) : (
           (badge ?? app.slice(0, 2).toUpperCase())
         )}

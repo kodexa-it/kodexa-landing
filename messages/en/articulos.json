@@ -1,0 +1,442 @@
+{
+  "cuanto-cuesta-una-pagina-web-en-argentina": {
+    "eyebrow": "Web development",
+    "lead": "A website's price depends on its scope. Knowing what moves it helps you avoid surprises when comparing quotes.",
+    "keywords": [
+      "how much does a website cost in Argentina",
+      "website price",
+      "how much does a landing page cost",
+      "how much does a corporate website cost",
+      "web development quote"
+    ],
+    "blocks": [
+      {
+        "t": "p",
+        "x": "It's the question we get most often, and the honest answer is: it depends. That's not a dodge. Two websites that look alike can cost very different amounts, because what changes is underneath: how many sections there are, what each one does and which tools it connects to."
+      },
+      {
+        "t": "p",
+        "x": "This note explains what sets the price, what our starting prices are, and what to have clear before asking for a quote, from us or from any other studio."
+      },
+      {
+        "t": "h2",
+        "x": "Kodexa's starting prices"
+      },
+      {
+        "t": "p",
+        "x": "These are the starting prices we publish on the site, in US dollars. They are a starting point, not a final price:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "[Landing page](/servicios/landing-pages): from USD 250. A single page designed to turn visits into inquiries.",
+          "[Corporate website](/servicios/institucional): from USD 500. Several pages to present the company, its services and contact details.",
+          "[Corporate Pro](/servicios/institucional-pro): from USD 900. Adds editable content and a blog, so you can update the site without depending on a developer.",
+          "[Custom software](/servicios/software-a-medida): on request, estimated per project. Internal systems, dashboards and integrations, where scope weighs even more."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "In every case the final price depends on scope. A starting price tells you where the range begins, not where it ends."
+      },
+      {
+        "t": "h2",
+        "x": "What makes the price go up or down"
+      },
+      {
+        "t": "p",
+        "x": "These five decisions move a quote the most:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Number of pages and sections.** Each page needs design, content and testing. One page is not the same as ten.",
+          "**Custom design or template.** A design made for your brand and audience takes more work than adapting a generic template. At Kodexa we work with original design, not generic templates.",
+          "**Editable content.** If you want to edit text, add news or run a blog yourself, the site needs an admin panel and a data structure behind it.",
+          "**Integrations.** Forms that reach a spreadsheet or a CRM, analytics, campaigns, WhatsApp: every connection is designed, tested and maintained.",
+          "**Features of their own.** Users with accounts, dashboards or business logic are no longer a website: they are a [web application](/servicios/plataformas-digitales), and they are quoted differently."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "What to ask whether it's included"
+      },
+      {
+        "t": "p",
+        "x": "When you compare quotes, ask what each one includes. These items sometimes aren't part of the price and show up later:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "The domain and hosting, which renew periodically and depend on where the site is published.",
+          "Copywriting and image production, if you don't have them yet.",
+          "Scope changes during the project, such as adding a section or an integration after work has started.",
+          "Ongoing maintenance: fixes, improvements and new features once the site is live. That's what an [ongoing IT team](/equipo-it) is for."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "In our [web development](/servicios/desarrollo-web) projects, deployment and going live are included, and technical SEO is built in from the start: structure, loading speed and per-page metadata."
+      },
+      {
+        "t": "h2",
+        "x": "How to ask for a quote you can compare"
+      },
+      {
+        "t": "p",
+        "x": "The clearer the request, the tighter the number. Before you write, try to have on hand:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "What the site is for: receiving inquiries, showing your company, organizing your information.",
+          "A list of the sections you imagine, even a provisional one.",
+          "Examples of sites you like and what you like about each.",
+          "Which tools you already use and which ones it should connect to.",
+          "Who will write and maintain the content."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "If you don't have all of that, that's fine: defining it with you is part of our process. First we understand the business, then we define goals and scope, and only then is a proposal closed."
+      },
+      {
+        "t": "h2",
+        "x": "How long it takes"
+      },
+      {
+        "t": "p",
+        "x": "Time also depends on scope. A landing page is usually ready in a few weeks. A corporate website with more content can take somewhat longer, especially if it depends on final text and images arriving."
+      },
+      {
+        "t": "h2",
+        "x": "Three typical situations"
+      },
+      {
+        "t": "p",
+        "x": "To get your bearings, these are the most common paths. The figures are starting prices; the final one is set by the project:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**You're just starting and need to be found.** A [landing page](/servicios/landing-pages) concentrates the message and the contact in a single page. It's the most accessible entry point.",
+          "**Your company has several services to explain.** A [corporate website](/servicios/institucional) gives each service its own place and organizes the contact information.",
+          "**You want to maintain the content yourself.** [Corporate Pro](/servicios/institucional-pro) adds a panel to edit text and images and a blog to publish news."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Be wary of a number without detail"
+      },
+      {
+        "t": "p",
+        "x": "A quote that only states an amount, without explaining what it includes, is hard to compare and easy to turn into a different amount later. Ask it to detail the pages, the integrations, what stays on your side and what happens if the scope changes. A good quote isn't the cheapest one: it's the one that lets you understand what you'll receive."
+      },
+      {
+        "t": "h2",
+        "x": "Frequently asked questions"
+      },
+      {
+        "t": "p",
+        "x": "**Are the prices in US dollars?** The starting prices we publish are expressed in US dollars."
+      },
+      {
+        "t": "p",
+        "x": "**Do you work with companies in Argentina?** Yes. We work with companies and entrepreneurs in Argentina, and remotely with clients in other countries."
+      },
+      {
+        "t": "p",
+        "x": "**Does the price include search engine ranking?** It includes technical SEO from the start: semantic structure, loading speed and per-page metadata. Ranking well also takes content and time, and no specific result can be promised."
+      },
+      {
+        "t": "closing",
+        "x": "The best way to know what your site costs is to tell us what you need. [Get in touch](/contacto) and we'll reply with a proposal based on your project's scope."
+      }
+    ]
+  },
+  "sitio-web-vs-aplicacion-web": {
+    "eyebrow": "Web development",
+    "lead": "A website communicates and an application operates. Knowing which one you need clarifies scope, budget and timelines.",
+    "keywords": [
+      "website vs web application",
+      "difference between a website and a web app",
+      "what is a web application",
+      "when do I need a web application",
+      "custom web application development"
+    ],
+    "blocks": [
+      {
+        "t": "p",
+        "x": "Many projects start with the sentence \"I need a website\" and end up being something else. Sometimes a website is more than enough. Other times, what the business needs is an application. Mixing them up is one of the most common reasons quotes don't add up and projects drag on."
+      },
+      {
+        "t": "p",
+        "x": "Here is the difference, with examples, and a simple way to decide."
+      },
+      {
+        "t": "h2",
+        "x": "A website communicates"
+      },
+      {
+        "t": "p",
+        "x": "A website presents your offer and aims to get someone to contact you or understand what you do. Visitors read, look and, hopefully, write to you. Anyone can enter and everyone sees the same thing."
+      },
+      {
+        "t": "p",
+        "x": "[Landing pages](/servicios/landing-pages), [corporate websites](/servicios/institucional) and sites with editable content and a blog belong here. Even with forms, analytics and campaigns connected, the core of the project is communication."
+      },
+      {
+        "t": "h2",
+        "x": "A web application operates"
+      },
+      {
+        "t": "p",
+        "x": "A web application does something with each person's data. It has users who log in, see their own information and take actions: entering data, managing orders, following the status of something. Behind it there is a database, business rules and, often, an admin panel."
+      },
+      {
+        "t": "p",
+        "x": "This is the territory of [web platforms and applications](/servicios/plataformas-digitales) and [custom software](/servicios/software-a-medida): internal dashboards, operations management, integrations between systems."
+      },
+      {
+        "t": "h2",
+        "x": "How to tell which one you need"
+      },
+      {
+        "t": "p",
+        "x": "Answer these questions about your project:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "Does someone have to log in to see or do something? If so, you need an application.",
+          "Does each person see different information depending on who they are? If so, it's an application.",
+          "Does the system store and process data with its own rules, such as statuses, permissions or calculations? Application.",
+          "Do you only want people to find you, understand what you offer and get in touch? That's a website."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "If all your answers point to a website, there's no need to complicate it. If any of them point to an application, it's worth thinking it through from the start, because it changes the architecture."
+      },
+      {
+        "t": "h2",
+        "x": "What changes in the project"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Scope.** A website is defined by pages and sections. An application is defined by features, user roles and rules.",
+          "**Budget.** The published starting prices reflect the difference: a landing page starts at USD 250, a corporate website at USD 500, and custom software is on request: it is estimated per project. The final price always depends on scope.",
+          "**Maintenance.** An application usually evolves with use: adjustments and new features appear. An [ongoing IT team](/equipo-it) helps keep that pace.",
+          "**Testing.** An application has more paths to verify before launch: permissions, errors, real data."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Start with an MVP if you have doubts"
+      },
+      {
+        "t": "p",
+        "x": "If you have an idea that is clearly an application but you don't know whether it will work, you don't need to build it all up front. An [MVP](/servicios/mvp) lets you launch the minimum functional version, validate it with real users and grow from there on a ready architecture. We tell what it was like to build a product of our own in [what we learned building a SaaS from scratch](/recursos/que-aprendimos-construyendo-un-saas-desde-cero)."
+      },
+      {
+        "t": "h2",
+        "x": "A website and an application can coexist"
+      },
+      {
+        "t": "p",
+        "x": "It isn't an either-or choice. Many businesses have a website that explains their offer and captures inquiries, and a separate application to operate. What matters is not mixing the goals: decide first what role each piece plays."
+      },
+      {
+        "t": "h2",
+        "x": "Concrete examples"
+      },
+      {
+        "t": "p",
+        "x": "A few cases help show where the line is:"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "A service company wants to explain what it does, show its work and receive inquiries: that's a corporate website.",
+          "A business wants its customers to book and check the status of their appointments with their own account: that's an application.",
+          "A team wants to replace scattered spreadsheets with a panel to enter and follow daily operations: that's an application, or simply custom software.",
+          "A campaign needs a page that leads to a single action: that's a landing page."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "The most common mistakes"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Asking for a website when you actually need an application.** It's discovered midway through the project, when users, permissions and dashboards appear and the scope changes.",
+          "**Building an application when a website would have been enough.** It's more expensive and slower to maintain, and it doesn't improve how your customers find you.",
+          "**Trying to solve everything in a single delivery.** Splitting into stages organizes the work and lets you learn between one and the next."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "What to ask whoever quotes your project"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "How is the scope defined: by pages or by features?",
+          "What happens with users and data: where are they stored and who can see them?",
+          "What is included at launch and what has to be contracted separately?",
+          "How do things continue after launch if something needs fixing or adding?"
+        ]
+      },
+      {
+        "t": "closing",
+        "x": "If it's still unclear which one you need, tell us your case. [Get in touch](/contacto) and we'll define it together before talking numbers."
+      }
+    ]
+  },
+  "landing-page-vs-sitio-institucional": {
+    "eyebrow": "Web development",
+    "lead": "A landing page has a single goal; a corporate website presents the whole company. Choosing well depends on what you need to achieve.",
+    "keywords": [
+      "landing page vs corporate website",
+      "difference between a landing page and a website",
+      "when to use a landing page",
+      "corporate website for companies",
+      "landing page or website"
+    ],
+    "blocks": [
+      {
+        "t": "p",
+        "x": "A landing page and a corporate website are two ways of being online, and they look similar enough to be confused. But they answer different needs, have different starting prices and are thought out differently."
+      },
+      {
+        "t": "p",
+        "x": "This note helps you decide which one fits your moment and your goal."
+      },
+      {
+        "t": "h2",
+        "x": "What each one is"
+      },
+      {
+        "t": "p",
+        "x": "A [landing page](/servicios/landing-pages) is a single page with one goal: getting the person who arrives to take a specific action, such as requesting a consultation or writing on WhatsApp. Everything on it pushes toward that step."
+      },
+      {
+        "t": "p",
+        "x": "A [corporate website](/servicios/institucional) presents your whole company across several pages: who you are, what services you offer, how you work and how to reach you. Visitors can explore and understand the business before getting in touch."
+      },
+      {
+        "t": "h2",
+        "x": "When a landing page makes sense"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "You're launching a campaign, a product or a specific service and want traffic to land on a page built for it.",
+          "You want to validate an offer or an idea without building a full website.",
+          "You have little to tell and a lot to convert: one service, one audience, one action.",
+          "You need to be online quickly. A landing page is usually ready in a few weeks."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "A landing page starts at USD 250 according to our starting prices. It includes a conversion-oriented structure, optimized speed, a form and CTA, integrations and basic SEO."
+      },
+      {
+        "t": "h2",
+        "x": "When a corporate website makes sense"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "You want people who look for you to understand who you are, what you offer and how you work.",
+          "You have several services that deserve their own section.",
+          "Your service and contact information is scattered or outdated.",
+          "You want a complete digital presence that backs the company beyond a single campaign."
+        ]
+      },
+      {
+        "t": "p",
+        "x": "A corporate website starts at USD 500. It includes multiple pages, responsive design, technical SEO, integrations and going live. If you need to edit the content yourself or publish a blog, there is [Corporate Pro](/servicios/institucional-pro), from USD 900."
+      },
+      {
+        "t": "h2",
+        "x": "The differences, side by side"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Goal.** A landing page seeks an action. A website presents the company.",
+          "**Structure.** One focused page versus several sections and pages.",
+          "**Visitors.** A landing page usually receives campaign traffic. A website receives people looking for information about the company.",
+          "**Scope and starting price.** From USD 250 versus from USD 500. The final price depends on pages, design and integrations."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "What if I need both?"
+      },
+      {
+        "t": "p",
+        "x": "It's very common. A corporate website presents the company permanently, and each campaign adds its own landing page, with a specific message and a single call to action. You can start with one and add the other later, as long as it's planned on a coherent design foundation."
+      },
+      {
+        "t": "p",
+        "x": "If you're weighing options, the note [how much does a website cost in Argentina](/recursos/cuanto-cuesta-una-pagina-web-en-argentina) explains what moves the budget for each."
+      },
+      {
+        "t": "h2",
+        "x": "A simple rule for deciding"
+      },
+      {
+        "t": "p",
+        "x": "Ask yourself what you want to happen when someone arrives. If the answer is a single action, start with a landing page. If the answer is \"for them to understand who we are and what we do\", you need a corporate website. And if you're not sure, that doubt is exactly the first thing worth discussing."
+      },
+      {
+        "t": "h2",
+        "x": "What a good landing page should have"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "A clear path that takes the person to the inquiry, without distractions.",
+          "Loading speed: performance affects both the experience and SEO.",
+          "A visible form and call to action, measurable with analytics.",
+          "Integrations with the tools you already use, such as forms, analytics and campaigns.",
+          "Metadata and semantic structure from the start, as basic SEO."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "What a good corporate website should have"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "Dedicated sections for each service and for the company's information.",
+          "Responsive design that looks good on desktop, tablet and mobile.",
+          "Technical SEO: structure, speed and metadata for every page.",
+          "Contact details that are easy to find from any page.",
+          "Going live included, with the site tested before launch."
+        ]
+      },
+      {
+        "t": "h2",
+        "x": "Frequent mistakes"
+      },
+      {
+        "t": "ul",
+        "items": [
+          "**Using a landing page as the company's only website.** It works for a campaign, but it doesn't answer someone who wants to know the company in depth.",
+          "**Building a huge website when you only need to validate an offer.** It's better to start small, measure and grow.",
+          "**Mixing several goals on one landing page.** If you ask for three different actions, none gets done well."
+        ]
+      },
+      {
+        "t": "closing",
+        "x": "Tell us about your project and we'll help you choose. [Get in touch](/contacto) and we'll see together which one fits what you want to achieve."
+      }
+    ]
+  }
+}

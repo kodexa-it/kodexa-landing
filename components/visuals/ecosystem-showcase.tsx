@@ -135,7 +135,7 @@ export function NexoPanel() {
       <div className="eco-in mt-[30px] flex w-[128px] shrink-0 flex-col gap-1 border-r border-ink/[0.06] bg-white px-3 py-3" style={d(0)}>
         <div className="mb-2 flex items-center gap-1.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/nexo-mark.png" alt="" className="h-4 w-4" />
+          <img src="/brand/nexo-mark.png" alt="" width={48} height={48} className="h-4 w-4" />
           <span className="text-[0.68rem] font-semibold">Nexo</span>
         </div>
         {t.raw<string[]>("visuals.eco.panel.menu").map((m, i) => (
@@ -239,7 +239,7 @@ function NodoBoard() {
                 <p className="text-[0.52rem] text-ink-soft">{t("visuals.eco.board.leadDetail")}</p>
                 <span className="mt-1.5 inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-[#22b394]/12 px-1.5 py-0.5 text-[0.46rem] font-medium text-[#137a63]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/brand/nexo-mark.png" alt="" className="h-2 w-2" /> {t("visuals.eco.board.viaNexo")}
+                  <img src="/brand/nexo-mark.png" alt="" width={48} height={48} className="h-2 w-2" /> {t("visuals.eco.board.viaNexo")}
                 </span>
                 <div className="eco-in mt-1.5 flex items-center gap-1 border-t border-ink/[0.06] pt-1.5 text-[0.48rem] text-ink-soft" style={d(2600)}>
                   <span className="grid h-2.5 w-2.5 place-items-center rounded-full bg-brand text-[0.4rem] text-white">✓</span>
@@ -283,7 +283,7 @@ export function Chat({ step }: { step: number }) {
           <span className="block text-[0.64rem] font-semibold text-ink">Club Norte</span>
           <span className="flex items-center gap-1 text-[0.5rem] text-[#137a63]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/nexo-mark.png" alt="" className="h-2.5 w-2.5" />
+            <img src="/brand/nexo-mark.png" alt="" width={48} height={48} className="h-2.5 w-2.5" />
             {c("status")}
           </span>
         </span>

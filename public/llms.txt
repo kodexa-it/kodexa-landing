@@ -1,0 +1,24 @@
+# Kodexa
+
+> Estudio digital argentino de diseño y desarrollo: sitios web, software y sistemas a medida, plataformas, MVP y productos propios (Nexo y Nodo) para pymes y emprendimientos. Digital studio in Argentina: web design and development, custom software and our own products. Sitio en español (https://kodexa.ar) e inglés (https://kodexa.ar/en).
+
+## Servicios
+- [Servicios](https://kodexa.ar/servicios): landing pages, sitios institucionales, software a medida, plataformas web y MVP.
+- [Desarrollo web a medida](https://kodexa.ar/servicios/desarrollo-web)
+- [Software y sistemas a medida](https://kodexa.ar/servicios/software-a-medida)
+- [Desarrollo de MVP y productos SaaS](https://kodexa.ar/servicios/mvp)
+
+## Productos propios
+- [Productos](https://kodexa.ar/productos): Nexo (asistente digital con IA para WhatsApp y reservas) y Nodo (CRM).
+
+## Trabajo y recursos
+- [Proyectos](https://kodexa.ar/proyectos)
+- [Recursos](https://kodexa.ar/recursos): notas sobre decisiones reales de producto y desarrollo.
+
+## Contacto
+- [Contacto](https://kodexa.ar/contacto): formulario, WhatsApp o contacto@kodexa.ar.
+
+## English
+- [Services](https://kodexa.ar/en/services)
+- [Products](https://kodexa.ar/en/products)
+- [Contact](https://kodexa.ar/en/contact)

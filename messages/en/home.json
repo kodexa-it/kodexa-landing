@@ -1,14 +1,15 @@
 {
   "hero": {
     "eyebrow": "Web development & digital solutions",
-    "titleBefore": "Digital solutions built around",
-    "titleHighlight": "your business.",
-    "titleAfter": "",
+    "titleBefore": "Custom web design and development to",
+    "titleHighlight": "grow",
+    "titleAfter": "your business",
     "lead": "We design and develop websites and custom digital solutions that help businesses build their online presence and grow.",
     "primary": "Let's discuss your project",
     "primaryMessage": "Hi Kodexa! I'd like to discuss my project.",
     "secondary": "Explore our work",
-    "trust": "Direct contact with the people who design and build · Personalized attention"
+    "trust": "Direct contact with the people who design and build · Personalized attention",
+    "subtitle": "Digital solutions built around your business."
   },
   "studio": {
     "eyebrow": "The studio",

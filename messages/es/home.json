@@ -1,14 +1,15 @@
 {
   "hero": {
     "eyebrow": "Estudio digital de diseño y desarrollo",
-    "titleBefore": "Soluciones digitales para",
+    "titleBefore": "Diseño y desarrollo web a medida para",
     "titleHighlight": "hacer crecer",
-    "titleAfter": "tu negocio.",
+    "titleAfter": "tu negocio",
     "lead": "Diseñamos y desarrollamos sitios web, sistemas a medida y productos digitales adaptados a tu negocio. Te acompañamos desde la idea hasta una solución lista para funcionar.",
     "primary": "Hablemos de tu proyecto",
     "primaryMessage": "Hola Kodexa! Quiero conversar sobre mi proyecto.",
     "secondary": "Ver nuestros servicios",
-    "trust": "Trato directo con quien diseña y desarrolla · Atención personalizada"
+    "trust": "Trato directo con quien diseña y desarrolla · Atención personalizada",
+    "subtitle": "Soluciones digitales para hacer crecer tu negocio."
   },
   "studio": {
     "eyebrow": "El estudio",

@@ -53,8 +53,7 @@ export const servicesEn: Service[] = [
     ctaLabel: "Let's talk about your landing page",
     whatsappMessage: "Hi Kodexa! I'm interested in a landing page. Can we talk?",
     metaTitle: "Conversion-Focused Landing Pages",
-    metaDescription:
-      "Design and development of conversion-focused landing pages. Structure, speed and integrations built to generate customers.",
+    metaDescription: "Custom landing pages built to turn visitors into inquiries: fast, responsive, with technical SEO, analytics and deployment included. Starting at USD 250.",
     keywords: ["landing page design", "landing page development", "conversion landing pages"],
   },
   {
@@ -107,7 +106,7 @@ export const servicesEn: Service[] = [
     ctaLabel: "Let's talk about your website",
     whatsappMessage: "Hi Kodexa! I'm interested in a corporate website for my company. Can we talk?",
     metaTitle: "Corporate Website Development",
-    metaDescription: "A custom corporate website for your company: multiple pages, responsive design and SEO. See the scope and starting prices.",
+    metaDescription: "Custom corporate website to present your company, services and contact details, with original design, technical SEO and fast loading. From USD 500.",
     keywords: ["corporate website", "company website development", "business website design"],
   },
   {
@@ -164,7 +163,7 @@ export const servicesEn: Service[] = [
     ctaLabel: "Let's talk about your website",
     whatsappMessage: "Hi Kodexa! I'm interested in a Corporate Pro website with editable content. Can we talk?",
     metaTitle: "Corporate Pro Website",
-    metaDescription: "A corporate website with editable content, a blog and dynamic sections. A site ready to grow with your business.",
+    metaDescription: "Corporate Pro website with editable content and a blog, so your team can update pages and news without a developer. Ask us about your project.",
     keywords: ["corporate website with blog", "website with editable content", "CMS website for business"],
   },
   {
@@ -227,8 +226,7 @@ export const servicesEn: Service[] = [
     ctaLabel: "Let's talk about your project",
     whatsappMessage: "Hi Kodexa! I'm interested in building a website. Can we talk?",
     metaTitle: "Custom Web Development",
-    metaDescription:
-      "Custom web development for companies and entrepreneurs: corporate websites and web applications designed to turn visitors into customers.",
+    metaDescription: "Custom web development for businesses and entrepreneurs: corporate sites and web apps designed to turn visits into customers. Starting at USD 250.",
     keywords: ["custom web development", "web design and development", "website development agency"],
   },
   {
@@ -263,8 +261,7 @@ export const servicesEn: Service[] = [
       { title: "API integrations", text: "Connection with the tools you already use." },
       { title: "Scalable architecture", text: "Ready to add modules in the future." },
     ],
-    priceFrom: 900,
-    pricingNote: `The final quote depends on the number of modules and integrations. ${usd}`,
+    pricingNote: "On request: it is estimated per project, based on the number of modules and integrations.",
     evidence: {
       eyebrow: "Same approach",
       title: "This is how Nexo was built",
@@ -276,7 +273,7 @@ export const servicesEn: Service[] = [
       {
         question: "How much does a custom system cost?",
         answer:
-          "Management systems with an admin panel (CRUD) start at USD 900. Projects with more modules, integrations or custom logic need a quote defined according to the scope.",
+          "It is on request: it is estimated per project. It depends on the number of modules, the integrations and the custom logic you need, so we define a quote once the scope is understood.",
       },
       {
         question: "What's the difference between custom and off-the-shelf software?",
@@ -295,8 +292,7 @@ export const servicesEn: Service[] = [
     ctaLabel: "Let's talk about your system",
     whatsappMessage: "Hi Kodexa! I'm interested in building a custom system. Can we talk?",
     metaTitle: "Custom Software and Systems Development",
-    metaDescription:
-      "Custom software and systems adapted to your company's processes: management panels, automation and API integrations.",
+    metaDescription: "Custom software and systems that centralize your information and automate daily operations: dashboards, internal tools and integrations. Tell us your case.",
     keywords: ["custom software development", "bespoke business systems", "custom internal tools"],
   },
   {
@@ -358,8 +354,7 @@ export const servicesEn: Service[] = [
     ctaLabel: "Let's talk about your platform",
     whatsappMessage: "Hi Kodexa! I'm evaluating building a web platform or application. Can we talk?",
     metaTitle: "Web Platform and Application Development",
-    metaDescription:
-      "Custom web platforms and applications with users, roles, management panels and an architecture ready to scale.",
+    metaDescription: "We build web platforms and applications with user accounts, roles, dashboards and custom business logic, ready to grow with your operation. Ask about yours.",
     keywords: ["web platform development", "custom web application development", "web app development"],
   },
   {
@@ -418,7 +413,7 @@ export const servicesEn: Service[] = [
     ctaLabel: "Let's talk about your idea",
     whatsappMessage: "Hi Kodexa! I want to build an MVP or SaaS product. Can we talk?",
     metaTitle: "MVP and SaaS Product Development",
-    metaDescription: "MVP and SaaS product development: from a business idea to a working digital product ready to grow.",
+    metaDescription: "We turn your idea into a working MVP or SaaS product you can validate with real users, built on an architecture ready to grow. Let's talk about your project.",
     keywords: ["MVP development", "SaaS development", "build a digital product from scratch"],
   },
 ]

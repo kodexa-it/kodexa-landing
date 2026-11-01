@@ -86,9 +86,8 @@ export const services: Service[] = [
     ctaTitle: "Tu página puede convertir más",
     ctaLabel: "Hablemos de tu landing",
     whatsappMessage: "Hola Kodexa! Me interesa una landing page. ¿Podemos hablar?",
-    metaTitle: "Landing Pages que Convierten",
-    metaDescription:
-      "Diseño y desarrollo de landing pages enfocadas en conversión para negocios en Argentina. Estructura, velocidad e integraciones pensadas para generar clientes.",
+    metaTitle: "Diseño de Landing Pages que Convierten",
+    metaDescription: "Diseñamos landing pages a medida, rápidas y pensadas para convertir visitas en consultas. Incluye SEO técnico, analytics y puesta en producción. Desde USD 250.",
     keywords: ["landing page", "diseño de landing pages", "página de conversión"],
   },
   {
@@ -140,8 +139,8 @@ export const services: Service[] = [
     ctaTitle: "¿Listo para tener el sitio que tu negocio necesita?",
     ctaLabel: "Hablemos de tu sitio",
     whatsappMessage: "Hola Kodexa! Me interesa un sitio institucional para mi empresa. ¿Podemos hablar?",
-    metaTitle: "Sitio Institucional",
-    metaDescription: "Sitio institucional a medida para tu empresa: múltiples páginas, diseño responsive y SEO. Conocé el alcance y los precios.",
+    metaTitle: "Sitio Institucional a Medida para Empresas",
+    metaDescription: "Sitio institucional a medida para presentar tu empresa, servicios y contacto, con diseño propio, SEO técnico y carga rápida. Desde USD 500.",
     keywords: ["sitio institucional", "página institucional", "desarrollo web para empresa"],
   },
   {
@@ -197,8 +196,8 @@ export const services: Service[] = [
     ctaTitle: "¿Listo para tener el sitio que tu negocio necesita?",
     ctaLabel: "Hablemos de tu sitio",
     whatsappMessage: "Hola Kodexa! Me interesa un sitio institucional Pro, con contenido administrable. ¿Podemos hablar?",
-    metaTitle: "Institucional Pro",
-    metaDescription: "Sitio institucional con contenido administrable, blog y secciones dinámicas. Una web preparada para crecer con tu negocio.",
+    metaTitle: "Sitio Institucional Pro con Blog Administrable",
+    metaDescription: "Sitio institucional Pro con contenido administrable y blog: tu equipo actualiza textos y novedades sin depender de un desarrollador. Consultá por WhatsApp.",
     keywords: ["sitio institucional con blog", "web con contenido administrable", "CMS para empresa"],
   },
   {
@@ -260,9 +259,8 @@ export const services: Service[] = [
     ctaTitle: "¿Listo para tener el sitio que tu negocio necesita?",
     ctaLabel: "Hablemos de tu proyecto",
     whatsappMessage: "Hola Kodexa! Me interesa desarrollar un sitio web. ¿Podemos hablar?",
-    metaTitle: "Desarrollo Web a Medida",
-    metaDescription:
-      "Desarrollo web a medida para empresas y emprendedores: sitios institucionales y aplicaciones web diseñados para convertir visitas en clientes.",
+    metaTitle: "Desarrollo Web a Medida en Argentina",
+    metaDescription: "Desarrollo web a medida para empresas y emprendedores: sitios institucionales y aplicaciones web diseñados para convertir visitas en clientes. Desde USD 250.",
     keywords: ["desarrollo web", "desarrollo web a medida", "sitios web", "diseño y desarrollo web"],
   },
   {
@@ -297,8 +295,7 @@ export const services: Service[] = [
       { title: "Integración con APIs", text: "Conexión con las herramientas que ya usás." },
       { title: "Arquitectura escalable", text: "Preparada para sumar módulos a futuro." },
     ],
-    priceFrom: 900,
-    pricingNote: "El presupuesto final depende de la cantidad de módulos e integraciones.",
+    pricingNote: "A consultar: se estima según el proyecto, la cantidad de módulos y las integraciones.",
     evidence: {
       eyebrow: "Con la misma lógica",
       title: "Nexo se construyó así",
@@ -310,7 +307,7 @@ export const services: Service[] = [
       {
         question: "¿Cuánto cuesta desarrollar un sistema a medida?",
         answer:
-          "Los sistemas de gestión con panel de administración (ABM) parten desde USD 900. Proyectos con más módulos, integraciones o lógica propia requieren un presupuesto definido según el alcance.",
+          "Es a consultar: se estima según el proyecto. Depende de la cantidad de módulos, las integraciones y la lógica propia que necesites, así que definimos un presupuesto una vez entendido el alcance.",
       },
       {
         question: "¿Qué diferencia hay entre software a medida y software estándar?",
@@ -329,8 +326,7 @@ export const services: Service[] = [
     ctaLabel: "Hablemos de tu sistema",
     whatsappMessage: "Hola Kodexa! Me interesa desarrollar un sistema a medida. ¿Podemos hablar?",
     metaTitle: "Desarrollo de Software y Sistemas a Medida",
-    metaDescription:
-      "Software y sistemas a medida adaptados a los procesos de tu empresa: paneles de gestión, automatización e integraciones por API.",
+    metaDescription: "Software y sistemas a medida que centralizan información y automatizan tareas de tu operación: paneles, gestión interna e integraciones. Contanos tu caso.",
     keywords: ["software a medida", "sistemas a medida", "desarrollo de software a medida"],
   },
   {
@@ -392,8 +388,7 @@ export const services: Service[] = [
     ctaLabel: "Hablemos de tu plataforma",
     whatsappMessage: "Hola Kodexa! Estoy evaluando desarrollar una plataforma o aplicación web. ¿Podemos hablar?",
     metaTitle: "Desarrollo de Plataformas y Aplicaciones Web",
-    metaDescription:
-      "Plataformas y aplicaciones web a medida con usuarios, roles, paneles de gestión y arquitectura preparada para escalar.",
+    metaDescription: "Desarrollamos plataformas y aplicaciones web con usuarios, roles, paneles y lógica de negocio propia, listas para crecer con tu operación. Consultá tu proyecto.",
     keywords: ["plataformas digitales", "aplicaciones web a medida", "desarrollo de aplicaciones web"],
   },
   {
@@ -452,7 +447,7 @@ export const services: Service[] = [
     ctaLabel: "Hablemos de tu idea",
     whatsappMessage: "Hola Kodexa! Quiero desarrollar un MVP o producto SaaS. ¿Podemos hablar?",
     metaTitle: "Desarrollo de MVP y Productos SaaS",
-    metaDescription: "Desarrollo de MVP y productos SaaS: de una idea de negocio a un producto digital funcional y preparado para crecer.",
+    metaDescription: "Llevamos tu idea a un MVP o producto SaaS funcional que podés validar con usuarios reales, con una arquitectura lista para crecer. Hablemos de tu proyecto.",
     keywords: ["desarrollo de MVP", "desarrollo SaaS", "producto digital desde cero"],
   },
 ]

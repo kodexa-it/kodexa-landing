@@ -9,8 +9,8 @@ import { GtmHead, GtmNoScript } from "@/components/seo/google-tag-manager"
 import { ClarityHead } from "@/components/seo/clarity"
 import { CookieBanner } from "@/components/consent/cookie-banner"
 import { AttributionCapture } from "@/components/seo/attribution"
-import { isPreview, loadTracking, site } from "@/lib/content/site"
-import { localeMeta, locales, absoluteUrl } from "@/lib/i18n/core"
+import { loadTracking, site } from "@/lib/content/site"
+import { localeMeta, locales } from "@/lib/i18n/core"
 import { LocaleProvider } from "@/lib/i18n/client"
 import { clientMessages } from "@/lib/i18n/messages"
 import { getT } from "@/lib/i18n/server"
@@ -39,26 +39,15 @@ const plexMono = localFont({
 })
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { locale, t } = await getT()
+  const { t } = await getT()
   return {
     metadataBase: new URL(site.url),
     title: { default: t("meta.siteTitle"), template: "%s | Kodexa" },
-    description: t("meta.siteDescription"),
     authors: [{ name: site.founder.name, url: site.url }],
     creator: site.name,
     publisher: site.name,
-    // Cada página sobrescribe canonical/hreflang con pageMetadata(); este es el valor de la home.
-    alternates: {
-      canonical: absoluteUrl(site.url, "/", locale),
-      languages: {
-        es: absoluteUrl(site.url, "/", "es"),
-        en: absoluteUrl(site.url, "/", "en"),
-        "x-default": absoluteUrl(site.url, "/", "es"),
-      },
-    },
-    robots: isPreview
-      ? { index: false, follow: false }
-      : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+    // description, canonical, hreflang, robots y Open Graph/Twitter NO van acá: cada página los define con
+    // pageMetadata() (lib/seo.ts). Si vivieran en el layout, la 404 los heredaría (canonical de la home, index, etc.).
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "48x48" },
@@ -66,22 +55,6 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
       shortcut: "/favicon.ico",
       apple: "/apple-touch-icon.png",
-    },
-    openGraph: {
-      title: t("meta.siteTitle"),
-      description: t("meta.ogDescription"),
-      url: absoluteUrl(site.url, "/", locale),
-      siteName: site.name,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: t("meta.ogAlt") }],
-      locale: localeMeta[locale].ogLocale,
-      alternateLocale: locales.filter((l) => l !== locale).map((l) => localeMeta[l].ogLocale),
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t("meta.twitterTitle"),
-      description: t("meta.twitterDescription"),
-      images: ["/og-image2.png"],
     },
   }
 }
